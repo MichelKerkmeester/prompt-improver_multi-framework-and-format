@@ -1,0 +1,11 @@
+Before I improve this, I need a few specifics to get you a genuinely useful prompt rather than a generic one — this is a comprehensive one-shot question, not a back-and-forth:
+
+1. **Audience angle** — total beginners with zero equipment, or people who already own a basic setup (drip machine, French press) and want to level up?
+2. **Format/length** — target word count, and is this for a blog with SEO goals, a newsletter, or a brand/product site?
+3. **Brewing methods to cover** — one method (e.g., pour-over) or a survey of several (French press, pour-over, AeroPress, drip)?
+4. **Tone** — casual/conversational, expert-authoritative, or playful?
+5. **Any must-includes** — specific products/brands to mention, a CTA (e.g., "shop our starter kit"), or SEO keywords to target?
+
+Once I have these, I'll structure it with a framework (likely RCAF or CRAFT for content prompts), score it against CLEAR, and deliver the improved prompt as a formatted block ready to hand to a writing AI.
+
+If you'd rather I just make reasonable assumptions and produce something now, say "just go" and I'll proceed with sensible defaults (general beginner audience, ~1200 words, covers French press/pour-over/drip, friendly-expert tone) and flag those assumptions in the output.

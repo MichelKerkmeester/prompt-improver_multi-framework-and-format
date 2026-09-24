@@ -1,0 +1,12 @@
+I've loaded Prompt Improver's routing and interactive-mode logic. Your request gives a topic but is missing the essentials needed to build a high-scoring prompt (CLEAR 40+/50) — I need one round of detail before enhancing it.
+
+**A few details to lock in the enhanced prompt:**
+
+- **Audience specifics** — total beginners with zero equipment, or people who already own a basic drip machine/French press?
+- **Tone/voice** — casual and friendly, expert-but-approachable, or brand-specific voice?
+- **Length** — target word count (e.g. 800, 1500, 2500 words)?
+- **Structure** — should it cover specific methods (pour-over, French press, drip, AeroPress, espresso) or stay general?
+- **Angle/goal** — pure education, or does it need to drive an action (e.g. promote a product, build email signups, target SEO keywords)?
+- **Output format** — Markdown (default), JSON, or YAML for the final prompt file?
+
+Your depth preference (Quick lean enhancement vs. Standard) and answers to the above — and I'll build the enhanced prompt.

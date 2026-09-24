@@ -1,0 +1,16 @@
+Before I enhance this, I need a few key details to make sure the final prompt actually produces a strong blog post — right now it's missing the audience specificity, tone, length, and angle that separate a generic AI blog post from a genuinely useful one.
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To sharpen "Write a blog post about coffee brewing for beginners," please share:
+- **Audience specifics** — total newbies with zero equipment, or people who already own a basic drip machine and want to branch out?
+- **Angle/scope** — one brewing method (e.g., pour-over) or a broad overview of several methods (French press, pour-over, espresso, AeroPress)?
+- **Tone and voice** — casual/conversational, editorial/magazine-style, or instructional/how-to?
+- **Length** — short (600-800 words), standard (1,000-1,500), or long-form/comprehensive (2,000+)?
+- **Platform/purpose** — personal blog, brand/company content marketing, SEO-driven post targeting specific keywords, or newsletter?
+- **Must-include elements** — equipment list, step-by-step instructions, common mistakes, ratios/measurements, product recommendations?
+
+Your depth choice (Quick / Think longer) and answers above — share what you have and I'll fill reasonable gaps with flagged assumptions.

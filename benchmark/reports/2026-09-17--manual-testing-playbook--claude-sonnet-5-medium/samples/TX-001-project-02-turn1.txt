@@ -1,0 +1,11 @@
+Before I enhance this, I need a bit more detail to build a genuinely useful prompt (rather than guessing at your audience and scope).
+
+**Got it — mode detected (Text/Improve), prompt provided. A few more details:**
+
+- **Audience specificity:** Who exactly is "beginner" — someone who's never brewed coffee at all, or someone who owns pre-ground supermarket coffee and a basic drip machine? Any relevant context (budget-conscious, gear-curious, health-focused)?
+- **Brewing methods to cover:** Should the post cover one method (e.g., pour-over) or survey several (French press, drip, AeroPress, espresso)?
+- **Tone and voice:** Casual/conversational, editorial/authoritative, or playful?
+- **Length and platform:** Roughly how long (e.g., 800, 1500, 2500 words), and where will it be published (personal blog, SEO-driven site, newsletter)?
+- **Output format:** Standard Markdown (default), JSON, or YAML?
+
+If you'd rather skip this and have me proceed with smart defaults (general beginner audience, survey of common methods, friendly conversational tone, ~1200 words, Markdown, RCAF/COSTAR framework), just say **"use defaults"** and I'll flag those as assumptions in the deliverable.

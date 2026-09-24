@@ -1,0 +1,22 @@
+file,clean,hard_violations,violations,confidence
+PCR-001.md,False,2,"header_missingx1, deliverable_not_firstx1",high
+PFM-001.md,False,1,header_missingx1,high
+PID-001.md,False,2,"header_missingx1, deliverable_not_firstx1",high
+PIR-001-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+PIR-001-turn2.md,True,0,none,high
+PIR-002-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+PIR-002-turn2.md,False,1,deliverable_not_firstx1,high
+PSB-001-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+PSB-001-turn2.md,False,2,"attestation_missingx1, header_missingx1",low
+PTX-001.md,False,2,"header_malformedx1, deliverable_not_firstx1",high
+SCR-001.md,False,2,"attestation_missingx1, header_missingx1",low
+SFM-001.md,False,2,"attestation_missingx1, header_missingx1",low
+SID-001.md,False,2,"attestation_missingx1, header_missingx1",low
+SIR-001-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+SIR-001-turn2.md,False,2,"attestation_missingx1, header_missingx1",low
+SIR-002-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+SIR-002-turn2.md,False,2,"attestation_missingx1, header_missingx1",low
+SSB-001-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+SSB-001-turn2.md,False,2,"attestation_missingx1, header_missingx1",low
+STX-001-turn1.md,False,2,"attestation_missingx1, header_missingx1",low
+STX-001-turn2.md,False,2,"attestation_missingx1, header_missingx1",low

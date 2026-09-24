@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "systemId": "prompt-improver",
+  "reviewer": "michel.k@getbarter.com",
+  "reason": "Initial manifest import for prompt-improver (spec 021 P002): kernel v1.2.1 was updated in the 022/011 remediation pass (fixes 1-8, 12-15) and the contract digest now reflects those corrected bytes.",
+  "decision": "updated",
+  "reviewedAt": "2026-07-17T18:56:23+02:00",
+  "contractDigest": "d98e5bab34db008b018d12ae7ac6a75f82b94f6bd6557f3c8f0355f6b167133a",
+  "kernelSha256": "5a89cd9b68de10c0cbbb0da073cc21f4e9448a6757bd9cada13fa79fb7484094",
+  "kernelVersion": "1.2.1",
+  "alignedSkillVersion": "1.2.1",
+  "note": "This is a dated record of one review at the kernel version named above, not a claim about the live kernel. The live version is the H1 of Custom Instructions.md and the dated review notes in SYNC.md. Nothing reads this file, and parity is checked by benchmark/parity/run_parity.sh plus hand-reading, never by this record."
+}

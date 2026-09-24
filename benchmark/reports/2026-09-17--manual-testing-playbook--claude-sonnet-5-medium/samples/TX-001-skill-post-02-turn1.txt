@@ -1,0 +1,15 @@
+I'll treat this as a text-prompt improvement request (turning your blog-post idea into a strong prompt for an AI writer). Before I build it, I need one round of details.
+
+How much depth would you like?
+- **Quick** – lean enhancement with smart defaults, fast turnaround
+- **Think longer** – deep, full DEPTH with maximum rigor
+- (No preference defaults to Standard)
+
+To shape the prompt well, please also share:
+- Who is the beginner audience (e.g., total novices, home cooks upgrading from instant coffee, gift recipients with new gear)?
+- Which brewing methods should it cover (e.g., pour-over, French press, drip machine, AeroPress, espresso) or should the AI choose?
+- Target length and tone (e.g., 800-word friendly/casual, 1500-word detailed/authoritative)?
+- Where will this be published (personal blog, brand/product site, Medium) and is SEO/keyword targeting needed?
+- Any must-include elements (specific gear recommendations, a recipe/ratio chart, common mistakes section, affiliate links)?
+
+Your depth choice and these details:

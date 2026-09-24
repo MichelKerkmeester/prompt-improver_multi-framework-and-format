@@ -1,0 +1,14 @@
+Got it — I have your core request ("blog post about coffee brewing for beginners"), but a few essentials are missing before I can build a high-quality prompt for it. Rather than guess, here's one comprehensive question:
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer** — deep, full analysis with maximum rigour
+- (No preference defaults to Standard)
+
+And please confirm:
+- **Target platform/audience:** Where will this run (personal blog, brand site, Medium) and who's the reader (total novice, gift-buyer, someone setting up their first pour-over)?
+- **Length and tone:** Rough word count and voice (casual/friendly, expert-but-approachable, listicle-style)?
+- **Must-include specifics:** Any brewing methods to cover (drip, French press, pour-over, AeroPress), equipment angle, or SEO keywords to target?
+- **Output format:** Markdown (default), JSON, or YAML for the final prompt itself?
+
+Your depth choice and these details — I'll take it from there.

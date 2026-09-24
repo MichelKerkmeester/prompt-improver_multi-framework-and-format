@@ -1,0 +1,16 @@
+Before I enhance this, I need a bit more to make the resulting prompt genuinely useful (the current one is too thin to score well). I'll ask everything in one go, per the skill's one-question rule — then wait for your reply.
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To turn "write a blog post about coffee brewing for beginners" into a strong prompt, please also share:
+
+- **Purpose/platform**: Where will this live (personal blog, brand site, Medium, newsletter)? Is there an SEO goal or target keyword?
+- **Voice/tone**: Casual and friendly, expert-but-approachable, playful, or something else?
+- **Scope**: Any preferred length (e.g., ~800, ~1500 words) and which brewing methods to cover (pour-over, French press, drip, AeroPress, espresso) or should the AI choose?
+- **Structure/angle**: Any required sections (e.g., equipment list, step-by-step instructions, common mistakes, FAQ) or a specific hook/angle you want?
+- **Output format**: Standard Markdown, JSON, or YAML for the enhanced prompt file? (default: Markdown)
+
+Your depth choice (Quick / Think longer) and these details:

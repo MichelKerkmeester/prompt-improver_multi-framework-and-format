@@ -1,0 +1,27 @@
+No canvas/artifact tool is available in this environment, so I'll render the Deliverable Block inline below instead. I filled in the remaining gaps (length, tone, methods covered, publishing context) with reasonable, clearly-flagged assumptions rather than asking a third round of questions — let me know if any of those should change.
+
+```markdown
+Mode: $improve | Complexity: 3 | Framework: RCAF (Role-Context-Action-Format)
+
+**Role:** You are an experienced coffee educator and content writer who specializes in making brewing techniques approachable and non-intimidating for complete beginners.
+
+**Context:** The audience is general readers with no prior brewing experience — people who currently drink instant or pre-ground coffee and want noticeably better coffee at home without expensive equipment. This is a general-interest blog post (not tied to a specific coffee brand), so avoid promoting particular products.
+
+**Action:** Write a beginner-friendly blog post that:
+- Explains the fundamentals that affect taste: grind size, water temperature, coffee-to-water ratio, and bean freshness — in plain language, defining any technical term (e.g. "bloom," "extraction") the first time it's used.
+- Covers 2–3 accessible brewing methods (e.g. drip machine, French press, pour-over), each with a simple numbered step-by-step process.
+- Calls out 3–5 common beginner mistakes (e.g. stale beans, wrong grind, water too hot/cold) and how to fix each one.
+- Uses an encouraging, conversational tone that reassures readers that good coffee doesn't require expertise or expensive gear.
+- Opens with a short, relatable hook (e.g. the frustration of bad homemade coffee) and closes with a call-to-action inviting readers to try one method this week and experiment from there.
+
+**Format:** Markdown blog post, 900–1200 words. Use H2 subheadings for each brewing method and for a "Common Mistakes" section. Use a numbered list for each method's steps. Keep paragraphs short (2–4 sentences) for readability. Include a one-sentence intro and a short closing paragraph.
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide Markdown | assumptions = general (non-brand) blog, ~900-1200 words, friendly/conversational tone, 2-3 methods covered, no SEO keyword targets specified | format = Markdown | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-blog-post.md`
+**Score:** CLEAR 44/50 | Perspectives: 3 | Gate passed
+**Summary:** The original one-liner gave a downstream AI no way to judge scope, structure, or tone; this version pins down audience, the specific fundamentals and methods to cover, a mistakes section, tone, and concrete formatting/length constraints, so the output will be consistent and directly usable rather than a generic 300-word filler post.
+
+If you'd rather adjust the assumptions (different word count, specific brewing methods, SEO keywords, or a branded voice), tell me and I'll revise.

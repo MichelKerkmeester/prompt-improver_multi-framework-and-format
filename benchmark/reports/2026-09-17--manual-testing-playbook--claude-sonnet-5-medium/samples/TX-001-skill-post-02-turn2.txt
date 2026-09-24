@@ -1,0 +1,9 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 44/50 (target 40+) | Gate: passed
+
+Built with RCAF (Role/Context/Action/Format), Standard energy. It specifies the writer persona, a beginner home-brewer audience, a concrete action list (hook, key variables, 3-4 methods with steps, a recommended starter method, common mistakes, CTA), and a clear markdown format/length target.
+
+[Assumes: general blog with no specific brand/platform, no SEO keyword targets, no affiliate or product placements]
+
+Want me to refine the scope (e.g., narrow to one brewing method, add an SEO angle, or shift the tone)?

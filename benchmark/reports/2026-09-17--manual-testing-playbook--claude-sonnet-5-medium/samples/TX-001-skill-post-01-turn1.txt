@@ -1,0 +1,11 @@
+I read the routing brain (`SKILL.md`) plus the DEPTH and Interactive Mode references. Your request has no `$` command, but "make it better" scores as Improve intent — so this routes to **Improve Mode** (Standard energy, RCAF/auto-framework, CLEAR scoring, Markdown output by default). The prompt content is provided, but a few essentials are still missing before I can engineer a strong version, so I have one consolidated question before proceeding:
+
+Please share:
+- **Target AI tool** this prompt will run in (e.g., ChatGPT, Claude, a specific writing app) — affects how directive vs. conversational the prompt should be
+- **Audience specifics** beyond "beginners" — total novices with zero equipment, or people who already own a basic drip machine and want to branch into pour-over/French press?
+- **Tone and voice** — casual/conversational, expert-but-friendly, or brand-style (and if there's a brand/publication name to write for)
+- **Length target** — short (600-800 words), standard (1000-1500), or long-form/comprehensive guide
+- **Must-include elements** — specific brewing methods to cover (drip, French press, pour-over, AeroPress, espresso), equipment recommendations, a step-by-step format, FAQs, or SEO keywords to target
+- **Output format** for the enhanced prompt file — Markdown (default), JSON, or YAML
+
+Your answers (or "use smart defaults" if you'd rather I infer and flag assumptions):

@@ -1,0 +1,5 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 44/50 (C:8, L:8, E:12, A:9, R:7 approx.) | Gate: passed | Framework: RCAF | Energy: Standard | Perspectives: 3 (Prompt Engineering Expert, AI Interpretation Specialist, End-User Experience Designer)
+
+Summary: The prompt now gives a downstream AI a clear role, beginner-focused context with mechanism-first reasoning (why grind/temp/ratio matter before the steps), a concrete 6-part action list covering three accessible brewing methods plus mistakes and FAQ, and a locked Markdown structure. `[Assumes: ...]` flags cover word count and method selection since those weren't specified — swap the bracketed values if you want a different length or different methods covered.

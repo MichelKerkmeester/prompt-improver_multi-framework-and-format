@@ -1,0 +1,9 @@
+**Saved:** `export/001 - enhanced-coffee-brewing-blog-post.md`
+
+**CLEAR 41/50** | Gate: passed | Framework: RCAF | Energy: Standard (3 perspectives: Prompt Engineering, AI Interpretation, End-User Experience)
+
+The prompt now gives a downstream AI a specific role, a concrete beginner-reader context, a measurable 5-part action (core variables explained WHY-first, 3 named brewing methods, one step-by-step walkthrough, common mistakes, a closing recommendation), and a defined 900-1200 word markdown structure — instead of the original one-line request that left method choice, depth, and structure to chance.
+
+`[Assumes: no specific brewing methods, tone, length, or target AI were specified beyond "general audience, markdown" — I defaulted to 3 common beginner methods, conversational tone, and a 900-1200 word range]`
+
+Want any of these locked in differently (e.g., swap in AeroPress/cold brew, adjust length, or target a specific AI tool)?

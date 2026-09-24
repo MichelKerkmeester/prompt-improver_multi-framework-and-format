@@ -1,0 +1,14 @@
+Since there's no explicit `$command` and the request doesn't hit an exact routing keyword, I'll ask one comprehensive question up front rather than guess your depth, target platform, or angle — that keeps me from overriding your intent with assumptions.
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To sharpen the prompt, it'd help to know:
+- Which AI/tool will run this prompt (e.g., ChatGPT, Claude, a blogging assistant)?
+- Target audience and angle — total beginners with zero equipment, or beginners who already own a basic setup?
+- Desired length/format (e.g., ~800-word listicle, step-by-step guide, SEO blog post)?
+- Any must-include elements (specific brewing methods like pour-over/French press/drip, tone, brand voice, CTA)?
+
+Your depth choice (Quick / Think longer) and answers to the above — or just say "use your best judgment" and I'll proceed with smart defaults, flagged as assumptions:
