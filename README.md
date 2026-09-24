@@ -26,9 +26,9 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 
 **Why it earns a place**
 
-- **Scope stays fixed:** ask it to write an email and it reframes the job once as a prompt for that email, then refuses if you insist. The benchmark's safety scenario passed on both runtimes
-- **Structure follows the task:** a framework wins on fit, so an ordinary task gets RCAF and a precision-critical compliance prompt gets TIDD-EC
-- **Quality is a number:** every scored prompt reports its gate result, and a prompt under any dimension floor goes back for up to 3 repair cycles
+- Ask it to write an email and it reframes the job once as a prompt for that email, then refuses if you insist. The benchmark's safety scenario passed on both runtimes
+- A framework wins on fit, so an ordinary task gets RCAF and a precision-critical compliance prompt gets TIDD-EC
+- Every scored prompt reports its gate result, and a prompt under any dimension floor goes back for up to 3 repair cycles
 
 &nbsp;
 
@@ -278,12 +278,12 @@ A second set, document-routing confidence, uses high at 0.85, medium at 0.60, lo
 
 When a request is unclear, the model asks one comprehensive question and waits. It never answers its own question.
 
-- **No command, no signal:** the question opens with a depth choice, **Quick** or **Think longer and read more context**, and defaults to Standard when you only send a prompt
-- **Complexity 5 or 6:** a framework choice between RCAF, COSTAR (about 5 percent more tokens) and TIDD-EC (about 8 percent more)
-- **Complexity 7 or higher:** a choice between Streamline and Comprehensive
-- **No format command:** a choice between Markdown, JSON and YAML
-- **`$vibe`:** a component library choice between Untitled UI, shadcn/ui and no library
-- **`$raw`:** no questions at all
+- With no command and no signal, the question opens with a depth choice, **Quick** or **Think longer and read more context**, and defaults to Standard when you only send a prompt
+- At complexity 5 or 6, it asks for a framework choice between RCAF, COSTAR (about 5 percent more tokens) and TIDD-EC (about 8 percent more)
+- At complexity 7 or higher, it asks for a choice between Streamline and Comprehensive
+- With no format command, it asks for a choice between Markdown, JSON and YAML
+- `$vibe` gets a component library choice between Untitled UI, shadcn/ui and no library
+- `$raw` gets no questions at all
 
 The standard flow allows up to 3 interactions (welcome, framework or simplification, then format). A command flow allows 1 and Raw allows none. When context is still missing after that, the prompt ships on smart defaults with every assumption flagged.
 
@@ -617,15 +617,7 @@ Two checks run from a fresh clone with nothing but Bash and Python 3. The rest n
 
 #### Router Fixtures
 
-```bash
-bash benchmark/router/run_fixtures.sh
-```
-
-```text
-PASSED 25/25 fixtures
-```
-
-The 25 fixtures cover the 9 mode commands, 4 format-command cases, 8 natural-language keyword routes and 4 edge cases, among them a command beating Deep keywords, "ask" inside "basket" and the `$short $deep` conflict. The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields.
+The router check from Quick Start runs 25 fixtures covering the 9 mode commands, 4 format-command cases, 8 natural-language keyword routes and 4 edge cases, among them a command beating Deep keywords, "ask" inside "basket" and the `$short $deep` conflict. The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields.
 
 #### Report Checks
 
@@ -775,19 +767,49 @@ By hand. `SYNC.md` sets a four-step method: list each skill file against its Pro
 
 ## 13. 🔧 TROUBLESHOOTING
 
-| What you see | Cause | Fix |
-|---|---|---|
-| A plain-language request gets a question instead of a mode | No router keyword matched. "design a fintech dashboard concept" has none, since the Visual keyword is "ui design" | Add the command, such as `$vibe`, or a router keyword such as "ui design" |
-| The mode does not match your request | Another intent's keywords scored higher | Use an exact mode command, which always wins |
-| `$short $deep` gets a question back | Two different mode commands conflict | Send one mode command |
-| `route_contract.py` ignores the `$short` at the start of a request | The shell expanded `$short` to nothing inside double quotes | Wrap the request in single quotes |
-| A JSON or YAML file contains Markdown syntax | The wrong format guide ran | Repeat the request with an explicit `$json` or `$yaml` |
-| A Video prompt fails its gate | Camera and subject motion are both missing | Add a camera move and an action verb |
-| A Flux or Imagen prompt has no negative prompt | Both platforms ignore negatives | Expected. State what to avoid as a positive description |
-| No path or score appears in CLI mode | The export did not verify | Treat the prompt as undelivered, check that `export/` is writable and rerun |
-| The model writes the content instead of a prompt | The request read as a task | Ask for "a prompt that asks an AI to do X" |
-| `deliverable-lint.csv` shows a diff after a grader run | `check_report.sh` rewrites it in place | Restore it from git and run the grader on a copy |
-| `run_parity.sh` says `can't open file`, or `rule_parity.py` says `no declared pairs` | Both need the shared toolkit in the parent monorepo | Use the router fixtures and report checks, which run standalone |
+**A plain-language request gets a question instead of a mode**
+
+No router keyword matched: the Visual keyword is "ui design", so "design a fintech dashboard concept" has none. Add the command, such as `$vibe`, or a router keyword such as "ui design".
+
+**The mode does not match your request**
+
+Another intent's keywords scored higher. Use an exact mode command, which always wins.
+
+**`$short $deep` gets a question back**
+
+Two different mode commands conflict. Send one mode command.
+
+**`route_contract.py` ignores the `$short` at the start of a request**
+
+The shell expanded `$short` to nothing inside double quotes. Wrap the request in single quotes.
+
+**A JSON or YAML file contains Markdown syntax**
+
+The wrong format guide ran. Repeat the request with an explicit `$json` or `$yaml`.
+
+**A Video prompt fails its gate**
+
+Camera and subject motion are both missing. Add a camera move and an action verb.
+
+**A Flux or Imagen prompt has no negative prompt**
+
+Both platforms ignore negatives, so this is expected. State what to avoid as a positive description.
+
+**No path or score appears in CLI mode**
+
+The export did not verify. Treat the prompt as undelivered, check that `export/` is writable and rerun.
+
+**The model writes the content instead of a prompt**
+
+The request read as a task. Ask for "a prompt that asks an AI to do X".
+
+**`deliverable-lint.csv` shows a diff after a grader run**
+
+`check_report.sh` rewrites it in place. Restore it from git and run the grader on a copy.
+
+**`run_parity.sh` says `can't open file`, or `rule_parity.py` says `no declared pairs`**
+
+Both need the shared toolkit in the parent monorepo. Use the router fixtures and report checks, which run standalone.
 
 &nbsp;
 
