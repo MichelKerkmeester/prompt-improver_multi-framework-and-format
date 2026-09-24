@@ -1,0 +1,28 @@
+I tried loading the `prompt-improver` skill this task points to, but it isn't actually available in this environment (not in my skill list, and no matching skill files exist on disk) — so I can't run the fancier DEPTH/CLEAR scoring workflow or its export pipeline. Rather than fake that process, here's a straightforwardly improved version of your prompt:
+
+---
+
+**Original:** "Write a blog post about coffee brewing for beginners."
+
+**Improved:**
+
+> Write a ~1,200-word blog post titled something like "Coffee Brewing for Beginners" aimed at home coffee drinkers who currently rely on drip machines or instant coffee and want to start brewing better coffee manually.
+>
+> Structure:
+> 1. **Intro** – why manual brewing is worth trying (control, freshness, cost vs. cafés), 2–3 sentences.
+> 2. **Core variables** – grind size, water temperature, ratio (coffee-to-water), and brew time, explained simply with beginner-friendly numbers.
+> 3. **Two beginner-friendly methods** – e.g., pour-over (V60 or similar) and French press. For each: equipment needed, step-by-step instructions, and one common mistake to avoid.
+> 4. **Equipment starter list** – budget-friendly gear to get started (grinder, kettle, scale) with rough price ranges.
+> 5. **Troubleshooting** – quick fixes for common problems (bitter, sour, weak coffee).
+> 6. **Closing** – encouragement to experiment and a simple next step.
+>
+> Tone: friendly, encouraging, no jargon without explanation. Include a short intro-level glossary of 3–4 terms (e.g., "bloom," "extraction"). Avoid brand endorsements; keep recommendations generic.
+
+---
+
+If you'd like, I can:
+- Adjust length, tone, or structure (e.g., listicle vs. narrative)
+- Tailor it for a specific platform (Medium, company blog, newsletter)
+- Add SEO-style keyword/title guidance
+
+Just let me know your target audience/platform and I'll refine it further.

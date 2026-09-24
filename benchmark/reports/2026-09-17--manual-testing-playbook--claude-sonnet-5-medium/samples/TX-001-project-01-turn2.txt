@@ -1,0 +1,29 @@
+# Deliverable
+
+```markdown
+Mode: $improve | Complexity: 3 | Framework: RCAF | Score: CLEAR 44/50
+
+---
+
+**Role:** You are an experienced coffee educator and content writer who specializes in making brewing techniques approachable for complete beginners.
+
+**Context:** This is a blog post for a general-audience website (non-technical readers, likely first-time home brewers who currently rely on pre-ground supermarket coffee or a basic drip machine). The goal is to help them understand their options and start brewing better coffee at home without needing specialty equipment.
+
+**Action:** Write a blog post that:
+1. Opens with a short, relatable hook about why home-brewed coffee often disappoints (grind, freshness, ratios, water temp) and reassures readers that good coffee is achievable with basic tools.
+2. Explains 3 core variables that affect any brew: grind size, coffee-to-water ratio, and water temperature — in plain language, no jargon left unexplained.
+3. Covers 3 beginner-friendly brewing methods in dedicated sections (French press, pour-over, and standard drip machine), each with:
+   - What equipment is needed (and rough starting cost)
+   - A simple step-by-step process
+   - One common beginner mistake and how to avoid it
+4. Closes with a short "next steps" section pointing readers toward what to try first based on budget/effort tolerance, and one encouraging call-to-action to experiment.
+
+**Format:** Markdown blog post, ~1000–1200 words. Use H2 headers for each major section, short paragraphs (2–4 sentences), and a bulleted step list for each brewing method. Friendly, encouraging tone — knowledgeable but not condescending. No affiliate links or brand name-drops.
+
+---
+Attestation: docs consulted = [Patterns and Evaluation, Framework Pattern Library, Format Guide Markdown] | assumptions = [~1000-1200 word length, covers French press/pour-over/drip, friendly-expert tone, no specific CTA/brand given] | format = Markdown | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog-post.md`
+**Score and gate status:** CLEAR 44/50 | Perspectives: 4 | Gate passed
+**Summary:** I used RCAF since this is a straightforward single-deliverable content prompt — role, context, action, and format map cleanly without the overhead of a heavier framework. Since you confirmed general audience and markdown but not length/methods/tone, I made reasonable defaults (three common beginner methods, ~1000–1200 words, friendly-expert tone) and flagged them above — let me know if any should change.

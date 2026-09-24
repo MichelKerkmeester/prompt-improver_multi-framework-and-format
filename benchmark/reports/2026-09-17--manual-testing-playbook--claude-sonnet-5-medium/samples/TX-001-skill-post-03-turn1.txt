@@ -1,0 +1,15 @@
+This request has no `$` command and no strong mode keyword hit ("prompt" doesn't appear), so per the router this lands in Interactive Mode — I need one consolidated question before improving it, rather than guessing.
+
+**How much depth would you like?**
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- *(No preference defaults to Standard)*
+
+**Please also share:**
+- Who is this blog post for, specifically (e.g., total home-brewing newbies, office workers upgrading from instant coffee) and where will it be published (personal blog, brand site, Medium)?
+- What brewing methods/equipment should it cover (e.g., drip machine, French press, pour-over, AeroPress) — or should the AI decide?
+- Target length and tone (e.g., 800-word friendly/casual, 1500-word authoritative/SEO-optimized)?
+- Any must-include elements (grind size chart, water temp, ratios, a specific brand/product mention, SEO keywords)?
+- Preferred output format for the prompt file: **Markdown** (default), **JSON**, or **YAML**?
+
+Your depth choice and answers to the above — I'll turn them into a high-scoring, ready-to-use prompt once you reply.

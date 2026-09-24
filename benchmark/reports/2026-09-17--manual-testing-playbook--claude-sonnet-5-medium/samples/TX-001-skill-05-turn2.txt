@@ -1,0 +1,9 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 42/50 (target 40+) | Gate: passed | Perspectives: 3 applied (Prompt Engineering, AI Interpretation, End-User Experience) | Framework: RCAF | Energy: Standard
+
+Summary: I turned your one-line request into a role/context/action/format prompt that pins down audience (total beginners, no special gear), scope (equipment options, ratios, two brewing methods, common mistakes), and deliverable shape (900-1200 word Markdown post with numbered steps and a mistakes list) — the specificity a downstream AI needs to avoid a generic, unfocused article.
+
+`[Assumes: no specific brewing methods, length, or SEO/platform requirements were given, so I defaulted to two widely-accessible methods (French press + pour-over), a 900-1200 word count, and no keyword targeting]`
+
+Need another enhancement? Share your next prompt or request.

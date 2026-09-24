@@ -1,0 +1,47 @@
+Since markdown is your target format, here's the finalized prompt for a general-audience coffee brewing blog post:
+
+```markdown
+Write a ~1,200-word blog post in Markdown titled "Coffee Brewing for Beginners," 
+aimed at a general audience of home coffee drinkers who currently use drip 
+machines or instant coffee and want to try brewing manually for the first time.
+
+## Structure
+
+1. **Intro** (2–3 sentences) — why manual brewing is worth trying: better flavor, 
+   more control, cheaper than café visits.
+
+2. **The 4 core variables** — grind size, water temperature, coffee-to-water 
+   ratio, and brew time. Explain each in plain language with beginner-friendly 
+   starting numbers.
+
+3. **Two beginner methods** (use H2/H3 headers):
+   - Pour-over (e.g., V60-style)
+   - French press
+   
+   For each: equipment needed, numbered step-by-step instructions, and one 
+   common mistake to avoid.
+
+4. **Starter equipment list** — budget-friendly gear (grinder, kettle, scale) 
+   as a bulleted list with rough price ranges.
+
+5. **Troubleshooting table or list** — quick fixes for bitter, sour, or weak 
+   coffee.
+
+6. **Closing** — encouraging wrap-up and one simple next step to try.
+
+## Formatting requirements
+
+- Use Markdown headers (H2 for sections, H3 for sub-sections)
+- Use numbered lists for brewing steps, bullets for equipment
+- Bold key terms on first use
+- Include a short glossary (3–4 terms, e.g., "bloom," "extraction") as a 
+  bulleted list near the top or bottom
+
+## Tone & style
+
+- Friendly, encouraging, jargon-free (explain any term you use)
+- No brand endorsements — keep equipment recommendations generic
+- Write for someone who has never brewed coffee manually before
+```
+
+Want me to adjust anything — word count, add an SEO title/meta description block, or include a recipe-card-style quick-reference at the end?

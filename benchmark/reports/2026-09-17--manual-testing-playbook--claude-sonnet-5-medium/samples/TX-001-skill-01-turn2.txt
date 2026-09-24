@@ -1,0 +1,7 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 44/50 (target 40+) | Gate: passed | Framework: RCAF | Energy: Standard
+
+Summary: I applied RCAF since this is a straightforward, single-outcome content task — the enhanced prompt now specifies the writer's role, beginner-focused context, concrete actions (grind/ratio/temperature, method comparison, step-by-step guide, common mistakes), and a defined Markdown structure with word count.
+
+`[Assumes: ~900-1200 word length, comparison of drip/French press/pour-over methods, and a conversational tone — none of these were specified, so adjust freely if you had something different in mind.]`

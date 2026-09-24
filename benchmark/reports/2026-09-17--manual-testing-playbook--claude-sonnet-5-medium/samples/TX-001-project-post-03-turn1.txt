@@ -1,0 +1,10 @@
+Before I improve this, I need a few key details to build a properly structured prompt (rather than guess and risk missing your intent):
+
+1. **Target platform & audience** — Where will this post live (personal blog, company site, Medium, etc.) and who's reading it (total beginners, aspiring home baristas, gift-buyers)?
+2. **Voice & length** — Casual/conversational or more polished/editorial? Rough word count (e.g., 800, 1500 words)?
+3. **Scope** — Should it cover specific methods (pour-over, French press, drip, espresso) or stay general/overview-level? Any must-include points (equipment, grind size, common mistakes)?
+4. **Format** — Plain prose, or with headers/subheads/listicle structure? Any SEO keyword target?
+
+Once I have these, I'll build the enhanced prompt (likely using an RCAF or CoStar framework) and deliver it as a Canvas artifact with the full CLEAR-scored breakdown.
+
+If you'd rather skip this and have me make reasonable assumptions, just say **"$raw"** or "use your best judgment" and I'll proceed with sensible defaults (general beginner audience, ~1000 words, friendly conversational tone, structured with headers).

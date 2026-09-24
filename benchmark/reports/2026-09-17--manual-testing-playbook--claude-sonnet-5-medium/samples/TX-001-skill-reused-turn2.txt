@@ -1,0 +1,7 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR: 42/50 (target 40+) | Gate: passed | Framework: COSTAR | Energy: Standard
+
+I used COSTAR (audience-specific content creation fit) instead of default RCAF, since you're targeting a general blog audience with a specific style/tone need. The prompt locks in beginner-friendly scope (grind, ratio, water temp, freshness), 2-3 concrete brewing methods, a mistakes section, and a ~900-1100 word markdown structure — no jargon, no assumed gear.
+
+`[Assumes: no CTA/monetization goal was given, so the closing stays purely encouraging rather than sales-oriented — tell me if you want a newsletter/product CTA instead.]`

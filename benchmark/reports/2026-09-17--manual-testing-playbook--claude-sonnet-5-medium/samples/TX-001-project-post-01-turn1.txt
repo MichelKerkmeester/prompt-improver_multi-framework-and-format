@@ -1,0 +1,16 @@
+I've got enough from Project Knowledge to route this. Your request ("Here is my rough prompt... can you make it better?") contains the keyword **prompt**, which maps to **Text Mode** (Standard energy, CLEAR scoring, RCAF-family framework). The source prompt is short and low-complexity (1-4/10), so per the state machine this goes straight to a single **Format + Context** question before I process it — I won't split this across multiple messages.
+
+Got it — a few more details before I enhance this:
+
+**Output format:**
+- **1. Markdown (Standard)** — natural language flow, baseline tokens [default]
+- **2. JSON** — structured data, +5-10% tokens
+- **3. YAML** — configuration style, +3-7% tokens
+
+**Content essentials** (these drive Correctness, Expression and Reusability in CLEAR scoring):
+- **Audience:** Who is this for — total beginners with zero equipment, or beginners who already own a basic drip machine?
+- **Angle/scope:** General overview of brewing methods, or a specific method (pour-over, French press, drip)?
+- **Length and platform:** Roughly how long, and where will it be published (personal blog, brand/SEO blog, Medium)?
+- **Tone:** Casual and friendly, or more authoritative/expert?
+
+Your format choice (1/2/3) and answers above — or just say "use your best judgment" and I'll apply smart defaults and flag them as assumptions in the deliverable.

@@ -1,0 +1,23 @@
+Mode: $improve | Complexity: 3/10 | Framework: COSTAR | Score: CLEAR 43/50
+
+**Context:** You are writing for a general-interest lifestyle or home blog. The reader has little to no experience brewing coffee at home and is likely relying on pre-ground coffee, a basic setup, or is deciding which brewing method to try first.
+
+**Objective:** Write a blog post that teaches complete beginners how to brew good coffee at home, covering the most accessible methods (drip machine, French press, pour-over, and AeroPress) with clear step-by-step guidance, so the reader can confidently make a decent cup without special equipment or barista training.
+
+**Style:** Conversational and instructional, using short paragraphs, numbered steps for brewing instructions, and plain-language explanations of any coffee terminology (grind size, brew ratio, bloom, etc.) the first time it appears.
+
+**Tone:** Warm, encouraging, and judgment-free — reassure the reader that there's no single "right way," and that small mistakes won't ruin the coffee.
+
+**Response:** A markdown blog post of approximately 900-1,200 words, structured as:
+- A brief, relatable introduction (why home brewing intimidates beginners, and reassurance that it's simpler than it looks)
+- A short section on the basics that apply to every method (freshness, grind size, water ratio ~1:16, water temperature)
+- One subsection per brewing method (drip, French press, pour-over, AeroPress), each with: equipment needed, step-by-step instructions, and one beginner tip
+- A closing section with 2-3 common beginner mistakes to avoid
+- No jargon left unexplained; no assumption of prior brewing knowledge
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide Markdown | assumptions = [Assumes: ~900-1,200 word length is appropriate for a general blog post], [Assumes: coverage should span drip, French press, pour-over, and AeroPress as the most common beginner-accessible methods] | format = Markdown | execution = did not occur | save = did not occur
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog-post.md`
+**Score and gate status:** CLEAR 43/50 (target 40+) | Perspectives: 3 applied (Prompt Engineering, AI Interpretation, End-User Experience) | Gate passed
+**Summary:** I used COSTAR since this is audience-specific content creation, and turned your one-line idea into a fully scoped prompt covering structure, tone, length, and which brewing methods to include. Two assumptions are flagged above (word count and method coverage) since you didn't specify them — let me know if you'd like to adjust either.

@@ -1,0 +1,35 @@
+# Deliverable
+
+```markdown
+Mode: $improve | Complexity: 3/10 | Framework: RCAF
+
+**Role:** You are an experienced content writer and home-brewing enthusiast who specializes in clear, encouraging how-to guides for total beginners.
+
+**Context:** Write a blog post for a general, beginner-level audience with no prior coffee-brewing experience. Readers may not own specialty equipment yet and want approachable, non-intimidating guidance they can act on today. The piece will be published as a standalone article on a general-interest or lifestyle blog.
+
+**Action:** Write a blog post that:
+- Opens with a short, relatable hook (why home brewing is worth learning, without gatekeeping or jargon)
+- Explains the core variables that affect taste: grind size, water temperature, ratio, and brew time
+- Introduces 2–3 beginner-friendly brewing methods (e.g., drip machine, French press, pour-over), with a simple step-by-step for each
+- Calls out 3–5 common beginner mistakes and how to avoid them
+- Recommends basic starter equipment without pushing premium/niche gear
+- Closes with an encouraging takeaway and a simple next step (e.g., "pick one method and try it this week")
+
+**Format:**
+- Markdown with H2/H3 subheadings for scannability
+- ~900–1200 words
+- Friendly, conversational tone — define any technical term (e.g., "bloom," "extraction") the first time it's used
+- Short paragraphs (2–4 sentences) and at least one bulleted or numbered list
+- No affiliate-style product pushing; keep equipment mentions generic (e.g., "a burr grinder" not brand names) unless the publisher specifies otherwise
+
+---
+Attestation: docs consulted = patterns-evaluation, framework-pattern-library, format-guide-markdown | assumptions = length ~900–1200 words, conversational tone, no specific brand/SEO keyword target, no dietary/equipment-budget constraints stated | format = Markdown | execution = did not occur | save = did not occur
+```
+
+---
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog-prompt.md`
+
+**Score and gate status:** CLEAR 42/50 | Perspectives: 4 | Gate passed
+
+**Assumptions made** (flag if wrong): ~900–1200 word length, friendly/conversational voice, no specific SEO keyword or brand-mention requirement, generic (non-affiliate) equipment recommendations. If you had a target word count, a specific brewing method focus, or an SEO keyword in mind, let me know and I'll revise.

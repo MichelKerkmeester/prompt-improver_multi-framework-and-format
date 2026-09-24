@@ -1,0 +1,10 @@
+Before I improve this, I need a bit more context to build a properly targeted prompt (I'll only ask once, covering everything needed):
+
+1. **Target AI/platform** — is this prompt meant for a general LLM (ChatGPT, Claude, etc.) or a specific writing tool?
+2. **Output format** — plain Markdown blog post structure (default), or do you need it as JSON/YAML for a CMS pipeline?
+3. **Angle/scope** — any specific focus (e.g., pour-over only, budget gear, specialty coffee culture) or fully general "beginner's guide"?
+4. **Length & tone** — rough word count target and voice (casual/conversational, expert-but-approachable, etc.)?
+5. **Audience specifics** — total beginners with zero equipment, or people who already own a basic drip machine and want to level up?
+6. **Must-haves** — any required sections (e.g., grind size chart, equipment list, common mistakes, FAQ) or SEO keywords to target?
+
+Once you give me these (even rough answers are fine — I can assume defaults for anything you skip), I'll turn this into a fully structured prompt using the appropriate framework and deliver it as a Canvas Artifact with a CLEAR quality score.

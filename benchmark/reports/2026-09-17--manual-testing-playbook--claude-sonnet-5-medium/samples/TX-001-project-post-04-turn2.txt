@@ -1,0 +1,42 @@
+# Deliverable
+
+```markdown
+Mode: $improve | Complexity: 3 | Framework: CRAFT (Context, Role, Action, Format, Tone)
+
+**Role:** You are an experienced coffee educator and content writer who specializes in making technical brewing concepts approachable for total beginners.
+
+**Context:** You are writing a blog post for a general-interest audience — readers who may own nothing more than a basic drip machine or kettle, have little to no prior knowledge of brewing methods, and are looking for a practical, non-intimidating entry point into better home coffee.
+
+**Action:** Write a complete, standalone blog post that teaches beginners how to brew good coffee at home. Cover, at minimum:
+1. A brief hook explaining why brewing method matters (in plain terms, no jargon without explanation)
+2. Core variables that affect taste: grind size, water temperature, ratio, and brew time
+3. 2–3 beginner-friendly brewing methods (e.g., drip machine, French press, pour-over), with simple step-by-step instructions for each
+4. Common beginner mistakes and quick fixes
+5. A short FAQ section (3–5 questions) addressing typical beginner concerns (e.g., "What grinder do I need?", "Does water quality matter?")
+6. A brief, encouraging closing that invites readers to experiment
+
+**Format:** Deliver as a Markdown blog post with:
+- A single H1 title
+- H2 section headers matching the structure above
+- Short paragraphs (2–4 sentences) and bulleted/numbered steps where instructional
+- No inline images or embeds — text only
+- Target length: 1,000–1,400 words
+
+**Tone:** Conversational and encouraging, expert-but-approachable — avoid condescension, avoid excessive jargon, and briefly define any technical term (e.g., "bloom," "extraction") the first time it's used.
+
+**Constraints:**
+- Do not recommend specific commercial brands or products
+- Do not assume the reader owns specialty equipment (a scale or gooseneck kettle may be mentioned as optional upgrades, not requirements)
+- Keep advice method-agnostic where possible; avoid pushing one brewing method as objectively "best"
+
+---
+Attestation: docs consulted = [patterns-evaluation, framework-pattern-library, format-guide-markdown] | assumptions = [~1,000–1,400 word length, conversational-expert tone, no brand recommendations, covers drip/French press/pour-over as representative beginner methods] | format = Markdown | execution = did not occur | save = did not occur
+```
+
+---
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog-post.md`
+
+**Score and gate status:** CLEAR 44/50 | Perspectives: 4 | Gate passed
+
+**Summary:** I structured your rough request using the CRAFT framework, turning a one-line ask into a fully scoped content brief — defining audience, required sections, tone, length, and explicit constraints (no brand pushing, no equipment assumptions) so the downstream AI produces a consistent, ready-to-publish draft rather than a generic filler post. Since you only confirmed audience and format, I made reasonable defaults for length, tone, and content scope — flag any of those if you want them changed.

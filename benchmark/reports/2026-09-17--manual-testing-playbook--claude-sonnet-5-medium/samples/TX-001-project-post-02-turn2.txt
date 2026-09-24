@@ -1,0 +1,30 @@
+Mode: $improve | Complexity: Low (2/10) | Framework: COSTAR
+
+**Context:** A general-audience blog post introducing coffee brewing to complete beginners — readers with little or no prior brewing experience who likely own basic kitchen equipment (kettle, mugs, maybe a drip machine) but not specialty gear. [Assumes: no specific publishing platform or SEO keyword target was given, so the post is written as evergreen educational content, not optimized for a named platform's style guide.]
+
+**Objective:** Help a first-time reader understand the fundamentals of good coffee brewing — grind, ratio, water, and method — well enough to confidently make a solid cup at home without feeling overwhelmed by specialty-coffee jargon or gear.
+
+**Style:** Conversational and instructional. Short paragraphs, scannable subheadings, plain-language explanations of any technical term (e.g., "bloom," "extraction") the first time it's used.
+
+**Tone:** Warm, encouraging, and non-intimidating — a knowledgeable friend explaining coffee, not a barista lecturing. Light humor welcome; never condescending.
+
+**Audience:** Adult home coffee drinkers who currently rely on pre-ground coffee or a basic machine and want to improve their cup without buying expensive equipment or memorizing rules. [Assumes: readers are motivated by curiosity/better taste, not preparing for competitive or professional brewing.]
+
+**Response:** A Markdown blog post, roughly 900-1200 words, structured as:
+- A relatable hook (a common beginner frustration, e.g., "why does my coffee taste bitter/weak?")
+- **What you actually need to get started** — minimal equipment for 2-3 beginner-friendly methods (drip machine, French press, pour-over)
+- **The 4 things that matter most** — grind size, coffee-to-water ratio, water temperature, and brew time, explained simply with one practical tip each
+- **Pick your method** — a short walkthrough for each of the 2-3 methods named above, written as simple numbered steps
+- **Common beginner mistakes** — 3-4 quick fixes (e.g., stale beans, wrong grind, inconsistent ratio)
+- A short, encouraging closing with one clear next action (e.g., "try this ratio tomorrow morning")
+
+Use H2/H3 subheadings, bullet or numbered lists for steps, and keep paragraphs to 2-4 sentences for scannability.
+
+---
+Attestation: docs consulted = DEPTH Framework, Interactive Mode, Patterns & Evaluation, Framework Pattern Library, Format Guide Markdown | assumptions = angle/method scope, tone, length, no SEO target | format = Markdown | execution = did not occur | save = did not occur
+
+Since this Project can't write files directly, treat the block above as the export-equivalent deliverable — path would be `export/001 - enhanced-coffee-brewing-beginners-blog.md`.
+
+**Score and gate status:** CLEAR 41/50 (target 40+) | Perspectives applied: 3 (Prompt Engineering, AI Interpretation, End-User Experience) | Gate passed.
+
+**Summary:** I converted the one-line request into a COSTAR-structured prompt — the framework best suited to audience-specific content creation — specifying audience, tone, and a concrete section-by-section structure so a downstream AI produces a focused, scannable beginner's guide instead of a generic overview. Three assumptions (content angle, tone, and length) are flagged since they weren't specified; adjust any of them and I'll regenerate.

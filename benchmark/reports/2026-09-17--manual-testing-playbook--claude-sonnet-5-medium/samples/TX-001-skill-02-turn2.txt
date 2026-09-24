@@ -1,0 +1,7 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR ~44/50 | Gate: passed (Standard energy, RCAF, Markdown)
+
+**[Assumes:]** general blog placement (no specific site/SEO keyword given), ~900-1200 word length, friendly/encouraging tone, and coverage of 2-3 common brewing methods (French press, pour-over, drip) since none was specified.
+
+The enhanced prompt defines a clear role, audience context, a measurable writing task, and an explicit output structure so any AI can produce a focused, well-organized beginner coffee-brewing post. Let me know if you'd like the length, tone, or method selection adjusted.

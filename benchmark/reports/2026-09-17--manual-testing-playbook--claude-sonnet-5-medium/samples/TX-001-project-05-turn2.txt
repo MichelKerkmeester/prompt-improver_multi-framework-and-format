@@ -1,0 +1,31 @@
+Mode: $text | Complexity: 3/10 (Low) | Framework: COSTAR | Score: CLEAR 44/50
+
+```markdown
+**Context:** General-audience readers with little to no home coffee-brewing experience — some may own a basic drip machine, others have no equipment at all. They want approachable, non-technical guidance they can act on immediately.
+
+**Objective:** Write a beginner-friendly blog post that teaches readers how to brew good coffee at home, covering essential equipment options, key brewing methods, and the fundamentals of ratio, grind, and technique, so they finish confident enough to brew their first great cup.
+
+**Style:** Conversational and step-by-step, using short paragraphs, concrete examples, and scannable subheadings rather than dense technical prose.
+
+**Tone:** Warm, encouraging, and non-intimidating — the tone of a knowledgeable friend, not a barista lecturing on precision.
+
+**Audience:** General adult readers exploring home coffee brewing for the first time; assume no prior knowledge of brewing terminology or equipment. [Assumes: broad general audience rather than a niche/enthusiast readership]
+
+**Response:** A single blog post in Markdown, roughly 1,200-1,500 words [Assumes: standard blog length], structured as:
+- Hook opening on why home brewing is worth learning
+- Basic equipment options (from zero-equipment methods to a simple drip machine or French press)
+- 2-3 beginner-friendly brewing methods explained step-by-step
+- Coffee-to-water ratio and grind size basics, explained simply
+- 3-5 common beginner mistakes and how to avoid them
+- Short closing encouragement/call-to-action
+
+Use bullet lists for steps and mistakes, bold key terms on first use, and avoid jargon without explanation.
+```
+
+---
+
+Export-equivalent path: `export/001 - enhanced-coffee-brewing-beginner-blog-post.md`
+Score/gate: CLEAR 44/50 | Perspectives: 3 (Prompt Engineering, AI Interpretation, End-User Experience) | Gate passed
+Assumptions flagged: general audience breadth, standard blog length (~1,200-1,500 words), and blog/content-marketing context (no niche publication specified) — since you only confirmed "general audience" and markdown format, I filled these in with common defaults rather than asking a third round of questions. Docs consulted: DEPTH Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide Markdown.
+
+If any of those assumptions are off — different length, a specific brewing method focus, or a branded/SEO angle — tell me and I'll refine it.

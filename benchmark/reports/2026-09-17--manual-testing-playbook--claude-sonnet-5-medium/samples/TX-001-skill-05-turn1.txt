@@ -1,0 +1,17 @@
+I've loaded the routing and DEPTH framework. Your request has a clear topic but is missing a few essentials I need before I can build a high-scoring enhanced prompt (target audience specificity, tone, length, and output format all affect what the downstream AI needs to know). Before I draft and export the enhanced prompt, I have one consolidated question:
+
+How much depth would you like, and what are the missing details?
+
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer** — deep, full-rigor enhancement (more perspectives, more precision)
+- (No preference defaults to Standard)
+
+Please also share, as much as you know:
+
+- **Audience specifics** — total beginners with zero equipment, or beginners who already own a basic setup (drip machine, French press, etc.)?
+- **Brew methods to cover** — one method (e.g., pour-over) or a survey of several (French press, pour-over, AeroPress, drip)?
+- **Length and tone** — rough word count, and casual/conversational vs. more instructional/technical?
+- **Output format for the prompt file** — Markdown (default), JSON, or YAML?
+- **Platform/purpose** — is this for a specific blog, newsletter, or SEO-driven site (affects structure and keyword guidance)?
+
+Your depth choice and any of the details above — I'll fill in sensible defaults for anything you skip and flag those assumptions in the final prompt.

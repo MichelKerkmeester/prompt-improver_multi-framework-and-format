@@ -1,0 +1,9 @@
+Before I build the improved prompt, I need a few essentials to make it genuinely better (not just longer) — a blog-post prompt this vague under-specifies audience, structure, and output constraints, so I'd be guessing on all of them otherwise:
+
+1. **Audience & angle** — total beginners with zero equipment, or people who just bought a French press/pour-over/espresso machine? Any specific brewing method(s) to focus on, or a general overview?
+2. **Length & format** — target word count, and should it include a step-by-step structure, ingredient/equipment lists, subheadings, etc.?
+3. **Tone/voice** — casual and friendly, expert/instructional, or brand-specific voice?
+4. **Publishing context** — is this for a personal blog, a coffee brand's site, an SEO-driven piece (target keywords?), or something else?
+5. **Anything to include/exclude** — e.g. must mention specific gear, avoid recommending specific brands, include a CTA (buy beans, subscribe, etc.)?
+
+Once I have these, I'll deliver the improved prompt as a Canvas artifact with a scoring breakdown. If you want me to just make reasonable assumptions and move fast instead, say `$raw` or "just go" and I'll skip the Q&A.
