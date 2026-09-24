@@ -402,7 +402,7 @@ There is no separate worked-examples folder for this system. The mode libraries 
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project. `Custom Instructions.md` hand-synthesizes the router and rules in compact form, and `knowledge/` contains manifest-declared mirrors of `SKILL.md`, `references/` and `assets/`. This system has no project-local derive script; the central AI System Sync Compiler is the sole writer for mirrors, generated regions and package-lock state. `../SYNC.md` holds the hand-authored parity note.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project. `Custom Instructions.md` hand-synthesizes the router and rules in compact form, and it is the routing authority there because `SKILL.md` is not mirrored. `knowledge/` holds thirteen documents written by hand from `references/` and `assets/` for Project retrieval. Nothing regenerates them, and no manifest, lock file or checksum ledger is kept. `../SYNC.md` holds the parity note and the manual parity method.
 
 Related skills: `sk-prompt` for general prompt craft, `sk-prompt-small-model` for small-model prompt profiles and `sk-doc` for documentation packaging.
 
@@ -449,7 +449,7 @@ No. The CLI packaging is complete on its own. The Project exists for people who 
 |---|---|
 | [`SKILL.md`](./SKILL.md) | Executable router, DEPTH methodology, rules and export protocol |
 | [`../AGENTS.md`](../AGENTS.md) | CLI bootstrap, context override and manual-load handoff for a cold model |
-| [`../SYNC.md`](../SYNC.md) | Compiler-managed alignment contract for the Claude Project package |
+| [`../SYNC.md`](../SYNC.md) | Hand-authored parity note and manual parity method for the Claude Project package |
 | [`references/depth-framework.md`](./references/depth-framework.md) | DEPTH phases, energy levels and cognitive rigor |
 | [`references/interactive-mode.md`](./references/interactive-mode.md) | One-question flow, state machine and response templates |
 | [`references/patterns-evaluation.md`](./references/patterns-evaluation.md) | CLEAR, EVOKE, VISUAL and REPAIR scoring detail |
@@ -463,4 +463,4 @@ No. The CLI packaging is complete on its own. The Project exists for people who 
 | [`assets/visual-mode-library.md`](./assets/visual-mode-library.md) | Visual UI vocabulary, platform templates, MagicPath examples |
 | [`assets/image-mode-library.md`](./assets/image-mode-library.md) | FRAME banks, image platform structures, quick lookups |
 | [`assets/video-mode-library.md`](./assets/video-mode-library.md) | Video platform syntax, mental models, temporal banks |
-| [`../claude project/README.md`](../claude%20project/README.md) | Upload and integrity manifest for the Claude Project packaging |
+| [`../claude project/README.md`](../claude%20project/README.md) | Upload guide and structure map for the Claude Project packaging |
