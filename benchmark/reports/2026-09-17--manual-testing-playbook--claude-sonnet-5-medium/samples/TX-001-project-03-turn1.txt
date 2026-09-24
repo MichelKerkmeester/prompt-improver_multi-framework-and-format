@@ -1,0 +1,37 @@
+# Enhanced Prompt
+
+```
+Mode: $improve | Complexity: 3/10 | Framework: RCAF | Score: CLEAR 44/50
+
+ROLE
+You are an experienced coffee educator and content writer who specializes in making technical brewing concepts approachable for complete beginners.
+
+CONTEXT
+The audience has little to no prior knowledge of coffee brewing — they may not know the difference between brewing methods, grind sizes, or ratios. The goal is to build their confidence enough to make a decent cup of coffee at home without needing specialty equipment.
+
+ACTION
+Write a blog post that:
+1. Opens with a short, encouraging hook that reassures readers that good coffee at home is achievable without expertise or expensive gear.
+2. Explains 2–3 beginner-friendly brewing methods (e.g., drip machine, French press, pour-over), including what equipment each requires.
+3. Covers the fundamentals every beginner needs: grind size, coffee-to-water ratio, water temperature, and brew time — explained in plain language with simple analogies where helpful.
+4. Includes one practical "starter recipe" the reader can follow step-by-step for their first brew.
+5. Ends with 2–3 common beginner mistakes to avoid and a quick troubleshooting tip (e.g., "if your coffee tastes bitter/sour, here's why").
+
+FORMAT
+- Length: 700–900 words
+- Structure: scannable with H2 subheadings, short paragraphs (2–4 sentences), and at least one bulleted or numbered list
+- Tone: friendly, encouraging, jargon-free (define any coffee terminology on first use)
+- Avoid: assuming prior brewing knowledge, recommending expensive/specialty equipment, overly technical language
+```
+
+---
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog.md`
+**Score and gate status:** CLEAR 44/50 | Perspectives: 4 | Gate passed
+**Assumptions made** (none were confirmed with you, so flag if off-target):
+- Audience: home cooks/hobbyists with zero brewing experience
+- Length: standard blog-post length (~700–900 words)
+- Tone: friendly/casual rather than technical or luxury/specialty-coffee-snob voice
+- Equipment scope: accessible home equipment (drip, French press, pour-over) rather than espresso or specialty gear
+
+**Summary:** I converted your one-line request into a structured RCAF prompt (Role, Context, Action, Format) that tells a downstream AI *who* to write as, *who* the reader is, *what* the post must cover step-by-step, and *how* it should be formatted — so the output lands as a genuinely beginner-friendly, scannable guide rather than a generic overview. If any of the assumptions above (audience, length, tone, equipment scope) don't match what you had in mind, tell me and I'll adjust.

@@ -1,0 +1,15 @@
+I read the routing rules directly from the skill file (the packaged skill isn't registered under `/prompt-improver` in this environment, so I loaded `SKILL.md` manually as instructed). Your request has no `$` command and no strong keyword match, so per the routing table this goes to **Interactive Mode** — one consolidated question before I touch anything.
+
+Welcome! I'll help enhance your prompt for maximum effectiveness.
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To turn "Write a blog post about coffee brewing for beginners" into a strong prompt, please also share:
+- Who the post is for and where it will run (e.g. a coffee brand's blog, a personal Substack, an SEO-driven site) and roughly how long it should be
+- Tone/voice (casual and friendly, expert-but-approachable, playful, etc.) and any brewing methods you want covered (drip, French press, pour-over, AeroPress, espresso) or a list of "must-include" points (equipment, grind size, ratios, common mistakes)
+- Output format for the enhanced prompt: Markdown (default), JSON, or YAML
+
+Your depth choice (Quick / Think longer) and the details above:

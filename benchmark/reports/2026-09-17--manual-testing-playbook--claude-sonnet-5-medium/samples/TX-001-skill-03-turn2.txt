@@ -1,0 +1,9 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 43/50 (target 40+) | Perspectives: 3 applied | Format: Markdown, Compliant | Framework: RCAF
+
+This turns your one-liner into a Role/Context/Action/Format prompt that pins down audience (true beginners, no special gear assumed), required content (grind, water temp, ratio, brew time, 2-3 methods, common mistakes), and delivery specs (800-1000 words, Markdown, H2 sections, conversational tone).
+
+`[Assumes: specific brewing methods, brand mentions, and publishing platform were left open since none were specified — method selection stays flexible and platform-agnostic.]`
+
+Want me to lock in specific brewing methods to cover, or adjust length/tone?

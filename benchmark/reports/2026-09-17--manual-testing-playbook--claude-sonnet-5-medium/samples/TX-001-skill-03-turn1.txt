@@ -1,0 +1,15 @@
+Welcome! I'll help enhance your prompt for maximum effectiveness.
+
+How much depth would you like?
+- **Quick** - lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** - deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To turn "write a blog post about coffee brewing for beginners" into a strong content-generation prompt, please share:
+
+- **Purpose and audience** - who is this for, and what should they be able to do after reading (e.g. brew a decent cup at home with basic gear)?
+- **Format specifics** - target word count, tone/voice (casual, expert-but-friendly, etc.), and whether you want sections like intro/methods/FAQ/conclusion
+- **Scope constraints** - which brewing methods to cover (e.g. drip, French press, pour-over, AeroPress) or keep it method-agnostic; any brand/product mentions to include or avoid
+- **Platform/output format** - where will this run (blog CMS, Markdown doc, etc.) and do you want $json, $yaml or $markdown output for the prompt file itself [default: Markdown]
+
+Your depth choice (Quick / Think longer) and the details above:

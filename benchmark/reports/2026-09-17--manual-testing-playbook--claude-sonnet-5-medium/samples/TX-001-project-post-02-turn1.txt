@@ -1,0 +1,16 @@
+Got it — that's a solid starting point, but as written it's underspecified: a downstream AI would have to guess the audience, tone, length, and angle, which usually produces a generic, forgettable post. Before I enhance it, I need a few essentials in one shot.
+
+How much depth would you like?
+- **Quick** — lean enhancement with smart defaults, fast turnaround
+- **Think longer and read more context** — deep, full DEPTH with maximum rigour
+- (No preference defaults to Standard)
+
+To sharpen the prompt, please also share:
+- **Audience:** who exactly are "beginners" here — someone who's never brewed coffee at all, or someone moving off a drip machine into pour-over/espresso?
+- **Angle/goal:** a general overview of methods, one specific method deep-dive (e.g. pour-over), or gear buying advice?
+- **Tone and voice:** casual/conversational, expert-but-approachable, or editorial/brand voice?
+- **Length:** rough word count or read-time target?
+- **Platform and SEO:** where does this publish (personal blog, company site, Medium) and are there target keywords it needs to rank for?
+- **Output format:** Markdown (default), JSON, or YAML?
+
+Your depth choice and answers to the above:

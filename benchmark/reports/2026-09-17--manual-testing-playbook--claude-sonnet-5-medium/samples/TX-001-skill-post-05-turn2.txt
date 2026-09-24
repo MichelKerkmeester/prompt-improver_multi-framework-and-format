@@ -1,0 +1,8 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post-prompt.md`
+
+CLEAR Score: 44/50 (target 40+) | Gate: passed
+Framework: RCAF | Format: Markdown | Energy: Standard
+
+Summary: The prompt now defines a specific role (coffee educator), grounds context (general-audience beginners, basic equipment), makes the action measurable (specific topics to cover plus a step-by-step walkthrough), and locks a concrete output format (800–1,200 word Markdown post with defined structure). `[Assumes: no specific brewing method, target AI, or SEO/keyword requirements were given, so the prompt lets the writer choose one primary method for the walkthrough and omits SEO constraints]`
+
+Want me to refine further (e.g., lock in a specific brewing method, add SEO keywords, or adjust length/tone)?

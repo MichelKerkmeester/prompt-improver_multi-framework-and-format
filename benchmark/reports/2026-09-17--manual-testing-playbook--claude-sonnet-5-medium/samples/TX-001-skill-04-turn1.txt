@@ -1,0 +1,20 @@
+I've loaded the routing logic and DEPTH/interactive references. Your request has a clear intent (improve a prompt) but no explicit mode command and no strong keyword match, and a few essentials are missing before I can build a high-scoring prompt — so per the one-question rule, here's a single consolidated question:
+
+**How much depth would you like?**
+- **Quick** — lean enhancement, smart defaults, fast turnaround
+- **Standard** (default) — full DEPTH pass, 3+ perspectives
+- **Deep** — maximum rigor, all 5 perspectives (use if this needs to serve multiple audiences/formats)
+
+**And a few details about the blog post prompt itself:**
+- Target audience specifics beyond "beginners" (e.g., home coffee drinkers with no equipment vs. aspiring baristas)?
+- Desired tone/voice (casual, expert-but-friendly, editorial)?
+- Approximate length or structure (e.g., 800-1200 words, listicle, step-by-step guide)?
+- Any brewing methods to emphasize or exclude (e.g., pour-over, French press, espresso, AeroPress)?
+- What AI/tool will run this prompt (e.g., ChatGPT, Claude), if it matters for formatting?
+
+**Output format for the enhanced prompt file:**
+1. Markdown (default)
+2. JSON
+3. YAML
+
+Reply with your depth choice and answers (or say "use defaults" and I'll proceed with smart assumptions, flagged in the deliverable).

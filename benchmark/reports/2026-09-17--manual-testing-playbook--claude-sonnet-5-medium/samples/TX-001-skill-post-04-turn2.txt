@@ -1,0 +1,9 @@
+Saved: `export/001 - enhanced-coffee-brewing-blog-post.md`
+
+CLEAR ~43/50 | Gate: passed | Framework: RCAF | Energy: Standard
+
+I used RCAF since your input was general-purpose content creation without high complexity. Since you only confirmed audience and format, I applied smart defaults for the rest:
+
+`[Assumes: friendly/jargon-free tone, 1200-1500 word length, coverage of drip/French press/pour-over methods, and a pure-education angle with no product CTA]`
+
+If any of those assumptions are off (e.g. you want a specific method focus, a different length, or a promotional angle), share the change and I'll refine the file.

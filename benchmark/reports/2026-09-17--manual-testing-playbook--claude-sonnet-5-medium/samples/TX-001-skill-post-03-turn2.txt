@@ -1,0 +1,10 @@
+**Saved:** `export/001 - enhanced-coffee-brewing-blog-post.md`
+
+CLEAR Score: 44/50 (target 40+) | Gate: passed | Framework: RCAF (single clear outcome, straightforward task) | Energy: Standard
+
+**Assumptions made** (since only general-audience + markdown were specified):
+- [Assumes: 900–1,200 word length, mobile-reading lifestyle-blog context]
+- [Assumes: two brewing methods covered — drip machine and French press, as the two most accessible for true beginners]
+- [Assumes: no SEO keyword targets, brand mentions, or publication platform were required]
+
+This gives the downstream AI a specific role, audience, scope, and output structure instead of the original one-liner, so it should produce a focused, well-organized post on the first pass rather than a generic overview. Want me to adjust the brewing methods covered, length, or add SEO keyword targets?

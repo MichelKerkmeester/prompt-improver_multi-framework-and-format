@@ -1,0 +1,415 @@
+[
+  {
+    "input": "$raw passthrough this exact text with no validation",
+    "expect": {
+      "intent": "RAW",
+      "energy": "raw",
+      "scorer": null,
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
+    }
+  },
+  {
+    "input": "$text turn this into a clean prompt",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$improve make this an api call description",
+    "expect": {
+      "intent": "IMPROVE",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$refine tighten the wording here",
+    "expect": {
+      "intent": "REFINE",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$short cut this down",
+    "expect": {
+      "intent": "SHORT",
+      "energy": "quick",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$deep build a multi-agent orchestration prompt",
+    "expect": {
+      "intent": "DEEP",
+      "energy": "deep",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$vibe design a fintech dashboard concept",
+    "expect": {
+      "intent": "VISUAL",
+      "energy": "creative",
+      "scorer": "EVOKE",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/visual-mode.md",
+        "assets/visual-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "$image a midjourney portrait of a lighthouse",
+    "expect": {
+      "intent": "IMAGE",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "$video a runway motion clip of rain on a window",
+    "expect": {
+      "intent": "VIDEO",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/video-mode.md",
+        "assets/video-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "$json",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "json",
+      "source": "fallback",
+      "needs_disambiguation": true,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "assets/format-guide-json.md"
+      ]
+    }
+  },
+  {
+    "input": "$yaml give me a config-ready prompt",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "yaml",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-yaml.md"
+      ]
+    }
+  },
+  {
+    "input": "$markdown",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "fallback",
+      "needs_disambiguation": true,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "$deep $json restructure this into an api-ready spec",
+    "expect": {
+      "intent": "DEEP",
+      "energy": "deep",
+      "scorer": "CLEAR",
+      "format": "json",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-json.md"
+      ]
+    }
+  },
+  {
+    "input": "can you make this prompt better and clearer",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "explain the RCAF framework structure",
+    "expect": {
+      "intent": "FRAMEWORK",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md"
+      ]
+    }
+  },
+  {
+    "input": "what does the clear score actually measure here",
+    "expect": {
+      "intent": "SCORING",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "design a magicpath multi-page user journey flow",
+    "expect": {
+      "intent": "MAGICPATH",
+      "energy": "creative",
+      "scorer": "EVOKE",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/visual-mode.md",
+        "assets/visual-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "walk me through your depth thinking phases and rigor",
+    "expect": {
+      "intent": "THINKING",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "I would like to have a conversation so you can clarify and gather more info",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": true,
+      "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
+    }
+  },
+  {
+    "input": "write a prompt for a moody film-noir portrait photo",
+    "expect": {
+      "intent": "IMAGE",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "craft a motion-heavy sora clip with camera movement",
+    "expect": {
+      "intent": "VIDEO",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/video-mode.md",
+        "assets/video-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "$short but this needs a deep and complex multi-step strategic rewrite",
+    "expect": {
+      "intent": "SHORT",
+      "energy": "quick",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "Please put this in your basket before you leave",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "fallback",
+      "needs_disambiguation": true,
+      "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
+    }
+  },
+  {
+    "input": "$short $deep pick one energy level for me",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "fallback",
+      "needs_disambiguation": true,
+      "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
+    }
+  },
+  {
+    "input": "hey there, how is it going today",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "standard",
+      "scorer": null,
+      "format": "markdown",
+      "source": "fallback",
+      "needs_disambiguation": true,
+      "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
+    }
+  }
+]

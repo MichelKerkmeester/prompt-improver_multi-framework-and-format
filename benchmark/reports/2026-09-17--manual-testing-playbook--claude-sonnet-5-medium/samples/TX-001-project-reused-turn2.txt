@@ -1,0 +1,27 @@
+**Phase D–E (Discover/Engineer) — condensed:** Analyzed from 3 perspectives (Prompt Engineering, AI Interpretation, End-User Experience). Task is audience-specific content creation → COSTAR outscores RCAF here (audience + creative-element modifiers). Key gaps in original: no defined audience depth, no length/structure, no brewing methods specified, no tone guidance — all filled below with flagged assumptions.
+
+Since this environment doesn't expose a Canvas/Artifact panel, here is the deliverable block formatted exactly as the Markdown Format Guide specifies (header + prompt body + attestation only):
+
+```
+Mode: $improve | Complexity: 3/10 (Low) | Framework: COSTAR | Score: CLEAR 43/50
+
+**Context:** A blog aimed at complete beginners who have never brewed coffee beyond a basic drip machine or pod system and want to understand manual brewing at home.
+**Objective:** Write a blog post that teaches beginners the fundamentals of coffee brewing so they can confidently make a good cup using at least one accessible method.
+**Style:** Conversational and instructional, using short paragraphs, concrete steps, and everyday language over barista jargon.
+**Tone:** Friendly, encouraging, and non-intimidating — assume the reader has zero prior knowledge and may feel overwhelmed by "coffee culture."
+**Audience:** Home coffee beginners, ages 20-45, who want better coffee without buying expensive equipment. [Assumes: no budget ceiling specified, so keep equipment recommendations entry-level]
+**Response:** A ~1,000-1,200 word Markdown blog post with:
+- A hook opening (why brewing at home well matters)
+- A short "what you need" section (grinder, scale optional, filter, kettle)
+- Step-by-step instructions for 2 beginner-friendly methods: pour-over and French press [Assumes: these two methods best balance accessibility and flavor payoff for beginners; swap if a specific method was intended]
+- A brief section on grind size and coffee-to-water ratio basics
+- 3-5 common beginner mistakes and quick fixes
+- A short, encouraging closing with one actionable next step
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Framework Pattern Library, Format Guide Markdown | assumptions = brewing methods (pour-over + French press), target length (~1,000-1,200 words), no equipment budget ceiling | format = Markdown | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-beginners-blog.md`
+**Score and gate status:** CLEAR 43/50 (threshold 40+) | Perspectives: 3 applied | Gate passed
+**Summary:** Converted the one-line request into a COSTAR-structured prompt with defined audience, tone, structure, and word count, since content creation for a general audience scored higher on COSTAR than RCAF. Two assumptions are flagged (specific brew methods and target length) — let me know if you want different methods (e.g., AeroPress, cold brew) or a different length.

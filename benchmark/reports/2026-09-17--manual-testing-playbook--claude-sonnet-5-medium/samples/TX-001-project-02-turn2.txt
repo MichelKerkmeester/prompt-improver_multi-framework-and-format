@@ -1,0 +1,27 @@
+**Phase D-E-P-T-H applied (Standard energy, 3 perspectives: Prompt Engineering Expert, AI Interpretation Specialist, End-User Experience Designer) — framework selected: COSTAR (content-creation + audience fit outscored RCAF). Proceeding with your confirmed inputs (general audience, Markdown) and smart defaults for the unspecified details, flagged below.**
+
+Since this is a claude.ai Project, I can't save a file to disk — the block below is the export-equivalent deliverable, rendered here in place of a Canvas Artifact.
+
+```
+Mode: $text | Complexity: 3 | Framework: COSTAR
+
+**Context:** A general-audience blog post introducing home coffee brewing to complete beginners — readers likely drink instant or pre-made coffee, own basic or no equipment, and want better-tasting coffee without expensive gear.
+**Objective:** Teach the fundamentals of good home brewing (grind size, water temperature, coffee-to-water ratio, brew time) and walk through 3-4 accessible brewing methods, so a first-time reader can pick one method and get a noticeably better cup on their first attempt.
+**Style:** Practical and step-by-step; introduce any necessary terminology in plain language the moment it's used, avoid assuming prior knowledge.
+**Tone:** Friendly, encouraging, conversational — normalize early mistakes and keep the reader motivated to experiment.
+**Audience:** Adults new to specialty/home coffee brewing, budget-conscious, curious but not yet equipment-obsessed.
+**Response:** A ~1,200-1,500 word blog post in Markdown with H2/H3 subheadings, short paragraphs, and at least one bulleted list, structured as:
+- Introduction: why brewing at home is worth learning
+- The 4 variables that determine taste: grind size, water temperature, ratio, time
+- Method walkthroughs (drip machine, French press, pour-over, AeroPress): 3-5 step instructions each
+- Common beginner mistakes / quick troubleshooting
+- Closing encouragement to experiment and find a favorite method
+```
+
+---
+
+**Export-equivalent path:** `export/001 - enhanced-coffee-brewing-blog-post.md`
+**Score and gate status:** CLEAR 42/50 (C:8, L:8, E:12, A:8, R:4) | Perspectives: 3 | Gate passed
+**Assumptions:** [Assumes: survey of 3-4 common home methods rather than one deep dive] | [Assumes: ~1,200-1,500 word length] | [Assumes: friendly conversational tone] | [Assumes: general web/blog platform, not SEO-keyword-optimized]
+
+This restructures your one-liner into a COSTAR brief with a defined audience, concrete scope (four brewing methods, four taste variables), and a specified structure/length — the biggest gaps in the original ("write a blog post... for beginners" gave no method scope, tone, or output shape). If any of the flagged assumptions are wrong (e.g., you want a single-method deep-dive, or a different word count), tell me and I'll revise.
