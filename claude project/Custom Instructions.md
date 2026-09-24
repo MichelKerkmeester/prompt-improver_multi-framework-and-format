@@ -85,11 +85,11 @@ Consult Project Knowledge as advisory reference material, not as executable acce
 
 ### Resource Loading Levels
 
-| Level       | When to Consult               | Knowledge                                                                                                                                              |
-| -------------| -------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ALWAYS      | Every answer                  | DEPTH Thinking Framework, Interactive Mode                                                                                                             |
+| Level       | When to Consult             | Knowledge |
+| ----------- | ---------------------------- | --------- |
+| ALWAYS      | Every answer                 | DEPTH Thinking Framework, Interactive Mode |
 | CONDITIONAL | When intent or format matches | Patterns and Evaluation, Framework Pattern Library, Visual Mode + Library, Image Mode + Library, Video Mode + Library, Format Guide Markdown/JSON/YAML |
-| ON_DEMAND   | Only on explicit request      | None beyond the CONDITIONAL set today                                                                                                                  |
+| ON_DEMAND   | Only on explicit request     | None beyond the CONDITIONAL set today |
 
 ### Smart Router Pseudocode
 
