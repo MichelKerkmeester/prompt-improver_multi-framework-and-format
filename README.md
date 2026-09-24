@@ -16,13 +16,13 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 
 **What's inside**
 
-- 🧭 **Smart Router** - 9 mode commands and 3 format commands matched as exact tokens, keyword scoring on word boundaries and one question when the intent is unclear
-- 🧠 **DEPTH Thinking** - Discover, Engineer, Prototype, Test and Harmonize, run at one of 5 energy levels from Raw passthrough to Deep with all 5 named perspectives
-- 🎯 **Framework Library** - 11 frameworks: RCAF by default, 6 more text structures and 4 creative ones (VIBE, VIBE-MP, FRAME, MOTION)
-- 🧮 **Quality Scoring** - CLEAR passes text at 40/50, EVOKE passes UI briefs at 40/50 (42 for MagicPath), VISUAL passes images at 48/60 and video at 56/70
-- 🎨 **Creative Prompt Modes** - UI briefs for 5 design tools, image prompts for 9 generators and video prompts for 10 video models, each in that platform's own syntax
-- 📦 **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line and the prompt body as the only content in the file
-- 📤 **Verified Delivery** - saved to `export/` and checked on disk before the reply names the path, or rendered as a Deliverable Block inside a claude.ai Project
+- **Smart Router** - 9 mode commands and 3 format commands matched as exact tokens, keyword scoring on word boundaries and one question when the intent is unclear
+- **DEPTH Thinking** - Discover, Engineer, Prototype, Test and Harmonize, run at one of 5 energy levels from Raw passthrough to Deep with all 5 named perspectives
+- **Framework Library** - 11 frameworks: RCAF by default, 6 more text structures and 4 creative ones (VIBE, VIBE-MP, FRAME, MOTION)
+- **Quality Scoring** - CLEAR passes text at 40/50, EVOKE passes UI briefs at 40/50 (42 for MagicPath), VISUAL passes images at 48/60 and video at 56/70
+- **Creative Prompt Modes** - UI briefs for 5 design tools, image prompts for 9 generators and video prompts for 10 video models, each in that platform's own syntax
+- **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line and the prompt body as the only content in the file
+- **Verified Delivery** - saved to `export/` and checked on disk before the reply names the path, or rendered as a Deliverable Block inside a claude.ai Project
 
 **Why it earns a place**
 
@@ -168,98 +168,41 @@ In a CLI, the prompt goes to `export/` and is checked before the reply names it.
 
 ### Installation
 
-**Prerequisites**
-
-- Git to clone the repository
-- An agent CLI that reads `AGENTS.md` and accepts your model
-- Bash and Python 3 for the router check, standard library only
-- For claude.ai, a Project that accepts custom instructions and knowledge files
-
-Clone the repository and open it in your agent CLI:
+You need Git, Bash, Python 3 and an agent CLI that reads `AGENTS.md`.
 
 ```bash
 git clone https://github.com/MichelKerkmeester/prompt-improver_multi-framework-and-format.git
 cd prompt-improver_multi-framework-and-format
 ```
 
-Point the model at `AGENTS.md`. It loads `sk-prompt-improver/SKILL.md` plus the two references every request needs, `sk-prompt-improver/references/depth-framework.md` and `sk-prompt-improver/references/interactive-mode.md`. From then on the model works as Prompt Improver and loads the rest only when a route calls for it.
+Open the folder in your agent CLI and point the model at `AGENTS.md`. It loads `sk-prompt-improver/SKILL.md` and the two references every request needs, then the rest only when a route calls for it.
 
 ### Verify Installation
 
-Run the router fixture check from the repository root:
+Run the router check from the repository root. It needs no model and no network.
 
 ```bash
 bash benchmark/router/run_fixtures.sh
 ```
 
-Expected output:
-
-```text
-PASSED 25/25 fixtures
-```
-
-The check needs no model and no network. To see how one request routes, pass it in single quotes so the shell leaves `$short` alone:
-
-```bash
-python3 benchmark/router/route_contract.py '$short but this needs a deep and complex multi-step strategic rewrite'
-```
-
-```json
-{
-  "intent": "SHORT",
-  "energy": "quick",
-  "scorer": "CLEAR",
-  "format": "markdown",
-  "source": "command",
-  "needs_disambiguation": false,
-  "resources": [
-    "references/depth-framework.md",
-    "references/interactive-mode.md",
-    "references/patterns-evaluation.md",
-    "assets/framework-pattern-library.md",
-    "assets/format-guide-markdown.md"
-  ]
-}
-```
-
-The Deep keywords in that request score 15, and the `$short` command still wins.
+Expected output: `PASSED 25/25 fixtures`
 
 ### First Use
 
-Try one of these requests once the CLI has read `AGENTS.md`:
+Start a request with a mode command:
 
-| Request | Route | What happens first |
-|---|---|---|
-| `$improve tighten this onboarding email prompt` | Improve, Standard energy, CLEAR | Asks for the output format if none is set, then delivers |
-| `$short shorten this support-macro prompt without losing meaning` | Short, Quick energy, CLEAR | A lighter DEPTH pass with 1 or 2 perspectives |
-| `$improve $json tighten this onboarding email prompt` | Improve, JSON locked | Writes a `.json` file and reports the token overhead |
-| `$vibe design a fintech dashboard concept` | Visual, Creative energy, EVOKE | Asks which component library the brief should name |
-| `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | Image, Creative energy, VISUAL | Delivers a FRAME prompt in Midjourney syntax |
-| `$video a Runway clip of rain on a windshield` | Video, Creative energy, VISUAL | Delivers a MOTION prompt with a camera prefix |
-| `$raw just fix the grammar` | Raw, no DEPTH | Cleans the text with no questions and no score |
+- `$improve tighten this onboarding email prompt` asks for the output format if none is set, then delivers
+- `$improve $json tighten this onboarding email prompt` keeps Improve and writes a `.json` file
+- `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` delivers a FRAME prompt in Midjourney syntax
 
-The `$image` row is a scenario from the 2026-09-17 benchmark run. Its complete chat reply:
-
-```text
-Saved: `export/001 - enhanced-midjourney-forest-cabin-prompt.md`
-
-VISUAL 53/60 | Gate: passed (Vivid 14, Intentional 9, Styled 9, Unambiguous 9, Atmospheric 9, Layered 5)
-
-Built with FRAME for Midjourney v6.1: a specific cabin/forest subject with clear composition (F), cinematic film-still rendering with lens and film-stock cues (R), layered dawn mist/light atmosphere (A), `--ar 16:9 --s 450 --style raw` plus a light `--no` exclusion list for Midjourney's partial negative support (M/E). Share the generated image if you want another refinement pass.
-```
-
-Path first, then the gate line with a per-dimension breakdown, then a short summary that closes with the share-back invitation every creative mode ends on. The prompt itself stays in the file.
+The reply names the saved file in `export/` first, then the score and a short summary. The prompt itself stays in the file.
 
 ### Use It in a claude.ai Project
 
-The Project package gives claude.ai the same router and rules through custom instructions plus knowledge files.
-
 1. Create or open a Project named **Prompt Improver**
-2. Paste `claude project/Custom Instructions.md` (kernel v1.4.7, aligned to skill v1.3.0) into its custom instructions
+2. Paste `claude project/Custom Instructions.md` into its custom instructions
 3. Upload all 13 files in `claude project/knowledge/` with their filenames unchanged
-4. Smoke-test all ten routed intents plus the Interactive fallback and confirm that each delivered prompt arrives as a Deliverable Block with its attestation footer and an export-equivalent path
-
-Update the instructions and the knowledge files together when the package changes. See [the Project README](claude%20project/README.md) for the file list and the full smoke-test list.
+4. Send a test request and confirm the prompt arrives as a Deliverable Block with an export-equivalent path. [The Project README](claude%20project/README.md) has the full smoke-test list
 
 &nbsp;
 
@@ -287,11 +230,7 @@ The route contract knows 14 intents in total. MagicPath has no command and is re
 
 #### Format Commands
 
-| Command | Aliases | Locks |
-|---|---|---|
-| `$markdown` | `$md`, `$m` | Markdown, the default when no format command appears |
-| `$json` | `$j` | JSON |
-| `$yaml` | `$y` | YAML |
+`$markdown` (`$md`, `$m`) locks Markdown, the default when no format command appears. `$json` (`$j`) locks JSON and `$yaml` (`$y`) locks YAML.
 
 A format command never competes with the mode. A bare `$json` still routes the mode to Interactive, with JSON locked for whatever comes next.
 
@@ -305,55 +244,33 @@ A format command never competes with the mode. A bare `$json` still routes the m
 
 With no command and no keyword hit, the request routes to Interactive with `needs_disambiguation` set to true.
 
-#### Keyword Weights
-
-Every keyword below matches on word boundaries only.
-
-| Intent | Weight per hit | Keywords |
-|---|---:|---|
-| MagicPath | 7 | magicpath, magic path, magicpath.ai, multi-page flow, user journey, pathfinding |
-| Raw | 6 | raw mode, passthrough, no validation |
-| Visual | 6 | visual concepting, design vibe, ui design, lovable, aura, bolt, v0, v0.dev |
-| Image | 6 | image prompt, picture, photo, midjourney, dall-e, dalle, stable diffusion, sdxl, flux, flux 2, imagen, nano banana, seedream, ideogram, leonardo, firefly, runway image |
-| Video | 6 | video prompt, clip, animation, runway, gen-4, sora, kling, veo, pika, luma, ray3, minimax, hailuo, seedance, omnihuman, wan, motion |
-| Text | 5 | text mode, prompt mode, prompt, rcaf, costar |
-| Improve | 5 | improve prompt, make better, enhance prompt |
-| Refine | 5 | refine this, optimise, optimize, feedback |
-| Short | 5 | shorten, concise, quick, fast, minor |
-| Deep | 5 | complex, strategic, multi-step, comprehensive, system |
-| Framework | 4 | framework, rcaf, costar, tidd-ec, craft, race, cidi, crispe, risen, template, structure |
-| Scoring | 4 | clear, evoke, visual, score, quality, rating, evaluate, assessment, points |
-| Interactive | 3 | question, clarify, conversation, dialog, gather, ask, interactive |
-| Thinking | 3 | depth, phases, energy, cognitive, rigour, rigor, analysis |
+Keyword weights run from 7 per hit for MagicPath down to 3 for Interactive and Thinking. The full keyword lists are `INTENT_KEYWORDS` in [`SKILL.md`](sk-prompt-improver/SKILL.md) section 2 and in `route_contract.py`.
 
 #### Precedence, By Example
 
-Every row below is the route contract's own output.
+Every line below is the route contract's own output:
 
-| Request | Routes to | Why |
-|---|---|---|
-| `$short but this needs a deep and complex multi-step strategic rewrite` | Short, Quick energy | Deep keywords score 15, and a command always wins |
-| `$short $deep pick one energy level for me` | Interactive | Two different mode commands conflict |
-| `$improve $json tighten this onboarding email prompt` | Improve, format JSON | Format sits on its own axis |
-| `$json` | Interactive, format JSON | A format lock alone names no mode |
-| `a complex, strategic prompt for our board deck` | Deep | Deep scores 10 against Text's 5 |
-| `write a prompt for a moody film-noir portrait photo` | Image | Image scores 6 against Text's 5 |
-| `a runway clip of rain on a windshield` | Video | "runway" and "clip" score 12 |
-| `design a magicpath multi-page user journey flow` | MagicPath, EVOKE | "magicpath" and "user journey" score 14 |
-| `$vibe a magicpath onboarding flow` | Visual by command | Inside Visual mode the MagicPath context selects VIBE-MP and the 42/50 gate |
-| `design a fintech dashboard concept` | Interactive | No keyword matches, since the Visual keyword is "ui design" |
-| `give me this as yaml` | Interactive, format Markdown | The word "yaml" is not a format command |
-| `Please put this in your basket before you leave` | Interactive | "ask" inside "basket" does not match |
+- `$short but this needs a deep and complex multi-step strategic rewrite` routes to Short. The Deep keywords score 15, and the command still wins
+- `$short $deep pick one energy level for me` routes to Interactive, because two different mode commands conflict
+- `a complex, strategic prompt for our board deck` routes to Deep, which scores 10 against Text's 5
+- `design a fintech dashboard concept` routes to Interactive, since the Visual keyword is "ui design"
+- `give me this as yaml` routes to Interactive with Markdown, because the word "yaml" is not a format command
+
+To check a route yourself, pass the request in single quotes so the shell leaves `$short` alone:
+
+```bash
+python3 benchmark/router/route_contract.py '$short but this needs a deep and complex multi-step strategic rewrite'
+```
+
+It prints the route object: intent, energy, scorer, format, source, `needs_disambiguation` and the files the route loads.
 
 #### Confidence Bands
 
 The route contract only records how a route was found: `command`, `semantic` or `fallback`. On top of that, `SKILL.md` gives the model advisory bands for talking about a keyword-based route:
 
-| Mode confidence | Behavior |
-|---|---|
-| 80% or higher | Selects the mode and explains briefly if useful |
-| 50% to 79% | Suggests the mode and asks for confirmation |
-| Below 50% | Asks one clarifying question, up to 3 attempts, then uses smart defaults with each assumption flagged as `[Assumes: description]` |
+- At 80% mode confidence or higher, it selects the mode and explains briefly if useful
+- At 50% to 79%, it suggests the mode and asks for confirmation
+- Below 50%, it asks one clarifying question, up to 3 attempts, then uses smart defaults with each assumption flagged as `[Assumes: description]`
 
 A second set, document-routing confidence, uses high at 0.85, medium at 0.60, low at 0.40 and fallback below that. Neither set changes which files load.
 
@@ -386,84 +303,37 @@ DEPTH is the only thinking system here: Discover, Engineer, Prototype, Test and 
 
 #### The Five Phases
 
-| Phase | What happens | Exit gate |
-|---|---|---|
-| Discover | Maps what you gave, finds vagueness and scope gaps, rates complexity 1 to 10, runs the perspectives and surfaces assumptions | Perspectives per energy level, inversion applied, assumptions flagged, framework selected |
-| Engineer | Generates 8 or more enhancement approaches, applies constraint reversal and keeps the one with the best CLEAR outlook | 8+ approaches evaluated, requirements mapped |
-| Prototype | Builds the draft in the chosen framework and format, with the WHY stated before the WHAT | Structure built, mechanism first, format applied |
-| Test | Scores with the routed gate and checks that your intent survived | Total and every floor pass |
-| Harmonize | Final polish, format check and a recount of perspectives, which sends the work back to Discover if short | Output metadata present, ready to deliver |
+- **Discover** maps what you gave, finds vagueness and scope gaps, rates complexity 1 to 10, runs the perspectives, surfaces assumptions and selects a framework
+- **Engineer** generates 8 or more enhancement approaches, applies constraint reversal and keeps the one with the best CLEAR outlook
+- **Prototype** builds the draft in the chosen framework and format, with the WHY stated before the WHAT
+- **Test** scores with the routed gate and checks that your intent survived. It exits only when the total and every floor pass
+- **Harmonize** polishes, checks the format and recounts the perspectives. A short count sends the work back to Discover
 
 #### Energy Levels
 
-| Energy | Trigger | Phases | Perspectives | Techniques | Scoring |
-|---|---|---|---|---|---|
-| Raw | `$raw` | None | 0 | None | None |
-| Quick | `$short`, `$s` | D → P → H | 1 or 2 | Pick 1 | CLEAR 40/50 |
-| Standard | Default, `$text`, `$improve`, `$refine` | D → E → P → T → H | 3 minimum, target 5 | 1 or 2 relevant | CLEAR 40/50 |
-| Deep | `$deep`, `$d` or a complex prompt | Extended D → E → P → T → H | All 5 | All 5 | CLEAR 40/50 |
-| Creative | `$vibe`, `$image`, `$video` | Abbreviated D → E → P → T → H | Mode-specific | 1 or 2 relevant | EVOKE or VISUAL |
+- **Raw** (`$raw`) runs no phases, no perspectives and no score
+- **Quick** (`$short`, `$s`) runs D → P → H with 1 or 2 perspectives and one technique, then scores with CLEAR
+- **Standard** (the default, and `$text`, `$improve`, `$refine`) runs all five phases with at least 3 perspectives, targets 5 and uses 1 or 2 relevant techniques
+- **Deep** (`$deep`, `$d` or a complex prompt) runs an extended pass with all 5 perspectives and all 5 techniques
+- **Creative** (`$vibe`, `$image`, `$video`) runs an abbreviated pass with mode-specific perspectives and scores with EVOKE or VISUAL
 
 The perspective minimums are blocking: a Standard pass with 2 perspectives or a Deep pass with 4 does not ship.
 
-#### The Five Perspectives
+#### Perspectives and Techniques
 
-Named exactly as `references/depth-framework.md` defines them.
+[`references/depth-framework.md`](sk-prompt-improver/references/depth-framework.md) names five perspectives. Prompt Engineering Expert, AI Interpretation Specialist and End-User Experience Designer are required from Standard up. Deep also requires Framework Architecture Expert and Token Optimisation Specialist, and Standard aims for all five. Creative energy uses mode-specific perspectives in place of these five.
 
-| # | Perspective | Focus | Required at |
-|---:|---|---|---|
-| 1 | Prompt Engineering Expert | Frameworks, best practices, patterns, structural optimisation | Standard and Deep |
-| 2 | AI Interpretation Specialist | Model understanding, ambiguity detection, token efficiency | Standard and Deep |
-| 3 | End-User Experience Designer | Comprehension, usability, reusability, clarity | Standard and Deep |
-| 4 | Framework Architecture Expert | RCAF, COSTAR, RACE, CIDI, structural patterns, framework fit | Deep |
-| 5 | Token Optimisation Specialist | Conciseness, cost efficiency, minimal overhead | Deep |
-
-Standard needs the first three and aims for all five. Creative energy uses mode-specific perspectives in place of these five.
-
-#### The Five Cognitive Techniques
-
-| Technique | What it does |
-|---|---|
-| Multi-Perspective Analysis | Reads the prompt from the required perspectives and merges what they find |
-| Perspective Inversion | Argues against the chosen approach, then keeps what survives |
-| Constraint Reversal | Asks whether the opposite approach works better and applies the smallest useful flip |
-| Assumption Audit | Classes each hidden assumption as validated, questionable or unknown, then flags it as `[Assumes: description]` |
-| Mechanism First | Puts the WHY before the HOW and the WHAT inside the prompt |
-
-Quick picks one technique, Standard and Creative use 1 or 2 and Deep applies all 5.
+The same file defines five cognitive techniques: Multi-Perspective Analysis, Perspective Inversion, Constraint Reversal, Assumption Audit and Mechanism First. Quick picks one, Standard and Creative use 1 or 2 and Deep applies all 5. Assumption Audit is where the `[Assumes: description]` flags come from, and Mechanism First puts the WHY before the WHAT inside the prompt.
 
 #### Framework Library
 
-| Framework | Elements | Pick it for | Complexity band |
-|---|---|---|---|
-| RCAF | Role, Context, Action, Format | Ordinary tasks, the default | 1 to 4 |
-| RACE | Role, Action, Context, Execute | Urgent work and fast iteration | 1 to 3 |
-| COSTAR | Context, Objective, Style, Tone, Audience, Response | Audience-specific content and tone | 3 to 6 |
-| CIDI | Context, Instructions, Details, Input | Tutorials and process documentation | 4 to 6 |
-| CRISPE | Capacity, Insight, Statement, Personality, Experiment | Strategy and exploration | 5 to 7 |
-| TIDD-EC | Task, Instructions, Do's, Don'ts, Examples, Context | Precision and compliance | 6 to 8 |
-| CRAFT | Context, Role, Action, Format, Target | Complex work with several stakeholders | 7 to 10 |
-| VIBE | Vision, Inspiration, Behavior, Experience | Visual UI concepts | Visual mode |
-| VIBE-MP | VIBE with MagicPath calibration | MagicPath.ai multi-page flows | Visual mode |
-| FRAME | Focus, Rendering, Atmosphere, Modifiers, Exclusions | Image generation | Image mode |
-| MOTION | Movement, Origin, Temporal, Intention, Orchestration, Nuance | Video generation | Video mode |
+RCAF (Role, Context, Action, Format) is the default for ordinary tasks. Six more text frameworks win on fit: RACE for urgent work, COSTAR for audience-specific content, CIDI for tutorials, CRISPE for strategy, TIDD-EC for precision-critical tasks and CRAFT for complex work with several stakeholders. The four creative frameworks each belong to a mode: VIBE and VIBE-MP to Visual, FRAME to Image and MOTION to Video.
 
-The complexity bands come from the quick-select card in `references/patterns-evaluation.md`.
+[`assets/framework-pattern-library.md`](sk-prompt-improver/assets/framework-pattern-library.md) lists every framework's elements, and the quick-select card in [`references/patterns-evaluation.md`](sk-prompt-improver/references/patterns-evaluation.md) gives each text framework its complexity band.
 
 #### How a Framework Wins
 
-`assets/framework-pattern-library.md` scores candidates from the task's traits and keeps the highest total. The selector returns a primary pick, a confidence, an alternative and its reasoning.
-
-| Framework | Base | Adds | Subtracts |
-|---|---:|---|---|
-| RCAF | 5 | +5 when complexity is 6 or lower, +3 when not audience-specific | |
-| COSTAR | 3 | +7 when audience-specific, +5 with a creative element | |
-| RACE | 2 | +8 when urgent, +5 when complexity is 3 or lower | 5 when precision-critical |
-| TIDD-EC | 3 | +7 when precision-critical, +5 with compliance needs | |
-| VIBE | 2 | +10 for visual UI concepting | 10 when precision-critical |
-| VIBE-MP | 2 | +12 when MagicPath is detected, +5 for a multi-page flow, +3 for user journey design | 10 when precision-critical |
-
-An ordinary task of complexity 4 with no audience angle gives RCAF 13 against COSTAR's 3, which is why RCAF is the usual answer.
+The library scores candidates from the task's traits and keeps the highest total. The selector returns a primary pick, a confidence, an alternative and its reasoning. RCAF starts at 5 and gains 5 when complexity is 6 or lower and 3 more when the task is not audience-specific. An ordinary task of complexity 4 with no audience angle therefore gives RCAF 13 against COSTAR's 3, which is why RCAF is the usual answer.
 
 &nbsp;
 
@@ -473,103 +343,47 @@ Each mode family has its own scorer, and using the wrong one is a rule violation
 
 #### CLEAR, for Text, Improve, Refine, Short and Deep
 
-| Dimension | Points | Weight | Floor | Measures |
-|---|---:|---:|---:|---|
-| Correctness | 10 | 20% | 7 | Accuracy, no contradictions, valid assumptions |
-| Logic | 10 | 20% | 7 | Reasoning flow, cause and effect, conditionals |
-| Expression | 15 | 30% | 10 | Clarity, specificity, minimal ambiguity |
-| Arrangement | 10 | 20% | 7 | Structure, ordering, hierarchy |
-| Reusability | 5 | 10% | 3 | Parameters, template potential |
-| **Total** | **50** | | **34** | Pass at 40, excellence at 45 |
+CLEAR splits 50 points across Correctness 10, Logic 10, Expression 15, Arrangement 10 and Reusability 5. It passes at 40 and marks excellence at 45. The floors are Correctness 7, Logic 7, Expression 10, Arrangement 7 and Reusability 3. Scoring 40 or more with any dimension under its floor still sends the prompt back for revision.
 
-| Total | Status | What happens |
-|---|---|---|
-| 40 to 50 | Pass | On to Harmonize |
-| 30 to 39 | Revision needed | Back to Prototype, weakest dimension first |
-| 20 to 29 | Rejected | Restart from Engineer |
-| 0 to 19 | Rejected | Complete restart |
+A total of 30 to 39 goes back to Prototype, weakest dimension first. A total of 20 to 29 restarts from Engineer, and anything lower is a complete restart.
 
-A total of 40 or more with any dimension under its floor still goes back for revision. The repair cycle runs at most three times: first the weakest dimension, then the remaining gaps, then an alternative framework. If the prompt still misses, the best version ships with a note like `Best result after 3 improvement cycles. CLEAR: [before] to [after].`
+The repair cycle runs at most three times: first the weakest dimension, then the remaining gaps, then an alternative framework. If the prompt still misses, the best version ships with a note like `Best result after 3 improvement cycles. CLEAR: [before] to [after].` [`references/depth-framework.md`](sk-prompt-improver/references/depth-framework.md) has the full rubric.
 
 #### EVOKE, for Visual
 
-A grounding pre-check runs first and cannot be skipped. Any failed check scores the brief 0, however well it reads.
+A grounding pre-check runs first and cannot be skipped. The brief needs a concrete named subject, a specific audience with a role and a context, one falsifiable primary action and a named category default that it steers away from. Any failed check scores the brief 0, however well it reads.
 
-| Check | Requirement |
-|---|---|
-| Subject | A concrete, named subject rather than a category label |
-| Audience | A specific audience with a role and a context |
-| Single Job | One falsifiable primary action |
-| Anti-Default | The category default is named, and the brief steers away from it |
-
-Once grounding passes, five dimensions share the 50 points. MagicPath reweights them toward motion and spatial clarity.
-
-| Dimension | Standard points | Standard floor | MagicPath points |
-|---|---:|---:|---:|
-| Evocative | 15 | 12 | 12 |
-| Visual | 10 | 8 | 12 |
-| Open | 10 | 8 | 8 |
-| Kinetic | 10 | 8 | 13 |
-| Emotional | 5 | 4 | 5 |
-
-Standard EVOKE passes at 40. MagicPath passes at 42 and adds three gate checks: Kinetic at least 8 of 13, Visual at least 8 of 12 and Kinetic plus Visual at least 18 of 25.
-
-| EVOKE total | Reading | Action |
-|---|---|---|
-| 45 to 50 | Excellent | Output after the critique gate |
-| 42 to 44 | Good | Output after the critique gate, with minor suggestions |
-| 38 to 41 | Adequate | Offer refinement options |
-| 30 to 37 | Weak | Iterate |
-| 0 to 29 | Insufficient | Block and ask for more input |
+Once grounding passes, Evocative 15, Visual 10, Open 10, Kinetic 10 and Emotional 5 share the 50 points, each with its own floor. Standard EVOKE passes at 40. MagicPath moves points toward Kinetic and Visual, passes at 42 and adds three gate checks: Kinetic at least 8 of 13, Visual at least 8 of 12 and Kinetic plus Visual at least 18 of 25. A total under 30 blocks the brief and asks you for more input. [`references/patterns-evaluation.md`](sk-prompt-improver/references/patterns-evaluation.md) has both weight splits.
 
 After scoring, an anti-default critique gate asks: "Does any part read like the generic default you would produce for any similar brief?" Any part that does gets revised, with a note on what changed.
 
 #### VISUAL, for Image and Video
 
-| Dimension | Points | Floor | Checks for |
-|---|---:|---:|---|
-| Vivid | 15 | 12 | A specific subject, concrete details |
-| Intentional | 10 | 8 | Defined composition, clear purpose |
-| Styled | 10 | 8 | A named art style or medium |
-| Unambiguous | 10 | 8 | One interpretation, no conflicting styles |
-| Atmospheric | 10 | 8 | Lighting, mood, color |
-| Layered | 5 | 4 | Foreground, background, depth |
-| Motion (video only) | 10 | 8 | Camera movement, subject motion, pacing |
+Image prompts score Vivid 15, Intentional 10, Styled 10, Unambiguous 10, Atmospheric 10 and Layered 5, for 60 points and a pass at 48. Video adds Motion 10 for 70 points and a pass at 56. Every dimension has a floor, and a video prompt with no camera or subject motion fails whatever its other scores.
 
-Image prompts total 60 and pass at 48. Video prompts total 70 and pass at 56, and a video prompt with no camera or subject motion fails whatever its other scores.
-
-| Common miss | Cost | Fix |
-|---|---|---|
-| Vague subject | -5 Vivid | A specific subject with details |
-| No composition | -4 Intentional | Shot type and framing |
-| Missing style | -4 Styled | An art style or medium |
-| Conflicting terms | -5 Unambiguous | Pick the dominant style |
-| No lighting | -4 Atmospheric | Light direction and quality |
-| No motion (video) | -6 Motion | A camera move and action verbs |
+The usual misses are a vague subject, no composition, a missing style, conflicting terms and no lighting, plus no motion for video. [`references/patterns-evaluation.md`](sk-prompt-improver/references/patterns-evaluation.md) lists what each one costs and how to fix it.
 
 &nbsp;
 
 ## 7. 🧾 OUTPUT FORMATS
 
-A format command locks the file's syntax without touching the mode. Every saved file opens with one header line, and nothing follows it but the prompt.
+A format command locks the file's syntax without touching the mode. Every saved file opens with one header line, and nothing follows it but the prompt. CLEAR, EVOKE or VISUAL breakdowns, processing notes and format explanations stay in chat.
 
 #### Format Options
 
-| Format | Command | Header line | Token overhead | Syntax rules |
-|---|---|---|---|---|
-| Markdown | Default, `$markdown`, `$md`, `$m` | `Mode: $[mode] \| Complexity: [level] \| Framework: [RCAF/CRAFT]` | Baseline | Bold field labels such as `**Role:**` |
-| JSON | `$json`, `$j` | `Mode: $json \| Complexity: [level] \| Framework: [RCAF/CRAFT]` | About 5 to 10% | Double quotes only, no trailing commas, no comments, no Markdown |
-| YAML | `$yaml`, `$y` | `Mode: $yaml \| Complexity: [level] \| Framework: [RCAF/CRAFT]` | About 3 to 7% | Two-space indents, no tabs, `key: value` and `- item` |
+- **Markdown** (the default, or `$markdown`, `$md`, `$m`) uses bold field labels such as `**Role:**` and sets the token baseline
+- **JSON** (`$json`, `$j`) takes double quotes only, with no trailing commas, no comments and no Markdown, for about 5 to 10% more tokens
+- **YAML** (`$yaml`, `$y`) takes two-space indents, no tabs, `key: value` and `- item`, for about 3 to 7% more tokens
+
+The header line per format:
+
+```text
+Markdown   Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
+JSON       Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
+YAML       Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
+```
 
 The mode carries its `$` prefix. Complexity is either a word (Low, Medium or High) or a number from 1 to 10. The header never carries a score.
-
-What a file may hold and what stays in chat:
-
-| In the file | In chat, never in the file |
-|---|---|
-| The single header line | CLEAR, EVOKE or VISUAL breakdowns |
-| The enhanced prompt in the locked syntax | Processing notes and applied steps |
-| | Format options and explanations |
 
 #### Markdown
 
@@ -664,33 +478,13 @@ Visual, Image and Video modes run at Creative energy with their own framework, p
 
 VIBE writes UI concept briefs for AI design tools. Before any style word, Step 0 names three grounding anchors. `references/visual-mode.md` shows the gap between a weak and a grounded answer:
 
-| Anchor | Not this | This |
-|---|---|---|
-| Subject | "a dashboard" | "a cold-chain logistics monitoring dashboard for warehouse shift supervisors" |
-| Audience | "users" | "shift supervisors during a 2am temperature excursion alert" |
-| Single Job | "manage data" | "decide within 30 seconds whether to escalate the alert or dismiss it" |
+- Subject: "a dashboard" becomes "a cold-chain logistics monitoring dashboard for warehouse shift supervisors"
+- Audience: "users" becomes "shift supervisors during a 2am temperature excursion alert"
+- Single Job: "manage data" becomes "decide within 30 seconds whether to escalate the alert or dismiss it"
 
-If any anchor is missing, the model stops and asks rather than moving on to VIBE.
+If any anchor is missing, the model stops and asks rather than moving on to VIBE. The four VIBE pillars then ask what the design should look like (Vision), what it should feel like (Inspiration), how it should move (Behavior) and how users should feel (Experience).
 
-| Pillar | Core question |
-|---|---|
-| Vision | What should this look like? |
-| Inspiration | What should this feel like? |
-| Behavior | How should this move? |
-| Experience | How should users feel? |
-
-Eight category defaults exist to be named and then deliberately left behind. They are not a style menu, and a direction set reused unchanged across subjects counts as a preset, which is not allowed.
-
-| Category default | Typical references | Deviation question |
-|---|---|---|
-| Precision & Density | Linear, Raycast | What about this subject makes the compact default wrong? |
-| Warmth & Approachability | Notion, Coda | Where does the subject demand edge that comfort would blunt? |
-| Sophistication & Trust | Stripe, Mercury | What about this audience means restraint tips into cold? |
-| Boldness & Clarity | Vercel | When does bold become brittle for this subject's job? |
-| Utility & Function | GitHub, VS Code | Where does pure utility hide the insight this audience needs first? |
-| Data & Analysis | Mixpanel, Amplitude | What story does the data tell that a card grid buries? |
-| Journey & Flow | Duolingo, Headspace | Where does gamification distract from the single job? |
-| Narrative & Story | Apple Pages, Stripe Atlas | What if the subject's story is told best in a single glance, not a scroll? |
+The same file names eight category defaults, such as Precision & Density (Linear, Raycast) and Data & Analysis (Mixpanel, Amplitude), each paired with a question that pushes the brief away from it. They exist to be named and then deliberately left behind. They are not a style menu, and a direction set reused unchanged across subjects counts as a preset, which is not allowed.
 
 The avoid-list is always active. Every brief names the median it steers away from:
 
@@ -703,13 +497,7 @@ The avoid-list is always active. Every brief names the median it steers away fro
 
 The pipeline also strips praise words that give no direction (beautiful, modern, trending, stunning, sleek) and build terms that describe how to build rather than what to experience (React, Tailwind, hex codes, pixel values). Every brief gets four UX floors whether you ask or not: responsive layout, visible keyboard focus, respect for `prefers-reduced-motion` and WCAG AA text contrast.
 
-| Platform | Strength | Prompt length |
-|---|---|---|
-| MagicPath.ai | Multi-page flows and iteration | 150 to 400 words |
-| Lovable | Full-stack apps | 100 to 250 words |
-| Aura | No-code, no-design contexts | 50 to 150 words |
-| Bolt | Rapid prototyping | 50 to 150 words |
-| v0.dev | UI components | 100 to 300 words |
+Visual briefs target five platforms: MagicPath.ai for multi-page flows, Lovable for full-stack apps, Aura for no-code contexts, Bolt for rapid prototyping and v0.dev for UI components. Each has its own prompt length, 150 to 400 words for MagicPath and 50 to 150 for Aura and Bolt.
 
 MagicPath gets the VIBE-MP calibration and eight required elements: Product Type, Layout, Interactions, User Context, Visual Style, Constraints, the Avoid-List and a Single Aesthetic Risk justified by the grounding. When you ask for two or more variations, a seed step (a random 12-character string, its ASCII sum, mod N) picks each variation's starting angle from facets of the subject rather than from a style palette.
 
@@ -724,31 +512,11 @@ The output is a narrative brief for a marketing analytics dashboard, with no pix
 
 #### Image Mode (`$image`, `$img`)
 
-FRAME structures image prompts, and each pillar carries a weight in the mode reference:
+FRAME structures image prompts around five weighted pillars: Focus 30%, Rendering 20%, Atmosphere 20%, Modifiers 15% and Exclusions 15%. `assets/image-mode-library.md` backs them with 30 vocabulary sub-categories, among them shot types, Kelvin lighting temperatures, aspect ratios and positive rephrasing.
 
-| Pillar | Weight | Core question |
-|---|---:|---|
-| Focus | 30% | What is the viewer looking at? |
-| Rendering | 20% | How should it be visualized? |
-| Atmosphere | 20% | What feeling does it evoke? |
-| Modifiers | 15% | What constraints apply? |
-| Exclusions | 15% | What should be avoided? |
+The mode writes for 9 platforms: Flux 2 Pro, Imagen 4 / Nano Banana Pro, Runway, Midjourney v6.1, DALL-E 3, Stable Diffusion 3, Seedream, Leonardo and Ideogram 3.0. [`references/image-mode.md`](sk-prompt-improver/references/image-mode.md) lists the words that detect each one and its negative-prompt support. Stable Diffusion always gets a negative prompt, Leonardo accepts one and Midjourney takes a partial one through `--no`. A negative prompt never goes to a platform that ignores it, and quality tags such as "4K, 8K, masterpiece" and "trending on artstation" come out on modern platforms.
 
-`assets/image-mode-library.md` backs the pillars with 30 vocabulary sub-categories, among them shot types, Kelvin lighting temperatures, aspect ratios and positive rephrasing.
-
-| Platform | Detected by | Negative prompts | Strength | Words |
-|---|---|---|---|---|
-| Flux 2 Pro | "flux", "bfl" | No, ignored | Photorealism, natural language | 15 to 75 |
-| Imagen 4 / Nano Banana Pro | "imagen", "nano banana", "gemini image" | No, ignored | Text rendering, multi-reference | 30 to 100 |
-| Runway | "runway", "gen-4 image" | No | Video frame consistency | 30 to 80 |
-| Midjourney v6.1 | "midjourney", "mj", `--ar` | Partial, through `--no` | Artistic, stylized | 20 to 60 plus parameters |
-| DALL-E 3 | "dall-e", "dalle", "openai" | No, rephrase positively | Prompt following, text | 50 to 150 |
-| Stable Diffusion 3 | "sd", "sdxl", "stable diffusion" | Yes, always include one | Control, LoRA | 20 to 75 plus negative |
-| Seedream | "seedream", "bytedance image" | No | Speed, consistency | 30 to 80 |
-| Leonardo | "leonardo" | Yes | Stylized art, characters | Not listed |
-| Ideogram 3.0 | "ideogram" | No | Text rendering, logos | 30 to 80 |
-
-A negative prompt never goes to a platform that ignores it. Quality tags such as "4K, 8K, masterpiece" and "trending on artstation" come out on modern platforms. One of the library's worked examples turns the input `dragon` into this Midjourney prompt, scored VISUAL 50/60:
+One of the library's worked examples turns the input `dragon` into this Midjourney prompt, scored VISUAL 50/60:
 
 ```text
 Ancient dragon perched atop a crumbling stone tower,
@@ -762,31 +530,11 @@ rain falling through god rays, detailed environment
 
 #### Video Mode (`$video`, `$vid`)
 
-MOTION structures video prompts around what moves:
-
-| Pillar | Weight | Core question |
-|---|---:|---|
-| Movement | 30% | How does everything move? |
-| Origin | 15% | What is the visual anchor? |
-| Temporal | 15% | How does time flow? |
-| Intention | 15% | What story is being told? |
-| Orchestration | 15% | How do elements interact? |
-| Nuance | 10% | What refinements are needed? |
+MOTION structures video prompts around what moves. Movement carries 30% of the weight and Nuance carries 10%. Origin, Temporal, Intention and Orchestration carry 15% each.
 
 The mode's rules: camera movement comes first, clips stay at 5 to 10 seconds for consistency and negative prompts are left out because most video models ignore them. Text-to-video prompts run 50 to 120 words and image-to-video prompts 20 to 40.
 
-| Platform | Max length | Native audio | Camera syntax | Strength |
-|---|---|---|---|---|
-| Runway Gen-4/4.5 | 10 s | No | Prefix required, such as `Dolly forward:` | Camera control, image-to-video |
-| Sora | 20 s | No | Natural language | Cinematography, physics |
-| Kling 2.5/2.6 | 5 min | 2.6 only | Brackets, reversed pan and tilt terms | Long duration |
-| Veo 3.1+ | 148 s | Yes, as an `Audio:` section at the end | Natural language | Audio, cinematography |
-| Pika 2.5 | 10 s | No | Scene ingredients | Modifications, lip-sync |
-| Luma Ray3 | 10 s | No | Keyframes plus `[Camera:]` | Speed, keyframes |
-| Minimax/Hailuo | 6 s | No | Brackets | Quality, director mode |
-| Seedance 1.5 Pro | 10 s | Yes | Multi-shot syntax | Audio-visual sync |
-| OmniHuman 1.5 | 30 s | Driven by an uploaded audio file | Audio-driven | Full-body avatar animation |
-| Wan 2.1/2.2 | 5 s | No | Natural language | Text rendering, FLF2V |
+The mode writes for 10 video models: Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax/Hailuo, Seedance 1.5 Pro, OmniHuman 1.5 and Wan 2.1/2.2. The shortest maximum clip is 5 seconds on Wan and the longest is 5 minutes on Kling. Runway needs a camera prefix such as `Dolly forward:`, and Veo takes audio as an `Audio:` section at the end. [`assets/video-mode-library.md`](sk-prompt-improver/assets/video-mode-library.md) has the full profile for each model.
 
 A static description is a blocker, not a style: "A car on a road" becomes "A car drives along a winding road", and "Person walking" becomes "Tracking shot follows person". The library's Runway example turns `woman walking in forest` into this prompt, scored VISUAL 62/70:
 
@@ -803,14 +551,7 @@ Her hair sways gently with each step. Cinematic, dreamlike atmosphere.
 
 #### The Share-Back Loop
 
-After a creative prompt ships, the model asks you to run it and share what came back. Each round has a focus:
-
-| Round | Visual | Image | Video |
-|---|---|---|---|
-| 1st | Direction | Composition | Motion |
-| 2nd | Spatial, color and type detail | Style | Pacing and duration |
-| 3rd | Polish | Atmosphere | Consistency |
-| 4th and later | Variations | Detail | Detail and audio |
+After a creative prompt ships, the model asks you to run it and share what came back. Each round has a focus, starting with direction for Visual, composition for Image and motion for Video.
 
 &nbsp;
 
@@ -842,27 +583,25 @@ export/[###] - enhanced-[description].yaml
 
 #### Response Lines
 
-The chat side prints in fixed shapes so a transcript stays easy to scan:
+The chat side prints progress, validation, assumption, delivery and creative follow-up lines in fixed shapes, so a transcript stays easy to scan:
 
-| Line | Format |
-|---|---|
-| Progress | `Phase [D/E/P/T/H] - [name]: [concise finding]` |
-| Validation | `[CLEAR\|EVOKE\|VISUAL] [score]/[max] \| Gate: [passed/revising/best-effort]` |
-| Assumption | `[Assumes: description]` |
-| Delivery | `Saved: export/[###] - enhanced-[description].[md/json/yaml]` |
-| Creative follow-up | `Share the generated result when you want refinement.` |
+```text
+Phase [D/E/P/T/H] - [name]: [concise finding]
+[CLEAR|EVOKE|VISUAL] [score]/[max] | Gate: [passed/revising/best-effort]
+[Assumes: description]
+Saved: export/[###] - enhanced-[description].[md/json/yaml]
+Share the generated result when you want refinement.
+```
 
 Beyond the mode and framework in the file's header, the chat reports the perspectives used and the score as proof that the thinking ran. The perspectives and the score never enter the file.
 
 #### Claude Project Delivery
 
-A claude.ai Project cannot write files, so `claude project/Custom Instructions.md` swaps the export for a Deliverable Block rendered as a Canvas Artifact before any commentary.
+A claude.ai Project cannot write files, so `claude project/Custom Instructions.md` swaps the export for a Deliverable Block rendered as a Canvas Artifact before any commentary. The block has three parts:
 
-| Part | Content |
-|---|---|
-| Header | The same single `Mode:` line as a saved file |
-| Body | The enhanced prompt, in the locked format |
-| Attestation footer | Docs consulted, assumptions, the format, `execution = did not occur` and `save = did not occur` |
+- A header, the same single `Mode:` line as a saved file
+- A body, the enhanced prompt in the locked format
+- An attestation footer listing the docs consulted, assumptions, the format, `execution = did not occur` and `save = did not occur`
 
 The header and footer sit outside the JSON or YAML lock, which applies only to the body. After the block, chat carries the export-equivalent path `export/[###] - enhanced-[description].[md|json|yaml]`, the score and gate status, the token overhead for JSON or YAML, a short summary and, for creative modes, the share-back invitation. The Project never claims it saved, exported or verified anything.
 
@@ -886,14 +625,7 @@ bash benchmark/router/run_fixtures.sh
 PASSED 25/25 fixtures
 ```
 
-| Group | Fixtures | What they pin down |
-|---|---:|---|
-| Mode commands | 9 | Each `$` mode command binds its intent, energy and scorer |
-| Format commands | 4 | `$json` alone, `$markdown` alone, `$yaml` with a sentence and `$deep $json` together |
-| Natural language | 8 | Keyword routes to Text, Framework, Scoring, MagicPath, Thinking, Interactive, Image and Video |
-| Edge cases | 4 | A command beating Deep keywords, "ask" inside "basket", the `$short $deep` conflict and a greeting with no signal |
-
-The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields.
+The 25 fixtures cover the 9 mode commands, 4 format-command cases, 8 natural-language keyword routes and 4 edge cases, among them a command beating Deep keywords, "ask" inside "basket" and the `$short $deep` conflict. The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields.
 
 #### Report Checks
 
@@ -995,23 +727,7 @@ The repository separates the skill source, the Project package, the checks and t
 
 #### Key Files
 
-Each of these 13 files has a hand-written counterpart in `claude project/knowledge/` carrying the same version number.
-
-| File | Version | Loaded for | Carries |
-|---|---|---|---|
-| [`references/depth-framework.md`](sk-prompt-improver/references/depth-framework.md) | v0.200 | Every request | Phases, energy levels, perspectives, techniques, CLEAR rubric |
-| [`references/interactive-mode.md`](sk-prompt-improver/references/interactive-mode.md) | v0.700 | Every request | One-question flow, 6 response templates, state machine, error recovery |
-| [`references/patterns-evaluation.md`](sk-prompt-improver/references/patterns-evaluation.md) | v0.212 | Every route but Raw and Interactive | Enhancement patterns, CLEAR, EVOKE and VISUAL rubrics, REPAIR protocol |
-| [`references/visual-mode.md`](sk-prompt-improver/references/visual-mode.md) | v0.301 | Visual, MagicPath | Step 0 grounding, VIBE, category defaults, EVOKE, 5 platforms |
-| [`references/image-mode.md`](sk-prompt-improver/references/image-mode.md) | v0.123 | Image | FRAME, VISUAL image scoring, 9 platforms, anti-patterns |
-| [`references/video-mode.md`](sk-prompt-improver/references/video-mode.md) | v0.123 | Video | MOTION, VISUAL video scoring, anti-patterns |
-| [`assets/framework-pattern-library.md`](sk-prompt-improver/assets/framework-pattern-library.md) | v0.100 | Text routes, Framework | 11-framework matrix, selection algorithm, fusion patterns |
-| [`assets/format-guide-markdown.md`](sk-prompt-improver/assets/format-guide-markdown.md) | v0.141 | Text routes, `$markdown` | Header contract, RCAF and CRAFT in Markdown |
-| [`assets/format-guide-json.md`](sk-prompt-improver/assets/format-guide-json.md) | v0.142 | `$json` | Header contract, JSON syntax rules |
-| [`assets/format-guide-yaml.md`](sk-prompt-improver/assets/format-guide-yaml.md) | v0.142 | `$yaml` | Header contract, YAML syntax rules |
-| [`assets/visual-mode-library.md`](sk-prompt-improver/assets/visual-mode-library.md) | v0.110 | Visual, MagicPath | Vocabulary banks, 10 named style clichés, platform templates, MagicPath example |
-| [`assets/image-mode-library.md`](sk-prompt-improver/assets/image-mode-library.md) | v0.101 | Image | 30 FRAME sub-category banks, platform syntax, 7 worked examples |
-| [`assets/video-mode-library.md`](sk-prompt-improver/assets/video-mode-library.md) | v0.101 | Video | 10 platform profiles, mental models, audio syntax, 6 worked examples |
+The skill's 6 references and 7 assets each have a hand-written counterpart in `claude project/knowledge/` carrying the same version number. `references/depth-framework.md` and `references/interactive-mode.md` load on every request. The router loads the other 11 only when the route or the locked format calls for them.
 
 `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
 
@@ -1061,13 +777,11 @@ By hand. `SYNC.md` sets a four-step method: list each skill file against its Pro
 
 | What you see | Cause | Fix |
 |---|---|---|
-| A plain-language request gets a question instead of a mode | No router keyword matched. "design a fintech dashboard concept" has none, since the Visual keyword is "ui design" | Add the command, such as `$vibe`, or a keyword from the table in section 4 |
+| A plain-language request gets a question instead of a mode | No router keyword matched. "design a fintech dashboard concept" has none, since the Visual keyword is "ui design" | Add the command, such as `$vibe`, or a router keyword such as "ui design" |
 | The mode does not match your request | Another intent's keywords scored higher | Use an exact mode command, which always wins |
 | `$short $deep` gets a question back | Two different mode commands conflict | Send one mode command |
-| You asked for JSON or YAML in words and got Markdown | Only `$json`, `$j`, `$yaml` or `$y` lock a format | Add the format command |
 | `route_contract.py` ignores the `$short` at the start of a request | The shell expanded `$short` to nothing inside double quotes | Wrap the request in single quotes |
 | A JSON or YAML file contains Markdown syntax | The wrong format guide ran | Repeat the request with an explicit `$json` or `$yaml` |
-| A Visual brief scores zero | A grounding check failed | Name the subject, audience, single job and deliberate deviation |
 | A Video prompt fails its gate | Camera and subject motion are both missing | Add a camera move and an action verb |
 | A Flux or Imagen prompt has no negative prompt | Both platforms ignore negatives | Expected. State what to avoid as a positive description |
 | No path or score appears in CLI mode | The export did not verify | Treat the prompt as undelivered, check that `export/` is writable and rerun |
