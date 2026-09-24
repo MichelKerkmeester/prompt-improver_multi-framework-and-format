@@ -30,7 +30,7 @@ Built for any capable model in an agent CLI that reads `AGENTS.md`, and for clau
 - **Matches structure to task:** framework choice follows the intended outcome and complexity
 - **Makes quality visible:** mode-specific scores show whether a prompt clears its gate
 
----
+&nbsp;
 
 ## 2. 🎁 OVERVIEW
 
@@ -148,7 +148,7 @@ In a CLI, the prompt is saved to `export/` and checked before the response names
 - The full prompt never appears in chat once the export succeeds
 - A claude.ai Project returns a Deliverable Block with an export-equivalent path instead
 
----
+&nbsp;
 
 ## 3. 🚀 QUICK START
 
@@ -218,7 +218,7 @@ The Project package gives claude.ai the router, DEPTH rules and mode resources t
 
 The package contains 13 knowledge files. See [the Project README](claude%20project/README.md) for setup and its file list.
 
----
+&nbsp;
 
 ## 4. 🧭 MODES AND ROUTING
 
@@ -269,7 +269,7 @@ MagicPath signals take priority over general Visual terms. Platform and format r
 
 At 80% mode confidence or higher the router auto-selects and explains briefly. Between 50% and 79% it suggests a mode and asks for confirmation. Below 50% it asks one clarifying question, up to three attempts, then falls back to smart defaults with the assumptions flagged.
 
----
+&nbsp;
 
 ## 5. ⚡ DEPTH AND FRAMEWORKS
 
@@ -334,7 +334,7 @@ Standard energy needs at least three perspectives: Prompt Engineering, AI Interp
 
 A scoring failure triggers targeted revision. The normal repair limit is three cycles.
 
----
+&nbsp;
 
 ## 6. 🧾 OUTPUT FORMATS AND QUALITY GATES
 
@@ -432,7 +432,7 @@ format:
 
 Scoring detail and processing notes stay outside the saved prompt file.
 
----
+&nbsp;
 
 ## 7. 🎨 CREATIVE MODES
 
@@ -466,7 +466,7 @@ Camera or subject movement is required before a video prompt can pass. Platform 
 | Image | Subject, rendering choices, atmosphere and exclusions matched to platform syntax |
 | Video | A visual anchor, temporal progression and camera or subject movement |
 
----
+&nbsp;
 
 ## 8. 📤 EXPORT AND DELIVERY
 
@@ -508,7 +508,7 @@ The block carries the selected format and the prompt itself. Processing notes an
 
 Generated prompts stay local. The root `.gitignore` ignores everything in `export/` except `.gitkeep` and `export/benchmark/`.
 
----
+&nbsp;
 
 ## 9. 🧪 BENCHMARKS AND CHECKS
 
@@ -528,7 +528,7 @@ The router check covers exact-command routing, word-boundary keywords, independe
 
 `benchmark/parity/` and `benchmark/gates/` compare the Claude Project package against the skill sources. They call a shared sync toolkit that is not part of this repository, so they do not run from a clone.
 
----
+&nbsp;
 
 ## 10. 🗂️ REPOSITORY STRUCTURE
 
@@ -564,7 +564,7 @@ The repository separates the skill source, Project package, check scripts and lo
 
 `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
 
----
+&nbsp;
 
 ## 11. ❓ FAQ
 
@@ -596,7 +596,7 @@ No. Quick uses a shorter DEPTH flow, then applies its scorer and saves the promp
 
 It displays a Deliverable Block and an export-equivalent path because a Project has no filesystem export.
 
----
+&nbsp;
 
 ## 12. 🔧 TROUBLESHOOTING
 
@@ -611,7 +611,7 @@ It displays a Deliverable Block and an export-equivalent path because a Project 
 | The model answers the request instead of improving the prompt | The request read as a task, not a prompt | Rephrase as "write me a prompt that asks an AI to do X" |
 | `run_parity.sh` fails with a missing file | The parity scripts need a sync toolkit outside this repo | Use the router check, which runs standalone |
 
----
+&nbsp;
 
 ## 13. 📚 RELATED DOCUMENTS
 
