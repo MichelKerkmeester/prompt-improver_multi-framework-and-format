@@ -1,10 +1,10 @@
 # Prompt Improver - Multi-Framework & Format
 
+> Turns rough requests into structured, scored prompts for another AI to run.
+
 [![GitHub Stars](https://img.shields.io/github/stars/MichelKerkmeester/prompt-improver_multi-framework-and-format?style=for-the-badge&logo=github&color=fce566&labelColor=222222)](https://github.com/MichelKerkmeester/prompt-improver_multi-framework-and-format/stargazers)
 [![License](https://img.shields.io/github/license/MichelKerkmeester/prompt-improver_multi-framework-and-format?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/MichelKerkmeester/prompt-improver_multi-framework-and-format?style=for-the-badge&color=5ad4e6&labelColor=222222)](https://github.com/MichelKerkmeester/prompt-improver_multi-framework-and-format/commits/main)
-
-> Turns rough requests into structured, scored prompts for another AI to run.
 
 > Like it? > Please don't buy me unwanted coffee: https://buymeacoffee.com/michelkerkmeester
 
