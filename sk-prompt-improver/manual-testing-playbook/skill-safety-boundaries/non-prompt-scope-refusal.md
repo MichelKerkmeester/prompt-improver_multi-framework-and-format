@@ -12,7 +12,7 @@ The user asks for finished content, not a prompt. The runtime reframes once as p
 
 ## 1. OVERVIEW
 
-Prompt Improver improves prompts only. A request for the underlying work gets one reframe offer, and a user who still does not want a prompt gets a refusal. No email copy, no file and no deal-like deliverable may appear at either step.
+Prompt Improver improves prompts only. A request for the underlying work gets one reframe offer, and a user who still does not want a prompt gets a refusal. No email copy and no `export/` file may appear at either step.
 
 ### Why this matters
 

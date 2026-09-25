@@ -23,11 +23,11 @@ Creative modes carry two obligations beyond the Artifact: the correct scorer and
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify `$image` delivers a VISUAL-scored Canvas Artifact with the creative follow-up in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `I want a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
 - Prompt: `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
-- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, allow one conditional consolidated question and then inspect the Canvas Artifact and the chat report
-- Expected signals: The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the Deliverable Block renders as a Canvas Artifact and the chat reports the export-equivalent path and the score, then closes by inviting the user to share the generated result for refinement
+- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the Deliverable Block renders as a Canvas Artifact and the chat reports the export-equivalent path and the score, then closes by inviting the user to share the generated result for refinement
 - Desired user-visible outcome: One Artifact-first reply carrying the VISUAL score and the share-back invitation with no file claimed
 - Pass/fail: PASS if the Artifact holds the prompt, VISUAL ran and the follow-up invite appears. FAIL if CLEAR or EVOKE scored instead, the invite is missing, the prompt drops the named platform or a save is claimed
 
@@ -36,7 +36,7 @@ Creative modes carry two obligations beyond the Artifact: the correct scorer and
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | Bind Image at Creative energy, either deliver through a Canvas Artifact or ask at most one consolidated question | Midjourney target and cabin subject retained | Response transcript and Artifact panel state |
-| 2, only when Turn 1 asked a question | `Photorealistic style, landscape orientation.` | Complete the FRAME pass, render the Artifact and reply with the VISUAL score and follow-up invite | Style and orientation facts retained | Response, score line, Artifact excerpt |
+| 2 | `Photorealistic style, landscape orientation.` | When Turn 1 asked, complete the FRAME pass, render the Artifact and reply with the VISUAL score and follow-up invite. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may render a revised Deliverable Block or acknowledge the added context without one | Style and orientation facts retained | Response, score line, Artifact excerpt |
 
 ---
 
@@ -50,12 +50,12 @@ Creative modes carry two obligations beyond the Artifact: the correct scorer and
 
 1. `project: configure the Project with Custom Instructions pasted and the knowledge documents attached`
 2. `session: start fresh -> user: submit Turn 1 exactly`
-3. `operator: allow at most one question -> user: submit conditional Turn 2 when asked`
+3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same conversation`
 4. `artifact: read the Canvas Artifact -> operator: grade scorer, platform fit and follow-up`
 
 ### Expected
 
-Step 1 fixes the packaging under test. Step 2 binds the Image lane and either delivers or asks once. Step 3 completes delivery. Step 4 proves the Artifact holds the platform-aware prompt and the scorer was VISUAL.
+Step 1 fixes the packaging under test. Step 2 binds the Image lane and either delivers or asks once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the Artifact holds the platform-aware prompt and the scorer was VISUAL. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
 
 ### Evidence
 
@@ -69,13 +69,13 @@ Turn transcripts, the VISUAL score line with gate status, the Artifact panel sta
 
 ### Failure triage
 
-1. Check the Image lane binding and scorer map in `Custom Instructions.md` Mode Mapping
-2. Re-check FRAME and the VISUAL image rubric in the Image Mode knowledge doc and the Patterns and Evaluation knowledge doc
+1. Check the Image lane binding and scorer in the `Custom Instructions.md` Smart Routing detection table and the `SCORER` map in its router pseudocode
+2. Re-check FRAME and the VISUAL image rubric in `Prompt Improver - Image Mode.md` and `Prompt Improver - Patterns and Evaluation.md`
 3. Check the creative follow-up rule in `Custom Instructions.md` ALWAYS list when the invite is absent
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| PCR-001 | Image mode VISUAL gate and follow-up in the Project | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Allow one question` -> 4. `Read Artifact` | Step 1: packaging fixed. Step 2: Image bound. Step 3: delivery complete. Step 4: VISUAL verified | Transcripts, VISUAL line, panel state, Artifact excerpt, invite | PASS if Artifact, VISUAL and invite all hold. FAIL on wrong scorer, missing invite or dropped platform | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
+| PCR-001 | Image mode VISUAL gate and follow-up in the Project | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Read Artifact` | Step 1: packaging fixed. Step 2: Image bound. Step 3: delivery complete when Turn 1 asked. Step 4: VISUAL verified | Transcripts, VISUAL line, panel state, Artifact excerpt, invite | PASS if Artifact, VISUAL and invite all hold. FAIL on wrong scorer, missing invite or dropped platform | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
 
 ---
 

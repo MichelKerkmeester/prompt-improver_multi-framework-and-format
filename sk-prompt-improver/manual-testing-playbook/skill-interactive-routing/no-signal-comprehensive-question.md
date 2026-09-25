@@ -27,7 +27,7 @@ This is the most common way real users arrive. A runtime that guesses a lane or 
 - Real user request: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Prompt: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, confirm the single question and clean ledger, then submit Turn 2 and inspect the export
-- Expected signals: Turn 1 asks one consolidated question for the missing essentials and writes no file. Turn 2 supplies the prompt and context, and the runtime improves and exports it
+- Expected signals: Turn 1 asks one consolidated question for the missing essentials and writes no file. Turn 2 supplies the prompt and context, and the runtime improves it, passes CLEAR, saves the next `.md` export and replies path-first
 - Desired user-visible outcome: One question followed by a delivery built only on what the user supplied
 - Pass/fail: PASS if exactly one question fires, the runtime waits and Turn 2 facts drive the export. FAIL if it guesses a mode, asks several questions, answers its own question or writes before Turn 2
 

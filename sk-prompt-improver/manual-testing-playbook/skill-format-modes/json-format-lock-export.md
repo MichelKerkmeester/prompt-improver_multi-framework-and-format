@@ -12,7 +12,7 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-Mode and format are independent in the router. This scenario proves the split: `$improve` binds the Improve lane at Standard energy while `$json` locks the file to valid JSON. The export carries the `.json` extension, opens with the required `Mode: $json` header, the payload below it parses as JSON and the chat reports the token overhead.
+Mode and format are independent in the router. This scenario proves the split: `$improve` binds the Improve lane at Standard energy while `$json` locks the file to valid JSON. The export carries the `.json` extension, opens with the required single-line `Mode:` header, the payload below it parses as JSON and the chat reports the token overhead.
 
 ### Why this matters
 
@@ -26,17 +26,17 @@ If the format command competed for the primary route, `$improve $json` would col
 - Preconditions: SID-001 passed, a disposable copy of `AI Systems/Prompt Improver/` is prepared and the `export/` baseline is recorded
 - Real user request: `I want a sharper version of this prompt and I need the result in JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
-- Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, allow one conditional consolidated question and then inspect the reply and the saved `.json` file
-- Expected signals: The Improve lane binds at Standard energy, the format locks to JSON, the runtime saves `export/[###] - enhanced-*.json` with the single-line `Mode: $json` header followed by a payload that parses as valid JSON and the reply leads with the path, reports the CLEAR result and reports roughly five to ten percent token overhead
+- Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, submit Turn 2 in the same session whatever Turn 1 did and then inspect both replies and the saved `.json` file
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Improve lane binds at Standard energy, the format locks to JSON, the runtime saves `export/[###] - enhanced-*.json` with a single-line `Mode:` header carrying complexity and framework, followed by a payload that parses as valid JSON, and the reply leads with the path, reports the CLEAR result and reports roughly five to ten percent token overhead. The JSON format guide writes the header as `Mode: $json` while `SKILL.md` asks for the mode with its `$` prefix, so a header labelled `$json` or `$improve` both pass and only a missing header fails. The label used is recorded, and the source conflict is logged as a follow-up finding
 - Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header and a payload below it that parses cleanly
-- Pass/fail: PASS if the `.json` export carries the `Mode: $json` header and the payload below it parses, the format lock held and the overhead was reported. FAIL if the file is markdown, the header is missing, the payload is invalid JSON, the mode axis was stolen or the overhead is missing
+- Pass/fail: PASS if the `.json` export carries the single-line `Mode:` header and the payload below it parses, the format lock held and the overhead was reported. FAIL if the file is markdown, the header is missing, the payload is invalid JSON, the mode axis was stolen or the overhead is missing
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | Bind Improve, lock JSON, either deliver through a verified `.json` export or ask at most one consolidated question | Format locked to JSON regardless of any question | Response transcript and `export/` listing |
-| 2, only when Turn 1 asked a question | `Valid JSON only, the action items are for a project manager.` | Complete the enhancement, save the `.json` export and reply path-first | JSON lock retained and project-manager audience kept | Response, score line, parsed file excerpt |
+| 2 | `Valid JSON only, the action items are for a project manager.` | When Turn 1 asked, complete the enhancement, save the `.json` export and reply path-first. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may save a revised `.json` export under the next number or acknowledge the added context without a new file | JSON lock retained and project-manager audience kept | Response, score line, parsed file excerpt |
 
 ---
 
@@ -50,12 +50,12 @@ If the format command competed for the primary route, `$improve $json` would col
 
 1. `sandbox: copy "AI Systems/Prompt Improver/" and record the export/ baseline`
 2. `session: start fresh -> user: submit Turn 1 exactly`
-3. `operator: allow at most one question -> user: submit conditional Turn 2 when asked`
-4. `filesystem: check the Mode: $json header and parse the payload below it -> operator: grade format lock, syntax and overhead report`
+3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same session`
+4. `filesystem: check the single-line Mode: header and parse the payload below it -> operator: grade format lock, syntax and overhead report`
 
 ### Expected
 
-Step 1 fixes the baseline. Step 2 binds Improve and locks JSON, delivering or asking once. Step 3 completes delivery. Step 4 proves the header line exists and the payload below it parses as valid JSON.
+Step 1 fixes the baseline. Step 2 binds Improve and locks JSON, delivering or asking once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the header line exists and the payload below it parses as valid JSON. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
 
 ### Evidence
 
@@ -75,7 +75,7 @@ Turn transcripts, the CLEAR score line, `export/` listings before and after, a p
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| SFM-001 | Independent $json format lock | Verify format axis locks JSON while Improve binds mode | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Allow one question` -> 4. `Check header, parse payload` | Step 1: baseline known. Step 2: Improve bound, JSON locked. Step 3: delivery complete. Step 4: header and valid JSON payload | Transcripts, CLEAR line, export listings, parse result, overhead note | PASS if the .json header and payload are valid and the lock and overhead hold. FAIL on wrong format, missing header, invalid JSON or missing overhead | 1. Check format axis rule.<br>2. Check JSON format guide.<br>3. Check overhead rule. |
+| SFM-001 | Independent $json format lock | Verify format axis locks JSON while Improve binds mode | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Check header, parse payload` | Step 1: baseline known. Step 2: Improve bound, JSON locked. Step 3: delivery complete when Turn 1 asked. Step 4: header and valid JSON payload | Transcripts, CLEAR line, export listings, parse result, overhead note | PASS if the .json header and payload are valid and the lock and overhead hold. FAIL on wrong format, missing header, invalid JSON or missing overhead | 1. Check format axis rule.<br>2. Check JSON format guide.<br>3. Check overhead rule. |
 
 ---
 
