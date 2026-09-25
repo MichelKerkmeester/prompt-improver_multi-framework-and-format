@@ -11,7 +11,7 @@ This package turns the Prompt Improver contract into fourteen reproducible conve
 ### Result persistence
 
 <!-- MANUAL_PLAYBOOK_RESULT_PERSISTENCE_CONTRACT -->
-A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and reason are recorded into `sk-prompt-improver/benchmark/reports/<dated-run-label>/`. Skill-set outcomes are persisted by the canonical scenario-persistence wrapper named in the skill's result persistence contract. Project-set outcomes are recorded by the operator in the same run folder. `skill-benchmark-report.md` and any `results.md` or `report.md` output stay renderer-owned and are never hand-authored.
+A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and reason are recorded into `benchmark/reports/<dated-run-label>/`. Skill-set outcomes are persisted by the canonical scenario-persistence wrapper named in the skill's result persistence contract. Project-set outcomes are recorded by the operator in the same run folder. `skill-benchmark-report.md` and any `results.md` or `report.md` output stay renderer-owned and are never hand-authored.
 
 ---
 
@@ -58,7 +58,7 @@ Run every scenario against the real runtime. Do not mock responses.
 
 ### Two-runtime proof rule
 
-Each set opens with an identity handover (`SID-001` or `PID-001`) that every other scenario in that set names as a precondition. The handover passes when the delivery contract only that runtime sets holds. `SID-001` decides on a named export path that exists on disk, with its identity phrase recorded as supporting evidence. `PID-001` decides on the verbatim `Canvas Artifact` string plus the no-save Canvas contract. A reply that could have come from either runtime is a `FAIL`.
+Each set opens with an identity handover (`SID-001` or `PID-001`) that every other scenario in that set names as a precondition. The handover passes when the delivery contract only that runtime sets holds. `SID-001` decides on a named export path that exists on disk, with its identity phrase recorded as supporting evidence. `PID-001` decides on the verbatim `Canvas Artifact` string plus the no-save Canvas contract. A reply that could have come from either runtime is a `FAIL`. A failed handover does not stop its set: every scenario is still graded, and the failure is stated at the top of the run report, before any other result. A scenario whose precondition says its handover passed reads, in an automated run, as the handover having run first in its own session. Its verdict gates nothing.
 
 ### No-feature-catalog exception
 
