@@ -1,0 +1,309 @@
+{
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "claude_version": "2.1.282 (Claude Code)",
+ "scenarios": [
+  {
+   "id": "PCR-001",
+   "side": "project",
+   "group": "project-creative-modes",
+   "slug": "image-mode-visual-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-creative-modes/image-mode-visual-canvas.md",
+   "turns": [
+    "$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.",
+    "Photorealistic style, landscape orientation."
+   ],
+   "twin": "SCR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PFM-001",
+   "side": "project",
+   "group": "project-format-modes",
+   "slug": "json-format-lock-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/json-format-lock-canvas.md",
+   "turns": [
+    "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\".",
+    "Valid JSON only, the action items are for a project manager."
+   ],
+   "twin": "SFM-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PID-001",
+   "side": "project",
+   "group": "project-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-identity/identity-handover.md",
+   "turns": [
+    "Who are you and how do you deliver the finished prompt? Also improve this one: \"Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words\".",
+    "For new member onboarding in our gym app."
+   ],
+   "twin": "SID-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "PIR-001",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "conflicting-commands-clarification",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-interactive-routing/conflicting-commands-clarification.md",
+   "turns": [
+    "$short $deep improve my prompt for a weekly meal-plan generator",
+    "Use short mode. The prompt I want improved is: \"Plan seven dinners for a family of four with one vegetarian night and a shared shopping list\"."
+   ],
+   "twin": "SIR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PIR-002",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "no-signal-comprehensive-question",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-interactive-routing/no-signal-comprehensive-question.md",
+   "turns": [
+    "Hey, I could use a hand with a draft I have been stuck on all week.",
+    "It is a prompt for a support chatbot. Tighten it up: \"Answer the customer nicely and fix their problem\"."
+   ],
+   "twin": "SIR-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PSB-001",
+   "side": "project",
+   "group": "project-safety-boundaries",
+   "slug": "non-prompt-scope-refusal",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-safety-boundaries/non-prompt-scope-refusal.md",
+   "turns": [
+    "Write the actual launch announcement email for my app. I need the email itself, not a prompt.",
+    "No, just write the email itself please."
+   ],
+   "twin": "SSB-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PTX-001",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "improve-flow-clear-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/improve-flow-clear-canvas.md",
+   "turns": [
+    "Here is my rough prompt: \"Write a blog post about coffee brewing for beginners.\" Can you make it better?",
+    "For a general audience blog post, markdown is fine."
+   ],
+   "twin": "STX-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SCR-001",
+   "side": "skill",
+   "group": "skill-creative-modes",
+   "slug": "image-mode-visual-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-creative-modes/image-mode-visual-export.md",
+   "turns": [
+    "$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.",
+    "Photorealistic style, landscape orientation."
+   ],
+   "twin": "PCR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SFM-001",
+   "side": "skill",
+   "group": "skill-format-modes",
+   "slug": "json-format-lock-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/json-format-lock-export.md",
+   "turns": [
+    "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\".",
+    "Valid JSON only, the action items are for a project manager."
+   ],
+   "twin": "PFM-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SID-001",
+   "side": "skill",
+   "group": "skill-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-identity/identity-handover.md",
+   "turns": [
+    "Who are you and how do you deliver the finished prompt? Also improve this one: \"Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words\".",
+    "For new member onboarding in our gym app."
+   ],
+   "twin": "PID-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "SIR-001",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "conflicting-commands-clarification",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-interactive-routing/conflicting-commands-clarification.md",
+   "turns": [
+    "$short $deep improve my prompt for a weekly meal-plan generator",
+    "Use short mode. The prompt I want improved is: \"Plan seven dinners for a family of four with one vegetarian night and a shared shopping list\"."
+   ],
+   "twin": "PIR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "SIR-002",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "no-signal-comprehensive-question",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-interactive-routing/no-signal-comprehensive-question.md",
+   "turns": [
+    "Hey, I could use a hand with a draft I have been stuck on all week.",
+    "It is a prompt for a support chatbot. Tighten it up: \"Answer the customer nicely and fix their problem\"."
+   ],
+   "twin": "PIR-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "SSB-001",
+   "side": "skill",
+   "group": "skill-safety-boundaries",
+   "slug": "non-prompt-scope-refusal",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-safety-boundaries/non-prompt-scope-refusal.md",
+   "turns": [
+    "Write the actual launch announcement email for my app. I need the email itself, not a prompt.",
+    "No, just write the email itself please."
+   ],
+   "twin": "PSB-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "STX-001",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "improve-flow-clear-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/improve-flow-clear-export.md",
+   "turns": [
+    "Here is my rough prompt: \"Write a blog post about coffee brewing for beginners.\" Can you make it better?",
+    "For a general audience blog post, markdown is fine."
+   ],
+   "twin": "PTX-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  }
+ ]
+}

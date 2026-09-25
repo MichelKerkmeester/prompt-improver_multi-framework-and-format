@@ -1,0 +1,84 @@
+{
+ "id": "PCR-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-creative-modes/image-mode-visual-canvas.md",
+ "twin": "SCR-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "5537a3eb-275a-4cd6-adc6-6ee32e123683",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.7,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 105089,
+   "output_tokens": 2605,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3041106,
+   "model_s": 23.88,
+   "startup_s": 0.59,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 12.59,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 81421,
+   "output_tokens": 1422,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3416978,
+   "model_s": 11.58,
+   "startup_s": 0.57,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Photorealistic style, landscape orientation."
+  }
+ ]
+}

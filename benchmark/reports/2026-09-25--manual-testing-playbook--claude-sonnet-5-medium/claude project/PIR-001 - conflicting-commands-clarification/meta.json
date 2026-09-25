@@ -1,0 +1,87 @@
+{
+ "id": "PIR-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-interactive-routing/conflicting-commands-clarification.md",
+ "twin": "SIR-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "79cb12e1-6fb0-4f1c-8b8c-83930405affe",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.68,
+   "tool_calls": 3,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read"
+   ],
+   "input_tokens": 49312,
+   "output_tokens": 695,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.0624194,
+   "model_s": 7.65,
+   "startup_s": 0.65,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$short $deep improve my prompt for a weekly meal-plan generator"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.31,
+   "tool_calls": 5,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 113532,
+   "output_tokens": 2856,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.2675244,
+   "model_s": 27.47,
+   "startup_s": 0.62,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use short mode. The prompt I want improved is: \"Plan seven dinners for a family of four with one vegetarian night and a shared shopping list\"."
+  }
+ ]
+}
