@@ -1,0 +1,29 @@
+file,clean,hard_violations,violations,confidence
+PCR-001-turn1.txt,True,0,none,medium
+PCR-001-turn2.txt,True,0,none,medium
+PFM-001-turn1.txt,True,0,none,medium
+PFM-001-turn2.txt,True,0,none,medium
+PID-001-turn1.txt,True,0,none,medium
+PID-001-turn2.txt,True,0,none,medium
+PIR-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+PIR-001-turn2.txt,True,0,none,medium
+PIR-002-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+PIR-002-turn2.txt,True,0,none,medium
+PSB-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+PSB-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+PTX-001-turn1.txt,False,1,attestation_missingx1,medium
+PTX-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SCR-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SCR-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFM-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFM-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SID-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SID-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SIR-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SIR-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SIR-002-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SIR-002-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+SSB-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SSB-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low
+STX-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+STX-001-turn2.txt,False,2,"attestation_missingx1, header_missingx1",low

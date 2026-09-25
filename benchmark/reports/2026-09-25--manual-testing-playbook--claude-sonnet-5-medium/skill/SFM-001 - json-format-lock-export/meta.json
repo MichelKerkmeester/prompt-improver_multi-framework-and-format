@@ -1,0 +1,101 @@
+{
+ "id": "SFM-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/json-format-lock-export.md",
+ "twin": "PFM-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "aae0f039-e650-4d35-b9ed-359f7fcd1aa1",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-meeting-transcript-action-items-prompt.json",
+   "export/002 - enhanced-meeting-transcript-action-items-pm-prompt.json"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 43.04,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Glob",
+    "Read",
+    "Read",
+    "Grep",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 338689,
+   "output_tokens": 4754,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3626072,
+   "model_s": 42.03,
+   "startup_s": 0.55,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-meeting-transcript-action-items-prompt.json"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\"."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 21.12,
+   "tool_calls": 2,
+   "tools_used": [
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 148174,
+   "output_tokens": 2531,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.42879960000000006,
+   "model_s": 20.25,
+   "startup_s": 0.58,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - enhanced-meeting-transcript-action-items-pm-prompt.json"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Valid JSON only, the action items are for a project manager."
+  }
+ ]
+}

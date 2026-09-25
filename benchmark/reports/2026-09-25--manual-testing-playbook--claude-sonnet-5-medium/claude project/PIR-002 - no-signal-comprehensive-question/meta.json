@@ -1,0 +1,85 @@
+{
+ "id": "PIR-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-interactive-routing/no-signal-comprehensive-question.md",
+ "twin": "SIR-002",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "bc883d28-9058-4e9d-bca2-b0bf88a2a3c6",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.95,
+   "tool_calls": 3,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 61201,
+   "output_tokens": 688,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.10916819999999999,
+   "model_s": 6.81,
+   "startup_s": 0.62,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Hey, I could use a hand with a draft I have been stuck on all week."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.15,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 100291,
+   "output_tokens": 2530,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.2638558,
+   "model_s": 23.28,
+   "startup_s": 0.61,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It is a prompt for a support chatbot. Tighten it up: \"Answer the customer nicely and fix their problem\"."
+  }
+ ]
+}

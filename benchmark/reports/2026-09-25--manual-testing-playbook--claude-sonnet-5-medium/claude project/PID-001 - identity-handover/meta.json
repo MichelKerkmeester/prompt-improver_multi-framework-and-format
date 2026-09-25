@@ -1,0 +1,84 @@
+{
+ "id": "PID-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-identity/identity-handover.md",
+ "twin": "SID-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "07af8aa6-e8bf-4ef9-8c86-cd1aa1977b13",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 31.45,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 89422,
+   "output_tokens": 3159,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.282752,
+   "model_s": 30.63,
+   "startup_s": 0.54,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Who are you and how do you deliver the finished prompt? Also improve this one: \"Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words\"."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 12.98,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 65998,
+   "output_tokens": 1303,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3173566,
+   "model_s": 11.83,
+   "startup_s": 0.63,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "For new member onboarding in our gym app."
+  }
+ ]
+}
