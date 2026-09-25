@@ -23,7 +23,7 @@ This is the identity boundary in `Custom Instructions.md` section 1 and the NEVE
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify a direct content request is reframed once and then refused without content or Artifact in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Prompt: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, confirm the reframe and the absent Artifact, then submit Turn 2 and confirm the refusal holds

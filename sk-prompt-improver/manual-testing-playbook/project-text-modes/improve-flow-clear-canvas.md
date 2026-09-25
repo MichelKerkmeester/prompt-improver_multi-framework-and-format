@@ -23,11 +23,11 @@ This is the delivery shape most Project users see first: Artifact first, then th
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify the natural-language improve flow delivers a CLEAR-gated Canvas Artifact in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?`
 - Prompt: `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?`
-- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, allow one conditional consolidated question and then inspect the Canvas Artifact and the chat report
-- Expected signals: The runtime improves at Standard energy, applies CLEAR with its 40 of 50 pass threshold and dimension floors, renders the Deliverable Block as a Canvas Artifact before commentary and the chat reports the export-equivalent path with the `[###]` placeholder, the score and a two to three sentence summary without pasting the prompt again
+- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The runtime improves at Standard energy, applies CLEAR with its 40 of 50 pass threshold and dimension floors, renders the Deliverable Block as a Canvas Artifact before commentary and the chat reports the export-equivalent path with the `[###]` placeholder, the score and a two to three sentence summary without pasting the prompt again. The block starts at its header line, the `Mode: $[mode] | Complexity: [level] | Framework: [Framework]` line of the kernel's Delivery Protocol template. Any text before that line counts as commentary before the block, a heading or a note about the environment included, while a code fence or bold markup around the header does not. A bold transparency line that opens with `Mode:` but lacks `Complexity:` and `Framework:` on the same line is commentary, not the header. A guessed number in place of `[###]` is recorded and does not decide the run, unless the reply presents it as a saved file
 - Desired user-visible outcome: One Artifact-first reply whose block reads back as a better version of the supplied prompt and whose chat claims no file was written
 - Pass/fail: PASS if the Artifact holds the enhanced prompt, the CLEAR gate ran and the chat shape holds. FAIL if commentary precedes the block, the full prompt is pasted again, the score is absent, a save is claimed or requirements were invented
 
@@ -36,7 +36,7 @@ This is the delivery shape most Project users see first: Artifact first, then th
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?` | Bind the text lane, either deliver through a Canvas Artifact or ask at most one consolidated question | No more than one question and no Artifact before it is answered | Response transcript and Artifact panel state |
-| 2, only when Turn 1 asked a question | `For a general audience blog post, markdown is fine.` | Complete the enhancement, render the Artifact and reply with the export-equivalent path | Coffee subject and general-audience intent retained | Response, score line, Artifact excerpt |
+| 2 | `For a general audience blog post, markdown is fine.` | When Turn 1 asked, complete the enhancement, render the Artifact and reply with the export-equivalent path. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may render a revised Deliverable Block or acknowledge the added context without one | Coffee subject and general-audience intent retained | Response, score line, Artifact excerpt |
 
 ---
 
@@ -50,12 +50,12 @@ This is the delivery shape most Project users see first: Artifact first, then th
 
 1. `project: configure the Project with Custom Instructions pasted and the knowledge documents attached`
 2. `session: start fresh -> user: submit Turn 1 exactly`
-3. `operator: allow at most one question -> user: submit conditional Turn 2 when asked`
+3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same conversation`
 4. `artifact: read the Canvas Artifact -> operator: grade gate, chat shape and no-save report`
 
 ### Expected
 
-Step 1 fixes the packaging under test. Step 2 binds the text lane and either delivers or asks once. Step 3 completes delivery. Step 4 proves the Artifact holds the enhanced prompt and the chat honors the delivery contract.
+Step 1 fixes the packaging under test. Step 2 binds the text lane and either delivers or asks once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the Artifact holds the enhanced prompt and the chat honors the delivery contract. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
 
 ### Evidence
 
@@ -70,12 +70,12 @@ Turn transcripts, the CLEAR score line with gate status, the Artifact panel stat
 ### Failure triage
 
 1. Check the Delivery Protocol in `Custom Instructions.md` section 6 against the observed ordering
-2. Re-check the CLEAR thresholds and floors in the Patterns and Evaluation knowledge doc when the score is missing or off
+2. Re-check the CLEAR thresholds and floors in `Prompt Improver - Patterns and Evaluation.md` when the score is missing or off
 3. Compare the Artifact body with the supplied prompt to catch scope expansion
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| PTX-001 | Natural-language improve with CLEAR and Canvas | Verify plain-word improve delivers a gated Canvas Artifact | `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Allow one question` -> 4. `Read Artifact` | Step 1: packaging fixed. Step 2: text lane bound. Step 3: delivery complete. Step 4: Artifact verified | Transcripts, CLEAR line, panel state, Artifact excerpt | PASS if Artifact, gate and chat shape all hold. FAIL on inline-only delivery, pasted prompt, missing score or invented scope | 1. Check delivery ordering.<br>2. Check CLEAR thresholds.<br>3. Check Artifact against supplied prompt. |
+| PTX-001 | Natural-language improve with CLEAR and Canvas | Verify plain-word improve delivers a gated Canvas Artifact | `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Read Artifact` | Step 1: packaging fixed. Step 2: text lane bound. Step 3: delivery complete when Turn 1 asked. Step 4: Artifact verified | Transcripts, CLEAR line, panel state, Artifact excerpt | PASS if Artifact, gate and chat shape all hold. FAIL on commentary before the block, inline-only delivery, pasted prompt, missing score, a claimed save or invented scope | 1. Check delivery ordering.<br>2. Check CLEAR thresholds.<br>3. Check Artifact against supplied prompt. |
 
 ---
 
