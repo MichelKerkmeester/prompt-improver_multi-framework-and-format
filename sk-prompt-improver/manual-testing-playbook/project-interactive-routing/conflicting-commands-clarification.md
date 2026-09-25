@@ -23,7 +23,7 @@ A silent pick would choose the user's DEPTH energy for them. If the Project quie
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify conflicting mode commands produce one clarifying question and no silent resolution in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `I want to improve my prompt for a weekly meal-plan generator, and I keep going back and forth on whether a quick pass or a deep rewrite would serve me better.`
 - Prompt: `$short $deep improve my prompt for a weekly meal-plan generator`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, confirm the question and the absent Artifact, then submit Turn 2 with the source prompt and inspect the Canvas delivery
@@ -70,7 +70,7 @@ Both turn transcripts, the Artifact panel state showing nothing rendered on Turn
 ### Failure triage
 
 1. Check the conflict rule in `Custom Instructions.md` Smart Routing and the Interactive fallback
-2. Compare the Turn 1 reply with the one-question flow in the Interactive Mode knowledge doc
+2. Compare the Turn 1 reply with the question flow in `Prompt Improver - Interactive Mode.md`, the knowledge document the kernel names for it
 3. Reconcile the final response with the Artifact content and the reported CLEAR score
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

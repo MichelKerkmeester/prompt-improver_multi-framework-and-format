@@ -23,7 +23,7 @@ This is the most common way real users arrive. A runtime that guesses a lane or 
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify the no-command, no-keyword request produces exactly one comprehensive question and a wait in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Prompt: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, confirm the single question and the absent Artifact, then submit Turn 2 and inspect the Canvas delivery
@@ -69,8 +69,8 @@ Both turn transcripts, the Artifact panel state showing nothing rendered on Turn
 
 ### Failure triage
 
-1. Check the no-signal fallback in `Custom Instructions.md` Smart Routing phase detection
-2. Compare the Turn 1 reply with the comprehensive-question contract in the Interactive Mode knowledge doc
+1. Check the no-signal row in the `Custom Instructions.md` Smart Routing detection table and the disambiguation rule its Phase Detection pointer sends to `Prompt Improver - Interactive Mode.md`
+2. Compare the Turn 1 reply with the comprehensive-question contract in `Prompt Improver - Interactive Mode.md`
 3. Reconcile the Artifact content with Turn 2 facts to catch invented requirements
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

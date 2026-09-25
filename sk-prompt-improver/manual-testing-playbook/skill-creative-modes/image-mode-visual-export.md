@@ -26,8 +26,8 @@ Creative modes carry two obligations beyond the export: the correct scorer and t
 - Preconditions: SID-001 passed, a disposable copy of `AI Systems/Prompt Improver/` is prepared and the `export/` baseline is recorded
 - Real user request: `I want a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
 - Prompt: `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
-- Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, allow one conditional consolidated question and then inspect the reply and the saved `.md` file
-- Expected signals: The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the runtime saves `export/[###] - enhanced-*.md` and the reply leads with the path, reports the score and closes by inviting the user to share the generated result for refinement
+- Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, submit Turn 2 in the same session whatever Turn 1 did and then inspect both replies and the saved `.md` file
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the runtime saves `export/[###] - enhanced-*.md` and the reply leads with the path, reports the score and closes by inviting the user to share the generated result for refinement
 - Desired user-visible outcome: One path-first reply carrying the VISUAL score and the share-back invitation
 - Pass/fail: PASS if the export exists, VISUAL ran and the follow-up invite appears. FAIL if CLEAR or EVOKE scored instead, the invite is missing, the prompt drops the named platform or the path does not match disk
 
@@ -36,7 +36,7 @@ Creative modes carry two obligations beyond the export: the correct scorer and t
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | Bind Image at Creative energy, either deliver through a verified `.md` export or ask at most one consolidated question | Midjourney target and cabin subject retained | Response transcript and `export/` listing |
-| 2, only when Turn 1 asked a question | `Photorealistic style, landscape orientation.` | Complete the FRAME pass, save the export and reply path-first with the VISUAL score and follow-up invite | Style and orientation facts retained | Response, score line, export excerpt |
+| 2 | `Photorealistic style, landscape orientation.` | When Turn 1 asked, complete the FRAME pass, save the export and reply path-first with the VISUAL score and follow-up invite. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may save a revised export under the next number or acknowledge the added context without a new file | Style and orientation facts retained | Response, score line, export excerpt |
 
 ---
 
@@ -50,12 +50,12 @@ Creative modes carry two obligations beyond the export: the correct scorer and t
 
 1. `sandbox: copy "AI Systems/Prompt Improver/" and record the export/ baseline`
 2. `session: start fresh -> user: submit Turn 1 exactly`
-3. `operator: allow at most one question -> user: submit conditional Turn 2 when asked`
+3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same session`
 4. `filesystem: read the saved .md export -> operator: grade scorer, platform fit and follow-up`
 
 ### Expected
 
-Step 1 fixes the baseline. Step 2 binds the Image lane and either delivers or asks once. Step 3 completes delivery. Step 4 proves the file exists and the scorer was VISUAL.
+Step 1 fixes the baseline. Step 2 binds the Image lane and either delivers or asks once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the file exists and the scorer was VISUAL. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
 
 ### Evidence
 
@@ -75,7 +75,7 @@ Turn transcripts, the VISUAL score line with gate status, `export/` listings bef
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| SCR-001 | Image mode VISUAL gate and follow-up | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Allow one question` -> 4. `Read saved export` | Step 1: baseline known. Step 2: Image bound. Step 3: delivery complete. Step 4: VISUAL verified | Transcripts, VISUAL line, export listings, file excerpt, invite | PASS if export, VISUAL and invite all hold. FAIL on wrong scorer, missing invite or dropped platform | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
+| SCR-001 | Image mode VISUAL gate and follow-up | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Read saved export` | Step 1: baseline known. Step 2: Image bound. Step 3: delivery complete when Turn 1 asked. Step 4: VISUAL verified | Transcripts, VISUAL line, export listings, file excerpt, invite | PASS if export, VISUAL and invite all hold. FAIL on wrong scorer, missing invite or dropped platform | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
 
 ---
 
