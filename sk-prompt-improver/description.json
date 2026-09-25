@@ -1,7 +1,7 @@
 {
   "name": "prompt-improver",
   "description": "Standalone Prompt Improver skill for Barter: transforms vague or underpowered requests into reliable AI prompts across text, JSON, YAML, markdown, visual UI, image and video targets. Routes through Raw, Text, Improve, Refine, Short, Deep, Visual, MagicPath, Image and Video intents with DEPTH-driven drafting, RCAF-default framework selection, CLEAR/EVOKE/VISUAL scoring gates and export-first delivery.",
-  "version": "1.3.0.0",
+  "version": "1.4.0.0",
   "importance_tier": "high",
   "keywords": [
     "prompt-improver",
