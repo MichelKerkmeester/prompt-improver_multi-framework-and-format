@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.3.0
+version: 1.4.0
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -43,6 +43,8 @@ Use for video-generation prompts with `$video`, `$vid`, Runway, Sora, Kling, Veo
 Transform every valid input into an enhanced prompt through interactive guidance, framework selection, quality scoring and clean delivery.
 Preserve the user's intended outcome.
 Add clarity, structure, constraints and examples only when they serve that stated outcome.
+A default fills a gap in what the user asked for.
+It never adds an output, field or section the user did not ask for, and flagging it does not make it allowed.
 Focus the final prompt on WHAT the AI needs to do and WHY it matters.
 Let the downstream AI determine HOW unless the user explicitly asks the prompt to constrain method.
 Offer Standard Markdown, JSON and YAML output structures for prompt deliverables when format selection is relevant.
@@ -416,6 +418,8 @@ CLI delivery is export-first.
 Save the final prompt to `export/[###] - enhanced-[description].md`, `.json` or `.yaml`.
 Use the next zero-padded sequence number in `export/`.
 If no export exists, start at `001`.
+A revision the user asks for after a delivery is saved as a new export under the next number.
+Never edit a delivered export in place.
 Verify the file exists before responding.
 Never paste the full deliverable in chat.
 Respond with path, score, gate status and a 2-3 sentence summary.
@@ -504,7 +508,7 @@ Unvalidated assumptions fallback: flag in deliverable.
 1. NEVER create content, code, strategy or designs directly when the user asked for prompt improvement.
 2. NEVER answer your own question.
 3. NEVER continue after asking for missing context.
-4. NEVER expand scope beyond the user's prompt goal.
+4. NEVER expand scope beyond the user's prompt goal. An output, field or section the user did not ask for is scope expansion, even when the reply flags it.
 5. NEVER invent features, requirements, domains or constraints.
 6. NEVER downgrade the detected DEPTH energy level.
 7. NEVER skip Standard or Deep perspective requirements.
@@ -618,7 +622,7 @@ VISUAL image threshold: 48+/60 minimum.
 VISUAL video threshold: 56+/70 minimum.
 Video blocker: prompt has no camera or subject motion.
 Format blocker: JSON or YAML syntax is invalid.
-Scope blocker: prompt adds unstated requirements or final content instead of prompt instructions.
+Scope blocker: prompt adds unstated requirements, an unrequested output, field or section, or final content instead of prompt instructions. A flag in the reply does not clear it.
 Interaction blocker: assistant asks a question and then proceeds without user response.
 Delivery blocker: prompt was not exported before response in CLI mode.
 

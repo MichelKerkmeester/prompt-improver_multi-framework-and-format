@@ -6,7 +6,7 @@ Hand-maintained local package for the Prompt Improver claude.ai Project. The ker
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- full synthesized Project kernel v1.4.7, Skill v1.3.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
+|-- Custom Instructions.md        <- full synthesized Project kernel v1.5.0, Skill v1.4.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
 |-- README.md                     <- this manifest and sync contract
 `-- knowledge/                    <- upload every file below as Project Knowledge
     |-- Prompt Improver - DEPTH Thinking Framework - v0.200.md
@@ -26,7 +26,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.4.7, aligned to **Prompt Improver Skill v1.3.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
+`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.5.0, aligned to **Prompt Improver Skill v1.4.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
 
 CLI-only mechanics are removed or adapted: filesystem export becomes the **Deliverable Block**, direct file loading becomes Project Knowledge consultation and `export/[###] - enhanced-[description].[md|json|yaml]` is reported as an export-equivalent path.
 
