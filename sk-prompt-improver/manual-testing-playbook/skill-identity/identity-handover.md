@@ -1,7 +1,7 @@
 ---
 title: "SID-001 -- Identity handover and file delivery"
 description: "Validates that the skill runtime delivers through a real export file it wrote and supports the split with its AGENTS.md identity phrase."
-version: 1.0.0.0
+version: 1.1.0.0
 ---
 
 # SID-001 -- Identity handover and file delivery
@@ -44,16 +44,16 @@ A re-run shows the positive-count greps exit 0 and the zero-count greps exit 1.
 - Real user request: `Who are you and how do you deliver the finished prompt? Also improve this one: "Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words".`
 - Prompt: `Who are you and how do you deliver the finished prompt? Also improve this one: "Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words".`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, submit Turn 2 in the same session whatever Turn 1 did and then inspect both replies and `export/`
-- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. It names a saved path matching `export/[###] - enhanced-*.md` and that file exists with a single-line header plus the enhanced prompt. No reply claims it delivers through a Canvas Artifact or that no file was written. `AGENTS.md` section 2 asks the chat reply to start with the saved path, and no rule says where the answer to a non-prompt question goes on a mixed request, so an identity answer placed before the path is recorded as an ordering note and does not decide this handover. `underpowered requests into clear` is recorded as supporting evidence when the reply carries it, and a paraphrase is recorded without failing the run
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. It names a saved path matching `export/[###] - enhanced-*.md` and that file exists with a single-line header plus the enhanced prompt. No reply claims it delivers through a Canvas Artifact or that no file was written. `AGENTS.md` section 2 asks the chat reply to start with the saved path, and no rule says where the answer to a non-prompt question goes on a mixed request, so an identity answer placed before the path is recorded as an ordering note and does not decide this handover. `underpowered requests into clear` is recorded as supporting evidence when the reply carries it, and a paraphrase is recorded without failing the run. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It saves as a new `export/[###]` file and never edits the delivered export in place (`SKILL.md` lines 421 to 422, `AGENTS.md` line 70). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
 - Desired user-visible outcome: An identity answer plus a path-first delivery only the skill runtime can produce
-- Pass/fail: PASS if the named path exists on disk with valid content and the reply carries no Project-only delivery claim. FAIL if the path does not exist, the reply claims no file was written, or the reply could have come from either runtime. A paraphrased identity phrase is supporting evidence, not a deciding failure
+- Pass/fail: PASS if the named path exists on disk with valid content and the reply carries no Project-only delivery claim. FAIL if the path does not exist, the reply claims no file was written, the prompt carries scope expansion, the reply could have come from either runtime or a revision edits the delivered export in place. A paraphrased identity phrase is supporting evidence, not a deciding failure. A summary outside the two to three sentence band is recorded and never decides the verdict
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `Who are you and how do you deliver the finished prompt? Also improve this one: "Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words".` | Answer the identity question and either deliver through a verified export or ask at most one consolidated question | No file exists before any needed answer, and the identity phrase is recorded for support | Response transcript and `export/` listing |
-| 2 | `For new member onboarding in our gym app.` | When Turn 1 asked, deliver the enhanced prompt, save the next `export/` file and reply path-first. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may save a revised export under the next number or acknowledge the added context without a new file | Every named file exists and matches its reply | Export excerpt and side-effect ledger |
+| 2 | `For new member onboarding in our gym app.` | When Turn 1 asked, deliver the enhanced prompt, save the next `export/` file and reply path-first. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may save the revision as a new export under the next number, never as an edit to the delivered export in place, or acknowledge the added context without a new file | Every named file exists and matches its reply | Export excerpt and side-effect ledger |
 
 ---
 
@@ -72,7 +72,7 @@ A re-run shows the positive-count greps exit 0 and the zero-count greps exit 1.
 
 ### Expected
 
-Step 1 fixes the side-effect baseline. Step 2 returns the identity answer plus delivery or one allowed question. Step 3 completes the delivery when Turn 1 asked. Step 4 proves the named file exists on disk, which is the deciding signal. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
+Step 1 fixes the side-effect baseline. Step 2 returns the identity answer plus delivery or one consolidated question. Step 3 completes the delivery when Turn 1 asked. Step 4 proves the named file exists on disk, which is the deciding signal. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists and for the revision rule, so a Turn 1 export edited in place fails the run.
 
 ### Evidence
 
@@ -80,8 +80,8 @@ Turn transcripts, the identity line or its paraphrase, `export/` listings before
 
 ### Pass / fail
 
-- **Pass**: The named export path exists with valid content and no Project-only delivery claim appears, with any identity phrase recorded as support
-- **Fail**: The named path is absent, the reply claims no file was written or the reply could have come from either runtime
+- **Pass**: The named export path exists with valid content and no Project-only delivery claim appears, with any identity phrase recorded as support. A summary outside the two to three sentence band is recorded and never decides the verdict
+- **Fail**: The named path is absent, the reply claims no file was written, the prompt carries scope expansion, the reply could have come from either runtime or a delivered export was edited in place
 - **Skip**: only when a named sandbox blocker prevents creating the disposable copy or the session
 
 ### Failure triage
@@ -92,7 +92,7 @@ Turn transcripts, the identity line or its paraphrase, `export/` listings before
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| SID-001 | Identity handover and file delivery | Verify a real export path with the identity phrase as support | `Who are you and how do you deliver the finished prompt? Also improve this one: "Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words".` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Record identity phrase, submit Turn 2` -> 4. `Read named export` | Step 1: baseline known. Step 2: identity phrase recorded. Step 3: delivery on the first delivering turn. Step 4: file exists | Transcripts, identity phrase, export listings, file excerpt | PASS if the real path exists and no Project-only claim appears. FAIL on a missing file, a no-save claim or an either-runtime reply | 1. Compare quoted role with both identity files.<br>2. Re-check export protocol.<br>3. Re-check session bootstrap. |
+| SID-001 | Identity handover and file delivery | Verify a real export path with the identity phrase as support | `Who are you and how do you deliver the finished prompt? Also improve this one: "Write a welcome email for new gym members that mentions the free trial week and the class schedule, friendly and under 120 words".` | 1. `Record export baseline` -> 2. `Submit Turn 1 fresh` -> 3. `Record identity phrase, submit Turn 2` -> 4. `Read named export` | Step 1: baseline known. Step 2: identity phrase recorded. Step 3: delivery on the first delivering turn. Step 4: file exists | Transcripts, identity phrase, export listings, file excerpt | PASS if the real path exists and no Project-only claim appears. FAIL on a missing file, a no-save claim, an either-runtime reply or an export edited in place. The summary band never decides the verdict | 1. Compare quoted role with both identity files.<br>2. Re-check export protocol.<br>3. Re-check session bootstrap. |
 
 ---
 

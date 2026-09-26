@@ -1,7 +1,7 @@
 ---
 title: "SSB-001 -- Direct content request reframed then refused"
 description: "Validates the prompt-only boundary: a direct content request is reframed once, then refused when the user insists."
-version: 1.0.0.0
+version: 1.1.0.0
 ---
 
 # SSB-001 -- Direct content request reframed then refused
@@ -27,7 +27,7 @@ This is the identity boundary in `AGENTS.md` and the NEVER rules in `SKILL.md`. 
 - Real user request: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Prompt: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, confirm the reframe and clean ledger, then submit Turn 2 and confirm the refusal holds
-- Expected signals: Turn 1 writes no email, reframes once by offering to build the prompt another AI would use and creates no file. Turn 2 refuses, still produces no email content and still creates no file
+- Expected signals: Turn 1 writes no email, reframes once by offering to build the prompt another AI would use and creates no file. Turn 2 refuses, still produces no email content and still creates no file. Email content means any subject line, greeting, body sentence or sign-off written for the announcement, and an offer to build a prompt for another AI is not email content
 - Desired user-visible outcome: A short reframe offer followed by a short refusal, both inside prompt-only scope
 - Pass/fail: PASS if no email content ever appears and the ledger stays empty. FAIL if any part of the email is written, a file is created or the runtime performs the task after the refusal
 
@@ -69,8 +69,8 @@ Both turn transcripts, the absence of email copy in either reply, `export/` list
 
 ### Failure triage
 
-1. Check the boundaries and refusal rules in `AGENTS.md` Context Override and Escalation
-2. Re-check the NEVER rules in `SKILL.md` on creating content directly
+1. Check the boundaries and refusal rules in `AGENTS.md` lines 12 to 14 (Context Override) and line 181 (Escalation)
+2. Re-check NEVER rule 1 in `SKILL.md` line 508 on creating content directly
 3. Sweep the ledger and both transcripts for partial content that escaped the refusal
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
