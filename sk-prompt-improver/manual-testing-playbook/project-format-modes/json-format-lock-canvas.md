@@ -1,7 +1,7 @@
 ---
 title: "PFM-001 -- Independent $json format lock in the Project"
 description: "Validates that $json locks the format axis while $improve wins the mode axis, producing a JSON Deliverable Block with overhead reporting."
-version: 1.0.0.0
+version: 1.1.0.0
 ---
 
 # PFM-001 -- Independent $json format lock in the Project
@@ -23,20 +23,20 @@ If the format command competed for the primary route, `$improve $json` would col
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify `$json` locks format independently while `$improve` binds the mode in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. When a terminal runner stands in for the Project, the reply text stands in for the Artifact panel: a delimited Deliverable Block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 390). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `I want a sharper version of this prompt and I need the result in JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
-- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Improve lane binds at Standard energy, the format locks to JSON, the Canvas Artifact carries the single-line `Mode:` header, a prompt payload that parses as valid JSON and the attestation footer, and the chat reports the export-equivalent path, the CLEAR result and roughly five to ten percent token overhead. The kernel template writes the header as `Mode: $[mode]` while the JSON format guide writes `Mode: $json`, so a header labelled `$json` or `$improve` both pass and only a missing header fails. The label used is recorded, and the source conflict is logged as a follow-up finding
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Improve lane binds at Standard energy, the format locks to JSON, the Canvas Artifact carries the single-line `Mode:` header, a prompt payload that parses as valid JSON and the attestation footer, and the chat reports the export-equivalent path, the CLEAR result and roughly five to ten percent token overhead. The header and attestation lines sit outside the JSON format lock (`Custom Instructions.md` line 380). The kernel template writes the header as `Mode: $[mode]` (`Custom Instructions.md` line 372) while the JSON format guide writes `Mode: $json` (`Prompt Improver - Format Guide JSON.md` line 113), so a header labelled `$json` or `$improve` both pass and only a missing header fails. The label used is recorded, and the source conflict is logged as a follow-up finding. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`Custom Instructions.md` line 18). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It renders a new Deliverable Block under the next export-equivalent name, since naming stays identical to CLI delivery (`Custom Instructions.md` line 291). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
 - Desired user-visible outcome: One Artifact-first reply whose payload between the metadata lines parses cleanly and whose chat claims no file was written
-- Pass/fail: PASS if the block carries the header line and the attestation footer, the payload between them parses as JSON, the format lock held and the overhead was reported. FAIL if the header or the attestation footer is missing, the payload is markdown, the JSON is invalid, the mode axis was stolen, the overhead is missing or a save is claimed
+- Pass/fail: PASS if the block carries the header line and the attestation footer, the payload between them parses as JSON, the format lock held and the overhead was reported. FAIL if the header or the attestation footer is missing, the payload is markdown, the JSON is invalid, the mode axis was stolen, the overhead is missing, the payload fails the scope test, commentary precedes the block or a save is claimed. A summary outside the two to three sentence band is recorded and never decides the verdict
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | Bind Improve, lock JSON, either deliver through a Canvas Artifact or ask at most one consolidated question | Format locked to JSON regardless of any question | Response transcript and Artifact panel state |
-| 2 | `Valid JSON only, the action items are for a project manager.` | When Turn 1 asked, complete the enhancement, render the Artifact with a valid JSON payload and reply with the export-equivalent path. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may render a revised Deliverable Block or acknowledge the added context without one | JSON lock retained and project-manager audience kept | Response, score line, parsed Artifact excerpt |
+| 2 | `Valid JSON only, the action items are for a project manager.` | When Turn 1 asked, complete the enhancement, render the Artifact with a valid JSON payload and reply with the export-equivalent path. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may render the revision as a new Deliverable Block under the next export-equivalent name or acknowledge the added context without one | JSON lock retained and project-manager audience kept | Response, score line, parsed Artifact excerpt |
 
 ---
 
@@ -63,19 +63,19 @@ Turn transcripts, the CLEAR score line, the Artifact panel state, a parse check 
 
 ### Pass / fail
 
-- **Pass**: A Canvas Artifact with its header line and attestation footer whose payload parses as valid JSON, a reported CLEAR result, the overhead note and no save claimed
-- **Fail**: A missing header or attestation footer, a markdown payload, invalid JSON syntax, format competing with mode, missing overhead report or any claim that a file was written
+- **Pass**: A Canvas Artifact with its header line and attestation footer whose payload parses as valid JSON, a reported CLEAR result, the overhead note and no save claimed. A summary outside the two to three sentence band is recorded and never decides the verdict
+- **Fail**: A missing header or attestation footer, a markdown payload, invalid JSON syntax, format competing with mode, missing overhead report, a payload that fails the scope test, commentary before the block or any claim that a file was written
 - **Skip**: only when a named runtime or environment blocker prevents opening the configured Project session
 
 ### Failure triage
 
 1. Check the independent format axis in `Custom Instructions.md` Smart Routing when the format or mode was lost
 2. Re-check the JSON rules in `Prompt Improver - Format Guide JSON.md` when the payload fails to parse, and the Delivery Protocol template in `Custom Instructions.md` section 6 when the header or attestation is missing
-3. Check the token-overhead rule in `Custom Instructions.md` section 6 when the chat omits the overhead note
+3. Check the token-overhead rule in `Custom Instructions.md` line 386 when the chat omits the overhead note
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| PFM-001 | Independent $json format lock in the Project | Verify format axis locks JSON while Improve binds mode | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Check header, parse payload` | Step 1: packaging fixed. Step 2: Improve bound, JSON locked. Step 3: delivery complete when Turn 1 asked. Step 4: header, attestation and valid JSON payload | Transcripts, CLEAR line, panel state, parse result, overhead note | PASS if the header, attestation and payload are valid and the lock and overhead hold. FAIL on wrong format, missing header or attestation, invalid JSON or missing overhead | 1. Check format axis rule.<br>2. Check JSON format guide.<br>3. Check overhead rule. |
+| PFM-001 | Independent $json format lock in the Project | Verify format axis locks JSON while Improve binds mode | `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Check header, parse payload` | Step 1: packaging fixed. Step 2: Improve bound, JSON locked. Step 3: delivery complete when Turn 1 asked. Step 4: header, attestation and valid JSON payload | Transcripts, CLEAR line, panel state, parse result, overhead note | PASS if the header, attestation and payload are valid and the lock and overhead hold. FAIL on wrong format, missing header or attestation, invalid JSON, missing overhead, a failed scope test or commentary before the block. The summary band never decides the verdict | 1. Check format axis rule.<br>2. Check JSON format guide.<br>3. Check overhead rule. |
 
 ---
 

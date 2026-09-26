@@ -1,0 +1,15 @@
+# Mode: $yaml | Complexity: 3/10 | Framework: MOTION | Platform: Veo
+
+platform: Veo
+duration: 8 seconds, one continuous shot
+shot: Medium close-up product shot at bottle height, shallow depth of field
+subject: A new matte black insulated water bottle stands upright on a wet rock beside a mountain stream, condensation drops beaded on its surface.
+camera: Slow, even orbit around the bottle, about half a circle, ending on the logo side.
+timeline:
+  - "0-3 s: The orbit begins facing away from the logo, drops glinting."
+  - "3-6 s: Stream water flows past the rock as one drop slides down the bottle."
+  - "6-8 s: The orbit eases to a stop on the logo side, logo sharp and facing the camera, and holds."
+lighting: Soft, low morning light, a sheen on the wet rock, the matte finish deep black.
+style: Photoreal commercial product cinematography
+scene: Unpeopled, the bottle the only subject; pure image, the frame clean of titles, captions and overlays throughout.
+audio: Natural ambience, the stream running over the rocks.

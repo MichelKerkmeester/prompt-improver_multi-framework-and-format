@@ -154,11 +154,63 @@ Findings are reported, never repaired here. Each names the files on both sides.
 
 ---
 
-## 9. Next steps
+## 9. Edited after grading
 
-1. Operator decision: confirm or replace the scope test in `grading-notes.md` section 1. If flagged extra outputs are to count as defaults, SFM-001 flips to PASS, and STX-001 still fails on its Turn 2 in-place edit
-2. Operator decision: whether a heading label before the header counts as commentary in every Project file, which settles PIR-001 either way
-3. Follow-up repairs, outside this packet: a revision rule in `SKILL.md` near line 417, a header rule for "valid JSON only" on the skill side to match kernel line 380, and one commentary definition moved into the shared stand-in precondition
-4. Tooling: have `run/playbook_runner.py` wrap Project blocks in `<DELIVERABLE>` tags, or teach `deliverable_lint.py` to find a fenced block, so the ordering check runs. Widen the attestation pattern at line 58 to allow markup
-5. Decide whether `hvr-lint.csv` belongs in this system's report contract
-6. Commit this folder in Barter and in the Prompt Improver public repo per phase 003 REQ-007. Nothing is staged or committed yet
+The 18 deliverables this run collected into `export/benchmark/skill/` and `export/benchmark/claude project/` were improved by hand on 2026-09-26. Every verdict in `results.csv`, `results.md` and `grading-notes.md` still describes the graded originals. Git history keeps those at Prompt Improver commit `59a50ac` and Barter commit `ab96eebb`, and the run's own copies under `skill/` and `claude project/` in this folder are unchanged.
+
+- **Kept:** each file name, the `Mode:` header, the Project attestation footer, every fact the user supplied and each scenario's own limits, such as the 120 word cap in SID-001
+- **Improved:** role, objective, success criteria, output shape and the handling of missing or unclear input, judged against the routed rubric
+- **Removed:** the two extras this run failed for, STX-001's meta description and the `risks_and_blockers` extraction in SFM-001 Turn 2, since the scope test in `SKILL.md` now counts a flagged extra output as scope expansion
+- **Changed by judgment:** STX-001 and PTX-001 now default the brewing method to French press, so STX-001's reply in `replies/` still names two methods where the export names one. SFM-001 002 carries its `Mode:` header again, which the graded Turn 2 revision had dropped. `assets/format-guide-json.md` requires the header, and kernel line 380 keeps it outside the JSON lock, so "valid JSON only" binds the body. SIR-001 now states the household size and the number of days as words rather than as placeholders
+
+A collection over this folder now keeps an export that differs from the run's copy and prints one warning line for it. `--force` restores the run's copy. Run from `AI Systems/Prompt Improver/`:
+
+```bash
+python3 -B "benchmark/reports/2026-09-25--manual-testing-playbook--claude-sonnet-5-medium/run/collect_exports.py" "benchmark/reports/2026-09-25--manual-testing-playbook--claude-sonnet-5-medium" export/benchmark --dry-run
+```
+
+It prints 18 lines like this one and exits 0:
+
+```text
+warning skill STX-001 - 001 - enhanced-coffee-brewing-beginners-blog-post.md differs from the run's copy, so it was edited after collection and is kept. --force overwrites it
+```
+
+`run/selftest.py` proves the guard on a synthetic run in a temporary folder. It checks a fresh collection, a dry run, a kept skill export, a kept Project export and `--force`. A negative control runs the collector as it was before the guard and shows that it overwrites the edited file. It ends `selftest: all checks passed`.
+
+---
+
+## 10. Example pack
+
+`export/benchmark/examples/` holds eight prompts for the modes and formats this run does not show: `$deep`, `$short`, `$refine`, `$raw`, `$text $yaml`, `$improve $markdown`, `$video $yaml` and `$vibe`. Each answers the Turn 1 input of one new skill scenario (section 11). They were written through the skill on 2026-09-26, and no run graded them. [Its README](../../../export/benchmark/examples/README.md) lists each command, format and the writer's own score.
+
+---
+
+## 11. Playbook after this run
+
+The playbook grew from 14 to 30 scenarios after this run, at root version 1.1.0.0.
+
+- **New:** eight skill and Project pairs, STX-002 to STX-005, SFM-002, SFM-003, SCR-002 and SCR-003 with their Project twins, one per mode or format named in section 10
+- **Tightened:** the 14 scenarios graded here keep their IDs, purposes and exact Turn inputs. The 28 scenarios that grade a delivered prompt state the scope test, and the 24 whose Turn 2 asks for a revision state the revision rule. All 15 Project files share one commentary definition that also says where the block ends. The 14 keep the summary band advisory in every Pass/fail line, and SIR-001 and PIR-001 ask for one consolidated question. That settles findings 3, 4, 6 and 7 of section 8 in the scenario files
+- **Not comparable:** a rerun grades the 14 against changed criteria, so its verdicts compare with section 2 only as section 4 compares this run with 2026-09-17
+
+Writing the new scenarios and examples surfaced eight rule gaps. They are recorded here and not repaired, since the skill and kernel rules stayed unchanged:
+
+1. **Question routing for `$short`, `$refine` and `$deep`.** `references/interactive-mode.md` routes `$short` to a format question and `$refine` to a refinement-type question, and its flow pattern shows a question step for Deep. `SKILL.md` line 383 asks only when essential context is missing. The new scenarios accept either path
+2. **The `$vibe` library question.** `references/visual-mode.md` lines 843 to 845 make the component library question mandatory, while `SKILL.md` line 383 asks only when essential context is missing. SCR-003 and PCR-003 record a skipped question as a finding, not a FAIL
+3. **A format question under `$markdown`.** `references/interactive-mode.md` line 217 routes `$improve` to a format question, while `SKILL.md` line 71 hands the format decision to a format command. SFM-003 and PFM-003 record such a question rather than fail it
+4. **Veo audio against the scope test.** `references/video-mode.md` lines 226 to 228 tell every Veo prompt to include an `Audio:` section, while `SKILL.md` line 511 counts a section the user did not ask for as scope expansion. The Veo and `$vibe` scenarios record these rule-added sections and never grade them
+5. **The YAML header does not parse.** `assets/format-guide-yaml.md` section 4 gives a header line starting `Mode:`, which breaks a YAML parser. The YAML examples use the comment form `# Mode: $yaml | ...`. The likely fix is to make the guide's header a comment
+6. **No revision rule in the kernel.** `SKILL.md` lines 421 to 422 and `AGENTS.md` line 70 save a revision under the next number. The kernel says nothing, so the Project side states the rule only in its scenario Turn 2 rows
+7. **Summary band against delivery shape.** The root's Advisory list (line 141) lets an advisory item fail a scenario that exists to test delivery shape, and STX-001 and PTX-001 test delivery shape. The scenarios now keep the band advisory, which the operator may overrule
+8. **The identity ordering carve-out.** SID-001 and PID-001 still carve out where the identity answer sits relative to the delivery, since no rule places it (section 8, conflict 4)
+
+---
+
+## 12. Next steps
+
+1. Rerun the 30-scenario playbook on the skill and the Project, then grade it. That grades the eight new scenarios for the first time and gives the examples in `export/benchmark/examples/` a verdict
+2. Operator decision on the eight rule gaps in section 11, starting with the YAML header, the question routing and Veo audio, which the new scenarios exercise
+3. Operator decision: whether a heading label before the header counts as commentary in every Project file. The tightened scenarios say it does, so PIR-001's Turn 2 reply here would now fail
+4. Follow-up repair outside the playbook: a header rule for "valid JSON only" on the skill side to match kernel line 380
+5. Tooling: have `run/playbook_runner.py` wrap Project blocks in `<DELIVERABLE>` tags, or teach `deliverable_lint.py` to find a fenced block, so the ordering check runs. Widen the attestation pattern at line 58 to allow markup
+6. Decide whether `hvr-lint.csv` belongs in this system's report contract

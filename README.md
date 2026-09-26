@@ -609,6 +609,8 @@ The header and footer sit outside the JSON or YAML lock, which applies only to t
 
 Generated prompts stay on your machine. The root `.gitignore` ignores everything in `export/` except `.gitkeep` and `export/benchmark/`.
 
+`export/benchmark/` holds the deliverables of the latest playbook run. Its [`examples/`](export/benchmark/examples/README.md) folder adds eight ungraded prompts for the modes and formats that run does not show, among them `$deep`, `$raw`, `$yaml`, `$video` and `$vibe`.
+
 &nbsp;
 
 ## 10. 🧪 BENCHMARKS AND CHECKS
