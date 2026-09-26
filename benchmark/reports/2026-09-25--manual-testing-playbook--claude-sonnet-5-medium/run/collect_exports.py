@@ -13,8 +13,11 @@ and nothing else:
   or directly follows the export path the reply reports, saved under that
   reported name.
 - Re-measure rounds land in <side>/<round>/<run>/ with the same naming.
+- A target that already exists and differs from what the run holds was edited
+  after collection, so it is skipped with a warning rather than overwritten.
+  --force overwrites it.
 
-Usage: collect_exports.py <run folder> <export/benchmark folder> [--dry-run]
+Usage: collect_exports.py <run folder> <export/benchmark folder> [--dry-run] [--force]
 Prints one review line per Project extraction, since a reply is prose and the
 block boundaries are inferred.
 """
@@ -138,7 +141,15 @@ def extract(text: str) -> List[Tuple[str, str, str]]:
     return found
 
 
-def collect(run: str, out: str, dry: bool) -> None:
+def edited(target: str, data: bytes) -> bool:
+    """True when the target exists and holds something other than data."""
+    if not os.path.isfile(target):
+        return False
+    with open(target, "rb") as handle:
+        return handle.read() != data
+
+
+def collect(run: str, out: str, dry: bool, force: bool = False) -> None:
     rounds = [("", run)]
     for name in sorted(os.listdir(run)):
         if name.startswith("remeasure") and os.path.isdir(os.path.join(run, name)):
@@ -153,6 +164,12 @@ def collect(run: str, out: str, dry: bool) -> None:
                 for root, _, files in os.walk(exports):
                     for file in sorted(files):
                         target = os.path.join(out, "skill", label, f"{scenario_id(folder)} - {file}")
+                        with open(os.path.join(root, file), "rb") as handle:
+                            data = handle.read()
+                        if not force and edited(target, data):
+                            print(f"warning skill {os.path.join(label, os.path.basename(target))} differs from "
+                                  f"the run's copy, so it was edited after collection and is kept. --force overwrites it")
+                            continue
                         print(f"skill   {os.path.join(label, os.path.basename(target))}")
                         if not dry:
                             os.makedirs(os.path.dirname(target), exist_ok=True)
@@ -172,6 +189,10 @@ def collect(run: str, out: str, dry: bool) -> None:
                             stem = f"{root} (turn {turn}){ext}"
                         written.add(stem)
                         target = os.path.join(out, "claude project", label, stem)
+                        if not force and edited(target, body.encode("utf-8")):
+                            print(f"warning project {os.path.join(label, stem)} differs from the run's copy, "
+                                  f"so it was edited after collection and is kept. --force overwrites it")
+                            continue
                         first = body.split("\n", 1)[0][:60]
                         print(f"project {os.path.join(label, stem)} | turn {turn} | {how} | "
                               f"{len(body)} chars | {first}")
@@ -184,4 +205,5 @@ def collect(run: str, out: str, dry: bool) -> None:
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         sys.exit(__doc__)
-    collect(sys.argv[1], sys.argv[2], "--dry-run" in sys.argv[3:])
+    flags = sys.argv[3:]
+    collect(sys.argv[1], sys.argv[2], "--dry-run" in flags, "--force" in flags)
