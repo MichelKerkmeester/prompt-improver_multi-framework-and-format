@@ -1,0 +1,68 @@
+Mode: $json | Complexity: High | Framework: TIDD-EC
+
+{
+  "task": "Review the title, description and bullet points of one supplement marketplace listing already provided in this call, using the accompanying list of 38 EU-authorised health claims, and flag every health claim in the listing text that is not an exact or near-exact match to that approved list.",
+  "instructions": [
+    "Read the listing title, description and bullet points as a single set of claim-bearing sentences.",
+    "Compare every sentence that makes a health-related claim against the 38 approved EU health claims supplied with this call.",
+    "Treat a sentence as compliant only when its wording matches an approved claim exactly or is a near-exact paraphrase that preserves the approved claim's meaning, subject nutrient and scope.",
+    "For every sentence that is not compliant, capture the exact original sentence, classify which rule it breaks, and write a compliant rewrite.",
+    "Classify each flagged sentence under exactly one rule: 'unauthorised_claim' for a health benefit with no matching approved claim, 'disease_claim' for a statement that a product can treat, cure, prevent or reduce risk of a disease, or 'dosage_promise' for language that implies a therapeutic effect from a specific amount, frequency or dose.",
+    "Write each compliant rewrite so it keeps the same product fact or ingredient reference as the flagged sentence while using wording drawn from or aligned with the approved claims list.",
+    "Do not alter, flag or comment on any sentence that already matches an approved claim.",
+    "Return the result as a JSON array named 'flags', where each element has exactly three keys: 'flagged_sentence', 'rule_broken', 'compliant_rewrite'. Return an empty array when no claims are flagged."
+  ],
+  "dos": [
+    "Flag only sentences containing health claims absent from the 38 approved claims supplied in this call.",
+    "Quote the flagged sentence exactly as it appears in the listing, with no paraphrasing.",
+    "Assign exactly one rule_broken value per flag from the three defined categories.",
+    "Keep every compliant rewrite grounded in the same product fact, ingredient or nutrient named in the original sentence.",
+    "Leave every already-compliant sentence completely untouched and unflagged."
+  ],
+  "donts": [
+    "Do not evaluate, imply or comment on whether the product is effective or works as intended.",
+    "Do not flag, edit or rewrite text that already matches an approved claim.",
+    "Do not invent a health benefit that is not present in either the original sentence or the approved claims list.",
+    "Do not approve a claim on the basis of similar meaning alone if its wording is not on the approved list.",
+    "Do not merge multiple flagged sentences into a single flag entry."
+  ],
+  "examples": [
+    {
+      "case": "unauthorised_claim",
+      "input": "Boosts your immune system",
+      "output": {
+        "flagged_sentence": "Boosts your immune system",
+        "rule_broken": "unauthorised_claim",
+        "compliant_rewrite": "Vitamin C contributes to the normal function of the immune system"
+      },
+      "note": "The approved list already contains this exact claim about Vitamin C and immune function, so the rewrite reuses that wording."
+    },
+    {
+      "case": "already_compliant_no_flag",
+      "input": "Vitamin C contributes to the normal function of the immune system",
+      "output": null,
+      "note": "Matches an approved claim exactly, so it is left untouched and produces no flag."
+    },
+    {
+      "case": "disease_claim",
+      "input": "Helps prevent colds and flu",
+      "output": {
+        "flagged_sentence": "Helps prevent colds and flu",
+        "rule_broken": "disease_claim",
+        "compliant_rewrite": "Vitamin C contributes to the normal function of the immune system"
+      },
+      "note": "References prevention of a named illness, which EU rules classify as a disease claim regardless of list status."
+    },
+    {
+      "case": "dosage_promise",
+      "input": "Take 2 capsules daily for maximum energy release",
+      "output": {
+        "flagged_sentence": "Take 2 capsules daily for maximum energy release",
+        "rule_broken": "dosage_promise",
+        "compliant_rewrite": "Vitamin B12 contributes to normal energy-yielding metabolism"
+      },
+      "note": "Ties a specific dose to a therapeutic outcome, which is a dosage promise even if an energy claim exists on the approved list."
+    }
+  ],
+  "context": "This runs inside an automated listing checker for a supplement brand's marketplace listings, calling GPT-4.1 once per listing. Each call supplies this prompt together with the listing's title, description and bullet points, plus the brand's current list of 38 EU-authorised health claims. The approved list changes over time, so treat it as the only source of truth for that call and never rely on prior knowledge of which claims are authorised."
+}

@@ -1,0 +1,70 @@
+{
+ "id": "SFW-021",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/motion-high-potter-wheel-reel-export.md",
+ "twin": "PFW-021",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "008893d8-03e6-43f5-bf99-8d778eb580a2",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-runway-gen4-potter-video-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 91.74,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 305197,
+   "output_tokens": 8399,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4411016,
+   "model_s": 90.98,
+   "startup_s": 0.48,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-runway-gen4-potter-video-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings."
+  }
+ ]
+}

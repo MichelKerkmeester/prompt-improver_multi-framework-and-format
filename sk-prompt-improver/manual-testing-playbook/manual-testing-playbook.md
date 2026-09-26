@@ -1,12 +1,12 @@
 ---
 title: "Prompt Improver: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Prompt Improver scenario inventory."
-version: 1.1.0.0
+version: 1.2.0.0
 ---
 
 # Prompt Improver: Manual Testing Playbook
 
-This package turns the Prompt Improver contract into thirty reproducible conversations split into two runtime sets. The skill set runs the system from `AGENTS.md` with `sk-prompt-improver/` loaded and proves export-first file delivery. The project set runs the same system from `claude project/Custom Instructions.md` with the knowledge documents attached and proves Canvas Artifact delivery with no file claim. The root owns shared policy and indexing. Each linked scenario file owns one synchronized Turn 1 prompt, a conversation chain of up to two user turns, one nine-field execution table and current source anchors.
+This package turns the Prompt Improver contract into seventy-eight reproducible conversations split into two runtime sets. The skill set runs the system from `AGENTS.md` with `sk-prompt-improver/` loaded and proves export-first file delivery. The project set runs the same system from `claude project/Custom Instructions.md` with the knowledge documents attached and proves Canvas Artifact delivery with no file claim. The root owns shared policy and indexing. Each linked scenario file owns one synchronized Turn 1 prompt, either a conversation chain of up to two user turns or a single prompt with no chain, one nine-field execution table and current source anchors.
 
 ### Result persistence
 
@@ -17,7 +17,7 @@ A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and r
 
 ## 1. OVERVIEW
 
-The playbook holds thirty operator scenarios in two runtime sets across twelve category folders. No alternate or supplemental scenario files are part of the package.
+The playbook holds seventy-eight operator scenarios in two runtime sets across fourteen category folders. No alternate or supplemental scenario files are part of the package.
 
 ### Coverage map
 
@@ -29,12 +29,14 @@ The playbook holds thirty operator scenarios in two runtime sets across twelve c
 | Skill | Skill format modes | `SFM-001..SFM-003` | 3 | Independent `$json`, `$yaml` and `$markdown` axis, valid locked-format export |
 | Skill | Skill creative modes | `SCR-001..SCR-003` | 3 | `$image` FRAME, `$video` MOTION and `$vibe` VIBE, VISUAL and EVOKE gates, share-back invite |
 | Skill | Skill safety boundaries | `SSB-001` | 1 | Reframe once, then persistent refusal |
+| Skill | Skill framework coverage | `SFW-001..SFW-024` | 24 | One named framework per prompt at the Medium, High or Complex tier: RCAF, COSTAR, CIDI, TIDD-EC, CRISPE, CRAFT, FRAME, MOTION, VIBE and VIBE-MP, single-turn export |
 | Project | Project identity | `PID-001` | 1 | `Custom Instructions` identity string and Canvas Artifact delivery |
 | Project | Project interactive routing | `PIR-001..PIR-002` | 2 | Command-conflict and no-signal question flow |
 | Project | Project text modes | `PTX-001..PTX-005` | 5 | Natural improve, `$deep`, `$short`, `$refine` and `$raw` lanes, CLEAR gate or no scorer, Canvas Artifact and revision |
 | Project | Project format modes | `PFM-001..PFM-003` | 3 | Independent `$json`, `$yaml` and `$markdown` axis, locked-format Deliverable Block |
 | Project | Project creative modes | `PCR-001..PCR-003` | 3 | `$image` FRAME, `$video` MOTION and `$vibe` VIBE, VISUAL and EVOKE gates, share-back invite |
 | Project | Project safety boundaries | `PSB-001` | 1 | Reframe once, then persistent refusal |
+| Project | Project framework coverage | `PFW-001..PFW-024` | 24 | The `SFW` prompts, character for character, single-turn Deliverable Block |
 
 ### Realistic test model
 
@@ -60,9 +62,23 @@ Run every scenario against the real runtime. Do not mock responses.
 
 Each set opens with an identity handover (`SID-001` or `PID-001`) that every other scenario in that set names as a precondition. The handover passes when the delivery contract only that runtime sets holds. `SID-001` decides on a named export path that exists on disk, with its identity phrase recorded as supporting evidence. `PID-001` decides on the verbatim `Canvas Artifact` string plus the no-save Canvas contract. A reply that could have come from either runtime is a `FAIL`. A failed handover does not stop its set: every scenario is still graded, and the failure is stated at the top of the run report, before any other result. A scenario whose precondition says its handover passed reads, in an automated run, as the handover having run first in its own session. Its verdict gates nothing.
 
+### Framework coverage
+
+Forty-eight scenarios test whether the system writes a demanding prompt that visibly uses one framework from its own library. Each of the twenty-four `SFW` skill scenarios has a `PFW` Project twin with the same prompt, character for character. Every prompt names its framework, carries every essential and asks the runtime not to ask, so these scenarios have a single prompt and no conversation chain: the one reply is the graded delivery, and a question instead of a delivery fails for missing delivery.
+
+A framework scenario passes only when all of these hold: the delivery exists in its runtime's form, the header names the framework and a complexity inside the tier, the body is visibly organised by the framework's named elements, the routed scorer passes its gate, a JSON or YAML payload parses, every supplied fact is kept and the scope test holds.
+
+| Tier | Complexity band | Header complexity that passes |
+|---|---|---|
+| Medium | 5 to 6 | The label `Medium`, or 5 or 6 |
+| High | 7 to 8 | The label `High`, or 7 or 8 |
+| Complex | 9 to 10 | 9 or 10, or a label above High such as `Very High`; a bare `High` label fails |
+
+RCAF, COSTAR, CIDI, TIDD-EC, CRISPE and CRAFT each run at all three tiers. FRAME and MOTION run at High and Complex, VIBE at High and VIBE-MP at Complex. Where the library ranks the named framework outside the tier, the prompt makes the user's case for it: a fit note from the runtime is recorded and never decides the verdict, while a delivery built on another framework fails.
+
 ### No-feature-catalog exception
 
-This skill has no canonical feature catalog. Scenario files link directly to current skill, reference, asset, Custom Instructions and knowledge sources. Section 20 is the source cross-reference.
+This skill has no canonical feature catalog. Scenario files link directly to current skill, reference, asset, Custom Instructions and knowledge sources. Section 22 is the source cross-reference.
 
 ---
 
@@ -159,6 +175,7 @@ The package is releasable only when every indexed scenario has evidence, no scen
 | 3 | `STX-001..STX-005`, `PTX-001..PTX-005`, `SFM-001..SFM-003`, `PFM-001..PFM-003` | Separate export baselines and separate Project conversations |
 | 4 | `SCR-001..SCR-003`, `PCR-001..PCR-003` | Creative-mode conversations with scorer and follow-up capture |
 | 5 | `SSB-001`, `PSB-001` | Artifact-free refusal sandboxes and panels |
+| 6 | `SFW-001..SFW-024`, `PFW-001..PFW-024` | Fresh session per ID, single-turn framework deliveries with separate export baselines and separate Project conversations |
 
 One coordinator owns exact prompts, isolation, ledgers and final verdicts. Workers may execute independent IDs in separate sandboxes or separate Project conversations.
 
@@ -692,19 +709,795 @@ Desired user-visible outcome: A short reframe offer followed by a short refusal,
 
 ---
 
-## 19. AUTOMATED VALIDATION CROSS-REFERENCE
+## 19. SKILL FRAMEWORK COVERAGE (`SFW-001..SFW-024`)
+
+### SFW-001 | RCAF at Medium complexity for a warehouse shift handover
+
+#### Description
+
+Verify `$text` delivers a Medium-tier RCAF prompt in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$text $markdown Improve this prompt we use in ChatGPT at our Rotterdam warehouse: "Summarise today's exceptions for the next shift." Every evening the day shift lead pastes the exception log (damaged pallets, short picks, late trucks, scanner faults), and the night lead reads the summary at the 22:00 handover. It should group exceptions by type, flag anything still open, give the dock door and pallet ID for each open item and stay under 200 words. No blame language, just facts. Structure it with RCAF. No questions, use your judgment on anything I left open.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming RCAF at Medium complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-001](skill-framework-coverage/rcaf-medium-warehouse-handover-export.md)
+
+### SFW-002 | RCAF at High complexity for an expense claim review
+
+#### Description
+
+Verify `$improve` delivers a High-tier RCAF prompt in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $json Our finance team calls this prompt through the Claude API from our expense tool: "Check this expense claim and say if it is fine." Make it much stronger. The model gets the claim lines, the receipts as text and the employee's grade. It sorts each line into within policy, missing receipt, over limit or not a business cost. Within policy gets a recommended approval, a missing receipt gets a receipt request, over limit goes to the finance controller, and a non-business cost goes back to the employee with the policy clause. Any line above EUR 750 goes to the controller whatever its class. Hotel limits are EUR 180 a night for grades 1 to 5 and EUR 240 above. It only recommends, never marks anything as paid, and always quotes the receipt line it relies on. Our prompt registry stores only the four RCAF keys, so keep it RCAF even for a prompt this size, and keep every rule rather than streamlining. No questions, use your judgment on the rest.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.json` file opens with a header naming RCAF at High complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept, its payload parsing as JSON.
+
+#### Test execution
+
+> **Feature File:** [SFW-002](skill-framework-coverage/rcaf-high-expense-claim-review-export.md)
+
+### SFW-003 | RCAF at Complex complexity for an incident postmortem
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier RCAF prompt in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown I want a serious upgrade of our postmortem prompt, currently just "Write a postmortem from these notes." We give Claude a PagerDuty timeline, a Slack incident-channel export and the deploy log for one SEV1 or SEV2 incident. It must produce one blameless draft in three layers: a technical timeline for engineers, an impact summary for support leads and a five-sentence brief for the exec team. Timestamps arrive in both UTC and Amsterdam time, so it normalises everything to UTC and flags any gap over 10 minutes. It may only state a root cause the logs support and labels everything else as a hypothesis. Action items need an owner from the responders list and a due week. Customer names become account IDs. Our SRE prompt catalogue lints for the four RCAF sections, so use RCAF, layered per audience, not another framework. Keep everything, no streamlining, and skip the questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming RCAF at Complex complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-003](skill-framework-coverage/rcaf-complex-incident-postmortem-export.md)
+
+### SFW-004 | COSTAR at Medium complexity for a school parent newsletter
+
+#### Description
+
+Verify `$improve` delivers a Medium-tier COSTAR prompt in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Please improve the prompt our primary school office uses in ChatGPT for the monthly parent newsletter: "Write a newsletter for parents about this month." The office pastes in the headteacher's bullet notes, the dates of upcoming events and any lunch or bus timetable changes. Parents read it on their phones, and many speak Dutch as a second language, so it needs plain B1-level language, short paragraphs and a warm but not chatty tone. Event dates go in a list at the top. Keep it under 350 words and never name individual pupils. Use COSTAR for the structure. Don't ask me anything, just make sensible calls where I left gaps.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming COSTAR at Medium complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-004](skill-framework-coverage/costar-medium-school-newsletter-export.md)
+
+### SFW-005 | COSTAR at High complexity for a hybrid-work announcement
+
+#### Description
+
+Verify `$text` delivers a High-tier COSTAR prompt in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$text $yaml We need a prompt for our HR assistant, GPT-4.1 on our intranet, that drafts the announcement of our new hybrid-work policy. Audience: 420 staff across the Utrecht and Ghent offices, from warehouse crew to engineers. From 1 March everyone is in the office on Tuesday and Thursday, team leads can grant two exceptions per person per quarter, and the travel allowance moves from per kilometre to a flat EUR 60 a month. The draft needs an announcement of about 300 words, a six-question FAQ and a two-line Slack teaser. Tone: direct and reassuring, never corporate spin, and it must not promise anything beyond the policy text. Build it with COSTAR and keep all three outputs. No questions please, fill gaps sensibly.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.yaml` file opens with a header naming COSTAR at High complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept, its payload parsing as YAML.
+
+#### Test execution
+
+> **Feature File:** [SFW-005](skill-framework-coverage/costar-high-hybrid-work-announcement-export.md)
+
+### SFW-006 | COSTAR at Complex complexity for clinic outage messages
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier COSTAR prompt in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Rebuild our outage-communication prompt for Gemini 2.5 Pro; right now it is "Write a message to patients about the outage." We run 14 physiotherapy clinics. When our booking platform fails, the prompt takes the incident facts we paste and drafts three messages: an SMS to patients with appointments in the next 48 hours (max 300 characters), an email to all active patients and a phone script for front-desk staff. Each message in Dutch and English. Patients range from teenage athletes to people in their 80s, so plain B1-level language. Every message says what we know, what we do not know yet and when the next update comes. It never guesses at a cause, never mentions data exposure unless the facts say so, and always gives the direct clinic phone number. Formal but empathetic. Structure it with COSTAR, with an Audience and Response block per channel. Keep the full scope and don't ask me questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming COSTAR at Complex complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-006](skill-framework-coverage/costar-complex-clinic-outage-messages-export.md)
+
+### SFW-007 | CIDI at Medium complexity for a credit-note procedure
+
+#### Description
+
+Verify `$improve` delivers a Medium-tier CIDI prompt in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $yaml Improve our SOP-writing prompt for Claude: "Turn this into a how-to for the team." We paste a transcript of a senior clerk narrating a screen recording, and Claude writes a step-by-step procedure for new accounts-payable clerks on booking a supplier credit note against an open invoice. Each step needs one action, the screen or field it happens in and what the clerk should see afterwards. Steps that need a second approver, for credit notes above EUR 5,000, must be marked. Keep the clerk's field names exactly as spoken and leave out the chit-chat. The result goes into Confluence. Use CIDI. No questions, just use your judgment.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.yaml` file opens with a header naming CIDI at Medium complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept, its payload parsing as YAML.
+
+#### Test execution
+
+> **Feature File:** [SFW-007](skill-framework-coverage/cidi-medium-credit-note-procedure-export.md)
+
+### SFW-008 | CIDI at High complexity for a developer setup guide
+
+#### Description
+
+Verify `$improve` delivers a High-tier CIDI prompt in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Improve this onboarding prompt our platform team runs with Claude in Cursor: "Write a setup guide for new devs from this README." The input is our monorepo README, the Makefile and the CI config. The guide must take a new backend engineer from a fresh laptop to a green local test run in one afternoon. It needs separate paths for macOS and Ubuntu, a prerequisites list with exact versions taken from the files, a verification check after every stage and a troubleshooting section built only from errors the CI config or README mention. Commands are copied verbatim from the input, never invented. Secrets live in 1Password, so the guide says where to fetch them but never shows a value. Lay it out with CIDI and keep the whole scope. No questions, fill any gaps sensibly.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CIDI at High complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-008](skill-framework-coverage/cidi-high-developer-setup-guide-export.md)
+
+### SFW-009 | CIDI at Complex complexity for a customs work instruction
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier CIDI prompt in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $json Our freight-forwarding team needs a far better prompt for work instructions; today it is "Document this process." GPT-4.1 gets three inputs: a call transcript with a senior customs broker, our current checklist and the carrier's dangerous-goods rules. It must write the work instruction for clearing inbound sea containers carrying lithium batteries at the port of Rotterdam. Steps are split by role (broker, planner, warehouse), and each has its trigger, the system it happens in, the document it produces and the hand-off. Where the transcript and the checklist disagree, it lists the conflict instead of choosing. Any shipment declared under UN3480 goes to the DG officer before the planner books a slot. Dutch and English versions with the same step numbers. The result feeds our knowledge-base importer, which maps CIDI sections to fields, so it has to be CIDI. Keep the full scope and don't ask questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.json` file opens with a header naming CIDI at Complex complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept, its payload parsing as JSON.
+
+#### Test execution
+
+> **Feature File:** [SFW-009](skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md)
+
+### SFW-010 | TIDD-EC at Medium complexity for a legal intake note
+
+#### Description
+
+Verify `$improve` delivers a Medium-tier TIDD-EC prompt in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Tighten this intake prompt for our employment-law firm: "Read the web form and summarise the case." Claude reads each web-form inquiry and writes an intake note for the lawyer who does the free 20-minute call. The note needs the client type (employee or employer), the issue (dismissal, contract, discrimination or pay), every date mentioned and the other party's name for our conflict check. It must never give legal advice or estimate chances, and it flags any dismissal older than two months, because the deadline may have passed. One good note: "Employee, dismissal on 3 June, employer Van Dijk Logistics, deadline flag." Structure it with TIDD-EC. No questions, use your judgment on the rest.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming TIDD-EC at Medium complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-010](skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md)
+
+### SFW-011 | TIDD-EC at High complexity for a health-claims checker
+
+#### Description
+
+Verify `$improve` delivers a High-tier TIDD-EC prompt in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $json Improve the compliance prompt behind the listing checker for our supplement brand's marketplace listings. Current version: "Check if this product text is OK." GPT-4.1 receives the title, description and bullet points of one listing, plus our approved list of 38 EU-authorised health claims with each call. It flags every health claim that is not on the list, and for each flag returns the exact sentence, the rule it breaks (unauthorised claim, disease claim or dosage promise) and a compliant rewrite that keeps the product facts. It must not touch text that is already compliant and must not judge whether the product works. Worked example: "Boosts your immune system" is unauthorised, while "Vitamin C contributes to the normal function of the immune system" is approved. Use TIDD-EC and keep the full scope. No questions, decide the open points yourself.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.json` file opens with a header naming TIDD-EC at High complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept, its payload parsing as JSON.
+
+#### Test execution
+
+> **Feature File:** [SFW-011](skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md)
+
+### SFW-012 | TIDD-EC at Complex complexity for an AML alert narrative
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier TIDD-EC prompt in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Rebuild our AML alert-narrative prompt for Mistral Large; today it is just "Explain why this alert fired." The model gets one transaction-monitoring alert: the rule that fired, 90 days of transactions, the KYC profile and prior alerts. It writes the analyst's case narrative in our fixed order: trigger, customer profile, observed pattern, expected activity, open questions. Every claim cites a transaction ID. It never concludes that the customer is laundering money and never recommends filing or closing, which stays the analyst's call. Amounts keep their original currency with the EUR equivalent in brackets. It flags structuring when three or more cash deposits between EUR 9,000 and 9,999 fall within 10 days, and it handles joint accounts, missing KYC fields and accounts closed mid-window. Auditors liked this sentence: "Four cash deposits of EUR 9,400 to 9,900 (TX-4471 to TX-4474) in six days, inconsistent with declared salary income of EUR 3,100 a month." Use TIDD-EC, keep the full scope and don't ask me anything.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming TIDD-EC at Complex complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-012](skill-framework-coverage/tidd-ec-complex-aml-alert-narrative-export.md)
+
+### SFW-013 | CRISPE at Medium complexity for oat milk positioning
+
+#### Description
+
+Verify `$improve` delivers a Medium-tier CRISPE prompt in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Make this prompt stronger: "Give me marketing ideas for our oat milk." We are a small Ghent start-up launching an oat barista milk for independent cafés in Belgium, priced 15% above the market leader. I use Claude as a sparring partner. It should act as a B2B food-and-beverage strategist, think about what baristas care about (foam stability, taste with espresso, price per cup), then give three clearly different positioning routes, each with a one-line pitch, the type of café it wins and a cheap way to test it within a month. Frank and practical, no buzzwords. Structure it with CRISPE. No questions, use your judgment.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CRISPE at Medium complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-013](skill-framework-coverage/crispe-medium-oat-milk-positioning-export.md)
+
+### SFW-014 | CRISPE at High complexity for driver retention experiments
+
+#### Description
+
+Verify `$improve` delivers a High-tier CRISPE prompt in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $yaml Improve this: "How do we keep our drivers?" We run 210 parcel-delivery drivers from four depots around Antwerp, and 38% left in the last 12 months, mostly within their first 90 days. Exit interviews point at route density, the 06:00 start and pay per stop. I want ChatGPT to act as a workforce strategist with last-mile experience, reason about why early-tenure drivers leave, then propose four distinct retention experiments that fit a EUR 120,000 yearly budget. Each experiment needs the hypothesis, the depot to pilot it in, the metric, a 10-week read-out point and the main risk to the delivery schedule. It should challenge our assumption that pay is the main lever. Build it with CRISPE and keep the full scope. No questions, fill in the gaps yourself.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.yaml` file opens with a header naming CRISPE at High complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept, its payload parsing as YAML.
+
+#### Test execution
+
+> **Feature File:** [SFW-014](skill-framework-coverage/crispe-high-driver-retention-experiments-export.md)
+
+### SFW-015 | CRISPE at Complex complexity for market expansion scenarios
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier CRISPE prompt in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Upgrade my strategy prompt, currently "Should we expand to Germany?" We sell site-diary software to construction firms: 640 customers in the Netherlands and Belgium, EUR 7.8M ARR and 4% monthly churn among firms under 20 staff. The board is split: the CEO wants Germany in 2027, the CFO wants to deepen in the Benelux mid-market first, and sales says German customers will need on-premise hosting. I want Gemini 2.5 Pro to act as a skeptical B2B SaaS strategist, surface the insight that decides this, state the question sharply, then run three scenario experiments (Germany first, Benelux first, a staged hybrid) with the assumptions each depends on, the cheapest test of them before Q2 and the signal that would kill it. It must say where our data is too thin to decide. I want exploration, not a plan, so structure it with CRISPE. Keep the full scope and don't ask questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CRISPE at Complex complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-015](skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md)
+
+### SFW-016 | CRAFT at Medium complexity for a customer workshop plan
+
+#### Description
+
+Verify `$improve` delivers a Medium-tier CRAFT prompt in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Improve this planning prompt: "Help me plan our customer workshop." We are a payroll software company hosting a one-day workshop in Utrecht on 12 November for 25 HR managers from existing customers, and I use ChatGPT to draft the run-of-show. It should cover the agenda from 09:30 to 16:00, two hands-on sessions on our new leave module, lunch and a closing Q&A, plus a short prep checklist for our two trainers. We judge success by an average session rating of at least 8 out of 10 and at least 10 sign-ups for the module pilot, so the prompt must keep those targets in view. Use CRAFT, since the Target part matters to us. No questions, use your judgment where I was vague.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CRAFT at Medium complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-016](skill-framework-coverage/craft-medium-customer-workshop-plan-export.md)
+
+### SFW-017 | CRAFT at High complexity for a mailbox migration plan
+
+#### Description
+
+Verify `$improve` delivers a High-tier CRAFT prompt in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Our IT team asks Microsoft Copilot for migration plans with one line: "Plan the email migration." Turn it into a real prompt. Scope: move 1,150 user mailboxes and 60 shared mailboxes from an on-premise Exchange 2016 server to Microsoft 365 for a housing association with offices in Zwolle and Deventer. Cutover happens only at weekends, the customer-service mailbox may be offline for at most two hours, and 80 field staff use phones only. The plan needs phases with entry and exit criteria, a rollback step per phase, a staff communication moment before each phase and a risk table. Targets: zero lost mail, under 5% of users raising a ticket in the first week and done within six weekends. Structure it with CRAFT and keep the full scope. No questions, fill the gaps with sensible assumptions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CRAFT at High complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-017](skill-framework-coverage/craft-high-mailbox-migration-plan-export.md)
+
+### SFW-018 | CRAFT at Complex complexity for a WMS go-live plan
+
+#### Description
+
+Verify `$deep` delivers a Complex-tier CRAFT prompt in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown I need a prompt that makes Claude produce the go-live plan for our new warehouse management system; today we just ask "Make a go-live plan." Facts: two distribution centres, Tilburg with 38,000 order lines a day and Liège with 12,000, one WMS vendor, and integrations with our SAP ERP and three carriers. Go-live cannot fall between 15 November and 10 January, Liège goes first as the pilot, and Tilburg may only follow after four weeks of pick accuracy above 99.5% in Liège. The plan needs workstreams (data migration, integrations, training for 260 pickers in two languages, cutover), the dependencies between them, a go or no-go checklist, a hypercare plan and a rollback path that restores the old system within 12 hours. Success means no missed carrier cut-off in the first two weeks. Use CRAFT and keep every part. Don't ask me questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing CLEAR result, whose saved `.md` file opens with a header naming CRAFT at Complex complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept.
+
+#### Test execution
+
+> **Feature File:** [SFW-018](skill-framework-coverage/craft-complex-wms-go-live-plan-export.md)
+
+### SFW-019 | FRAME at High complexity for a gravel cycling hero image
+
+#### Description
+
+Verify `$image` delivers a High-tier FRAME prompt in one turn with every FRAME element labelled.
+
+#### Scenario contract
+
+Prompt: `$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself.`
+
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at High complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-019](skill-framework-coverage/frame-high-gravel-cycling-hero-export.md)
+
+### SFW-020 | FRAME at Complex complexity for a library science poster
+
+#### Description
+
+Verify `$image` delivers a Complex-tier FRAME prompt in one turn with every FRAME element labelled.
+
+#### Scenario contract
+
+Prompt: `$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at Complex complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-020](skill-framework-coverage/frame-complex-library-science-poster-export.md)
+
+### SFW-021 | MOTION at High complexity for a potter wheel reel
+
+#### Description
+
+Verify `$video` delivers a High-tier MOTION prompt in one turn with every MOTION element labelled.
+
+#### Scenario contract
+
+Prompt: `$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings.`
+
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming MOTION at High complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-021](skill-framework-coverage/motion-high-potter-wheel-reel-export.md)
+
+### SFW-022 | MOTION at Complex complexity for a flower auction opening shot
+
+#### Description
+
+Verify `$video` delivers a Complex-tier MOTION prompt in one turn with every MOTION element labelled.
+
+#### Scenario contract
+
+Prompt: `$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions.`
+
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.yaml` file opens with a header naming MOTION at Complex complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-022](skill-framework-coverage/motion-complex-flower-auction-opening-export.md)
+
+### SFW-023 | VIBE at High complexity for a returns inspection screen
+
+#### Description
+
+Verify `$vibe` delivers a High-tier VIBE prompt in one turn with every VIBE element labelled.
+
+#### Scenario contract
+
+Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
+
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-023](skill-framework-coverage/vibe-high-returns-inspection-screen-export.md)
+
+### SFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow
+
+#### Description
+
+Verify `$vibe` delivers a Complex-tier VIBE-MP prompt in one turn with every VIBE-MP element labelled.
+
+#### Scenario contract
+
+Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
+
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [SFW-024](skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md)
+
+---
+
+## 20. PROJECT FRAMEWORK COVERAGE (`PFW-001..PFW-024`)
+
+### PFW-001 | RCAF at Medium complexity for a warehouse shift handover in the Project
+
+#### Description
+
+Verify `$text` renders a Medium-tier RCAF Deliverable Block in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$text $markdown Improve this prompt we use in ChatGPT at our Rotterdam warehouse: "Summarise today's exceptions for the next shift." Every evening the day shift lead pastes the exception log (damaged pallets, short picks, late trucks, scanner faults), and the night lead reads the summary at the 22:00 handover. It should group exceptions by type, flag anything still open, give the dock door and pallet ID for each open item and stay under 200 words. No blame language, just facts. Structure it with RCAF. No questions, use your judgment on anything I left open.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming RCAF at Medium complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-001](project-framework-coverage/rcaf-medium-warehouse-handover-canvas.md)
+
+### PFW-002 | RCAF at High complexity for an expense claim review in the Project
+
+#### Description
+
+Verify `$improve` renders a High-tier RCAF Deliverable Block in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $json Our finance team calls this prompt through the Claude API from our expense tool: "Check this expense claim and say if it is fine." Make it much stronger. The model gets the claim lines, the receipts as text and the employee's grade. It sorts each line into within policy, missing receipt, over limit or not a business cost. Within policy gets a recommended approval, a missing receipt gets a receipt request, over limit goes to the finance controller, and a non-business cost goes back to the employee with the policy clause. Any line above EUR 750 goes to the controller whatever its class. Hotel limits are EUR 180 a night for grades 1 to 5 and EUR 240 above. It only recommends, never marks anything as paid, and always quotes the receipt line it relies on. Our prompt registry stores only the four RCAF keys, so keep it RCAF even for a prompt this size, and keep every rule rather than streamlining. No questions, use your judgment on the rest.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming RCAF at High complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept, its payload parsing as JSON, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-002](project-framework-coverage/rcaf-high-expense-claim-review-canvas.md)
+
+### PFW-003 | RCAF at Complex complexity for an incident postmortem in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier RCAF Deliverable Block in one turn with every RCAF element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown I want a serious upgrade of our postmortem prompt, currently just "Write a postmortem from these notes." We give Claude a PagerDuty timeline, a Slack incident-channel export and the deploy log for one SEV1 or SEV2 incident. It must produce one blameless draft in three layers: a technical timeline for engineers, an impact summary for support leads and a five-sentence brief for the exec team. Timestamps arrive in both UTC and Amsterdam time, so it normalises everything to UTC and flags any gap over 10 minutes. It may only state a root cause the logs support and labels everything else as a hypothesis. Action items need an owner from the responders list and a due week. Customer names become account IDs. Our SRE prompt catalogue lints for the four RCAF sections, so use RCAF, layered per audience, not another framework. Keep everything, no streamlining, and skip the questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming RCAF at Complex complexity and reads back as a RCAF prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-003](project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md)
+
+### PFW-004 | COSTAR at Medium complexity for a school parent newsletter in the Project
+
+#### Description
+
+Verify `$improve` renders a Medium-tier COSTAR Deliverable Block in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Please improve the prompt our primary school office uses in ChatGPT for the monthly parent newsletter: "Write a newsletter for parents about this month." The office pastes in the headteacher's bullet notes, the dates of upcoming events and any lunch or bus timetable changes. Parents read it on their phones, and many speak Dutch as a second language, so it needs plain B1-level language, short paragraphs and a warm but not chatty tone. Event dates go in a list at the top. Keep it under 350 words and never name individual pupils. Use COSTAR for the structure. Don't ask me anything, just make sensible calls where I left gaps.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming COSTAR at Medium complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-004](project-framework-coverage/costar-medium-school-newsletter-canvas.md)
+
+### PFW-005 | COSTAR at High complexity for a hybrid-work announcement in the Project
+
+#### Description
+
+Verify `$text` renders a High-tier COSTAR Deliverable Block in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$text $yaml We need a prompt for our HR assistant, GPT-4.1 on our intranet, that drafts the announcement of our new hybrid-work policy. Audience: 420 staff across the Utrecht and Ghent offices, from warehouse crew to engineers. From 1 March everyone is in the office on Tuesday and Thursday, team leads can grant two exceptions per person per quarter, and the travel allowance moves from per kilometre to a flat EUR 60 a month. The draft needs an announcement of about 300 words, a six-question FAQ and a two-line Slack teaser. Tone: direct and reassuring, never corporate spin, and it must not promise anything beyond the policy text. Build it with COSTAR and keep all three outputs. No questions please, fill gaps sensibly.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming COSTAR at High complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-005](project-framework-coverage/costar-high-hybrid-work-announcement-canvas.md)
+
+### PFW-006 | COSTAR at Complex complexity for clinic outage messages in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier COSTAR Deliverable Block in one turn with every COSTAR element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Rebuild our outage-communication prompt for Gemini 2.5 Pro; right now it is "Write a message to patients about the outage." We run 14 physiotherapy clinics. When our booking platform fails, the prompt takes the incident facts we paste and drafts three messages: an SMS to patients with appointments in the next 48 hours (max 300 characters), an email to all active patients and a phone script for front-desk staff. Each message in Dutch and English. Patients range from teenage athletes to people in their 80s, so plain B1-level language. Every message says what we know, what we do not know yet and when the next update comes. It never guesses at a cause, never mentions data exposure unless the facts say so, and always gives the direct clinic phone number. Formal but empathetic. Structure it with COSTAR, with an Audience and Response block per channel. Keep the full scope and don't ask me questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming COSTAR at Complex complexity and reads back as a COSTAR prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-006](project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md)
+
+### PFW-007 | CIDI at Medium complexity for a credit-note procedure in the Project
+
+#### Description
+
+Verify `$improve` renders a Medium-tier CIDI Deliverable Block in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $yaml Improve our SOP-writing prompt for Claude: "Turn this into a how-to for the team." We paste a transcript of a senior clerk narrating a screen recording, and Claude writes a step-by-step procedure for new accounts-payable clerks on booking a supplier credit note against an open invoice. Each step needs one action, the screen or field it happens in and what the clerk should see afterwards. Steps that need a second approver, for credit notes above EUR 5,000, must be marked. Keep the clerk's field names exactly as spoken and leave out the chit-chat. The result goes into Confluence. Use CIDI. No questions, just use your judgment.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CIDI at Medium complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-007](project-framework-coverage/cidi-medium-credit-note-procedure-canvas.md)
+
+### PFW-008 | CIDI at High complexity for a developer setup guide in the Project
+
+#### Description
+
+Verify `$improve` renders a High-tier CIDI Deliverable Block in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Improve this onboarding prompt our platform team runs with Claude in Cursor: "Write a setup guide for new devs from this README." The input is our monorepo README, the Makefile and the CI config. The guide must take a new backend engineer from a fresh laptop to a green local test run in one afternoon. It needs separate paths for macOS and Ubuntu, a prerequisites list with exact versions taken from the files, a verification check after every stage and a troubleshooting section built only from errors the CI config or README mention. Commands are copied verbatim from the input, never invented. Secrets live in 1Password, so the guide says where to fetch them but never shows a value. Lay it out with CIDI and keep the whole scope. No questions, fill any gaps sensibly.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CIDI at High complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-008](project-framework-coverage/cidi-high-developer-setup-guide-canvas.md)
+
+### PFW-009 | CIDI at Complex complexity for a customs work instruction in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier CIDI Deliverable Block in one turn with every CIDI element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $json Our freight-forwarding team needs a far better prompt for work instructions; today it is "Document this process." GPT-4.1 gets three inputs: a call transcript with a senior customs broker, our current checklist and the carrier's dangerous-goods rules. It must write the work instruction for clearing inbound sea containers carrying lithium batteries at the port of Rotterdam. Steps are split by role (broker, planner, warehouse), and each has its trigger, the system it happens in, the document it produces and the hand-off. Where the transcript and the checklist disagree, it lists the conflict instead of choosing. Any shipment declared under UN3480 goes to the DG officer before the planner books a slot. Dutch and English versions with the same step numbers. The result feeds our knowledge-base importer, which maps CIDI sections to fields, so it has to be CIDI. Keep the full scope and don't ask questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CIDI at Complex complexity and reads back as a CIDI prompt with every element labelled and every supplied fact kept, its payload parsing as JSON, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-009](project-framework-coverage/cidi-complex-lithium-customs-instruction-canvas.md)
+
+### PFW-010 | TIDD-EC at Medium complexity for a legal intake note in the Project
+
+#### Description
+
+Verify `$improve` renders a Medium-tier TIDD-EC Deliverable Block in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Tighten this intake prompt for our employment-law firm: "Read the web form and summarise the case." Claude reads each web-form inquiry and writes an intake note for the lawyer who does the free 20-minute call. The note needs the client type (employee or employer), the issue (dismissal, contract, discrimination or pay), every date mentioned and the other party's name for our conflict check. It must never give legal advice or estimate chances, and it flags any dismissal older than two months, because the deadline may have passed. One good note: "Employee, dismissal on 3 June, employer Van Dijk Logistics, deadline flag." Structure it with TIDD-EC. No questions, use your judgment on the rest.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming TIDD-EC at Medium complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-010](project-framework-coverage/tidd-ec-medium-legal-intake-note-canvas.md)
+
+### PFW-011 | TIDD-EC at High complexity for a health-claims checker in the Project
+
+#### Description
+
+Verify `$improve` renders a High-tier TIDD-EC Deliverable Block in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $json Improve the compliance prompt behind the listing checker for our supplement brand's marketplace listings. Current version: "Check if this product text is OK." GPT-4.1 receives the title, description and bullet points of one listing, plus our approved list of 38 EU-authorised health claims with each call. It flags every health claim that is not on the list, and for each flag returns the exact sentence, the rule it breaks (unauthorised claim, disease claim or dosage promise) and a compliant rewrite that keeps the product facts. It must not touch text that is already compliant and must not judge whether the product works. Worked example: "Boosts your immune system" is unauthorised, while "Vitamin C contributes to the normal function of the immune system" is approved. Use TIDD-EC and keep the full scope. No questions, decide the open points yourself.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming TIDD-EC at High complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept, its payload parsing as JSON, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-011](project-framework-coverage/tidd-ec-high-health-claims-checker-canvas.md)
+
+### PFW-012 | TIDD-EC at Complex complexity for an AML alert narrative in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier TIDD-EC Deliverable Block in one turn with every TIDD-EC element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Rebuild our AML alert-narrative prompt for Mistral Large; today it is just "Explain why this alert fired." The model gets one transaction-monitoring alert: the rule that fired, 90 days of transactions, the KYC profile and prior alerts. It writes the analyst's case narrative in our fixed order: trigger, customer profile, observed pattern, expected activity, open questions. Every claim cites a transaction ID. It never concludes that the customer is laundering money and never recommends filing or closing, which stays the analyst's call. Amounts keep their original currency with the EUR equivalent in brackets. It flags structuring when three or more cash deposits between EUR 9,000 and 9,999 fall within 10 days, and it handles joint accounts, missing KYC fields and accounts closed mid-window. Auditors liked this sentence: "Four cash deposits of EUR 9,400 to 9,900 (TX-4471 to TX-4474) in six days, inconsistent with declared salary income of EUR 3,100 a month." Use TIDD-EC, keep the full scope and don't ask me anything.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming TIDD-EC at Complex complexity and reads back as a TIDD-EC prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-012](project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md)
+
+### PFW-013 | CRISPE at Medium complexity for oat milk positioning in the Project
+
+#### Description
+
+Verify `$improve` renders a Medium-tier CRISPE Deliverable Block in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Make this prompt stronger: "Give me marketing ideas for our oat milk." We are a small Ghent start-up launching an oat barista milk for independent cafés in Belgium, priced 15% above the market leader. I use Claude as a sparring partner. It should act as a B2B food-and-beverage strategist, think about what baristas care about (foam stability, taste with espresso, price per cup), then give three clearly different positioning routes, each with a one-line pitch, the type of café it wins and a cheap way to test it within a month. Frank and practical, no buzzwords. Structure it with CRISPE. No questions, use your judgment.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRISPE at Medium complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-013](project-framework-coverage/crispe-medium-oat-milk-positioning-canvas.md)
+
+### PFW-014 | CRISPE at High complexity for driver retention experiments in the Project
+
+#### Description
+
+Verify `$improve` renders a High-tier CRISPE Deliverable Block in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $yaml Improve this: "How do we keep our drivers?" We run 210 parcel-delivery drivers from four depots around Antwerp, and 38% left in the last 12 months, mostly within their first 90 days. Exit interviews point at route density, the 06:00 start and pay per stop. I want ChatGPT to act as a workforce strategist with last-mile experience, reason about why early-tenure drivers leave, then propose four distinct retention experiments that fit a EUR 120,000 yearly budget. Each experiment needs the hypothesis, the depot to pilot it in, the metric, a 10-week read-out point and the main risk to the delivery schedule. It should challenge our assumption that pay is the main lever. Build it with CRISPE and keep the full scope. No questions, fill in the gaps yourself.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRISPE at High complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-014](project-framework-coverage/crispe-high-driver-retention-experiments-canvas.md)
+
+### PFW-015 | CRISPE at Complex complexity for market expansion scenarios in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier CRISPE Deliverable Block in one turn with every CRISPE element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown Upgrade my strategy prompt, currently "Should we expand to Germany?" We sell site-diary software to construction firms: 640 customers in the Netherlands and Belgium, EUR 7.8M ARR and 4% monthly churn among firms under 20 staff. The board is split: the CEO wants Germany in 2027, the CFO wants to deepen in the Benelux mid-market first, and sales says German customers will need on-premise hosting. I want Gemini 2.5 Pro to act as a skeptical B2B SaaS strategist, surface the insight that decides this, state the question sharply, then run three scenario experiments (Germany first, Benelux first, a staged hybrid) with the assumptions each depends on, the cheapest test of them before Q2 and the signal that would kill it. It must say where our data is too thin to decide. I want exploration, not a plan, so structure it with CRISPE. Keep the full scope and don't ask questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRISPE at Complex complexity and reads back as a CRISPE prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-015](project-framework-coverage/crispe-complex-market-expansion-scenarios-canvas.md)
+
+### PFW-016 | CRAFT at Medium complexity for a customer workshop plan in the Project
+
+#### Description
+
+Verify `$improve` renders a Medium-tier CRAFT Deliverable Block in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Improve this planning prompt: "Help me plan our customer workshop." We are a payroll software company hosting a one-day workshop in Utrecht on 12 November for 25 HR managers from existing customers, and I use ChatGPT to draft the run-of-show. It should cover the agenda from 09:30 to 16:00, two hands-on sessions on our new leave module, lunch and a closing Q&A, plus a short prep checklist for our two trainers. We judge success by an average session rating of at least 8 out of 10 and at least 10 sign-ups for the module pilot, so the prompt must keep those targets in view. Use CRAFT, since the Target part matters to us. No questions, use your judgment where I was vague.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRAFT at Medium complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-016](project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md)
+
+### PFW-017 | CRAFT at High complexity for a mailbox migration plan in the Project
+
+#### Description
+
+Verify `$improve` renders a High-tier CRAFT Deliverable Block in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Our IT team asks Microsoft Copilot for migration plans with one line: "Plan the email migration." Turn it into a real prompt. Scope: move 1,150 user mailboxes and 60 shared mailboxes from an on-premise Exchange 2016 server to Microsoft 365 for a housing association with offices in Zwolle and Deventer. Cutover happens only at weekends, the customer-service mailbox may be offline for at most two hours, and 80 field staff use phones only. The plan needs phases with entry and exit criteria, a rollback step per phase, a staff communication moment before each phase and a risk table. Targets: zero lost mail, under 5% of users raising a ticket in the first week and done within six weekends. Structure it with CRAFT and keep the full scope. No questions, fill the gaps with sensible assumptions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRAFT at High complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-017](project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md)
+
+### PFW-018 | CRAFT at Complex complexity for a WMS go-live plan in the Project
+
+#### Description
+
+Verify `$deep` renders a Complex-tier CRAFT Deliverable Block in one turn with every CRAFT element labelled.
+
+#### Scenario contract
+
+Prompt: `$deep $markdown I need a prompt that makes Claude produce the go-live plan for our new warehouse management system; today we just ask "Make a go-live plan." Facts: two distribution centres, Tilburg with 38,000 order lines a day and Liège with 12,000, one WMS vendor, and integrations with our SAP ERP and three carriers. Go-live cannot fall between 15 November and 10 January, Liège goes first as the pilot, and Tilburg may only follow after four weeks of pick accuracy above 99.5% in Liège. The plan needs workstreams (data migration, integrations, training for 260 pickers in two languages, cutover), the dependencies between them, a go or no-go checklist, a hypercare plan and a rollback path that restores the old system within 12 hours. Success means no missed carrier cut-off in the first two weeks. Use CRAFT and keep every part. Don't ask me questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming CRAFT at Complex complexity and reads back as a CRAFT prompt with every element labelled and every supplied fact kept, with a passing CLEAR result in chat and no file claimed.
+
+#### Test execution
+
+> **Feature File:** [PFW-018](project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md)
+
+### PFW-019 | FRAME at High complexity for a gravel cycling hero image in the Project
+
+#### Description
+
+Verify `$image` renders a High-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
+
+#### Scenario contract
+
+Prompt: `$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at High complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-019](project-framework-coverage/frame-high-gravel-cycling-hero-canvas.md)
+
+### PFW-020 | FRAME at Complex complexity for a library science poster in the Project
+
+#### Description
+
+Verify `$image` renders a Complex-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
+
+#### Scenario contract
+
+Prompt: `$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at Complex complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-020](project-framework-coverage/frame-complex-library-science-poster-canvas.md)
+
+### PFW-021 | MOTION at High complexity for a potter wheel reel in the Project
+
+#### Description
+
+Verify `$video` renders a High-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
+
+#### Scenario contract
+
+Prompt: `$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at High complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-021](project-framework-coverage/motion-high-potter-wheel-reel-canvas.md)
+
+### PFW-022 | MOTION at Complex complexity for a flower auction opening shot in the Project
+
+#### Description
+
+Verify `$video` renders a Complex-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
+
+#### Scenario contract
+
+Prompt: `$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at Complex complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-022](project-framework-coverage/motion-complex-flower-auction-opening-canvas.md)
+
+### PFW-023 | VIBE at High complexity for a returns inspection screen in the Project
+
+#### Description
+
+Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element labelled.
+
+#### Scenario contract
+
+Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element labelled and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-023](project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md)
+
+### PFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow in the Project
+
+#### Description
+
+Verify `$vibe` renders a Complex-tier VIBE-MP Deliverable Block in one turn with every VIBE-MP element labelled.
+
+#### Scenario contract
+
+Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
+
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element labelled and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+
+#### Test execution
+
+> **Feature File:** [PFW-024](project-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-canvas.md)
+
+---
+
+## 21. AUTOMATED VALIDATION CROSS-REFERENCE
 
 | Check | Coverage | Playbook overlap |
 |---|---|---|
 | [Router oracle and fixtures](../../benchmark/router/) | Command, semantic and fallback lane decisions | `SIR-001`, `SIR-002`, `PIR-001`, `PIR-002` |
-| [Parity benchmark](../../benchmark/parity/) | Skill and Project behavior comparison | All thirty scenarios |
-| Operator-contract validator | Package structure, prompts, tables, turns and links | All thirty scenarios and this root |
+| [Parity benchmark](../../benchmark/parity/) | Skill and Project behavior comparison | All seventy-eight scenarios |
+| Operator-contract validator | Package structure, prompts, tables, turns and links | All seventy-eight scenarios and this root |
 | Shared document validator | Markdown structure of root and scenario files | All package Markdown |
-| Real manual execution | Runtime behavior, deliveries and side effects | `SID-001..SSB-001`, `PID-001..PSB-001` |
+| Real manual execution | Runtime behavior, deliveries and side effects | `SID-001..SSB-001`, `PID-001..PSB-001`, `SFW-001..SFW-024`, `PFW-001..PFW-024` |
 
 ---
 
-## 20. SOURCE CROSS-REFERENCE INDEX
+## 22. SOURCE CROSS-REFERENCE INDEX
 
 | Feature ID | Feature name | Category | Feature file | Primary source |
 |---|---|---|---|---|
@@ -723,6 +1516,30 @@ Desired user-visible outcome: A short reframe offer followed by a short refusal,
 | SCR-002 | Video mode VISUAL gate with YAML lock and follow-up | Skill creative modes | [SCR-002](skill-creative-modes/video-mode-visual-export.md) | [`video-mode.md`](../references/video-mode.md) |
 | SCR-003 | Vibe mode EVOKE gate and follow-up | Skill creative modes | [SCR-003](skill-creative-modes/vibe-mode-evoke-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
 | SSB-001 | Direct content request reframed then refused | Skill safety boundaries | [SSB-001](skill-safety-boundaries/non-prompt-scope-refusal.md) | [`AGENTS.md`](../../AGENTS.md) |
+| SFW-001 | RCAF at Medium complexity for a warehouse shift handover | Skill framework coverage | [SFW-001](skill-framework-coverage/rcaf-medium-warehouse-handover-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-002 | RCAF at High complexity for an expense claim review | Skill framework coverage | [SFW-002](skill-framework-coverage/rcaf-high-expense-claim-review-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-003 | RCAF at Complex complexity for an incident postmortem | Skill framework coverage | [SFW-003](skill-framework-coverage/rcaf-complex-incident-postmortem-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-004 | COSTAR at Medium complexity for a school parent newsletter | Skill framework coverage | [SFW-004](skill-framework-coverage/costar-medium-school-newsletter-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-005 | COSTAR at High complexity for a hybrid-work announcement | Skill framework coverage | [SFW-005](skill-framework-coverage/costar-high-hybrid-work-announcement-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-006 | COSTAR at Complex complexity for clinic outage messages | Skill framework coverage | [SFW-006](skill-framework-coverage/costar-complex-clinic-outage-messages-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-007 | CIDI at Medium complexity for a credit-note procedure | Skill framework coverage | [SFW-007](skill-framework-coverage/cidi-medium-credit-note-procedure-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-008 | CIDI at High complexity for a developer setup guide | Skill framework coverage | [SFW-008](skill-framework-coverage/cidi-high-developer-setup-guide-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-009 | CIDI at Complex complexity for a customs work instruction | Skill framework coverage | [SFW-009](skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-010 | TIDD-EC at Medium complexity for a legal intake note | Skill framework coverage | [SFW-010](skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-011 | TIDD-EC at High complexity for a health-claims checker | Skill framework coverage | [SFW-011](skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-012 | TIDD-EC at Complex complexity for an AML alert narrative | Skill framework coverage | [SFW-012](skill-framework-coverage/tidd-ec-complex-aml-alert-narrative-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-013 | CRISPE at Medium complexity for oat milk positioning | Skill framework coverage | [SFW-013](skill-framework-coverage/crispe-medium-oat-milk-positioning-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-014 | CRISPE at High complexity for driver retention experiments | Skill framework coverage | [SFW-014](skill-framework-coverage/crispe-high-driver-retention-experiments-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-015 | CRISPE at Complex complexity for market expansion scenarios | Skill framework coverage | [SFW-015](skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-016 | CRAFT at Medium complexity for a customer workshop plan | Skill framework coverage | [SFW-016](skill-framework-coverage/craft-medium-customer-workshop-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-017 | CRAFT at High complexity for a mailbox migration plan | Skill framework coverage | [SFW-017](skill-framework-coverage/craft-high-mailbox-migration-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-018 | CRAFT at Complex complexity for a WMS go-live plan | Skill framework coverage | [SFW-018](skill-framework-coverage/craft-complex-wms-go-live-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
+| SFW-019 | FRAME at High complexity for a gravel cycling hero image | Skill framework coverage | [SFW-019](skill-framework-coverage/frame-high-gravel-cycling-hero-export.md) | [`image-mode.md`](../references/image-mode.md) |
+| SFW-020 | FRAME at Complex complexity for a library science poster | Skill framework coverage | [SFW-020](skill-framework-coverage/frame-complex-library-science-poster-export.md) | [`image-mode.md`](../references/image-mode.md) |
+| SFW-021 | MOTION at High complexity for a potter wheel reel | Skill framework coverage | [SFW-021](skill-framework-coverage/motion-high-potter-wheel-reel-export.md) | [`video-mode.md`](../references/video-mode.md) |
+| SFW-022 | MOTION at Complex complexity for a flower auction opening shot | Skill framework coverage | [SFW-022](skill-framework-coverage/motion-complex-flower-auction-opening-export.md) | [`video-mode.md`](../references/video-mode.md) |
+| SFW-023 | VIBE at High complexity for a returns inspection screen | Skill framework coverage | [SFW-023](skill-framework-coverage/vibe-high-returns-inspection-screen-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
+| SFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow | Skill framework coverage | [SFW-024](skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
 | PID-001 | Identity handover and Canvas delivery | Project identity | [PID-001](project-identity/identity-handover.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-001 | Conflicting mode commands ask one question | Project interactive routing | [PIR-001](project-interactive-routing/conflicting-commands-clarification.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-002 | No-signal request gets one comprehensive question | Project interactive routing | [PIR-002](project-interactive-routing/no-signal-comprehensive-question.md) | [Interactive Mode knowledge](<../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) |
@@ -738,3 +1555,27 @@ Desired user-visible outcome: A short reframe offer followed by a short refusal,
 | PCR-002 | Video mode VISUAL gate with YAML lock and follow-up in the Project | Project creative modes | [PCR-002](project-creative-modes/video-mode-visual-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
 | PCR-003 | Vibe mode EVOKE gate and follow-up in the Project | Project creative modes | [PCR-003](project-creative-modes/vibe-mode-evoke-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
 | PSB-001 | Direct content request reframed then refused in the Project | Project safety boundaries | [PSB-001](project-safety-boundaries/non-prompt-scope-refusal.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
+| PFW-001 | RCAF at Medium complexity for a warehouse shift handover in the Project | Project framework coverage | [PFW-001](project-framework-coverage/rcaf-medium-warehouse-handover-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-002 | RCAF at High complexity for an expense claim review in the Project | Project framework coverage | [PFW-002](project-framework-coverage/rcaf-high-expense-claim-review-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-003 | RCAF at Complex complexity for an incident postmortem in the Project | Project framework coverage | [PFW-003](project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-004 | COSTAR at Medium complexity for a school parent newsletter in the Project | Project framework coverage | [PFW-004](project-framework-coverage/costar-medium-school-newsletter-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-005 | COSTAR at High complexity for a hybrid-work announcement in the Project | Project framework coverage | [PFW-005](project-framework-coverage/costar-high-hybrid-work-announcement-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-006 | COSTAR at Complex complexity for clinic outage messages in the Project | Project framework coverage | [PFW-006](project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-007 | CIDI at Medium complexity for a credit-note procedure in the Project | Project framework coverage | [PFW-007](project-framework-coverage/cidi-medium-credit-note-procedure-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-008 | CIDI at High complexity for a developer setup guide in the Project | Project framework coverage | [PFW-008](project-framework-coverage/cidi-high-developer-setup-guide-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-009 | CIDI at Complex complexity for a customs work instruction in the Project | Project framework coverage | [PFW-009](project-framework-coverage/cidi-complex-lithium-customs-instruction-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-010 | TIDD-EC at Medium complexity for a legal intake note in the Project | Project framework coverage | [PFW-010](project-framework-coverage/tidd-ec-medium-legal-intake-note-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-011 | TIDD-EC at High complexity for a health-claims checker in the Project | Project framework coverage | [PFW-011](project-framework-coverage/tidd-ec-high-health-claims-checker-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-012 | TIDD-EC at Complex complexity for an AML alert narrative in the Project | Project framework coverage | [PFW-012](project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-013 | CRISPE at Medium complexity for oat milk positioning in the Project | Project framework coverage | [PFW-013](project-framework-coverage/crispe-medium-oat-milk-positioning-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-014 | CRISPE at High complexity for driver retention experiments in the Project | Project framework coverage | [PFW-014](project-framework-coverage/crispe-high-driver-retention-experiments-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-015 | CRISPE at Complex complexity for market expansion scenarios in the Project | Project framework coverage | [PFW-015](project-framework-coverage/crispe-complex-market-expansion-scenarios-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-016 | CRAFT at Medium complexity for a customer workshop plan in the Project | Project framework coverage | [PFW-016](project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-017 | CRAFT at High complexity for a mailbox migration plan in the Project | Project framework coverage | [PFW-017](project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-018 | CRAFT at Complex complexity for a WMS go-live plan in the Project | Project framework coverage | [PFW-018](project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
+| PFW-019 | FRAME at High complexity for a gravel cycling hero image in the Project | Project framework coverage | [PFW-019](project-framework-coverage/frame-high-gravel-cycling-hero-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
+| PFW-020 | FRAME at Complex complexity for a library science poster in the Project | Project framework coverage | [PFW-020](project-framework-coverage/frame-complex-library-science-poster-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
+| PFW-021 | MOTION at High complexity for a potter wheel reel in the Project | Project framework coverage | [PFW-021](project-framework-coverage/motion-high-potter-wheel-reel-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
+| PFW-022 | MOTION at Complex complexity for a flower auction opening shot in the Project | Project framework coverage | [PFW-022](project-framework-coverage/motion-complex-flower-auction-opening-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
+| PFW-023 | VIBE at High complexity for a returns inspection screen in the Project | Project framework coverage | [PFW-023](project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
+| PFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow in the Project | Project framework coverage | [PFW-024](project-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |

@@ -1,0 +1,79 @@
+Mode: $yaml | Complexity: High | Framework: CRISPE
+
+capacity: >
+  Act as a workforce strategist with hands-on last-mile parcel-delivery
+  experience: fluent in driver retention economics, shift/route design,
+  depot operations and pilot-experiment design under tight budgets.
+
+insight:
+  operation: 210 parcel-delivery drivers across 4 depots in and around Antwerp
+  attrition_rate: 38 percent of drivers left in the last 12 months
+  attrition_pattern: Most departures happen within the first 90 days of tenure
+  exit_interview_signals:
+    - Route density, meaning parcel volume and geographic spread per route
+    - The 06:00 shift start time
+    - The pay-per-stop compensation structure
+  budget:
+    amount_eur: 120000
+    period: per year
+    scope: Combined across all four depots and all experiments
+
+statement:
+  primary_task: >
+    Reason step by step about the underlying causes of early-tenure
+    (first-90-day) driver attrition, then design four distinct retention
+    experiments that together fit the annual budget.
+  required_reasoning_steps:
+    - Diagnose why early-tenure drivers specifically leave, treating the
+      three exit-interview signals as evidence to interpret, not as
+      pre-confirmed conclusions
+    - Explicitly test the assumption that pay is the primary lever; state
+      plainly whether the evidence supports or contradicts that assumption
+      and why, before proposing any pay-related fix
+    - Identify at least one non-pay root cause, tied to route density or the
+      06:00 start, and use it to anchor at least one experiment
+  experiment_requirements:
+    count: 4
+    distinctness_rule: >
+      Each experiment must target a different causal mechanism, for example
+      onboarding, scheduling, route design or peer/team support, rather than
+      four variations on pay
+    fields_required_per_experiment:
+      - hypothesis: The specific causal mechanism being tested and why it is
+          expected to reduce early-tenure attrition
+      - pilot_depot: Which one of the four depots runs the pilot, and the
+          reason that depot is the right test bed for this hypothesis
+      - metric: The single quantitative measure that confirms or rejects the
+          hypothesis
+      - readout_point: The status and go/no-go decision expected at week 10
+      - delivery_risk: The main risk the experiment poses to on-time delivery
+          performance while it runs
+    budget_constraint: >
+      Combined cost of all four experiments must not exceed EUR 120,000 per
+      year; state the approximate cost allocation across the four
+      experiments
+
+personality:
+  voice: Direct, evidence-driven, comfortable disagreeing with the
+    pay-first assumption when the evidence warrants it
+  stance: >
+    Default skeptic of pay-per-stop as the fix; prioritize mechanisms tied
+    to the 06:00 start and route density before recommending any pay change
+  tone: Executive-ready, no hedging, no filler, no restating the brief back
+
+experiment:
+  gap_filling_rule: >
+    Where an operational detail is not supplied, such as depot names or
+    current headcount per depot, assign clearly labeled placeholders
+    (Depot A through Depot D) and state them as assumptions instead of
+    asking a clarifying question
+  distinctness_check: >
+    Before finalizing, compare all four experiments pairwise; if two rely on
+    the same underlying mechanism, replace one so all four stay genuinely
+    distinct
+  output_structure:
+    - Open with the early-tenure attrition diagnosis and the explicit
+      pay-assumption verdict, in prose
+    - Follow with the four experiments as a numbered list, each carrying
+      all five required fields in the stated order
+    - Close with the total budget allocation across the four experiments

@@ -1,0 +1,101 @@
+```
+Mode: $improve | Complexity: 6 | Framework: TIDD-EC
+
+{
+  "task": "Protect this supplement marketplace listing from EU health-claim regulatory risk: audit the title, description, and bullet points against a supplied list of approved claims, flag every health-claim sentence that is not on the list, classify why it fails, and rewrite it to be compliant while preserving the underlying product fact.",
+  "instructions": [
+    "Split the title, description, and each bullet point into individual sentences.",
+    "Identify every sentence that makes or implies a health or body-function claim about the product or an ingredient.",
+    "Check each claim sentence against approved_claims_list for an exact or equivalent-meaning match.",
+    "If a match exists, leave the sentence untouched: no flag, no rewrite, no comment.",
+    "If no match exists, create one flag object and set rule_broken to unauthorised_claim, disease_claim, or dosage_promise using the definitions in context.rule_definitions.",
+    "Build compliant_rewrite by substituting the nearest approved claim for the same ingredient or nutrient named in the original sentence, keeping every stated product fact (ingredient, quantity, product name) unchanged.",
+    "If the original sentence names no specific ingredient, choose the approved claim whose function is closest to the original marketing intent, keeping any other stated product facts unchanged.",
+    "Return only the fields defined in output_schema: no summary, count, or efficacy commentary."
+  ],
+  "dos": [
+    "Flag every health-claim sentence that has no match in approved_claims_list.",
+    "Classify each flag with exactly one rule_broken value.",
+    "Preserve every stated product fact inside compliant_rewrite.",
+    "Return one flag object per violating sentence, in the order sentences appear in the listing.",
+    "Leave sentences with no health claim, and sentences matching an approved claim, completely untouched."
+  ],
+  "donts": [
+    "Do not flag, alter, or comment on a sentence that already matches an approved claim.",
+    "Do not state or imply whether the product is effective, safe, or scientifically valid; assess wording compliance only.",
+    "Do not invent ingredients, quantities, or claims in compliant_rewrite that are absent from the original sentence.",
+    "Do not merge multiple violating sentences into one flag, or split one sentence into multiple flags.",
+    "Do not output anything outside output_schema."
+  ],
+  "examples": [
+    {
+      "case": "unauthorised_claim",
+      "input_sentence": "Boosts your immune system",
+      "flag_expected": true,
+      "rule_broken": "unauthorised_claim",
+      "compliant_rewrite": "Vitamin C contributes to the normal function of the immune system"
+    },
+    {
+      "case": "disease_claim",
+      "input_sentence": "Helps prevent colds and flu",
+      "flag_expected": true,
+      "rule_broken": "disease_claim",
+      "compliant_rewrite": "Vitamin C contributes to the normal function of the immune system"
+    },
+    {
+      "case": "dosage_promise",
+      "input_sentence": "Take 2 capsules daily and feel the difference within a week",
+      "flag_expected": true,
+      "rule_broken": "dosage_promise",
+      "compliant_rewrite": "Take 2 capsules daily as part of your regular nutrient intake"
+    },
+    {
+      "case": "already_compliant",
+      "input_sentence": "Vitamin D contributes to the maintenance of normal bones",
+      "flag_expected": false,
+      "reason": "Matches an approved claim; leave untouched, no flag produced."
+    },
+    {
+      "case": "anti_pattern_do_not_flag_this",
+      "input_sentence": "Vitamin C contributes to the normal function of the immune system",
+      "flag_expected": false,
+      "reason": "This sentence is already an approved claim; flagging it would be incorrect."
+    }
+  ],
+  "context": {
+    "product_category": "EU-market food supplement listings",
+    "listing_fields_provided": ["title", "description", "bullet_points"],
+    "approved_claims_list": "Array of exactly 38 EU-authorised health claims, supplied fresh with every call; this list is the only source of truth for what counts as an approved claim, not general nutrition knowledge",
+    "rule_definitions": {
+      "unauthorised_claim": "A health or body-function benefit that has no match in approved_claims_list",
+      "disease_claim": "A claim that references treating, preventing, curing, or diagnosing a disease or medical condition",
+      "dosage_promise": "A claim that ties a specific dose, frequency, or timeframe to a guaranteed or implied outcome"
+    },
+    "scope_note": "Wording compliance only. Never judge or imply whether the product is effective, safe, or scientifically valid."
+  },
+  "input_variables": {
+    "title": "string, the listing title",
+    "description": "string, the listing description",
+    "bullet_points": "array of strings, one per bullet point",
+    "approved_claims_list": "array of exactly 38 strings, the EU-authorised health claims supplied for this call"
+  },
+  "output_schema": {
+    "flags": [
+      {
+        "exact_sentence": "string, verbatim sentence from the listing that violates a rule",
+        "rule_broken": "one of: unauthorised_claim | disease_claim | dosage_promise",
+        "compliant_rewrite": "string, rewritten sentence that is compliant and preserves the original product facts"
+      }
+    ]
+  }
+}
+
+---
+Attestation: docs consulted = DEPTH Framework, Interactive Mode, Patterns & Evaluation, Framework Pattern Library, JSON Format Guide | assumptions = compliance is a single "not on approved_claims_list" test classified into 3 rule reasons (not 3 independent tests); compliant_rewrite substitutes the nearest approved claim for the same ingredient while keeping other stated facts | format = JSON | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-supplement-listing-compliance-checker.json`
+**Score and gate status:** CLEAR 45/50 | Perspectives: 5 (Prompt Engineering, AI Interpretation, End-User/Ops Experience, Framework Architecture, Token Optimisation) | Gate passed
+**Token overhead:** JSON adds roughly +5-10% tokens versus an equivalent Markdown version, mainly from bracket/quote syntax and the schema/examples block.
+
+**Summary:** Rebuilt the one-line prompt into a TIDD-EC JSON spec that defines the audit logic (sentence-by-sentence match against `approved_claims_list`), the three violation types as classification reasons for a single "not on the list" test, a strict `output_schema` limited to your three required fields, and 5 cascading examples including an edge case (compliant text left untouched) and an anti-pattern (never re-flag an already-approved claim). No new fields, checks, or judgments were added beyond what you described — the two open points (rewrite-selection logic and how the three rule types relate to the approved list) were decided per the flagged assumptions above rather than asked about, per your instruction.

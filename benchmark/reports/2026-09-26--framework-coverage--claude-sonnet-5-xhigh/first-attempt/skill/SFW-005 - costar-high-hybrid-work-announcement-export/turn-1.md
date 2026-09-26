@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-hybrid-work-policy-announcement-prompt.yaml`
+CLEAR 43/50 | Gate: passed
+
+Built as COSTAR in valid YAML: Context carries all policy facts (effective date flagged for year confirmation, Tue/Thu office days, exception rule, travel-allowance shift) plus a "use only these facts" guardrail; Style/Tone/Audience lock in direct-reassuring, no-spin, mixed warehouse-to-engineer readability; Response specifies the ~300-word announcement, 6-topic FAQ, and 2-line Slack teaser as one labeled output. `[Assumes: exact year for "1 March" left as a confirm-with-HR placeholder since none was given; travel-allowance start date assumed to align with the office-day start unless HR overrides]`.

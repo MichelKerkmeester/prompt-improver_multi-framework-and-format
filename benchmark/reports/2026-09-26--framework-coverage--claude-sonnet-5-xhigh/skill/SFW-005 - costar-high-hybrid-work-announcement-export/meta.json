@@ -1,0 +1,71 @@
+{
+ "id": "SFW-005",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/costar-high-hybrid-work-announcement-export.md",
+ "twin": "PFW-005",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "31e9836a-d926-4c95-911b-f1a0f668a258",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-hybrid-work-policy-announcement.yaml"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 160.54,
+   "tool_calls": 10,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 369451,
+   "output_tokens": 14448,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5390168000000001,
+   "model_s": 159.54,
+   "startup_s": 0.54,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-hybrid-work-policy-announcement.yaml"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$text $yaml We need a prompt for our HR assistant, GPT-4.1 on our intranet, that drafts the announcement of our new hybrid-work policy. Audience: 420 staff across the Utrecht and Ghent offices, from warehouse crew to engineers. From 1 March everyone is in the office on Tuesday and Thursday, team leads can grant two exceptions per person per quarter, and the travel allowance moves from per kilometre to a flat EUR 60 a month. The draft needs an announcement of about 300 words, a six-question FAQ and a two-line Slack teaser. Tone: direct and reassuring, never corporate spin, and it must not promise anything beyond the policy text. Build it with COSTAR and keep all three outputs. No questions please, fill gaps sensibly."
+  }
+ ]
+}

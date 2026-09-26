@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-onboarding-setup-guide-prompt.md`
+CLEAR 45/50 | Gate: passed
+
+Restructured the platform team's prompt into CIDI (Context, Instructions, Details, Input) as requested, turning the loose brief into 9 explicit, verifiable instructions covering exact-version extraction, verbatim-only commands, per-stage verification, source-only troubleshooting, and 1Password-reference-without-value handling for secrets — with the three inputs (README, Makefile, CI config) kept as clearly labeled placeholders. One assumption is built in as a controlled escape hatch: `[Assumed: reason]` may only fill a genuinely undocumented gap, never invent a command, version, or error.

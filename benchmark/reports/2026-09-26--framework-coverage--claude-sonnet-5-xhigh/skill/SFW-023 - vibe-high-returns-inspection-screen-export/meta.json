@@ -1,0 +1,73 @@
+{
+ "id": "SFW-023",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/vibe-high-returns-inspection-screen-export.md",
+ "twin": "PFW-023",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "ae37f781-7b65-4155-834d-ef555d81dff5",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-returns-inspection-vibe-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 105.73,
+   "tool_calls": 12,
+   "tools_used": [
+    "Bash",
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Glob",
+    "Write"
+   ],
+   "input_tokens": 399775,
+   "output_tokens": 9292,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5262926,
+   "model_s": 104.82,
+   "startup_s": 0.61,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-returns-inspection-vibe-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described."
+  }
+ ]
+}

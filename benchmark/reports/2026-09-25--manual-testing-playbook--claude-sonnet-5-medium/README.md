@@ -181,13 +181,15 @@ warning skill STX-001 - 001 - enhanced-coffee-brewing-beginners-blog-post.md dif
 
 ## 10. Example pack
 
-`export/benchmark/examples/` holds eight prompts for the modes and formats this run does not show: `$deep`, `$short`, `$refine`, `$raw`, `$text $yaml`, `$improve $markdown`, `$video $yaml` and `$vibe`. Each answers the Turn 1 input of one new skill scenario (section 11). They were written through the skill on 2026-09-26, and no run graded them. [Its README](../../../export/benchmark/examples/README.md) lists each command, format and the writer's own score.
+Eight prompts written through the skill on 2026-09-26 briefly sat beside these exports, one per new skill scenario of section 11. They were dropped the same day for two reasons. `export/benchmark/` keeps only the `skill/` and `claude project/` deliverables of real runs, as Product Owner's does. The operator also wanted medium, high and complex prompts that visibly use a named framework, which most of the eight did not. Git history keeps them under `export/benchmark/examples/` at Prompt Improver commit `9257494`.
+
+Their place is taken by a run of 24 framework-coverage scenario pairs on `claude-sonnet-5` at effort `xhigh`, recorded in [its own run folder](../2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md).
 
 ---
 
 ## 11. Playbook after this run
 
-The playbook grew from 14 to 30 scenarios after this run, at root version 1.1.0.0.
+The playbook grew from 14 to 30 scenarios after this run, at root version 1.1.0.0. The 48 framework-coverage scenarios of section 10 later took it to 78, at root version 1.2.0.0.
 
 - **New:** eight skill and Project pairs, STX-002 to STX-005, SFM-002, SFM-003, SCR-002 and SCR-003 with their Project twins, one per mode or format named in section 10
 - **Tightened:** the 14 scenarios graded here keep their IDs, purposes and exact Turn inputs. The 28 scenarios that grade a delivered prompt state the scope test, and the 24 whose Turn 2 asks for a revision state the revision rule. All 15 Project files share one commentary definition that also says where the block ends. The 14 keep the summary band advisory in every Pass/fail line, and SIR-001 and PIR-001 ask for one consolidated question. That settles findings 3, 4, 6 and 7 of section 8 in the scenario files
@@ -208,7 +210,7 @@ Writing the new scenarios and examples surfaced eight rule gaps. They are record
 
 ## 12. Next steps
 
-1. Rerun the 30-scenario playbook on the skill and the Project, then grade it. That grades the eight new scenarios for the first time and gives the examples in `export/benchmark/examples/` a verdict
+1. Rerun the 30-scenario playbook on the skill and the Project, then grade it. That grades the eight new mode and format scenarios for the first time
 2. Operator decision on the eight rule gaps in section 11, starting with the YAML header, the question routing and Veo audio, which the new scenarios exercise
 3. Operator decision: whether a heading label before the header counts as commentary in every Project file. The tightened scenarios say it does, so PIR-001's Turn 2 reply here would now fail
 4. Follow-up repair outside the playbook: a header rule for "valid JSON only" on the skill side to match kernel line 380

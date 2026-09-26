@@ -1,0 +1,71 @@
+{
+ "id": "SFW-011",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md",
+ "twin": "PFW-011",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "55eee350-cb09-4354-9b80-d34176c1ff6c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-supplement-compliance-checker-prompt.json"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 95.0,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 395161,
+   "output_tokens": 8946,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.47390459999999995,
+   "model_s": 94.19,
+   "startup_s": 0.53,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-supplement-compliance-checker-prompt.json"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $json Improve the compliance prompt behind the listing checker for our supplement brand's marketplace listings. Current version: \"Check if this product text is OK.\" GPT-4.1 receives the title, description and bullet points of one listing, plus our approved list of 38 EU-authorised health claims with each call. It flags every health claim that is not on the list, and for each flag returns the exact sentence, the rule it breaks (unauthorised claim, disease claim or dosage promise) and a compliant rewrite that keeps the product facts. It must not touch text that is already compliant and must not judge whether the product works. Worked example: \"Boosts your immune system\" is unauthorised, while \"Vitamin C contributes to the normal function of the immune system\" is approved. Use TIDD-EC and keep the full scope. No questions, decide the open points yourself."
+  }
+ ]
+}

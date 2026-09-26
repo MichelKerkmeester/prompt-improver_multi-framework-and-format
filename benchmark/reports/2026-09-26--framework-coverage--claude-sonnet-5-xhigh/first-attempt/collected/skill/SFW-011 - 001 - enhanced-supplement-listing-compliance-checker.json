@@ -1,0 +1,66 @@
+Mode: $improve | Complexity: 6/10 | Framework: TIDD-EC
+
+{
+  "task": "Review one supplement marketplace listing (title, description, bullet points) against the EU-authorised health claims supplied with this call, and flag every health claim in the listing that is not on that approved list.",
+  "instructions": [
+    "Treat the title, description, and bullet points together as the listing text, and evaluate it sentence by sentence.",
+    "For every sentence that makes or implies a health claim, check whether it matches the nutrient/ingredient and the authorised function of a claim on the approved_claims_list supplied with this call.",
+    "A sentence counts as on the list only when it conveys the same nutrient and the same authorised function as one of the 38 listed claims; a different nutrient, a stronger effect, or an added outcome makes it unauthorised even if the wording is similar.",
+    "Leave every sentence that already matches an approved claim, and every sentence with no health claim, exactly as written: do not flag, rewrite, or comment on it.",
+    "For each sentence carrying a health claim that is not on the approved list, create one flag object with exactly these fields: sentence (the exact original sentence, unedited), rule (one of unauthorised_claim, disease_claim, dosage_promise), and rewrite (a compliant replacement that keeps the same product fact/nutrient but restates the claim using approved-list wording or neutral factual language).",
+    "Classify a flag as disease_claim when the sentence implies preventing, treating, or curing a disease or medical condition; classify it as dosage_promise when the sentence ties a health outcome to a specific amount, frequency, or increased dose; use unauthorised_claim for any other health claim missing from the list.",
+    "Never state or imply an opinion on whether the product is effective, works, or delivers results; assess claim authorisation only, not product performance.",
+    "Base every decision solely on the approved_claims_list supplied in this call, not on outside or remembered knowledge of EU health claim rules.",
+    "Return the result as a JSON array named flags; if every claim in the listing is already compliant, return an empty array instead of commentary."
+  ],
+  "dos": [
+    "Quote each flagged sentence exactly as written, including punctuation and capitalisation.",
+    "Assign exactly one rule per flag.",
+    "Preserve the underlying product fact, meaning the real nutrient/ingredient and its actual function, in every rewrite.",
+    "Scope every judgment to this single listing and the approved_claims_list provided in this call."
+  ],
+  "donts": [
+    "Do not edit, flag, or annotate a sentence that is already compliant.",
+    "Do not add efficacy opinions, ratings, or endorsements about the product.",
+    "Do not invent a health benefit in a rewrite that the approved_claims_list does not support.",
+    "Do not merge two offending sentences into one flag or split one sentence into two flags.",
+    "Do not flag statements that carry no health claim, such as price, size, flavor, or delivery details."
+  ],
+  "examples": [
+    {
+      "sentence": "Boosts your immune system",
+      "compliant": false,
+      "rule": "unauthorised_claim",
+      "rewrite": "Vitamin C contributes to the normal function of the immune system"
+    },
+    {
+      "sentence": "Vitamin C contributes to the normal function of the immune system",
+      "compliant": true,
+      "rule": null,
+      "rewrite": null
+    },
+    {
+      "sentence": "Helps prevent osteoporosis",
+      "compliant": false,
+      "rule": "disease_claim",
+      "rewrite": "Calcium contributes to the maintenance of normal bones"
+    },
+    {
+      "sentence": "Take double the dose for twice the energy",
+      "compliant": false,
+      "rule": "dosage_promise",
+      "rewrite": "Vitamin B12 contributes to normal energy-yielding metabolism; follow the recommended daily dose"
+    }
+  ],
+  "context": {
+    "model": "GPT-4.1",
+    "product_domain": "supplement brand marketplace listings",
+    "input_per_call": {
+      "listing_title": "string",
+      "listing_description": "string",
+      "listing_bullet_points": "array of strings",
+      "approved_claims_list": "array of the 38 EU-authorised health claims currently in force, supplied fresh with this call"
+    },
+    "output": "JSON array named flags, one object per offending sentence, fields: sentence, rule, rewrite"
+  }
+}

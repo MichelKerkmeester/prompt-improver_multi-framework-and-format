@@ -1,0 +1,15 @@
+Mode: $vibe | Complexity: High | Framework: VIBE-MP
+
+Create the five-screen theft-claim flow inside a mobile e-bike insurance app — the sequence a commuter opens the moment she looks at an empty rack where her e-bike used to be locked. She's standing there right now: upset, in a hurry, phone in one hand. The flow has one job — a complete claim filed in under five minutes, with nothing repeated and nothing lost if her signal drops.
+
+Screen 1, What happened, opens straight into one generous text field — no throat-clearing copy, no icon parade; she should feel like someone is already taking notes. Screen 2, Where and when, arrives with the station name and a small map pin already filled in from her location the instant it loads — typing here is correction, never a requirement. Screen 3, Photos and frame number, opens straight to the camera for a few angles of the empty rack and lock, with a frame-number field that takes a partial digit or a plain "I don't know" without apology. Screen 4, Police report, sets the report-number field beside an equally weighted "I'll add this later," which visibly reserves her place in the claim rather than treating missing paperwork as failure. Screen 5, Confirmation, resolves the sequence: a claim number opens like a case file, followed by a quiet horizontal status ladder — Received, Under review, Decision — updating on its own.
+
+Think less "onboarding wizard," more the interface an airline's flight-status board would have if it also took incident reports: sequential, evidentiary, quietly certain of what happens next.
+
+Each screen slides forward only once its required field is met, with a firm, unhurried motion; back slides the prior screen into view with every word exactly where she left it. If her connection drops mid-flow, a small, uncolored line — "Saved on this device" — confirms nothing is lost, with no alarm-red error state for something this ordinary.
+
+Layout stays graphite and overcast — slate, fog, charcoal — with one desaturated amber reserved only for what needs her attention right now, never a hopeful gradient. Typography is upright and matter-of-fact, respecting her time rather than performing friendliness. Copy holds in Dutch and English behind an unceremonious locale toggle, with the Dutch carrying the same clipped, competent register as the English — no warm marketing voice layered on top.
+
+Steer hard away from the Duolingo-style progress bar with milestone celebration this kind of flow defaults to, and away from centered-gradient-hero SaaS polish or warm-cream startup dressing. In their place, one deliberate risk: the status ladder on screen five reads like an evidence log advancing, not a percentage bar cheering her on — nothing here should feel like an achievement unlocked.
+
+No component library — leave every surface choice to MagicPath. Layout holds on phone and tablet widths, every control carries a visible keyboard-focus ring, motion respects reduced-motion settings, and text holds AA contrast against the graphite ground throughout.

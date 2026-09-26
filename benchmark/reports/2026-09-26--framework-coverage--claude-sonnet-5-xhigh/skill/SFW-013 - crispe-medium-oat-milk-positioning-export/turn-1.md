@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-oat-milk-positioning-prompt.md`
+CLEAR 42/50 | Gate: passed
+
+Restructured your oat-milk prompt into CRISPE (Capacity, Insight, Statement, Personality, Experiment), turning the Ghent context, barista decision criteria, and price premium into an explicit strategist brief that demands three genuinely distinct positioning routes, each with a repeatable pitch, target café type, and a concrete 30-day test. The frank/no-buzzwords tone and the sparring-partner framing are preserved and reinforced with an added assumption-check step in Experiment, which fits the framework without adding new scope.
