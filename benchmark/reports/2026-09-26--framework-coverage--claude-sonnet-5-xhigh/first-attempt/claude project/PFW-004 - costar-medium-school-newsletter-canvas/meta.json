@@ -1,0 +1,62 @@
+{
+ "id": "PFW-004",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/costar-medium-school-newsletter-canvas.md",
+ "twin": "SFW-004",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "0a296272-4fbe-46bb-b132-219547002398",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 97.67,
+   "tool_calls": 8,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Glob"
+   ],
+   "input_tokens": 162538,
+   "output_tokens": 8842,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3491168,
+   "model_s": 96.7,
+   "startup_s": 0.5,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Please improve the prompt our primary school office uses in ChatGPT for the monthly parent newsletter: \"Write a newsletter for parents about this month.\" The office pastes in the headteacher's bullet notes, the dates of upcoming events and any lunch or bus timetable changes. Parents read it on their phones, and many speak Dutch as a second language, so it needs plain B1-level language, short paragraphs and a warm but not chatty tone. Event dates go in a list at the top. Keep it under 350 words and never name individual pupils. Use COSTAR for the structure. Don't ask me anything, just make sensible calls where I left gaps."
+  }
+ ]
+}

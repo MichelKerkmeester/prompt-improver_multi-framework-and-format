@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-wms-go-live-plan-prompt.md`
+CLEAR 44/50 | Gate: passed (floors met — C9/L9/E13/A9/R4)
+
+Built with CRAFT (Context, Role, Action, Format, Target) at Deep energy across 5 perspectives, since your one-liner needed to carry a lot of interlocking, non-negotiable facts without any getting lost. The prompt locks in your two-DC volumes, single-vendor WMS, SAP + 3-carrier integrations, the 15 Nov–10 Jan blackout, the Liège-first/99.5%-for-4-weeks gate for Tilburg, and 260 pickers in two languages as fixed context — then directs the downstream AI to produce workstreams, a dependency map, per-site go/no-go checklists, hypercare, and a 12-hour rollback path, with "no missed carrier cut-off in the first two weeks" as the explicit success target and unstated specifics (owners, dates) required to be bracketed placeholders rather than invented.

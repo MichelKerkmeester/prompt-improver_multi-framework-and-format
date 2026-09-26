@@ -1,0 +1,56 @@
+Mode: $video $yaml | Complexity: 6 | Framework: MOTION
+
+platform: Kling 2.6
+generation_type: text-to-video
+aspect_ratio: "16:9"
+duration_seconds: 10
+shot_type: single continuous take, no cuts
+setting: Flower auction hall near Aalsmeer, at dawn
+camera_timeline:
+  - beat: "0-4s"
+    movement: Camera glides forward at a slow, steady pace roughly three metres above the floor, moving low over the trolley trains
+  - beat: "4s"
+    movement: Camera rises smoothly, opening the view to reveal the full scale of the hall and the converging trolley lanes below
+  - beat: "8s"
+    movement: Camera settles into a static frontal hold facing the hall's large auction clock as its hand begins to sweep
+subject_motion:
+  trolley_trains: Trolley trains loaded with red and yellow tulips snake past each other in two directions across the concrete floor
+  workers: Three workers on electric tugs steer the trains from ground level, kept small and anonymous within the wide frame
+  clock: Auction clock hand starts to sweep at the 8-second mark
+lighting:
+  start: Cool blue daylight spilling through the roof windows
+  end: Warms gradually to gold by the final frame
+audio:
+  native: true
+  elements:
+    - Steady electric hum from the tugs
+    - Trolley wheels rolling over concrete
+    - A single distant chime as the clock hand starts moving
+  excluded:
+    - music
+    - voices
+constraints:
+  - One continuous, unbroken shot, exactly 10 seconds
+  - No scene changes, no cuts
+  - No music, no voice-over or dialogue
+  - Workers remain small and anonymous in frame
+  - No negative prompts, no quality keywords
+prompt: |
+  At dawn inside a vast flower auction hall near Aalsmeer, the camera glides
+  forward at a slow, steady pace roughly three metres above the floor, moving
+  low over parallel trolley trains stacked with red and yellow tulips as they
+  snake past each other in opposing directions across the concrete floor. In
+  the foreground, trolleys pass close beneath the camera; in the middle
+  distance, more trains converge and diverge along criss-crossing lanes; far
+  in the background, the hall's steel roof trusses and rows of skylights
+  recede into the distance. Three workers on electric tugs steer the trains
+  from ground level, kept small and anonymous within the wide frame. At 4
+  seconds the camera rises smoothly, opening the view to reveal the hall's
+  full scale and the converging pattern of trolley lanes below. At 8 seconds
+  the camera settles into a static frontal hold facing the hall's large
+  auction clock as its hand begins to sweep. One continuous, unbroken take
+  lasting exactly 10 seconds, framed 16:9. Cool blue daylight spills through
+  the roof windows at the start and gradually warms to gold by the final
+  frame. With the sound of a steady electric hum, trolley wheels rolling over
+  concrete, and a single distant chime as the clock hand starts moving --
+  no music, no voices.

@@ -1,0 +1,72 @@
+{
+ "id": "SFW-016",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/craft-medium-customer-workshop-plan-export.md",
+ "twin": "PFW-016",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "971b977a-cd25-4e3e-bd72-edbc9cd9177a",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-customer-workshop-run-of-show-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 79.4,
+   "tool_calls": 11,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 403695,
+   "output_tokens": 6978,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4454508,
+   "model_s": 78.56,
+   "startup_s": 0.61,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-customer-workshop-run-of-show-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Improve this planning prompt: \"Help me plan our customer workshop.\" We are a payroll software company hosting a one-day workshop in Utrecht on 12 November for 25 HR managers from existing customers, and I use ChatGPT to draft the run-of-show. It should cover the agenda from 09:30 to 16:00, two hands-on sessions on our new leave module, lunch and a closing Q&A, plus a short prep checklist for our two trainers. We judge success by an average session rating of at least 8 out of 10 and at least 10 sign-ups for the module pilot, so the prompt must keep those targets in view. Use CRAFT, since the Target part matters to us. No questions, use your judgment where I was vague."
+  }
+ ]
+}

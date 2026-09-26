@@ -1,0 +1,71 @@
+{
+ "id": "SFW-010",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md",
+ "twin": "PFW-010",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "53bd4439-d2d3-498d-bf3e-ef0a21b6f284",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-employment-law-intake-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 87.49,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 385597,
+   "output_tokens": 7797,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4512602,
+   "model_s": 86.64,
+   "startup_s": 0.65,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-employment-law-intake-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Tighten this intake prompt for our employment-law firm: \"Read the web form and summarise the case.\" Claude reads each web-form inquiry and writes an intake note for the lawyer who does the free 20-minute call. The note needs the client type (employee or employer), the issue (dismissal, contract, discrimination or pay), every date mentioned and the other party's name for our conflict check. It must never give legal advice or estimate chances, and it flags any dismissal older than two months, because the deadline may have passed. One good note: \"Employee, dismissal on 3 June, employer Van Dijk Logistics, deadline flag.\" Structure it with TIDD-EC. No questions, use your judgment on the rest."
+  }
+ ]
+}

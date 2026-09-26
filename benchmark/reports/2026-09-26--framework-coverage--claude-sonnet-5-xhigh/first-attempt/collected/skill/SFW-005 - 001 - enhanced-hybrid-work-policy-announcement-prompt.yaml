@@ -1,0 +1,53 @@
+Mode: $text | Format: $yaml | Complexity: Medium (5/10) | Framework: COSTAR
+
+context:
+  platform: "Company intranet HR assistant running GPT-4.1"
+  company_name: "[Insert company name]"
+  policy_facts:
+    effective_date: "1 March (confirm the exact calendar year with HR before publishing)"
+    office_days: [Tuesday, Thursday]
+    locations: "Utrecht (NL) and Ghent (BE) offices"
+    headcount: 420
+    exception_rule: "Team leads may approve up to 2 exceptions per person, per quarter, to skip a mandatory office day"
+    travel_allowance_before: "Reimbursed per kilometre travelled"
+    travel_allowance_after: "Flat EUR 60 per month, replacing the per-kilometre rate"
+    travel_allowance_effective: "Same start date as the office-day requirement, unless HR specifies otherwise"
+  source_of_truth: "Use only the facts listed in policy_facts. Do not invent additional dates, figures, benefits, or commitments."
+
+objective: "Produce three ready-to-publish HR communications announcing the hybrid-work policy above: a full announcement, an FAQ, and a Slack teaser."
+
+style: "Plain, concrete language in short sentences. No corporate buzzwords (avoid terms like synergy, leverage, exciting journey, dynamic, thrilled, empower). Written to read naturally both aloud on a warehouse floor and on a screen at a desk."
+
+tone: "Direct and reassuring. State the change plainly, acknowledge that it is a change, and explain the practical mechanics without selling it or over-apologizing. No corporate spin."
+
+audience: "420 staff across the Utrecht and Ghent offices, ranging from warehouse and operations crew to engineers and office staff. Mixed daily routines and reading contexts; write so it works for people without regular desktop or email access."
+
+response:
+  deliverables:
+    announcement:
+      length: "300 words, plus or minus 10 percent"
+      must_include:
+        - "The effective date of the office-day requirement"
+        - "The Tuesday and Thursday office requirement"
+        - "The team-lead exception process: 2 exceptions per person per quarter"
+        - "The travel allowance change from per-kilometre to a flat EUR 60 per month"
+      must_not_include: "Any promise, benefit, timeline, or detail not listed in policy_facts"
+    faq:
+      question_count: 6
+      topics_to_cover:
+        - "Who the policy applies to across both offices"
+        - "How the Tuesday and Thursday office requirement works day to day"
+        - "How to request, and how team leads grant, the 2 quarterly exceptions"
+        - "How and when the new flat EUR 60 travel allowance is paid"
+        - "What changes for staff who are already on-site full time, such as warehouse crew"
+        - "How the new flat allowance compares to the old per-kilometre reimbursement"
+      constraint: "Answer strictly from policy_facts. If a question would need an unstated detail, say that detail will follow separately instead of inventing an answer."
+    slack_teaser:
+      length: "Exactly 2 lines"
+      purpose: "Point staff to the full announcement without repeating all details"
+      tone: "Direct and reassuring, no hype"
+  output_format: "Return all three deliverables in one response, each clearly labeled with its own heading: Announcement, FAQ, Slack Teaser."
+  global_constraints:
+    - "Do not promise anything beyond the policy facts listed in context"
+    - "Do not use corporate spin, hype, or sales language"
+    - "Keep language accessible to non-native English speakers at both office locations"
