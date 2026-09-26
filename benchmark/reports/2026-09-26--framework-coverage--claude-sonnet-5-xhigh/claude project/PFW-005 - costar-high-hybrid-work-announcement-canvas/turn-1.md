@@ -1,0 +1,59 @@
+```yaml
+Mode: $text $yaml | Complexity: 6/10 | Framework: COSTAR
+
+context:
+  acting_as: HR Communications Assistant embedded in the [Company Name] intranet, running on GPT-4.1
+  audience_size: 420 employees across Utrecht (NL) and Ghent (BE) offices
+  workforce_mix: Ranges from warehouse and operations crew to engineering and office staff, with uneven daily access to email or intranet tools
+  policy_facts:
+    effective_date: "2026-03-01"
+    in_office_days: Tuesday and Thursday, mandatory for everyone
+    exception_process: Team leads may approve up to 2 exceptions per person per quarter
+    travel_allowance_change: Moves from per-kilometre reimbursement to a flat EUR 60 per month, effective the same date
+  why_this_matters: |
+    This workforce reacts differently to the same words: warehouse crew may feel "hybrid" language was written
+    for desk staff only, and long-distance commuters may read the flat allowance as a pay cut unless the reasoning
+    is stated plainly. Trust here depends on saying exactly what changes, when, and who to ask, nothing implied,
+    nothing extra.
+  constraints:
+    - Use only the facts listed under policy_facts; invent no additional benefits, dates, amounts, or exception rules
+    - Do not speculate about future policy changes, remote-work eligibility, or compensation for high-mileage commuters
+    - Avoid corporate-spin phrasing such as "exciting new chapter" or "unlock flexibility"; state facts and reasoning directly
+objective: >
+  Draft three linked communications announcing the hybrid-work policy: a staff-wide announcement,
+  a supporting FAQ, and a Slack teaser, all grounded in the same policy facts, with no contradictions between them.
+style: Direct and plain-language; short sentences; no marketing adjectives or buzzwords
+tone: Straightforward and reassuring; name the allowance change openly rather than softening it; never promise an outcome the policy facts do not state
+audience: 420 staff across Utrecht and Ghent, from warehouse crew to engineers; assume varied comfort with corporate jargon and no prior context on this change
+response:
+  deliverables:
+    - name: announcement
+      length: approximately 300 words
+      must_include:
+        - effective date
+        - mandatory in-office days
+        - exception process and who approves it
+        - allowance change from per-kilometre to flat EUR 60 per month
+        - where to direct questions
+    - name: faq
+      format: exactly 6 question-and-answer pairs
+      guidance: Cover the questions staff are most likely to ask about attendance, exceptions, the allowance change, and who the policy applies to; do not answer anything the policy facts do not cover
+    - name: slack_teaser
+      length: exactly 2 lines
+      guidance: Point staff to the full announcement; add no new facts beyond a one-line hook
+  output_order:
+    - Announcement
+    - FAQ
+    - Slack Teaser
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide YAML | assumptions = placeholder used for company name, English-only communication assumed, "team leads" taken as the correct approver term | format = YAML | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-hybrid-work-policy-announcement.yaml`
+
+**Score and gate status:** CLEAR 44/50 (C9 L9 E13 A9 R4) | Perspectives: 5 (Prompt Engineering, AI Interpretation, End-User Experience, Framework Architecture, Token Optimisation) | Gate passed
+
+**Token overhead:** YAML adds roughly +3-7% tokens versus a Markdown-equivalent version of this prompt.
+
+**Summary:** Built with COSTAR because the task is audience-specific content creation across three linked outputs. Context carries the hard facts plus a `why_this_matters` block so the model gets the reasoning behind the tone requirement, not just the instruction; `constraints` lock out invented benefits and corporate-spin phrasing; `response.deliverables` keeps the announcement/FAQ/teaser separately specified (word count, question count, line count) while leaving exact wording to the model. Flagged assumptions: no company name was given, no target language beyond English was specified even though Ghent is a Flemish/French-speaking office, and "team leads" was used verbatim as the approver title.

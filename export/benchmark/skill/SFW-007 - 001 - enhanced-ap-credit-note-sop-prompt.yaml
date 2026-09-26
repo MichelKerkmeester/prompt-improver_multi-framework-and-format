@@ -1,0 +1,57 @@
+Mode: "$improve | Complexity: Medium | Framework: CIDI"
+
+context: >
+  New accounts-payable clerks will use this SOP as their only reference for
+  booking a supplier credit note against an open invoice, without ever
+  watching the original screen recording. The source material is a raw
+  transcript of a senior clerk narrating that recording live, so procedural
+  narration is mixed with conversational asides. The result is published
+  directly to a Confluence page as the team's canonical reference, so every
+  step must stand alone: a clerk with no prior exposure to this specific
+  workflow must be able to follow it end to end and confirm they did it
+  correctly.
+instructions:
+  - Read the full transcript once before drafting, then extract only the
+    moments where the clerk performs or describes an on-screen action.
+  - Convert the narration into a numbered sequence of steps in the exact
+    order the actions were performed, preserving any conditional branch the
+    clerk narrates.
+  - Write exactly one action per step; if the transcript describes two
+    actions in a single breath, split them into two steps.
+  - For every step where the credit note amount exceeds EUR 5,000, prefix
+    the step with "APPROVAL REQUIRED (>EUR 5,000):" and state the second
+    approver's action before the original clerk continues.
+  - Quote screen names, tabs, menus, and field labels exactly as the clerk
+    speaks them; never rename, standardize, or correct them to match
+    assumed system terminology.
+  - Drop greetings, filler words, hesitations, apologies, and commentary
+    about the recording itself; keep a line only when it names an action, a
+    screen or field, or a result.
+details:
+  step_structure: >-
+    Each step has exactly three parts in this order - Action as an
+    imperative instruction, Screen/Field named in the clerk's own words,
+    Result describing what the clerk should see on screen immediately after
+    completing the action.
+  approval_flag: >-
+    A step tagged APPROVAL REQUIRED (>EUR 5,000) must name who performs the
+    second approval and what they confirm before the original clerk
+    proceeds to the next step.
+  terminology_rule: >-
+    Verbatim field names take priority over internal consistency; if the
+    transcript names the same field two different ways, keep the name
+    spoken in that specific instance rather than reconciling it.
+  missing_system_name: >-
+    If the transcript never names the AP system or module, refer to it only
+    using terms the clerk already used; do not introduce a system or module
+    name that was not spoken.
+  output_structure: >-
+    Present the result as a numbered list of steps only, in plain
+    Confluence-ready text with no markdown code blocks and no embedded
+    links; do not add sections the transcript does not support, such as a
+    summary or FAQ.
+  exclusion_scope: >-
+    The chit-chat exclusion applies only to dialogue with no procedural
+    content; do not remove a line for sounding informal if it still names a
+    required action, screen, or field.
+input: "${TRANSCRIPT}"

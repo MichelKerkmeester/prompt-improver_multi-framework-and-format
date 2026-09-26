@@ -1,0 +1,97 @@
+---
+title: "PFW-023 -- VIBE at High complexity for a returns inspection screen in the Project"
+description: "Validates that a single $vibe $markdown prompt delivers a Deliverable Block in one turn whose header names VIBE at High complexity, whose body is organised by VIBE's elements and whose EVOKE gate passes with every supplied fact kept."
+version: 1.0.0.0
+---
+
+# PFW-023 -- VIBE at High complexity for a returns inspection screen in the Project
+
+`$vibe` binds the Visual lane in the Project router and `$markdown` locks Markdown, so the Project writes one VIBE prompt, scores it with EVOKE and renders it as a Deliverable Block before any commentary. The request names VIBE and carries every essential, so the only correct reply is a delivery whose header and body both show VIBE.
+
+---
+
+## 1. OVERVIEW
+
+The user supplies the platform, the station, the inspector's moment and 20-second job, the screen contents, a reject state, the feel to avoid and the one to reach, the component library, and names VIBE. The Project improves that into one prompt organised by VIBE, scores it with EVOKE and renders it as a Deliverable Block before any commentary. The runner sends this one prompt and nothing more, so the scenario has no second turn.
+
+### Why this matters
+
+The Visual lane's library question is the usual reason a `$vibe` run stops to ask. The test is whether a pre-answered library lets the runtime deliver a VIBE brief in one turn with shadcn/ui written in.
+
+---
+
+## 2. SCENARIO CONTRACT
+
+- Objective: Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element labelled
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 390). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it
+- Real user request: `Please write a v0 brief for our returns-inspection screen: the inspector grades each returned item A, B, C or reject in about 20 seconds on a 24-inch touchscreen, with the order photo, the return reason and big grade buttons, calm and fast, never spreadsheet-like. Use shadcn/ui and VIBE.`
+- Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
+- Expected execution process: Start a fresh conversation in the configured Project, submit the prompt once and then inspect the Deliverable Block and the chat report. The runner sends this one prompt and nothing more
+- Expected signals: The runner sends this one prompt and nothing more, so the single reply is the graded delivery, and a reply that asks instead of delivering fails for missing delivery. One consolidated question: when essentials are missing, the runtime asks one consolidated question that covers every missing essential in a single message; asking two things in that one message is correct, and splitting them across messages is the failure (`Prompt Improver - Interactive Mode - v0.700.md` line 413, `Custom Instructions.md` line 398). This prompt leaves no essential missing: it carries the source prompt or goal, the target model or platform, the audience, the facts and the constraints, and it tells the runtime not to ask (`Prompt Improver - Interactive Mode - v0.700.md` line 186). It pre-answers every question its route could raise: the component library question the Visual lane marks mandatory (same file, lines 64-66, 151 and 205, `Prompt Improver - Visual Mode - v0.301.md` line 831), answered by naming shadcn/ui; the simplification choice complexity 7 or more raises (`Prompt Improver - Interactive Mode - v0.700.md` lines 58-60 and 127-136, `Custom Instructions.md` line 354), answered by asking to keep every part, and the framework doubt answered by naming VIBE; the format question (`Prompt Improver - Interactive Mode - v0.700.md` lines 61-63), answered by the `$markdown` token. Command flow allows at most one interaction (`Prompt Improver - Interactive Mode - v0.700.md` line 405), but this scenario has no second turn to spend it on, so a question asked anyway is recorded with the route that raised it and the scenario fails for missing delivery. Lane: `$vibe` binds the Visual lane at Creative energy with EVOKE (`Custom Instructions.md` line 52, `Prompt Improver - DEPTH Thinking Framework - v0.200.md` lines 51-55), and `$markdown` locks Markdown on its own axis (`Custom Instructions.md` lines 43, 57 and 71). Framework: the prompt names VIBE, and the kernel checklist requires the correct framework, the simplest fitting one preferred (`Custom Instructions.md` line 400). The library's decision table assigns VIBE to visual UI concepting (`Prompt Improver - Assets - Framework Pattern Library - v0.100.md` lines 175-180) and its selection algorithm weights VIBE up for visual UI work (lines 124-128), and Visual mode runs VIBE (`Custom Instructions.md` line 52 with `Prompt Improver - Visual Mode - v0.301.md` lines 90-107). Header: the Deliverable Block opens with the single-line `Mode: [mode] | Complexity: [level] | Framework: [Framework]` header (`Custom Instructions.md` line 372). Its Framework field names VIBE; a fusion such as `VIBE + CoT` passes when VIBE comes first, and a header that names another framework first fails. Complexity may be a label or a 1 to 10 number (`Prompt Improver - Format Guide Markdown - v0.141.md` line 109), and it must sit inside the High tier: the label `High`, or 7 or 8 as a bare number or written n/10. The mode label may be the mode command or the format command. The framework, complexity and mode label used are recorded. The format guide shows RCAF or CRAFT in its header template and field checks (`Prompt Improver - Format Guide Markdown - v0.141.md` lines 104 and 110), but the kernel template asks only for the framework used (`Custom Instructions.md` line 372), so that template is the guide's common case and not a limit: the header names VIBE, and a header or body that falls back to RCAF or CRAFT fails. Body: the prompt is visibly organised by VIBE's elements, Vision, Inspiration, Behavior and Experience (`Prompt Improver - Assets - Framework Pattern Library - v0.100.md` lines 58-62, `Prompt Improver - Visual Mode - v0.301.md` lines 90-107). Every element appears as its own heading, bold label or list label, in any letter case; `Behaviour` counts as Behavior; an element that is missing, unnamed or folded into another element's section fails. Sub-sections inside an element are fine, and an extra top-level section is recorded and passes only when it holds the user's own facts. The VIBE element sections are the structure the user asked for and never count as scope expansion; what goes inside them still has to come from the request. Scorer: EVOKE passes at 40 of 50 after the non-skippable grounding pre-check on subject, audience, single job and anti-default (`Prompt Improver - Patterns and Evaluation - v0.212.md` lines 302 and 459, `Prompt Improver - Visual Mode - v0.301.md` lines 60 and 343-354); CLEAR or VISUAL on a visual UI prompt is the wrong scorer (`Prompt Improver - Patterns and Evaluation - v0.212.md` lines 306 and 308), and a best-effort note below the gate fails this scenario. Delivery: the Deliverable Block comes before any commentary and holds only the single-line header, the prompt and the attestation footer ending `execution = did not occur | save = did not occur` (`Custom Instructions.md` lines 319-320, 372 and 377). After the block the chat reports the export-equivalent path `export/[###] - enhanced-[description].md`, the EVOKE result with gate status and a short summary, and does not paste the prompt again (`Custom Instructions.md` lines 341 and 384-387). No save, export or file on disk is claimed (line 347). A guessed number in place of `[###]` is recorded and does not decide the run, unless the reply presents it as a saved file. The chat closes by inviting the user to share the generated result (`Custom Instructions.md` lines 323 and 388). The enhanced prompt carries every supplied fact: v0 as the platform, named in the header or the body, the returns-inspection station in a fashion e-commerce warehouse, an inspector standing at a bench in cotton gloves, a scan of each returned item, about 20 seconds to grade it A, B, C or reject, a 24-inch touchscreen, the original order photo next to the item, the customer's return reason, a big tap target for each grade, one damage photo on a reject, 300 items a shift, not like a spreadsheet or a dark developer tool, calm, tactile and fast, and shadcn/ui as the component library. The user chose shadcn/ui, so the brief carries the shadcn/ui library instruction (`Prompt Improver - Visual Mode - v0.301.md` lines 852-859), and an Untitled UI instruction or none alters a supplied fact. Whether the brief names the median default it steers away from (lines 356-367), the UX-floor constraints (lines 948-959) and the word count against the 100 to 300 words set for v0 (lines 753-756) are recorded and do not decide the verdict. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`Custom Instructions.md` line 18). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
+- Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element labelled and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation
+- Pass/fail: PASS if all of these hold: the reply opens with the Deliverable Block before any commentary, with the header, the prompt and the attestation footer, and claims no save; the header names VIBE and a complexity inside the High tier (7 to 8); the prompt body is visibly organised by Vision, Inspiration, Behavior and Experience, each labelled; EVOKE passes its gate; every supplied fact is kept; and the scope test holds; and the reply closes with the share-back invitation. FAIL if the reply asks a question instead of delivering (missing delivery), commentary precedes the block, the header or the attestation is missing, the prompt is pasted again, a save is claimed, the header names another framework or a complexity outside the tier, an element is missing or unnamed, the scorer is wrong or below its gate, a supplied fact is dropped or altered, the invitation is missing or the prompt carries scope expansion. A default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect: a supervisor analytics page, a login screen or a refund workflow are examples
+
+---
+
+## 3. TEST EXECUTION
+
+### Prompt
+
+- Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
+
+### Commands
+
+1. `project: configure the Project with Custom Instructions pasted and the knowledge documents attached`
+2. `session: start fresh -> user: submit the prompt exactly, once`
+3. `artifact: read the Deliverable Block -> operator: check the header's framework and complexity against the High tier`
+4. `operator: map every VIBE element to its label, run the fact checklist and the scope test, and grade scorer, block order, chat report and no-save claim`
+
+### Expected
+
+Step 1 fixes the packaging under test. Step 2 binds Visual and delivers without a question. Step 3 proves the Deliverable Block comes first and opens with a header that names VIBE at a complexity inside the High tier. Step 4 proves every VIBE element is labelled, the EVOKE gate passed, every supplied fact survived, nothing unasked was added and no save was claimed.
+
+### Evidence
+
+The transcript, the EVOKE score line with gate status, the Artifact panel state, the header line with the framework, complexity and mode label used, a map from each VIBE element to its label in the block, a fact checklist against the block, the export-equivalent path line, the share-back sentence in chat, any fit note the runtime gave and the verdict.
+
+### Pass / fail
+
+- **Pass**: A Deliverable Block before commentary with header and attestation, a header naming VIBE at a complexity inside the High tier, every VIBE element labelled, a passing EVOKE result, every supplied fact intact, no scope expansion, no save claimed and the share-back invitation
+- **Fail**: A question instead of a delivery, commentary before the block, a missing header or attestation, another framework in the header or the body, a complexity outside the tier, a missing or unnamed element, the wrong scorer or a result below its gate, a dropped or altered fact, scope expansion, any claim that a file was written or a missing invitation
+- **Skip**: only when a named runtime or environment blocker prevents opening the configured Project session
+
+### Failure triage
+
+1. Check the lane binding in `Custom Instructions.md` line 52 and the pre-answered routes in `Prompt Improver - Interactive Mode - v0.700.md` lines 64-66, 151 and 205, plus lines 55-63, when the reply asked instead of delivering
+2. Re-check the VIBE entry in the framework matrix, `Prompt Improver - Assets - Framework Pattern Library - v0.100.md` lines 58-62, and the Quick Select row in `Prompt Improver - Patterns and Evaluation - v0.212.md` line 669 when the header or the body names another framework or leaves an element out
+3. Check the EVOKE gate in `Prompt Improver - Patterns and Evaluation - v0.212.md` lines 302 and 459 and the Delivery Protocol and No Canvas panel rule in `Custom Instructions.md` lines 367-390 when the score, the block order, the header or the attestation is off
+
+| Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
+|---|---|---|---|---|---|---|---|---|
+| PFW-023 | VIBE at High complexity for a returns inspection screen in the Project | Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element labelled | `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.` | 1. `Configure Project` -> 2. `Submit the prompt once` -> 3. `Read the block, check header` -> 4. `Map elements, check facts and scope` | Step 1: packaging fixed. Step 2: Visual bound, delivery with no question. Step 3: block first, header names VIBE at the High tier. Step 4: VIBE elements labelled, EVOKE passed, facts kept, no expansion, no save claimed | Transcript, EVOKE line, panel state, header, element map, fact checklist | PASS if block, header, elements, gate, facts and scope all hold. FAIL on a question instead of a delivery, commentary before the block, another framework, a complexity outside the tier, an unnamed element, a failed gate, a lost fact, scope expansion or a claimed save | 1. Check lane and question routes.<br>2. Check framework selection and elements.<br>3. Check scorer and delivery rules. |
+
+---
+
+## 4. SOURCE FILES
+
+| File | Role |
+|---|---|
+| [Root playbook](../manual-testing-playbook.md) | Shared execution policy, framework coverage tiers, defect severity and root summary |
+| [Custom Instructions](<../../../claude project/Custom Instructions.md>) | Lane binding, format axis, scope rule, framework checklist, Delivery Protocol and No Canvas panel rule |
+| [Framework Pattern Library knowledge](<../../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) | Framework matrix, selection algorithm, decision table and VIBE patterns |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | Quick Select bands, the EVOKE gate and scorer bans |
+| [Interactive Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) | Question triggers, `$vibe` route and interaction limits |
+| [DEPTH knowledge](<../../../claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md>) | Energy levels and complexity assessment |
+| [Visual Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) | Grounding, VIBE, EVOKE, MagicPath calibration and the library question |
+| [Visual Mode Library knowledge](<../../../claude project/knowledge/Prompt Improver - Assets - Visual Mode Library - v0.110.md>) | Visual UI vocabulary and platform templates |
+| [Format Guide Markdown knowledge](<../../../claude project/knowledge/Prompt Improver - Format Guide Markdown - v0.141.md>) | Markdown header, complexity labels and format lock |
+
+---
+
+## 5. SOURCE METADATA
+
+- Group: Project framework coverage
+- Playbook ID: PFW-023
+- Runtime: project
+- Canonical root source: `../manual-testing-playbook.md`
+- Feature file path: `project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md`

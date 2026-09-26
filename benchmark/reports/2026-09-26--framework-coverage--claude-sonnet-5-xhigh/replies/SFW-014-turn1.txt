@@ -1,0 +1,6 @@
+The YAML body parses cleanly with all five CRISPE keys (`capacity`, `insight`, `statement`, `personality`, `experiment`) intact; the header line is the mandated plain-text banner per the format guide's own example, not part of the parsed document. The file is saved and verified.
+
+**Saved:** `export/001 - enhanced-driver-retention-strategist-prompt.yaml`
+**CLEAR ~44/50** | Gate: passed | Framework: CRISPE
+
+I mapped your brief onto CRISPE (Capacity, Insight, Statement, Personality, Experiment): Capacity sets the last-mile strategist role, Insight carries your operational data and exit-interview signals, Statement forces the reasoning-before-experiments sequence and hard budget/field constraints, Personality bakes in the explicit challenge to the pay-first assumption, and Experiment defines the output structure plus a distinctness check so the four pilots can't collapse into variations on one idea. `[Assumes: the EUR 120,000 budget covers all four experiments combined for one year; depot names use placeholder labels A–D since none were provided]`.

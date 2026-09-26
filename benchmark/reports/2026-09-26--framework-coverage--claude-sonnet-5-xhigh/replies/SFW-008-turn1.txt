@@ -1,0 +1,4 @@
+**Saved:** `export/001 - enhanced-onboarding-setup-guide-prompt.md`
+**CLEAR 44/50 | Gate: passed**
+
+Rebuilt your request as a CIDI prompt (Context, Instructions, Details, Input) since CIDI fits process-documentation/tutorial tasks: Context sets the "one afternoon, source-truth-only" mission and the 1Password/secrets rule; Instructions lock in verbatim commands, exact versions, OS-split staging, per-stage Verify checks, source-only troubleshooting, and full-scope preservation; Details pin the Markdown output shape and the `[Assumes: ...]` convention for gaps; Input holds placeholders for pasting the README, Makefile, and CI config. Full scope from your original ask was preserved with nothing invented or added.

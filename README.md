@@ -609,7 +609,7 @@ The header and footer sit outside the JSON or YAML lock, which applies only to t
 
 Generated prompts stay on your machine. The root `.gitignore` ignores everything in `export/` except `.gitkeep` and `export/benchmark/`.
 
-`export/benchmark/` holds the deliverables of the latest playbook run. Its [`examples/`](export/benchmark/examples/README.md) folder adds eight ungraded prompts for the modes and formats that run does not show, among them `$deep`, `$raw`, `$yaml`, `$video` and `$vibe`.
+`export/benchmark/` holds real run output only, in `skill/` and `claude project/`. The 18 files that start with SID, SIR, STX, SFM, SCR or their Project twins come from [the 2026-09-25 playbook run](benchmark/reports/2026-09-25--manual-testing-playbook--claude-sonnet-5-medium/README.md). The 48 files that start with SFW or PFW come from [the 2026-09-26 framework-coverage run](benchmark/reports/2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md): each library framework at medium, high and complex work, RCAF, COSTAR, CIDI, TIDD-EC, CRISPE and CRAFT at all three, plus FRAME, MOTION, VIBE and VIBE-MP, in Markdown, JSON and YAML. That run's README gives each file's target framework and tier and what the review found.
 
 &nbsp;
 

@@ -1,0 +1,62 @@
+{
+ "id": "PFW-006",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md",
+ "twin": "SFW-006",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "4f717de7-c30f-4229-88af-289934b78036",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 132.02,
+   "tool_calls": 8,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 165121,
+   "output_tokens": 11684,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3859954,
+   "model_s": 131.29,
+   "startup_s": 0.47,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$deep $markdown Rebuild our outage-communication prompt for Gemini 2.5 Pro; right now it is \"Write a message to patients about the outage.\" We run 14 physiotherapy clinics. When our booking platform fails, the prompt takes the incident facts we paste and drafts three messages: an SMS to patients with appointments in the next 48 hours (max 300 characters), an email to all active patients and a phone script for front-desk staff. Each message in Dutch and English. Patients range from teenage athletes to people in their 80s, so plain B1-level language. Every message says what we know, what we do not know yet and when the next update comes. It never guesses at a cause, never mentions data exposure unless the facts say so, and always gives the direct clinic phone number. Formal but empathetic. Structure it with COSTAR, with an Audience and Response block per channel. Keep the full scope and don't ask me questions."
+  }
+ ]
+}

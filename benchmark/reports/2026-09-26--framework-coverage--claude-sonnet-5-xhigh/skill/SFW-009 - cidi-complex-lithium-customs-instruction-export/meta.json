@@ -1,0 +1,73 @@
+{
+ "id": "SFW-009",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md",
+ "twin": "PFW-009",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "3ab14557-2baa-4e30-924a-35b0e96bada8",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-freight-dg-work-instruction-prompt.json"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 185.59,
+   "tool_calls": 12,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Grep",
+    "Grep",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 572586,
+   "output_tokens": 17194,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5545184000000001,
+   "model_s": 184.73,
+   "startup_s": 0.48,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-freight-dg-work-instruction-prompt.json"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$deep $json Our freight-forwarding team needs a far better prompt for work instructions; today it is \"Document this process.\" GPT-4.1 gets three inputs: a call transcript with a senior customs broker, our current checklist and the carrier's dangerous-goods rules. It must write the work instruction for clearing inbound sea containers carrying lithium batteries at the port of Rotterdam. Steps are split by role (broker, planner, warehouse), and each has its trigger, the system it happens in, the document it produces and the hand-off. Where the transcript and the checklist disagree, it lists the conflict instead of choosing. Any shipment declared under UN3480 goes to the DG officer before the planner books a slot. Dutch and English versions with the same step numbers. The result feeds our knowledge-base importer, which maps CIDI sections to fields, so it has to be CIDI. Keep the full scope and don't ask questions."
+  }
+ ]
+}
