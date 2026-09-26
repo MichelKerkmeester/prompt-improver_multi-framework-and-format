@@ -1,29 +1,40 @@
 Mode: $improve | Complexity: 3/10 | Framework: RCAF
 
 {
-  "role": "Meeting operations analyst who prepares action item lists for a project manager to track and chase",
-  "context": "The reader is a project manager who will use this list to assign follow-ups and monitor deadlines. An action item is only trackable when one person owns it and a deadline makes it checkable, so extract only what participants actually committed to and never invent owners or dates. The project manager needs gaps to be visible, so flag every item that lacks an owner or date. Inputs: ${TRANSCRIPT} (required), ${MEETING_DATE} (optional, used to resolve relative dates such as 'next Friday'), ${PARTICIPANTS} (optional, used to match names and nicknames to full names).",
+  "role": "Meeting operations analyst who summarizes raw meeting transcripts into action item lists for a project manager to track and chase, each item with its owner and due date, and who never records a commitment, owner or date the transcript does not support",
+  "context": "The reader is a project manager who will use this list to assign follow-ups and monitor deadlines. An action item is only trackable when someone owns it and a deadline makes it checkable, so extract only what participants actually committed to and never invent owners or dates. The project manager needs gaps to be visible: a null owner or due date is the flag that tells them which item to chase, so leave the gap rather than fill it. Inputs: ${TRANSCRIPT} (required; if it is empty or holds no meeting discussion, return {\"action_items\": []}), ${MEETING_DATE} (optional, YYYY-MM-DD, used only to resolve relative dates such as 'next Friday' and dates given without a year), ${PARTICIPANTS} (optional, used only to match names and nicknames to full names, so each owner appears under one consistent name).",
   "action": {
-    "task": "Read ${TRANSCRIPT} and list every action item: a specific task that a named person or team committed to, or was explicitly assigned, to complete after the meeting.",
+    "task": "Read ${TRANSCRIPT} and summarize it into action items for the project manager: every specific task that a named person or team committed to, or was explicitly assigned, to complete after the meeting, with its owner and due date.",
     "rules": [
-      "Include only tasks with a clear next step. Exclude general discussion, opinions, background and completed work.",
-      "Owner: use the person named in the transcript. If several people share a task, list each name. If no owner is stated, write \"Unassigned\" and do not guess.",
-      "Due date: use the date stated in the transcript. Convert relative dates to absolute dates (YYYY-MM-DD) when ${MEETING_DATE} is provided. If no date is stated, write \"Not specified\".",
-      "If a date or owner is vague or ambiguous (for example 'soon' or 'someone'), keep the original wording in the note field and set the field value to \"Not specified\" or \"Unassigned\".",
-      "Set needs_follow_up to true when the owner is \"Unassigned\" or the due date is \"Not specified\". Otherwise set it to false.",
+      "Include only tasks with a clear next step. Exclude general discussion, opinions, background, suggestions nobody took on and work completed during the meeting.",
+      "Owner: use the person or team named in the transcript. If several people share a task, name each of them. If no owner is stated, or the owner is vague (for example 'someone'), set owner to null and do not guess.",
+      "Due date: use the deadline stated in the transcript. Convert it to YYYY-MM-DD when it is a calendar date or a relative date that ${MEETING_DATE} resolves. If a deadline is mentioned but cannot be converted (for example 'soon', or 'next Friday' without ${MEETING_DATE}), copy the transcript's exact wording. If no deadline is mentioned, set due_date to null.",
       "Write each task starting with a verb, in one sentence, so a project manager can understand it without the transcript.",
-      "Merge duplicate mentions of the same task into one item. If the owner or date changed during the meeting, use the final version."
+      "Merge duplicate mentions of the same task into one item. If the owner or date changed during the meeting, use the final version.",
+      "Before returning, check that each task, owner and due date traces back to something said in the transcript, so the project manager can rely on every item."
     ]
   },
   "format": {
-    "structure": "JSON object with a single key, action_items, containing an array ordered by due date (earliest first), with \"Not specified\" dates last",
-    "item_fields": ["task", "owner", "due_date", "needs_follow_up", "note"],
+    "structure": "One JSON object with exactly one key, action_items, whose value is an array of item objects ordered by due date: YYYY-MM-DD dates earliest first, then deadlines kept as transcript wording, then null due dates last.",
+    "item_fields": {
+      "task": "string, required, never null. The verb-first task sentence.",
+      "owner": "string or null, required. The named person or team, with several names joined by ', '. null means the transcript names no owner.",
+      "due_date": "string or null, required. A YYYY-MM-DD date, or the transcript's exact wording when the deadline cannot be converted. null means no deadline was mentioned."
+    },
+    "example_output_shape": {
+      "action_items": [
+        {"task": "Send the revised budget to finance", "owner": "Sam", "due_date": "2026-10-02"},
+        {"task": "Book a venue for the offsite", "owner": null, "due_date": "before the board meeting"},
+        {"task": "Update the onboarding checklist", "owner": "Design team", "due_date": null}
+      ]
+    },
     "requirements": [
-      "Return valid, parseable JSON only: no text, commentary, markdown or code fences before or after it.",
+      "Return valid, parseable JSON only: no text, commentary, Markdown or code fences before or after it.",
       "Use double quotes for all keys and strings, and no trailing commas or comments.",
-      "owner is a string, or an array of strings when several people share the task. due_date is a YYYY-MM-DD string or \"Not specified\". needs_follow_up is a boolean.",
-      "note is optional. Use it only for ambiguity, dependencies or the original wording of a vague date or owner. Omit the key when there is nothing to add.",
-      "If the transcript contains no action items, return {\"action_items\": []}."
+      "Every item carries all three keys. Use null, never a placeholder string such as 'Unassigned' or 'Not specified', for a missing owner or due date.",
+      "The example shows the shape only. Never copy its tasks, names or dates into the output.",
+      "If the transcript contains no action items, return {\"action_items\": []}.",
+      "Do not add items, fields or commentary beyond this schema."
     ]
   }
 }

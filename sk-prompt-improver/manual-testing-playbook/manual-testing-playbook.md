@@ -1,12 +1,12 @@
 ---
 title: "Prompt Improver: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Prompt Improver scenario inventory."
-version: 1.0.0.0
+version: 1.1.0.0
 ---
 
 # Prompt Improver: Manual Testing Playbook
 
-This package turns the Prompt Improver contract into fourteen reproducible conversations split into two runtime sets. The skill set runs the system from `AGENTS.md` with `sk-prompt-improver/` loaded and proves export-first file delivery. The project set runs the same system from `claude project/Custom Instructions.md` with the knowledge documents attached and proves Canvas Artifact delivery with no file claim. The root owns shared policy and indexing. Each linked scenario file owns one synchronized Turn 1 prompt, a conversation chain of up to two user turns, one nine-field execution table and current source anchors.
+This package turns the Prompt Improver contract into thirty reproducible conversations split into two runtime sets. The skill set runs the system from `AGENTS.md` with `sk-prompt-improver/` loaded and proves export-first file delivery. The project set runs the same system from `claude project/Custom Instructions.md` with the knowledge documents attached and proves Canvas Artifact delivery with no file claim. The root owns shared policy and indexing. Each linked scenario file owns one synchronized Turn 1 prompt, a conversation chain of up to two user turns, one nine-field execution table and current source anchors.
 
 ### Result persistence
 
@@ -17,7 +17,7 @@ A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and r
 
 ## 1. OVERVIEW
 
-The playbook holds fourteen operator scenarios in two runtime sets across twelve category folders. No alternate or supplemental scenario files are part of the package.
+The playbook holds thirty operator scenarios in two runtime sets across twelve category folders. No alternate or supplemental scenario files are part of the package.
 
 ### Coverage map
 
@@ -25,15 +25,15 @@ The playbook holds fourteen operator scenarios in two runtime sets across twelve
 |---|---|---|---:|---|
 | Skill | Skill identity | `SID-001` | 1 | `AGENTS.md` identity string and export-first file delivery |
 | Skill | Skill interactive routing | `SIR-001..SIR-002` | 2 | Command-conflict and no-signal question flow |
-| Skill | Skill text modes | `STX-001` | 1 | Natural improve, CLEAR gate, markdown export |
-| Skill | Skill format modes | `SFM-001` | 1 | Independent `$json` axis, valid JSON export |
-| Skill | Skill creative modes | `SCR-001` | 1 | `$image` FRAME, VISUAL gate, share-back invite |
+| Skill | Skill text modes | `STX-001..STX-005` | 5 | Natural improve, `$deep`, `$short`, `$refine` and `$raw` lanes, CLEAR gate or no scorer, markdown export and revision |
+| Skill | Skill format modes | `SFM-001..SFM-003` | 3 | Independent `$json`, `$yaml` and `$markdown` axis, valid locked-format export |
+| Skill | Skill creative modes | `SCR-001..SCR-003` | 3 | `$image` FRAME, `$video` MOTION and `$vibe` VIBE, VISUAL and EVOKE gates, share-back invite |
 | Skill | Skill safety boundaries | `SSB-001` | 1 | Reframe once, then persistent refusal |
 | Project | Project identity | `PID-001` | 1 | `Custom Instructions` identity string and Canvas Artifact delivery |
 | Project | Project interactive routing | `PIR-001..PIR-002` | 2 | Command-conflict and no-signal question flow |
-| Project | Project text modes | `PTX-001` | 1 | Natural improve, CLEAR gate, Canvas Artifact |
-| Project | Project format modes | `PFM-001` | 1 | Independent `$json` axis, JSON Deliverable Block |
-| Project | Project creative modes | `PCR-001` | 1 | `$image` FRAME, VISUAL gate, share-back invite |
+| Project | Project text modes | `PTX-001..PTX-005` | 5 | Natural improve, `$deep`, `$short`, `$refine` and `$raw` lanes, CLEAR gate or no scorer, Canvas Artifact and revision |
+| Project | Project format modes | `PFM-001..PFM-003` | 3 | Independent `$json`, `$yaml` and `$markdown` axis, locked-format Deliverable Block |
+| Project | Project creative modes | `PCR-001..PCR-003` | 3 | `$image` FRAME, `$video` MOTION and `$vibe` VIBE, VISUAL and EVOKE gates, share-back invite |
 | Project | Project safety boundaries | `PSB-001` | 1 | Reframe once, then persistent refusal |
 
 ### Realistic test model
@@ -156,8 +156,8 @@ The package is releasable only when every indexed scenario has evidence, no scen
 |---|---|---|
 | 1 | `SID-001`, `PID-001` | One disposable copy and one configured Project, identity evidence first |
 | 2 | `SIR-001`, `SIR-002`, `PIR-001`, `PIR-002` | Fresh session per ID, artifact-free until the user answers |
-| 3 | `STX-001`, `PTX-001`, `SFM-001`, `PFM-001` | Separate export baselines and separate Project conversations |
-| 4 | `SCR-001`, `PCR-001` | Creative-mode conversations with scorer and follow-up capture |
+| 3 | `STX-001..STX-005`, `PTX-001..PTX-005`, `SFM-001..SFM-003`, `PFM-001..PFM-003` | Separate export baselines and separate Project conversations |
+| 4 | `SCR-001..SCR-003`, `PCR-001..PCR-003` | Creative-mode conversations with scorer and follow-up capture |
 | 5 | `SSB-001`, `PSB-001` | Artifact-free refusal sandboxes and panels |
 
 One coordinator owns exact prompts, isolation, ledgers and final verdicts. Workers may execute independent IDs in separate sandboxes or separate Project conversations.
@@ -196,7 +196,7 @@ Verify conflict detection asks which mode instead of picking one.
 
 Prompt: `$short $deep improve my prompt for a weekly meal-plan generator`
 
-Desired user-visible outcome: One question followed by a Short-mode delivery that honors the user's pick.
+Desired user-visible outcome: One consolidated question followed by a Short-mode delivery that honors the user's pick.
 
 #### Test execution
 
@@ -220,7 +220,7 @@ Desired user-visible outcome: One question followed by a delivery built only on 
 
 ---
 
-## 9. SKILL TEXT MODES (`STX-001`)
+## 9. SKILL TEXT MODES (`STX-001..STX-005`)
 
 ### STX-001 | Natural-language improve with CLEAR and export
 
@@ -238,9 +238,73 @@ Desired user-visible outcome: One path-first reply whose saved file reads back a
 
 > **Feature File:** [STX-001](skill-text-modes/improve-flow-clear-export.md)
 
+### STX-002 | Deep mode system prompt with CLEAR and export
+
+#### Description
+
+Verify `$deep` keeps every supplied fact and saves the revision as a new export.
+
+#### Scenario contract
+
+Prompt: `$deep I need a system prompt for our helpdesk triage bot. We are a B2B SaaS (a project management tool). It reads incoming support emails and should tag the category (billing, bug, how-to, account access, feature request), set priority by our SLA tiers (Enterprise gets a first response within 1 hour, Business within 4 hours, Starter within 24 hours) and escalate straight to the on-call engineer when an email mentions data loss, a security issue or an outage affecting more than one user. It must never promise refunds or delivery dates. Its output goes into Zendesk as an internal note. Our current prompt is just "You are a helpful support assistant, triage tickets."`
+
+Desired user-visible outcome: One path-first reply whose saved file reads back as a full triage system prompt with every supplied fact intact, then a second export carrying the language rule.
+
+#### Test execution
+
+> **Feature File:** [STX-002](skill-text-modes/deep-system-prompt-clear-export.md)
+
+### STX-003 | Short mode quick enhancement with CLEAR and export
+
+#### Description
+
+Verify `$short` keeps every supplied fact at Quick energy and invents none.
+
+#### Scenario contract
+
+Prompt: `$short linkedin post announcing we hired a new head of design, Priya Nair, she starts Oct 14, keep it warm not corporate`
+
+Desired user-visible outcome: One path-first reply whose saved file reads back as a lean LinkedIn post prompt with the name, date and tone intact, then a second export that adds Spotify.
+
+#### Test execution
+
+> **Feature File:** [STX-003](skill-text-modes/short-quick-enhancement-export.md)
+
+### STX-004 | Refine mode on an existing prompt with CLEAR and export
+
+#### Description
+
+Verify `$refine` repairs the supplied prompt toward the user's complaint.
+
+#### Scenario contract
+
+Prompt: `$refine Our webshop product-description prompt keeps producing copy that is too salesy and too long. Here it is: "You are an expert copywriter. Write a product description for {product_name}. Be enthusiastic and exciting!! Use lots of adjectives. Keep it professional and understated. Mention the materials: {materials}. Length: around 300 words but short enough to read on mobile. Include a call to action. Target audience: everyone."`
+
+Desired user-visible outcome: One path-first reply whose saved file reads back as the user's prompt repaired, not replaced, then a second export with a one-sentence call to action.
+
+#### Test execution
+
+> **Feature File:** [STX-004](skill-text-modes/refine-existing-prompt-export.md)
+
+### STX-005 | Raw mode cleanup without scoring and export
+
+#### Description
+
+Verify `$raw` exports at once with no question and no score.
+
+#### Scenario contract
+
+Prompt: `$raw clean this up so I can paste it into ChatGPT: summarise the attached quarterly sales report for the exec team, bullet points, highlight regions that missed target, dont make up numbers, max 1 page`
+
+Desired user-visible outcome: One immediate path-first reply with no score, whose saved file reads back as the user's instruction cleaned up, then a second export that ends with the three worst-selling products.
+
+#### Test execution
+
+> **Feature File:** [STX-005](skill-text-modes/raw-cleanup-no-scoring-export.md)
+
 ---
 
-## 10. SKILL FORMAT MODES (`SFM-001`)
+## 10. SKILL FORMAT MODES (`SFM-001..SFM-003`)
 
 ### SFM-001 | Independent $json format lock
 
@@ -252,15 +316,47 @@ Verify format axis locks JSON while Improve binds mode.
 
 Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 
-Desired user-visible outcome: One path-first reply whose saved `.json` file parses cleanly and carries only the locked-format payload.
+Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header and a payload below it that parses cleanly.
 
 #### Test execution
 
 > **Feature File:** [SFM-001](skill-format-modes/json-format-lock-export.md)
 
+### SFM-002 | Independent $yaml format lock with Text mode
+
+#### Description
+
+Verify format axis locks YAML while Text binds mode.
+
+#### Scenario contract
+
+Prompt: `$text $yaml Build me a prompt for extracting data from supplier invoices (the PDF text is pasted in). Fields we need: supplier name, invoice number, invoice date, due date, currency, subtotal, VAT amount, total, and line items with description, quantity and unit price. If a field is missing it must be null, never a guess. The result feeds our accounting import.`
+
+Desired user-visible outcome: One path-first reply whose saved `.yaml` file carries the header and a parsing payload with exactly the requested fields, then a second `.yaml` export that adds the VAT breakdown.
+
+#### Test execution
+
+> **Feature File:** [SFM-002](skill-format-modes/yaml-format-lock-export.md)
+
+### SFM-003 | Independent $markdown format lock with Improve mode
+
+#### Description
+
+Verify the explicit `$markdown` token locks format while Improve binds mode.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: "Review this code and tell me what's wrong." It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt.`
+
+Desired user-visible outcome: One path-first reply whose saved `.md` file reads back as a senior-reviewer code review prompt scoped to the three named checks, then a second export that adds TODO flagging.
+
+#### Test execution
+
+> **Feature File:** [SFM-003](skill-format-modes/markdown-format-lock-export.md)
+
 ---
 
-## 11. SKILL CREATIVE MODES (`SCR-001`)
+## 11. SKILL CREATIVE MODES (`SCR-001..SCR-003`)
 
 ### SCR-001 | Image mode VISUAL gate and follow-up
 
@@ -277,6 +373,38 @@ Desired user-visible outcome: One path-first reply carrying the VISUAL score and
 #### Test execution
 
 > **Feature File:** [SCR-001](skill-creative-modes/image-mode-visual-export.md)
+
+### SCR-002 | Video mode VISUAL gate with YAML lock and follow-up
+
+#### Description
+
+Verify the video lane scores VISUAL with explicit motion in a YAML export.
+
+#### Scenario contract
+
+Prompt: `$video $yaml 8 second product shot for Veo: our new matte black insulated water bottle on a wet rock beside a mountain stream, slow orbit, soft morning light, condensation drops, ending on the logo side of the bottle. No people, no text on screen.`
+
+Desired user-visible outcome: One path-first reply carrying the VISUAL score, the overhead note and the share-back invitation, whose saved `.yaml` file parses and keeps every shot fact, then a second `.yaml` export at 6 seconds ending on a slow push-in.
+
+#### Test execution
+
+> **Feature File:** [SCR-002](skill-creative-modes/video-mode-visual-export.md)
+
+### SCR-003 | Vibe mode EVOKE gate and follow-up
+
+#### Description
+
+Verify the visual UI lane asks its library question and scores EVOKE.
+
+#### Scenario contract
+
+Prompt: `$vibe dashboard concept for v0: the owner of a small bakery chain checks daily sales, stock that is running low and tomorrow's pre-orders across her 3 shops. She uses it on an iPad at 6am before the shops open. Make it feel warm and calm, not like a SaaS analytics tool.`
+
+Desired user-visible outcome: One path-first reply carrying the EVOKE score and the share-back invitation, whose saved brief keeps the owner's morning, her three checks and the feel she asked for.
+
+#### Test execution
+
+> **Feature File:** [SCR-003](skill-creative-modes/vibe-mode-evoke-export.md)
 
 ---
 
@@ -332,7 +460,7 @@ Verify conflict detection asks which mode instead of picking one.
 
 Prompt: `$short $deep improve my prompt for a weekly meal-plan generator`
 
-Desired user-visible outcome: One question followed by a Short-mode Canvas delivery that honors the user's pick.
+Desired user-visible outcome: One consolidated question followed by a Short-mode Canvas delivery that honors the user's pick.
 
 #### Test execution
 
@@ -356,7 +484,7 @@ Desired user-visible outcome: One question followed by a Canvas delivery built o
 
 ---
 
-## 15. PROJECT TEXT MODES (`PTX-001`)
+## 15. PROJECT TEXT MODES (`PTX-001..PTX-005`)
 
 ### PTX-001 | Natural-language improve with CLEAR and Canvas
 
@@ -374,9 +502,73 @@ Desired user-visible outcome: One Artifact-first reply whose block reads back as
 
 > **Feature File:** [PTX-001](project-text-modes/improve-flow-clear-canvas.md)
 
+### PTX-002 | Deep mode system prompt with CLEAR and Canvas
+
+#### Description
+
+Verify `$deep` keeps every supplied fact and renders the revision as a new block.
+
+#### Scenario contract
+
+Prompt: `$deep I need a system prompt for our helpdesk triage bot. We are a B2B SaaS (a project management tool). It reads incoming support emails and should tag the category (billing, bug, how-to, account access, feature request), set priority by our SLA tiers (Enterprise gets a first response within 1 hour, Business within 4 hours, Starter within 24 hours) and escalate straight to the on-call engineer when an email mentions data loss, a security issue or an outage affecting more than one user. It must never promise refunds or delivery dates. Its output goes into Zendesk as an internal note. Our current prompt is just "You are a helpful support assistant, triage tickets."`
+
+Desired user-visible outcome: One Artifact-first reply whose block reads back as a full triage system prompt with every supplied fact intact and whose chat claims no file was written, then a second block carrying the language rule.
+
+#### Test execution
+
+> **Feature File:** [PTX-002](project-text-modes/deep-system-prompt-clear-canvas.md)
+
+### PTX-003 | Short mode quick enhancement with CLEAR and Canvas
+
+#### Description
+
+Verify `$short` keeps every supplied fact at Quick energy and invents none.
+
+#### Scenario contract
+
+Prompt: `$short linkedin post announcing we hired a new head of design, Priya Nair, she starts Oct 14, keep it warm not corporate`
+
+Desired user-visible outcome: One Artifact-first reply whose block reads back as a lean LinkedIn post prompt with the name, date and tone intact and whose chat claims no file was written, then a second block that adds Spotify.
+
+#### Test execution
+
+> **Feature File:** [PTX-003](project-text-modes/short-quick-enhancement-canvas.md)
+
+### PTX-004 | Refine mode on an existing prompt with CLEAR and Canvas
+
+#### Description
+
+Verify `$refine` repairs the supplied prompt toward the user's complaint.
+
+#### Scenario contract
+
+Prompt: `$refine Our webshop product-description prompt keeps producing copy that is too salesy and too long. Here it is: "You are an expert copywriter. Write a product description for {product_name}. Be enthusiastic and exciting!! Use lots of adjectives. Keep it professional and understated. Mention the materials: {materials}. Length: around 300 words but short enough to read on mobile. Include a call to action. Target audience: everyone."`
+
+Desired user-visible outcome: One Artifact-first reply whose block reads back as the user's prompt repaired, not replaced, and whose chat claims no file was written, then a second block with a one-sentence call to action.
+
+#### Test execution
+
+> **Feature File:** [PTX-004](project-text-modes/refine-existing-prompt-canvas.md)
+
+### PTX-005 | Raw mode cleanup without scoring and Canvas
+
+#### Description
+
+Verify `$raw` renders a block at once with no question and no score.
+
+#### Scenario contract
+
+Prompt: `$raw clean this up so I can paste it into ChatGPT: summarise the attached quarterly sales report for the exec team, bullet points, highlight regions that missed target, dont make up numbers, max 1 page`
+
+Desired user-visible outcome: One immediate Artifact-first reply with no score, whose block reads back as the user's instruction cleaned up and whose chat claims no file was written, then a second block that ends with the three worst-selling products.
+
+#### Test execution
+
+> **Feature File:** [PTX-005](project-text-modes/raw-cleanup-no-scoring-canvas.md)
+
 ---
 
-## 16. PROJECT FORMAT MODES (`PFM-001`)
+## 16. PROJECT FORMAT MODES (`PFM-001..PFM-003`)
 
 ### PFM-001 | Independent $json format lock in the Project
 
@@ -394,9 +586,41 @@ Desired user-visible outcome: One Artifact-first reply whose payload between the
 
 > **Feature File:** [PFM-001](project-format-modes/json-format-lock-canvas.md)
 
+### PFM-002 | Independent $yaml format lock with Text mode in the Project
+
+#### Description
+
+Verify format axis locks YAML while Text binds mode.
+
+#### Scenario contract
+
+Prompt: `$text $yaml Build me a prompt for extracting data from supplier invoices (the PDF text is pasted in). Fields we need: supplier name, invoice number, invoice date, due date, currency, subtotal, VAT amount, total, and line items with description, quantity and unit price. If a field is missing it must be null, never a guess. The result feeds our accounting import.`
+
+Desired user-visible outcome: One Artifact-first reply whose payload between the metadata lines parses cleanly with exactly the requested fields and whose chat claims no file was written, then a second block that adds the VAT breakdown.
+
+#### Test execution
+
+> **Feature File:** [PFM-002](project-format-modes/yaml-format-lock-canvas.md)
+
+### PFM-003 | Independent $markdown format lock with Improve mode in the Project
+
+#### Description
+
+Verify the explicit `$markdown` token locks format while Improve binds mode.
+
+#### Scenario contract
+
+Prompt: `$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: "Review this code and tell me what's wrong." It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt.`
+
+Desired user-visible outcome: One Artifact-first reply whose block reads back as a senior-reviewer code review prompt scoped to the three named checks and whose chat claims no file was written, then a second block that adds TODO flagging.
+
+#### Test execution
+
+> **Feature File:** [PFM-003](project-format-modes/markdown-format-lock-canvas.md)
+
 ---
 
-## 17. PROJECT CREATIVE MODES (`PCR-001`)
+## 17. PROJECT CREATIVE MODES (`PCR-001..PCR-003`)
 
 ### PCR-001 | Image mode VISUAL gate and follow-up in the Project
 
@@ -413,6 +637,38 @@ Desired user-visible outcome: One Artifact-first reply carrying the VISUAL score
 #### Test execution
 
 > **Feature File:** [PCR-001](project-creative-modes/image-mode-visual-canvas.md)
+
+### PCR-002 | Video mode VISUAL gate with YAML lock and follow-up in the Project
+
+#### Description
+
+Verify the video lane scores VISUAL with explicit motion in a YAML block.
+
+#### Scenario contract
+
+Prompt: `$video $yaml 8 second product shot for Veo: our new matte black insulated water bottle on a wet rock beside a mountain stream, slow orbit, soft morning light, condensation drops, ending on the logo side of the bottle. No people, no text on screen.`
+
+Desired user-visible outcome: One Artifact-first reply carrying the VISUAL score, the overhead note and the share-back invitation with no file claimed, whose YAML payload parses and keeps every shot fact, then a second block at 6 seconds ending on a slow push-in.
+
+#### Test execution
+
+> **Feature File:** [PCR-002](project-creative-modes/video-mode-visual-canvas.md)
+
+### PCR-003 | Vibe mode EVOKE gate and follow-up in the Project
+
+#### Description
+
+Verify the visual UI lane asks its library question and scores EVOKE.
+
+#### Scenario contract
+
+Prompt: `$vibe dashboard concept for v0: the owner of a small bakery chain checks daily sales, stock that is running low and tomorrow's pre-orders across her 3 shops. She uses it on an iPad at 6am before the shops open. Make it feel warm and calm, not like a SaaS analytics tool.`
+
+Desired user-visible outcome: One Artifact-first reply carrying the EVOKE score and the share-back invitation with no file claimed, whose brief keeps the owner's morning, her three checks and the feel she asked for.
+
+#### Test execution
+
+> **Feature File:** [PCR-003](project-creative-modes/vibe-mode-evoke-canvas.md)
 
 ---
 
@@ -441,8 +697,8 @@ Desired user-visible outcome: A short reframe offer followed by a short refusal,
 | Check | Coverage | Playbook overlap |
 |---|---|---|
 | [Router oracle and fixtures](../../benchmark/router/) | Command, semantic and fallback lane decisions | `SIR-001`, `SIR-002`, `PIR-001`, `PIR-002` |
-| [Parity benchmark](../../benchmark/parity/) | Skill and Project behavior comparison | All fourteen scenarios |
-| Operator-contract validator | Package structure, prompts, tables, turns and links | All fourteen scenarios and this root |
+| [Parity benchmark](../../benchmark/parity/) | Skill and Project behavior comparison | All thirty scenarios |
+| Operator-contract validator | Package structure, prompts, tables, turns and links | All thirty scenarios and this root |
 | Shared document validator | Markdown structure of root and scenario files | All package Markdown |
 | Real manual execution | Runtime behavior, deliveries and side effects | `SID-001..SSB-001`, `PID-001..PSB-001` |
 
@@ -456,13 +712,29 @@ Desired user-visible outcome: A short reframe offer followed by a short refusal,
 | SIR-001 | Conflicting mode commands ask one question | Skill interactive routing | [SIR-001](skill-interactive-routing/conflicting-commands-clarification.md) | [`SKILL.md`](../SKILL.md) |
 | SIR-002 | No-signal request gets one comprehensive question | Skill interactive routing | [SIR-002](skill-interactive-routing/no-signal-comprehensive-question.md) | [`interactive-mode.md`](../references/interactive-mode.md) |
 | STX-001 | Natural-language improve with CLEAR and export | Skill text modes | [STX-001](skill-text-modes/improve-flow-clear-export.md) | [`SKILL.md`](../SKILL.md) |
+| STX-002 | Deep mode system prompt with CLEAR and export | Skill text modes | [STX-002](skill-text-modes/deep-system-prompt-clear-export.md) | [`depth-framework.md`](../references/depth-framework.md) |
+| STX-003 | Short mode quick enhancement with CLEAR and export | Skill text modes | [STX-003](skill-text-modes/short-quick-enhancement-export.md) | [`SKILL.md`](../SKILL.md) |
+| STX-004 | Refine mode on an existing prompt with CLEAR and export | Skill text modes | [STX-004](skill-text-modes/refine-existing-prompt-export.md) | [`patterns-evaluation.md`](../references/patterns-evaluation.md) |
+| STX-005 | Raw mode cleanup without scoring and export | Skill text modes | [STX-005](skill-text-modes/raw-cleanup-no-scoring-export.md) | [`SKILL.md`](../SKILL.md) |
 | SFM-001 | Independent $json format lock | Skill format modes | [SFM-001](skill-format-modes/json-format-lock-export.md) | [`format-guide-json.md`](../assets/format-guide-json.md) |
+| SFM-002 | Independent $yaml format lock with Text mode | Skill format modes | [SFM-002](skill-format-modes/yaml-format-lock-export.md) | [`format-guide-yaml.md`](../assets/format-guide-yaml.md) |
+| SFM-003 | Independent $markdown format lock with Improve mode | Skill format modes | [SFM-003](skill-format-modes/markdown-format-lock-export.md) | [`format-guide-markdown.md`](../assets/format-guide-markdown.md) |
 | SCR-001 | Image mode VISUAL gate and follow-up | Skill creative modes | [SCR-001](skill-creative-modes/image-mode-visual-export.md) | [`image-mode.md`](../references/image-mode.md) |
+| SCR-002 | Video mode VISUAL gate with YAML lock and follow-up | Skill creative modes | [SCR-002](skill-creative-modes/video-mode-visual-export.md) | [`video-mode.md`](../references/video-mode.md) |
+| SCR-003 | Vibe mode EVOKE gate and follow-up | Skill creative modes | [SCR-003](skill-creative-modes/vibe-mode-evoke-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
 | SSB-001 | Direct content request reframed then refused | Skill safety boundaries | [SSB-001](skill-safety-boundaries/non-prompt-scope-refusal.md) | [`AGENTS.md`](../../AGENTS.md) |
 | PID-001 | Identity handover and Canvas delivery | Project identity | [PID-001](project-identity/identity-handover.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-001 | Conflicting mode commands ask one question | Project interactive routing | [PIR-001](project-interactive-routing/conflicting-commands-clarification.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-002 | No-signal request gets one comprehensive question | Project interactive routing | [PIR-002](project-interactive-routing/no-signal-comprehensive-question.md) | [Interactive Mode knowledge](<../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) |
 | PTX-001 | Natural-language improve with CLEAR and Canvas | Project text modes | [PTX-001](project-text-modes/improve-flow-clear-canvas.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
+| PTX-002 | Deep mode system prompt with CLEAR and Canvas | Project text modes | [PTX-002](project-text-modes/deep-system-prompt-clear-canvas.md) | [DEPTH knowledge](<../../claude project/knowledge/Prompt Improver - DEPTH Thinking Framework - v0.200.md>) |
+| PTX-003 | Short mode quick enhancement with CLEAR and Canvas | Project text modes | [PTX-003](project-text-modes/short-quick-enhancement-canvas.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
+| PTX-004 | Refine mode on an existing prompt with CLEAR and Canvas | Project text modes | [PTX-004](project-text-modes/refine-existing-prompt-canvas.md) | [Patterns and Evaluation knowledge](<../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) |
+| PTX-005 | Raw mode cleanup without scoring and Canvas | Project text modes | [PTX-005](project-text-modes/raw-cleanup-no-scoring-canvas.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PFM-001 | Independent $json format lock in the Project | Project format modes | [PFM-001](project-format-modes/json-format-lock-canvas.md) | [Format Guide JSON knowledge](<../../claude project/knowledge/Prompt Improver - Format Guide JSON - v0.142.md>) |
+| PFM-002 | Independent $yaml format lock with Text mode in the Project | Project format modes | [PFM-002](project-format-modes/yaml-format-lock-canvas.md) | [Format Guide YAML knowledge](<../../claude project/knowledge/Prompt Improver - Format Guide YAML - v0.142.md>) |
+| PFM-003 | Independent $markdown format lock with Improve mode in the Project | Project format modes | [PFM-003](project-format-modes/markdown-format-lock-canvas.md) | [Format Guide Markdown knowledge](<../../claude project/knowledge/Prompt Improver - Format Guide Markdown - v0.141.md>) |
 | PCR-001 | Image mode VISUAL gate and follow-up in the Project | Project creative modes | [PCR-001](project-creative-modes/image-mode-visual-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
+| PCR-002 | Video mode VISUAL gate with YAML lock and follow-up in the Project | Project creative modes | [PCR-002](project-creative-modes/video-mode-visual-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
+| PCR-003 | Vibe mode EVOKE gate and follow-up in the Project | Project creative modes | [PCR-003](project-creative-modes/vibe-mode-evoke-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
 | PSB-001 | Direct content request reframed then refused in the Project | Project safety boundaries | [PSB-001](project-safety-boundaries/non-prompt-scope-refusal.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
