@@ -1,0 +1,61 @@
+{
+ "id": "PFW-003",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md",
+ "twin": "SFW-003",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "610e550b-71e5-43e5-8316-ed1b4824dd5c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 126.55,
+   "tool_calls": 7,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 92572,
+   "output_tokens": 12108,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3448204,
+   "model_s": 125.66,
+   "startup_s": 0.49,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$deep $markdown I want a serious upgrade of our postmortem prompt, currently just \"Write a postmortem from these notes.\" We give Claude a PagerDuty timeline, a Slack incident-channel export and the deploy log for one SEV1 or SEV2 incident. It must produce one blameless draft in three layers: a technical timeline for engineers, an impact summary for support leads and a five-sentence brief for the exec team. Timestamps arrive in both UTC and Amsterdam time, so it normalises everything to UTC and flags any gap over 10 minutes. It may only state a root cause the logs support and labels everything else as a hypothesis. Action items need an owner from the responders list and a due week. Customer names become account IDs. Our SRE prompt catalogue lints for the four RCAF sections, so use RCAF, layered per audience, not another framework. Keep everything, no streamlining, and skip the questions."
+  }
+ ]
+}

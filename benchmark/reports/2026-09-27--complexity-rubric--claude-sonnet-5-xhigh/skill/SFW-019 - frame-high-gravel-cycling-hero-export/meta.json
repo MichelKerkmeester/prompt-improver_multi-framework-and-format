@@ -1,0 +1,70 @@
+{
+ "id": "SFW-019",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/frame-high-gravel-cycling-hero-export.md",
+ "twin": "PFW-019",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "c7f51582-1d49-4cfd-964c-288dc745e3f7",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-zeeland-gravel-hero-midjourney-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 99.91,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Write"
+   ],
+   "input_tokens": 334239,
+   "output_tokens": 8859,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.49419539999999995,
+   "model_s": 98.9,
+   "startup_s": 0.57,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-zeeland-gravel-hero-midjourney-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself."
+  }
+ ]
+}

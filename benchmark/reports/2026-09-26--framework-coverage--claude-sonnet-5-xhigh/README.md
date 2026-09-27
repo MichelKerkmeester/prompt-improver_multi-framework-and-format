@@ -187,6 +187,8 @@ Complexity is the header's own value. For the 16 IDs that met their tier on the 
 
 The 48 deliverables sit in `export/benchmark/skill/` and `export/benchmark/claude project/` under `<ID> - <number> - <name>`. They are verbatim run output. Nobody edited them, and the collector would warn on any file that differs from the run's copy. Four Project files carry `NNN` as their number, the slot the Project writes for a sequence number it cannot know, as the older PFM and PID files also do.
 
+**Replaced on 2026-09-27.** The [2026-09-27 complexity-rubric run](../2026-09-27--complexity-rubric--claude-sonnet-5-xhigh/README.md) reran these 48 scenarios after the skill gained a complexity rubric, and its deliverables replaced these in `export/benchmark/`. These 48 stay in git history, last at Prompt Improver `44e5982`, and this record still describes them.
+
 ---
 
 ## 7. NEXT STEPS
@@ -196,3 +198,5 @@ The 48 deliverables sit in `export/benchmark/skill/` and `export/benchmark/claud
 3. **Grade the 48 against their Pass/fail lines.** This run checked header, tier, format and structure. A full grading decides whether the 20 fact changes and the added scope fail their scenarios, as the scope test says they should
 4. **Carry the two collector changes forward.** Put the header-above-fence step and the bracketed number into the collector the next run copies
 5. **Look at the Project's lower ratings.** The Project misses its tier 18 times against the skill's 9 on the same inputs. Knowing whether the kernel or the retrieval causes it tells the tier decision which side to trust
+
+The operator decided items 1 and 2 on 2026-09-27: the skill gained a complexity rubric, and the VIBE and VIBE-MP scenarios now accept pillars written as prose. The 2026-09-27 run measures both.

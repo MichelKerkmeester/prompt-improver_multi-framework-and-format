@@ -113,6 +113,8 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 ```
 
+**Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`.
+
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
@@ -500,15 +502,15 @@ Mode: $json | Complexity: High | Framework: CRAFT
 
 ### Framework Structure
 
-- **Simple (1-3)**
+- **Complexity 1 to 3**
   - Framework: RCAF
   - JSON Structure: Flat structure
   - Nesting Depth: 1-2 levels
-- **Medium (4-6)**
+- **Complexity 4 to 6**
   - Framework: RCAF
   - JSON Structure: Nested format field
   - Nesting Depth: 2-3 levels
-- **Complex (7-10)**
+- **Complexity 7 to 10**
   - Framework: CRAFT
   - JSON Structure: Multi-level nesting
   - Nesting Depth: 3-4 levels

@@ -1,0 +1,84 @@
+Mode: $json | Complexity: High (8/10) | Framework: TIDD-EC
+
+{
+  "task": "Review one supplement marketplace listing (title, description, bullet points) against the EU-approved health claims list supplied in this call. Flag every health claim that is not on that list, and leave every already-compliant sentence completely untouched.",
+  "context": {
+    "model": "GPT-4.1",
+    "domain": "EU supplement marketplace listing compliance, aligned to EU Regulation (EC) No 1924/2006 on nutrition and health claims",
+    "input_per_call": {
+      "listing_text": ["title", "description", "bullet_points"],
+      "approved_claims_list": "Exactly 38 EU-authorised health claims, supplied fresh with every call. Treat this list as the sole source of truth for this call; do not rely on claims recalled from prior calls or general knowledge."
+    },
+    "scope_boundary": "Judge only whether each health-claim sentence matches an approved claim or breaks a claim-type rule. Never judge, state or imply whether the product itself works or is effective."
+  },
+  "instructions": [
+    "Read the title, description and bullet points as one listing. Evaluate every sentence that makes or implies a health claim.",
+    "For each health-claim sentence, compare it against the 38 approved claims supplied in this call. Treat a sentence as compliant only when its meaning and scope match an approved claim; a broader, vaguer or more dramatic restatement of an approved claim (for example 'boosts' instead of 'contributes to the normal function of') is not compliant.",
+    "Classify every non-compliant health-claim sentence under exactly one rule: 'unauthorised claim' (a benefit not present on the approved list in any form), 'disease claim' (references preventing, treating or curing a disease or medical condition), or 'dosage promise' (promises or implies a stronger, faster or better result from a specific amount, frequency or increased dose).",
+    "For each flagged sentence, write a compliant rewrite that keeps the underlying product facts (ingredient names, nutrients, quantities) intact while aligning the wording to an approved claim or removing the unapproved implication.",
+    "Leave every sentence that already matches an approved claim exactly as written: no flag, no rewrite, no comment, and no entry in the output.",
+    "Process every sentence in the listing independently. The same non-compliant phrase appearing in more than one field (for example title and a bullet point) is flagged once per occurrence.",
+    "If no sentence in the listing breaks a rule, return an empty flags array rather than commenting on the listing's quality or effectiveness."
+  ],
+  "dos": [
+    "Do compare every sentence in title, description and bullet points, not just the most prominent claim.",
+    "Do quote each flagged sentence exactly as it appears in the source listing.",
+    "Do assign exactly one rule category per flag: unauthorised claim, disease claim or dosage promise.",
+    "Do preserve the original product facts (ingredient, nutrient, quantity) in every rewrite.",
+    "Do treat the approved claims list supplied in this call as the only accepted source of truth for this call."
+  ],
+  "donts": [
+    "Don't flag, rewrite or comment on a sentence that already matches an approved claim.",
+    "Don't state or imply whether the product is effective, works, or delivers the claimed benefit; that judgment is out of scope.",
+    "Don't invent a health claim, benefit or nutrient in a rewrite that was not present in the original sentence.",
+    "Don't combine two flagged sentences into a single rewrite; handle each sentence on its own.",
+    "Don't apply claims from memory or prior calls; use only the approved list supplied in this call."
+  ],
+  "examples": [
+    {
+      "case": "unauthorised claim",
+      "input_sentence": "Boosts your immune system",
+      "approved_list_reference": "Vitamin C contributes to the normal function of the immune system",
+      "expected_flag": {
+        "sentence": "Boosts your immune system",
+        "rule_broken": "unauthorised claim",
+        "rewrite": "Contains Vitamin C, which contributes to the normal function of the immune system"
+      }
+    },
+    {
+      "case": "already compliant",
+      "input_sentence": "Vitamin C contributes to the normal function of the immune system",
+      "approved_list_reference": "Vitamin C contributes to the normal function of the immune system",
+      "expected_flag": "none - sentence matches an approved claim, leave unchanged, no output entry"
+    },
+    {
+      "case": "disease claim (illustrative pattern; classify by rule, not by this exact wording)",
+      "input_sentence": "Helps prevent osteoporosis",
+      "approved_list_reference": "Calcium contributes to the maintenance of normal bones",
+      "expected_flag": {
+        "sentence": "Helps prevent osteoporosis",
+        "rule_broken": "disease claim",
+        "rewrite": "Contains Calcium, which contributes to the maintenance of normal bones"
+      }
+    },
+    {
+      "case": "dosage promise (illustrative pattern; classify by rule, not by this exact wording)",
+      "input_sentence": "Take double the dose for faster results",
+      "approved_list_reference": "Vitamin D contributes to the normal function of the immune system",
+      "expected_flag": {
+        "sentence": "Take double the dose for faster results",
+        "rule_broken": "dosage promise",
+        "rewrite": "Take as directed on the label. Contains Vitamin D, which contributes to the normal function of the immune system"
+      }
+    }
+  ],
+  "output_schema": {
+    "flags": [
+      {
+        "sentence": "string - the exact original sentence from the listing",
+        "rule_broken": "string - one of: unauthorised claim | disease claim | dosage promise",
+        "rewrite": "string - compliant replacement that preserves the original product facts"
+      }
+    ]
+  }
+}

@@ -1,31 +1,54 @@
-Mode: $improve | Complexity: 6/10 | Framework: TIDD-EC
+Mode: $improve | Complexity: Medium (6/10) | Framework: TIDD-EC
 
-**Task:** Read one client inquiry submitted through the firm's employment-law web form and produce a single structured intake note for the lawyer running that client's free 20-minute consultation call.
+**Task:** Read one submitted web-form inquiry to an employment-law firm and produce a single structured intake note for the lawyer who will run the client's free 20-minute consultation call.
 
 **Instructions:**
-1. Determine client type: `Employee` or `Employer`. Use only what the inquiry states; do not infer beyond it.
-2. Determine the issue category: `Dismissal`, `Contract`, `Discrimination`, or `Pay`. Choose the single closest match; if a second category also applies, name it in parentheses after the primary one.
-3. Extract every date mentioned anywhere in the inquiry, in the order they appear, using the client's own wording (e.g., "3 June", "15/08/2025").
-4. Extract the full name of the other party (the opposing employer, employee, or company) exactly as written, for the firm's conflict check.
-5. If the issue category is `Dismissal`, compare the dismissal date to today's date. If more than two months have elapsed, append a deadline flag noting the statutory claim window may have passed. Skip this step for every other issue category.
-6. Assemble the note as one comma-separated line, in this fixed order: client type, issue, date(s), other party, deadline flag (only when triggered).
-7. If a required field (client type, issue, a date, or other party name) is missing or unclear, write that field as "not stated" instead of guessing or omitting it.
+- Determine client type: state whether the inquirer is the `Employee` or the `Employer`.
+- Determine the issue category: classify as `Dismissal`, `Contract`, `Discrimination`, or `Pay`. If more than one applies, list the primary issue first and any secondary issue after it.
+- Extract every date mentioned anywhere in the form, in the order they appear, exactly as written. Add a short label for each date only when its meaning is not already obvious from context (for example, "3 June - dismissal date").
+- Extract the full name of the other party (the counterpart employer or employee) so the firm can run its conflict-of-interest check. If no name is given, write `Other party: Not stated`.
+- When the issue is `Dismissal`, compare the dismissal date to today's date (the date you are generating this note, not a fixed date). If more than two months have passed, add one closing line: `Deadline flag: dismissal is over two months old - the claim window may have passed.` Omit this line entirely for non-dismissal issues or dismissals within two months.
+- Output the fields in this fixed order: Client type, Issue, Dates, Other party, Deadline flag (only when triggered).
+- Keep the note to one short block the lawyer can scan in under 30 seconds before the call.
 
 **Do's:**
-- Do use the client's own wording for names and dates.
-- Do list every date found, even when there are several.
-- Do keep the note to short factual phrases, not full sentences.
-- Do write "not stated" for any missing required field rather than leaving a gap.
+- Do report only facts stated or clearly implied in the form; do not infer beyond what was written.
+- Do write `Not stated` for any required field the form does not answer, rather than leaving it blank or guessing.
+- Do preserve the exact wording of names and dates as the inquirer entered them.
+- Do include the deadline flag every time a dismissal date is more than two months before today, with no exceptions.
 
 **Don'ts:**
-- Don't give legal advice, opinions on the merits, or interpretation of the law.
-- Don't estimate or imply the likelihood of winning the case.
-- Don't add recommendations, next steps, or case strategy.
-- Don't drop or soften the deadline flag when a dismissal is older than two months.
+- Don't give legal advice, opinions, or recommendations of any kind.
+- Don't estimate, imply, or hint at the likelihood of the case succeeding.
+- Don't name a specific statute of limitations or filing deadline; only note that the window may have passed.
+- Don't add commentary, summaries, or sections beyond the five fields listed above.
+- Don't omit any date mentioned in the form, even ones unrelated to the main issue.
 
 **Examples:**
-- Employee inquiry: dismissed 3 June, employer named Van Dijk Logistics, no other dates, more than two months have passed since 3 June. Note: `Employee, dismissal, 3 June, employer Van Dijk Logistics, deadline flag.`
-- Employer inquiry: pay dispute with employee Sara de Groot, contract dated 1 January, dispute started 15 August. Note: `Employer, pay, dates 1 January and 15 August, other party Sara de Groot.`
-- Anti-pattern (never produce this): `Employee, dismissal, 3 June, employer Van Dijk Logistics, deadline flag — strong case, likely to win.` This adds a legal opinion and a win estimate, which stay prohibited no matter how confident the inquiry reads.
 
-**Context:** This note is the only material the lawyer sees before the free 20-minute call, so it must be fast to scan, legally neutral, and complete enough to run a conflict-of-interest check on the other party. The firm has not yet been retained, so anything resembling legal advice or a merit assessment is out of scope. Treat "today" as the date the note is generated, not the date the client submitted the form, when checking the two-month dismissal window.
+- Basic (dismissal, flag triggered) -
+  Input: "Employee, dismissal on 3 June, employer Van Dijk Logistics."
+  Output:
+  Client type: Employee
+  Issue: Dismissal
+  Dates: 3 June
+  Other party: Van Dijk Logistics
+  Deadline flag: dismissal is over two months old - the claim window may have passed.
+
+- Edge case (dismissal, flag not triggered) -
+  Input: "Employee dismissed three weeks ago after a written warning issued 3 September 2026; employer is Meridian Retail Group."
+  Output:
+  Client type: Employee
+  Issue: Dismissal
+  Dates: 3 September 2026 (written warning), [dismissal date, three weeks before form submission]
+  Other party: Meridian Retail Group
+
+- Non-dismissal issue (no flag field at all) -
+  Input: "Employer asking about a contract dispute with a former contractor, Elena Roussos; contract signed 14 January 2025; dispute notice received 2 September 2026."
+  Output:
+  Client type: Employer
+  Issue: Contract
+  Dates: 14 January 2025 (contract signed), 2 September 2026 (dispute notice received)
+  Other party: Elena Roussos
+
+**Context:** This note is read by the lawyer immediately before a free 20-minute intake call at an employment-law firm serving both employee and employer clients across dismissal, contract, discrimination, and pay disputes. The other party's name supports the firm's conflict-of-interest check, and the deadline flag exists so the lawyer can proactively raise time-sensitivity on the call, without the note itself asserting a specific legal deadline or outcome.

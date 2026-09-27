@@ -1,0 +1,60 @@
+{
+ "id": "PFW-012",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md",
+ "twin": "SFW-012",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "13ecb13b-9248-4971-ba31-118d5d2f70dc",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 117.69,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 93496,
+   "output_tokens": 11884,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.33725520000000003,
+   "model_s": 116.6,
+   "startup_s": 0.67,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$deep $markdown Rebuild our AML alert-narrative prompt for Mistral Large; today it is just \"Explain why this alert fired.\" The model gets one transaction-monitoring alert: the rule that fired, 90 days of transactions, the KYC profile and prior alerts. It writes the analyst's case narrative in our fixed order: trigger, customer profile, observed pattern, expected activity, open questions. Every claim cites a transaction ID. It never concludes that the customer is laundering money and never recommends filing or closing, which stays the analyst's call. Amounts keep their original currency with the EUR equivalent in brackets. It flags structuring when three or more cash deposits between EUR 9,000 and 9,999 fall within 10 days, and it handles joint accounts, missing KYC fields and accounts closed mid-window. Auditors liked this sentence: \"Four cash deposits of EUR 9,400 to 9,900 (TX-4471 to TX-4474) in six days, inconsistent with declared salary income of EUR 3,100 a month.\" Use TIDD-EC, keep the full scope and don't ask me anything."
+  }
+ ]
+}

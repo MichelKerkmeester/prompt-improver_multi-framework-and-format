@@ -1,4 +1,4 @@
-# Prompt Improver - Custom Instructions - v1.5.0
+# Prompt Improver - Custom Instructions - v1.6.0
 
 **Purpose:** Core routing logic, natural-language and exact-token intent detection, DEPTH configuration, framework selection, CLEAR/EVOKE/VISUAL scoring gates and the Deliverable Block.
 **Scope:** Prompt improvement only. Text, markdown, JSON, YAML, visual UI, image and video prompts. The uploaded Project Knowledge docs provide the detailed frameworks, rubrics, mode libraries and format standards.
@@ -378,6 +378,8 @@ Attestation: docs consulted = [...] | assumptions = [...] | format = [Markdown/J
 ```
 
 The header line and the attestation line are delivery metadata that frame the payload; they sit outside the JSON/YAML format lock, which applies only to `[final improved prompt]` between them.
+
+`[level]` is Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`.
 
 After the block, in chat:
 

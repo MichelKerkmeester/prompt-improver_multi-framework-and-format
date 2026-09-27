@@ -1,0 +1,75 @@
+{
+ "id": "SFW-024",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md",
+ "twin": "PFW-024",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "c7298242-fb1e-4b5a-a03b-6a875e5496ee",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-ebike-theft-claim-magicpath-brief.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 160.96,
+   "tool_calls": 14,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Glob",
+    "Bash",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 759741,
+   "output_tokens": 11870,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.599308,
+   "model_s": 158.52,
+   "startup_s": 2.16,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-ebike-theft-claim-magicpath-brief.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please."
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "id": "SFW-014",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/crispe-high-driver-retention-experiments-export.md",
+ "twin": "PFW-014",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "609370f0-3bc4-4d36-beda-441f820857f7",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-driver-retention-strategy-prompt.yaml"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 220.08,
+   "tool_calls": 24,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Write",
+    "Bash",
+    "Bash",
+    "Edit",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Grep",
+    "Read",
+    "Edit",
+    "Bash"
+   ],
+   "input_tokens": 1582154,
+   "output_tokens": 18710,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.8564935999999999,
+   "model_s": 219.2,
+   "startup_s": 0.58,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-driver-retention-strategy-prompt.yaml"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $yaml Improve this: \"How do we keep our drivers?\" We run 210 parcel-delivery drivers from four depots around Antwerp, and 38% left in the last 12 months, mostly within their first 90 days. Exit interviews point at route density, the 06:00 start and pay per stop. I want ChatGPT to act as a workforce strategist with last-mile experience, reason about why early-tenure drivers leave, then propose four distinct retention experiments that fit a EUR 120,000 yearly budget. Each experiment needs the hypothesis, the depot to pilot it in, the metric, a 10-week read-out point and the main risk to the delivery schedule. It should challenge our assumption that pay is the main lever. Build it with CRISPE and keep the full scope. No questions, fill in the gaps yourself."
+  }
+ ]
+}

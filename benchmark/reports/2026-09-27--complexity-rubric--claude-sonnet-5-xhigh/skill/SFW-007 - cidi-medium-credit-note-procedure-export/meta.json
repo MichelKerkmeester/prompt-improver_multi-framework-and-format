@@ -1,0 +1,75 @@
+{
+ "id": "SFW-007",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/cidi-medium-credit-note-procedure-export.md",
+ "twin": "PFW-007",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "86044969-d066-4169-8cf5-a7bed7185bea",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-ap-credit-note-sop-prompt.yaml"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 153.94,
+   "tool_calls": 14,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Write",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 658077,
+   "output_tokens": 12905,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5220612,
+   "model_s": 153.11,
+   "startup_s": 0.53,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-ap-credit-note-sop-prompt.yaml"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $yaml Improve our SOP-writing prompt for Claude: \"Turn this into a how-to for the team.\" We paste a transcript of a senior clerk narrating a screen recording, and Claude writes a step-by-step procedure for new accounts-payable clerks on booking a supplier credit note against an open invoice. Each step needs one action, the screen or field it happens in and what the clerk should see afterwards. Steps that need a second approver, for credit notes above EUR 5,000, must be marked. Keep the clerk's field names exactly as spoken and leave out the chit-chat. The result goes into Confluence. Use CIDI. No questions, just use your judgment."
+  }
+ ]
+}

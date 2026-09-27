@@ -1,14 +1,11 @@
-Mode: $improve | Complexity: 6/10 | Framework: CRISPE
+Mode: $improve | Complexity: High (7/10) | Framework: CRISPE
 
-**Capacity:** Act as a B2B food-and-beverage strategist who advises independent café accounts and understands what baristas technically evaluate before switching milk supplier.
+**Capacity:** Act as a B2B food-and-beverage strategist who advises independent café owners on supplier and menu positioning decisions.
 
-**Insight:** We are a small Ghent-based start-up launching an oat barista milk for independent cafés across Belgium. Our price sits roughly 15% above the current market-leading oat milk. Before switching supplier, independent café buyers and baristas weigh three things: foam stability under steam, taste behavior with espresso (no separation, no thin body, holds through the cup), and price per cup versus the incumbent. I'm using you as a sparring partner to pressure-test go-to-market thinking, not to write finished marketing copy.
+**Insight:** You're my sparring partner for a real launch decision. We're a small Ghent-based start-up launching a barista oat milk for independent cafés across Belgium, priced 15% above the market leader. Ground every idea in what baristas actually judge a milk on: foam stability (microfoam texture, latte-art hold), taste behavior with espresso (no bitter clash, balanced sweetness, mouthfeel), and price per cup (our premium is the first objection any café owner will raise).
 
-**Statement:** Give me three positioning routes for entering the Belgian independent café market that are clearly different from each other, not variations on the same angle. For each route, give:
-- A one-line pitch a barista or café owner could repeat back from memory
-- The specific type of independent café that route wins (size, style, current supplier relationship, customer base)
-- A cheap way to test that route's appeal within the next 30 days, with the concrete action, the rough cost, and the signal that would count as success or failure
+**Statement:** Give me three clearly different positioning routes for winning independent cafés despite our price premium. Each route must argue a distinct reason a café would pay more, not a variation on the same pitch.
 
-**Personality:** Frank and practical. No marketing buzzwords, no filler adjectives like "innovative," "premium," or "artisanal," no hedging. Write like a strategist talking to a founder who has to decide this week, not like ad copy.
+**Personality:** Be frank and practical. No marketing buzzwords, no vague adjectives, no hype. Write like you're leveling with a founder over coffee, and name the real trade-off or risk in each route.
 
-**Experiment:** As my sparring partner, name the single biggest untested assumption behind each route and the fastest, cheapest way I could find out I'm wrong before spending anything beyond the 30-day test.
+**Experiment:** For each of the three routes, give exactly three things: a one-line pitch a café owner could repeat to their staff, the specific type of café it wins (and why that type over another), and one cheap way to test it within a month using close to zero budget. Don't ask me clarifying questions; make reasonable assumptions and note them in one line only if they'd change a route.

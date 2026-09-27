@@ -1,0 +1,992 @@
+{
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "claude_version": "2.1.283 (Claude Code)",
+ "scenarios": [
+  {
+   "id": "PFW-009",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "cidi-complex-lithium-customs-instruction-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/cidi-complex-lithium-customs-instruction-canvas.md",
+   "turns": [
+    "$deep $json Our freight-forwarding team needs a far better prompt for work instructions; today it is \"Document this process.\" GPT-4.1 gets three inputs: a call transcript with a senior customs broker, our current checklist and the carrier's dangerous-goods rules. It must write the work instruction for clearing inbound sea containers carrying lithium batteries at the port of Rotterdam. Steps are split by role (broker, planner, warehouse), and each has its trigger, the system it happens in, the document it produces and the hand-off. Where the transcript and the checklist disagree, it lists the conflict instead of choosing. Any shipment declared under UN3480 goes to the DG officer before the planner books a slot. Dutch and English versions with the same step numbers. The result feeds our knowledge-base importer, which maps CIDI sections to fields, so it has to be CIDI. Keep the full scope and don't ask questions."
+   ],
+   "twin": "SFW-009",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-008",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "cidi-high-developer-setup-guide-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/cidi-high-developer-setup-guide-canvas.md",
+   "turns": [
+    "$improve $markdown Improve this onboarding prompt our platform team runs with Claude in Cursor: \"Write a setup guide for new devs from this README.\" The input is our monorepo README, the Makefile and the CI config. The guide must take a new backend engineer from a fresh laptop to a green local test run in one afternoon. It needs separate paths for macOS and Ubuntu, a prerequisites list with exact versions taken from the files, a verification check after every stage and a troubleshooting section built only from errors the CI config or README mention. Commands are copied verbatim from the input, never invented. Secrets live in 1Password, so the guide says where to fetch them but never shows a value. Lay it out with CIDI and keep the whole scope. No questions, fill any gaps sensibly."
+   ],
+   "twin": "SFW-008",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-007",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "cidi-medium-credit-note-procedure-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/cidi-medium-credit-note-procedure-canvas.md",
+   "turns": [
+    "$improve $yaml Improve our SOP-writing prompt for Claude: \"Turn this into a how-to for the team.\" We paste a transcript of a senior clerk narrating a screen recording, and Claude writes a step-by-step procedure for new accounts-payable clerks on booking a supplier credit note against an open invoice. Each step needs one action, the screen or field it happens in and what the clerk should see afterwards. Steps that need a second approver, for credit notes above EUR 5,000, must be marked. Keep the clerk's field names exactly as spoken and leave out the chit-chat. The result goes into Confluence. Use CIDI. No questions, just use your judgment."
+   ],
+   "twin": "SFW-007",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-006",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "costar-complex-clinic-outage-messages-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md",
+   "turns": [
+    "$deep $markdown Rebuild our outage-communication prompt for Gemini 2.5 Pro; right now it is \"Write a message to patients about the outage.\" We run 14 physiotherapy clinics. When our booking platform fails, the prompt takes the incident facts we paste and drafts three messages: an SMS to patients with appointments in the next 48 hours (max 300 characters), an email to all active patients and a phone script for front-desk staff. Each message in Dutch and English. Patients range from teenage athletes to people in their 80s, so plain B1-level language. Every message says what we know, what we do not know yet and when the next update comes. It never guesses at a cause, never mentions data exposure unless the facts say so, and always gives the direct clinic phone number. Formal but empathetic. Structure it with COSTAR, with an Audience and Response block per channel. Keep the full scope and don't ask me questions."
+   ],
+   "twin": "SFW-006",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-005",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "costar-high-hybrid-work-announcement-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/costar-high-hybrid-work-announcement-canvas.md",
+   "turns": [
+    "$text $yaml We need a prompt for our HR assistant, GPT-4.1 on our intranet, that drafts the announcement of our new hybrid-work policy. Audience: 420 staff across the Utrecht and Ghent offices, from warehouse crew to engineers. From 1 March everyone is in the office on Tuesday and Thursday, team leads can grant two exceptions per person per quarter, and the travel allowance moves from per kilometre to a flat EUR 60 a month. The draft needs an announcement of about 300 words, a six-question FAQ and a two-line Slack teaser. Tone: direct and reassuring, never corporate spin, and it must not promise anything beyond the policy text. Build it with COSTAR and keep all three outputs. No questions please, fill gaps sensibly."
+   ],
+   "twin": "SFW-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-004",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "costar-medium-school-newsletter-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/costar-medium-school-newsletter-canvas.md",
+   "turns": [
+    "$improve $markdown Please improve the prompt our primary school office uses in ChatGPT for the monthly parent newsletter: \"Write a newsletter for parents about this month.\" The office pastes in the headteacher's bullet notes, the dates of upcoming events and any lunch or bus timetable changes. Parents read it on their phones, and many speak Dutch as a second language, so it needs plain B1-level language, short paragraphs and a warm but not chatty tone. Event dates go in a list at the top. Keep it under 350 words and never name individual pupils. Use COSTAR for the structure. Don't ask me anything, just make sensible calls where I left gaps."
+   ],
+   "twin": "SFW-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-018",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "craft-complex-wms-go-live-plan-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md",
+   "turns": [
+    "$deep $markdown I need a prompt that makes Claude produce the go-live plan for our new warehouse management system; today we just ask \"Make a go-live plan.\" Facts: two distribution centres, Tilburg with 38,000 order lines a day and Li\u00e8ge with 12,000, one WMS vendor, and integrations with our SAP ERP and three carriers. Go-live cannot fall between 15 November and 10 January, Li\u00e8ge goes first as the pilot, and Tilburg may only follow after four weeks of pick accuracy above 99.5% in Li\u00e8ge. The plan needs workstreams (data migration, integrations, training for 260 pickers in two languages, cutover), the dependencies between them, a go or no-go checklist, a hypercare plan and a rollback path that restores the old system within 12 hours. Success means no missed carrier cut-off in the first two weeks. Use CRAFT and keep every part. Don't ask me questions."
+   ],
+   "twin": "SFW-018",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-017",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "craft-high-mailbox-migration-plan-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md",
+   "turns": [
+    "$improve $markdown Our IT team asks Microsoft Copilot for migration plans with one line: \"Plan the email migration.\" Turn it into a real prompt. Scope: move 1,150 user mailboxes and 60 shared mailboxes from an on-premise Exchange 2016 server to Microsoft 365 for a housing association with offices in Zwolle and Deventer. Cutover happens only at weekends, the customer-service mailbox may be offline for at most two hours, and 80 field staff use phones only. The plan needs phases with entry and exit criteria, a rollback step per phase, a staff communication moment before each phase and a risk table. Targets: zero lost mail, under 5% of users raising a ticket in the first week and done within six weekends. Structure it with CRAFT and keep the full scope. No questions, fill the gaps with sensible assumptions."
+   ],
+   "twin": "SFW-017",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-016",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "craft-medium-customer-workshop-plan-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md",
+   "turns": [
+    "$improve $markdown Improve this planning prompt: \"Help me plan our customer workshop.\" We are a payroll software company hosting a one-day workshop in Utrecht on 12 November for 25 HR managers from existing customers, and I use ChatGPT to draft the run-of-show. It should cover the agenda from 09:30 to 16:00, two hands-on sessions on our new leave module, lunch and a closing Q&A, plus a short prep checklist for our two trainers. We judge success by an average session rating of at least 8 out of 10 and at least 10 sign-ups for the module pilot, so the prompt must keep those targets in view. Use CRAFT, since the Target part matters to us. No questions, use your judgment where I was vague."
+   ],
+   "twin": "SFW-016",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-015",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "crispe-complex-market-expansion-scenarios-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/crispe-complex-market-expansion-scenarios-canvas.md",
+   "turns": [
+    "$deep $markdown Upgrade my strategy prompt, currently \"Should we expand to Germany?\" We sell site-diary software to construction firms: 640 customers in the Netherlands and Belgium, EUR 7.8M ARR and 4% monthly churn among firms under 20 staff. The board is split: the CEO wants Germany in 2027, the CFO wants to deepen in the Benelux mid-market first, and sales says German customers will need on-premise hosting. I want Gemini 2.5 Pro to act as a skeptical B2B SaaS strategist, surface the insight that decides this, state the question sharply, then run three scenario experiments (Germany first, Benelux first, a staged hybrid) with the assumptions each depends on, the cheapest test of them before Q2 and the signal that would kill it. It must say where our data is too thin to decide. I want exploration, not a plan, so structure it with CRISPE. Keep the full scope and don't ask questions."
+   ],
+   "twin": "SFW-015",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-014",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "crispe-high-driver-retention-experiments-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/crispe-high-driver-retention-experiments-canvas.md",
+   "turns": [
+    "$improve $yaml Improve this: \"How do we keep our drivers?\" We run 210 parcel-delivery drivers from four depots around Antwerp, and 38% left in the last 12 months, mostly within their first 90 days. Exit interviews point at route density, the 06:00 start and pay per stop. I want ChatGPT to act as a workforce strategist with last-mile experience, reason about why early-tenure drivers leave, then propose four distinct retention experiments that fit a EUR 120,000 yearly budget. Each experiment needs the hypothesis, the depot to pilot it in, the metric, a 10-week read-out point and the main risk to the delivery schedule. It should challenge our assumption that pay is the main lever. Build it with CRISPE and keep the full scope. No questions, fill in the gaps yourself."
+   ],
+   "twin": "SFW-014",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-013",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "crispe-medium-oat-milk-positioning-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/crispe-medium-oat-milk-positioning-canvas.md",
+   "turns": [
+    "$improve $markdown Make this prompt stronger: \"Give me marketing ideas for our oat milk.\" We are a small Ghent start-up launching an oat barista milk for independent caf\u00e9s in Belgium, priced 15% above the market leader. I use Claude as a sparring partner. It should act as a B2B food-and-beverage strategist, think about what baristas care about (foam stability, taste with espresso, price per cup), then give three clearly different positioning routes, each with a one-line pitch, the type of caf\u00e9 it wins and a cheap way to test it within a month. Frank and practical, no buzzwords. Structure it with CRISPE. No questions, use your judgment."
+   ],
+   "twin": "SFW-013",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-020",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "frame-complex-library-science-poster-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/frame-complex-library-science-poster-canvas.md",
+   "turns": [
+    "$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions."
+   ],
+   "twin": "SFW-020",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-019",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "frame-high-gravel-cycling-hero-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/frame-high-gravel-cycling-hero-canvas.md",
+   "turns": [
+    "$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself."
+   ],
+   "twin": "SFW-019",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-022",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "motion-complex-flower-auction-opening-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/motion-complex-flower-auction-opening-canvas.md",
+   "turns": [
+    "$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions."
+   ],
+   "twin": "SFW-022",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-021",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "motion-high-potter-wheel-reel-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/motion-high-potter-wheel-reel-canvas.md",
+   "turns": [
+    "$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings."
+   ],
+   "twin": "SFW-021",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-003",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "rcaf-complex-incident-postmortem-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md",
+   "turns": [
+    "$deep $markdown I want a serious upgrade of our postmortem prompt, currently just \"Write a postmortem from these notes.\" We give Claude a PagerDuty timeline, a Slack incident-channel export and the deploy log for one SEV1 or SEV2 incident. It must produce one blameless draft in three layers: a technical timeline for engineers, an impact summary for support leads and a five-sentence brief for the exec team. Timestamps arrive in both UTC and Amsterdam time, so it normalises everything to UTC and flags any gap over 10 minutes. It may only state a root cause the logs support and labels everything else as a hypothesis. Action items need an owner from the responders list and a due week. Customer names become account IDs. Our SRE prompt catalogue lints for the four RCAF sections, so use RCAF, layered per audience, not another framework. Keep everything, no streamlining, and skip the questions."
+   ],
+   "twin": "SFW-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-002",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "rcaf-high-expense-claim-review-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/rcaf-high-expense-claim-review-canvas.md",
+   "turns": [
+    "$improve $json Our finance team calls this prompt through the Claude API from our expense tool: \"Check this expense claim and say if it is fine.\" Make it much stronger. The model gets the claim lines, the receipts as text and the employee's grade. It sorts each line into within policy, missing receipt, over limit or not a business cost. Within policy gets a recommended approval, a missing receipt gets a receipt request, over limit goes to the finance controller, and a non-business cost goes back to the employee with the policy clause. Any line above EUR 750 goes to the controller whatever its class. Hotel limits are EUR 180 a night for grades 1 to 5 and EUR 240 above. It only recommends, never marks anything as paid, and always quotes the receipt line it relies on. Our prompt registry stores only the four RCAF keys, so keep it RCAF even for a prompt this size, and keep every rule rather than streamlining. No questions, use your judgment on the rest."
+   ],
+   "twin": "SFW-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-001",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "rcaf-medium-warehouse-handover-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/rcaf-medium-warehouse-handover-canvas.md",
+   "turns": [
+    "$text $markdown Improve this prompt we use in ChatGPT at our Rotterdam warehouse: \"Summarise today's exceptions for the next shift.\" Every evening the day shift lead pastes the exception log (damaged pallets, short picks, late trucks, scanner faults), and the night lead reads the summary at the 22:00 handover. It should group exceptions by type, flag anything still open, give the dock door and pallet ID for each open item and stay under 200 words. No blame language, just facts. Structure it with RCAF. No questions, use your judgment on anything I left open."
+   ],
+   "twin": "SFW-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-012",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "tidd-ec-complex-aml-alert-narrative-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md",
+   "turns": [
+    "$deep $markdown Rebuild our AML alert-narrative prompt for Mistral Large; today it is just \"Explain why this alert fired.\" The model gets one transaction-monitoring alert: the rule that fired, 90 days of transactions, the KYC profile and prior alerts. It writes the analyst's case narrative in our fixed order: trigger, customer profile, observed pattern, expected activity, open questions. Every claim cites a transaction ID. It never concludes that the customer is laundering money and never recommends filing or closing, which stays the analyst's call. Amounts keep their original currency with the EUR equivalent in brackets. It flags structuring when three or more cash deposits between EUR 9,000 and 9,999 fall within 10 days, and it handles joint accounts, missing KYC fields and accounts closed mid-window. Auditors liked this sentence: \"Four cash deposits of EUR 9,400 to 9,900 (TX-4471 to TX-4474) in six days, inconsistent with declared salary income of EUR 3,100 a month.\" Use TIDD-EC, keep the full scope and don't ask me anything."
+   ],
+   "twin": "SFW-012",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-011",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "tidd-ec-high-health-claims-checker-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/tidd-ec-high-health-claims-checker-canvas.md",
+   "turns": [
+    "$improve $json Improve the compliance prompt behind the listing checker for our supplement brand's marketplace listings. Current version: \"Check if this product text is OK.\" GPT-4.1 receives the title, description and bullet points of one listing, plus our approved list of 38 EU-authorised health claims with each call. It flags every health claim that is not on the list, and for each flag returns the exact sentence, the rule it breaks (unauthorised claim, disease claim or dosage promise) and a compliant rewrite that keeps the product facts. It must not touch text that is already compliant and must not judge whether the product works. Worked example: \"Boosts your immune system\" is unauthorised, while \"Vitamin C contributes to the normal function of the immune system\" is approved. Use TIDD-EC and keep the full scope. No questions, decide the open points yourself."
+   ],
+   "twin": "SFW-011",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-010",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "tidd-ec-medium-legal-intake-note-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/tidd-ec-medium-legal-intake-note-canvas.md",
+   "turns": [
+    "$improve $markdown Tighten this intake prompt for our employment-law firm: \"Read the web form and summarise the case.\" Claude reads each web-form inquiry and writes an intake note for the lawyer who does the free 20-minute call. The note needs the client type (employee or employer), the issue (dismissal, contract, discrimination or pay), every date mentioned and the other party's name for our conflict check. It must never give legal advice or estimate chances, and it flags any dismissal older than two months, because the deadline may have passed. One good note: \"Employee, dismissal on 3 June, employer Van Dijk Logistics, deadline flag.\" Structure it with TIDD-EC. No questions, use your judgment on the rest."
+   ],
+   "twin": "SFW-010",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-023",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "vibe-high-returns-inspection-screen-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md",
+   "turns": [
+    "$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described."
+   ],
+   "twin": "SFW-023",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PFW-024",
+   "side": "project",
+   "group": "project-framework-coverage",
+   "slug": "vibe-mp-complex-ebike-theft-claim-flow-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-canvas.md",
+   "turns": [
+    "$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please."
+   ],
+   "twin": "SFW-024",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-009",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "cidi-complex-lithium-customs-instruction-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md",
+   "turns": [
+    "$deep $json Our freight-forwarding team needs a far better prompt for work instructions; today it is \"Document this process.\" GPT-4.1 gets three inputs: a call transcript with a senior customs broker, our current checklist and the carrier's dangerous-goods rules. It must write the work instruction for clearing inbound sea containers carrying lithium batteries at the port of Rotterdam. Steps are split by role (broker, planner, warehouse), and each has its trigger, the system it happens in, the document it produces and the hand-off. Where the transcript and the checklist disagree, it lists the conflict instead of choosing. Any shipment declared under UN3480 goes to the DG officer before the planner books a slot. Dutch and English versions with the same step numbers. The result feeds our knowledge-base importer, which maps CIDI sections to fields, so it has to be CIDI. Keep the full scope and don't ask questions."
+   ],
+   "twin": "PFW-009",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-008",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "cidi-high-developer-setup-guide-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/cidi-high-developer-setup-guide-export.md",
+   "turns": [
+    "$improve $markdown Improve this onboarding prompt our platform team runs with Claude in Cursor: \"Write a setup guide for new devs from this README.\" The input is our monorepo README, the Makefile and the CI config. The guide must take a new backend engineer from a fresh laptop to a green local test run in one afternoon. It needs separate paths for macOS and Ubuntu, a prerequisites list with exact versions taken from the files, a verification check after every stage and a troubleshooting section built only from errors the CI config or README mention. Commands are copied verbatim from the input, never invented. Secrets live in 1Password, so the guide says where to fetch them but never shows a value. Lay it out with CIDI and keep the whole scope. No questions, fill any gaps sensibly."
+   ],
+   "twin": "PFW-008",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-007",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "cidi-medium-credit-note-procedure-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/cidi-medium-credit-note-procedure-export.md",
+   "turns": [
+    "$improve $yaml Improve our SOP-writing prompt for Claude: \"Turn this into a how-to for the team.\" We paste a transcript of a senior clerk narrating a screen recording, and Claude writes a step-by-step procedure for new accounts-payable clerks on booking a supplier credit note against an open invoice. Each step needs one action, the screen or field it happens in and what the clerk should see afterwards. Steps that need a second approver, for credit notes above EUR 5,000, must be marked. Keep the clerk's field names exactly as spoken and leave out the chit-chat. The result goes into Confluence. Use CIDI. No questions, just use your judgment."
+   ],
+   "twin": "PFW-007",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-006",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "costar-complex-clinic-outage-messages-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/costar-complex-clinic-outage-messages-export.md",
+   "turns": [
+    "$deep $markdown Rebuild our outage-communication prompt for Gemini 2.5 Pro; right now it is \"Write a message to patients about the outage.\" We run 14 physiotherapy clinics. When our booking platform fails, the prompt takes the incident facts we paste and drafts three messages: an SMS to patients with appointments in the next 48 hours (max 300 characters), an email to all active patients and a phone script for front-desk staff. Each message in Dutch and English. Patients range from teenage athletes to people in their 80s, so plain B1-level language. Every message says what we know, what we do not know yet and when the next update comes. It never guesses at a cause, never mentions data exposure unless the facts say so, and always gives the direct clinic phone number. Formal but empathetic. Structure it with COSTAR, with an Audience and Response block per channel. Keep the full scope and don't ask me questions."
+   ],
+   "twin": "PFW-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-005",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "costar-high-hybrid-work-announcement-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/costar-high-hybrid-work-announcement-export.md",
+   "turns": [
+    "$text $yaml We need a prompt for our HR assistant, GPT-4.1 on our intranet, that drafts the announcement of our new hybrid-work policy. Audience: 420 staff across the Utrecht and Ghent offices, from warehouse crew to engineers. From 1 March everyone is in the office on Tuesday and Thursday, team leads can grant two exceptions per person per quarter, and the travel allowance moves from per kilometre to a flat EUR 60 a month. The draft needs an announcement of about 300 words, a six-question FAQ and a two-line Slack teaser. Tone: direct and reassuring, never corporate spin, and it must not promise anything beyond the policy text. Build it with COSTAR and keep all three outputs. No questions please, fill gaps sensibly."
+   ],
+   "twin": "PFW-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-004",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "costar-medium-school-newsletter-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/costar-medium-school-newsletter-export.md",
+   "turns": [
+    "$improve $markdown Please improve the prompt our primary school office uses in ChatGPT for the monthly parent newsletter: \"Write a newsletter for parents about this month.\" The office pastes in the headteacher's bullet notes, the dates of upcoming events and any lunch or bus timetable changes. Parents read it on their phones, and many speak Dutch as a second language, so it needs plain B1-level language, short paragraphs and a warm but not chatty tone. Event dates go in a list at the top. Keep it under 350 words and never name individual pupils. Use COSTAR for the structure. Don't ask me anything, just make sensible calls where I left gaps."
+   ],
+   "twin": "PFW-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-018",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "craft-complex-wms-go-live-plan-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/craft-complex-wms-go-live-plan-export.md",
+   "turns": [
+    "$deep $markdown I need a prompt that makes Claude produce the go-live plan for our new warehouse management system; today we just ask \"Make a go-live plan.\" Facts: two distribution centres, Tilburg with 38,000 order lines a day and Li\u00e8ge with 12,000, one WMS vendor, and integrations with our SAP ERP and three carriers. Go-live cannot fall between 15 November and 10 January, Li\u00e8ge goes first as the pilot, and Tilburg may only follow after four weeks of pick accuracy above 99.5% in Li\u00e8ge. The plan needs workstreams (data migration, integrations, training for 260 pickers in two languages, cutover), the dependencies between them, a go or no-go checklist, a hypercare plan and a rollback path that restores the old system within 12 hours. Success means no missed carrier cut-off in the first two weeks. Use CRAFT and keep every part. Don't ask me questions."
+   ],
+   "twin": "PFW-018",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-017",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "craft-high-mailbox-migration-plan-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/craft-high-mailbox-migration-plan-export.md",
+   "turns": [
+    "$improve $markdown Our IT team asks Microsoft Copilot for migration plans with one line: \"Plan the email migration.\" Turn it into a real prompt. Scope: move 1,150 user mailboxes and 60 shared mailboxes from an on-premise Exchange 2016 server to Microsoft 365 for a housing association with offices in Zwolle and Deventer. Cutover happens only at weekends, the customer-service mailbox may be offline for at most two hours, and 80 field staff use phones only. The plan needs phases with entry and exit criteria, a rollback step per phase, a staff communication moment before each phase and a risk table. Targets: zero lost mail, under 5% of users raising a ticket in the first week and done within six weekends. Structure it with CRAFT and keep the full scope. No questions, fill the gaps with sensible assumptions."
+   ],
+   "twin": "PFW-017",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-016",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "craft-medium-customer-workshop-plan-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/craft-medium-customer-workshop-plan-export.md",
+   "turns": [
+    "$improve $markdown Improve this planning prompt: \"Help me plan our customer workshop.\" We are a payroll software company hosting a one-day workshop in Utrecht on 12 November for 25 HR managers from existing customers, and I use ChatGPT to draft the run-of-show. It should cover the agenda from 09:30 to 16:00, two hands-on sessions on our new leave module, lunch and a closing Q&A, plus a short prep checklist for our two trainers. We judge success by an average session rating of at least 8 out of 10 and at least 10 sign-ups for the module pilot, so the prompt must keep those targets in view. Use CRAFT, since the Target part matters to us. No questions, use your judgment where I was vague."
+   ],
+   "twin": "PFW-016",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-015",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "crispe-complex-market-expansion-scenarios-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md",
+   "turns": [
+    "$deep $markdown Upgrade my strategy prompt, currently \"Should we expand to Germany?\" We sell site-diary software to construction firms: 640 customers in the Netherlands and Belgium, EUR 7.8M ARR and 4% monthly churn among firms under 20 staff. The board is split: the CEO wants Germany in 2027, the CFO wants to deepen in the Benelux mid-market first, and sales says German customers will need on-premise hosting. I want Gemini 2.5 Pro to act as a skeptical B2B SaaS strategist, surface the insight that decides this, state the question sharply, then run three scenario experiments (Germany first, Benelux first, a staged hybrid) with the assumptions each depends on, the cheapest test of them before Q2 and the signal that would kill it. It must say where our data is too thin to decide. I want exploration, not a plan, so structure it with CRISPE. Keep the full scope and don't ask questions."
+   ],
+   "twin": "PFW-015",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-014",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "crispe-high-driver-retention-experiments-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/crispe-high-driver-retention-experiments-export.md",
+   "turns": [
+    "$improve $yaml Improve this: \"How do we keep our drivers?\" We run 210 parcel-delivery drivers from four depots around Antwerp, and 38% left in the last 12 months, mostly within their first 90 days. Exit interviews point at route density, the 06:00 start and pay per stop. I want ChatGPT to act as a workforce strategist with last-mile experience, reason about why early-tenure drivers leave, then propose four distinct retention experiments that fit a EUR 120,000 yearly budget. Each experiment needs the hypothesis, the depot to pilot it in, the metric, a 10-week read-out point and the main risk to the delivery schedule. It should challenge our assumption that pay is the main lever. Build it with CRISPE and keep the full scope. No questions, fill in the gaps yourself."
+   ],
+   "twin": "PFW-014",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-013",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "crispe-medium-oat-milk-positioning-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/crispe-medium-oat-milk-positioning-export.md",
+   "turns": [
+    "$improve $markdown Make this prompt stronger: \"Give me marketing ideas for our oat milk.\" We are a small Ghent start-up launching an oat barista milk for independent caf\u00e9s in Belgium, priced 15% above the market leader. I use Claude as a sparring partner. It should act as a B2B food-and-beverage strategist, think about what baristas care about (foam stability, taste with espresso, price per cup), then give three clearly different positioning routes, each with a one-line pitch, the type of caf\u00e9 it wins and a cheap way to test it within a month. Frank and practical, no buzzwords. Structure it with CRISPE. No questions, use your judgment."
+   ],
+   "twin": "PFW-013",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-020",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "frame-complex-library-science-poster-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/frame-complex-library-science-poster-export.md",
+   "turns": [
+    "$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions."
+   ],
+   "twin": "PFW-020",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-019",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "frame-high-gravel-cycling-hero-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/frame-high-gravel-cycling-hero-export.md",
+   "turns": [
+    "$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself."
+   ],
+   "twin": "PFW-019",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-022",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "motion-complex-flower-auction-opening-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/motion-complex-flower-auction-opening-export.md",
+   "turns": [
+    "$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions."
+   ],
+   "twin": "PFW-022",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-021",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "motion-high-potter-wheel-reel-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/motion-high-potter-wheel-reel-export.md",
+   "turns": [
+    "$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings."
+   ],
+   "twin": "PFW-021",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-003",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "rcaf-complex-incident-postmortem-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/rcaf-complex-incident-postmortem-export.md",
+   "turns": [
+    "$deep $markdown I want a serious upgrade of our postmortem prompt, currently just \"Write a postmortem from these notes.\" We give Claude a PagerDuty timeline, a Slack incident-channel export and the deploy log for one SEV1 or SEV2 incident. It must produce one blameless draft in three layers: a technical timeline for engineers, an impact summary for support leads and a five-sentence brief for the exec team. Timestamps arrive in both UTC and Amsterdam time, so it normalises everything to UTC and flags any gap over 10 minutes. It may only state a root cause the logs support and labels everything else as a hypothesis. Action items need an owner from the responders list and a due week. Customer names become account IDs. Our SRE prompt catalogue lints for the four RCAF sections, so use RCAF, layered per audience, not another framework. Keep everything, no streamlining, and skip the questions."
+   ],
+   "twin": "PFW-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-002",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "rcaf-high-expense-claim-review-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/rcaf-high-expense-claim-review-export.md",
+   "turns": [
+    "$improve $json Our finance team calls this prompt through the Claude API from our expense tool: \"Check this expense claim and say if it is fine.\" Make it much stronger. The model gets the claim lines, the receipts as text and the employee's grade. It sorts each line into within policy, missing receipt, over limit or not a business cost. Within policy gets a recommended approval, a missing receipt gets a receipt request, over limit goes to the finance controller, and a non-business cost goes back to the employee with the policy clause. Any line above EUR 750 goes to the controller whatever its class. Hotel limits are EUR 180 a night for grades 1 to 5 and EUR 240 above. It only recommends, never marks anything as paid, and always quotes the receipt line it relies on. Our prompt registry stores only the four RCAF keys, so keep it RCAF even for a prompt this size, and keep every rule rather than streamlining. No questions, use your judgment on the rest."
+   ],
+   "twin": "PFW-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-001",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "rcaf-medium-warehouse-handover-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/rcaf-medium-warehouse-handover-export.md",
+   "turns": [
+    "$text $markdown Improve this prompt we use in ChatGPT at our Rotterdam warehouse: \"Summarise today's exceptions for the next shift.\" Every evening the day shift lead pastes the exception log (damaged pallets, short picks, late trucks, scanner faults), and the night lead reads the summary at the 22:00 handover. It should group exceptions by type, flag anything still open, give the dock door and pallet ID for each open item and stay under 200 words. No blame language, just facts. Structure it with RCAF. No questions, use your judgment on anything I left open."
+   ],
+   "twin": "PFW-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-012",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "tidd-ec-complex-aml-alert-narrative-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/tidd-ec-complex-aml-alert-narrative-export.md",
+   "turns": [
+    "$deep $markdown Rebuild our AML alert-narrative prompt for Mistral Large; today it is just \"Explain why this alert fired.\" The model gets one transaction-monitoring alert: the rule that fired, 90 days of transactions, the KYC profile and prior alerts. It writes the analyst's case narrative in our fixed order: trigger, customer profile, observed pattern, expected activity, open questions. Every claim cites a transaction ID. It never concludes that the customer is laundering money and never recommends filing or closing, which stays the analyst's call. Amounts keep their original currency with the EUR equivalent in brackets. It flags structuring when three or more cash deposits between EUR 9,000 and 9,999 fall within 10 days, and it handles joint accounts, missing KYC fields and accounts closed mid-window. Auditors liked this sentence: \"Four cash deposits of EUR 9,400 to 9,900 (TX-4471 to TX-4474) in six days, inconsistent with declared salary income of EUR 3,100 a month.\" Use TIDD-EC, keep the full scope and don't ask me anything."
+   ],
+   "twin": "PFW-012",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-011",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "tidd-ec-high-health-claims-checker-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md",
+   "turns": [
+    "$improve $json Improve the compliance prompt behind the listing checker for our supplement brand's marketplace listings. Current version: \"Check if this product text is OK.\" GPT-4.1 receives the title, description and bullet points of one listing, plus our approved list of 38 EU-authorised health claims with each call. It flags every health claim that is not on the list, and for each flag returns the exact sentence, the rule it breaks (unauthorised claim, disease claim or dosage promise) and a compliant rewrite that keeps the product facts. It must not touch text that is already compliant and must not judge whether the product works. Worked example: \"Boosts your immune system\" is unauthorised, while \"Vitamin C contributes to the normal function of the immune system\" is approved. Use TIDD-EC and keep the full scope. No questions, decide the open points yourself."
+   ],
+   "twin": "PFW-011",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-010",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "tidd-ec-medium-legal-intake-note-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md",
+   "turns": [
+    "$improve $markdown Tighten this intake prompt for our employment-law firm: \"Read the web form and summarise the case.\" Claude reads each web-form inquiry and writes an intake note for the lawyer who does the free 20-minute call. The note needs the client type (employee or employer), the issue (dismissal, contract, discrimination or pay), every date mentioned and the other party's name for our conflict check. It must never give legal advice or estimate chances, and it flags any dismissal older than two months, because the deadline may have passed. One good note: \"Employee, dismissal on 3 June, employer Van Dijk Logistics, deadline flag.\" Structure it with TIDD-EC. No questions, use your judgment on the rest."
+   ],
+   "twin": "PFW-010",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-023",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "vibe-high-returns-inspection-screen-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/vibe-high-returns-inspection-screen-export.md",
+   "turns": [
+    "$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described."
+   ],
+   "twin": "PFW-023",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SFW-024",
+   "side": "skill",
+   "group": "skill-framework-coverage",
+   "slug": "vibe-mp-complex-ebike-theft-claim-flow-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md",
+   "turns": [
+    "$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please."
+   ],
+   "twin": "PFW-024",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  }
+ ]
+}

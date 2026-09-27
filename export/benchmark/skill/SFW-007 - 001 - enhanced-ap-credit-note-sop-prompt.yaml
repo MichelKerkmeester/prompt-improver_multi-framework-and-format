@@ -1,57 +1,28 @@
-Mode: "$improve | Complexity: Medium | Framework: CIDI"
+Mode: $improve $yaml | Complexity: Medium (6/10) | Framework: CIDI
 
-context: >
-  New accounts-payable clerks will use this SOP as their only reference for
-  booking a supplier credit note against an open invoice, without ever
-  watching the original screen recording. The source material is a raw
-  transcript of a senior clerk narrating that recording live, so procedural
-  narration is mixed with conversational asides. The result is published
-  directly to a Confluence page as the team's canonical reference, so every
-  step must stand alone: a clerk with no prior exposure to this specific
-  workflow must be able to follow it end to end and confirm they did it
-  correctly.
+context:
+  role: Accounts payable SOP writer turning a senior clerk's narrated screen recording into a how-to for the team
+  source: Full transcript of the clerk narrating each on-screen action while booking a supplier credit note against an open invoice
+  audience: New accounts payable clerks with no prior exposure to this specific workflow
+  destination: Published as a how-to procedure on Confluence
+
 instructions:
-  - Read the full transcript once before drafting, then extract only the
-    moments where the clerk performs or describes an on-screen action.
-  - Convert the narration into a numbered sequence of steps in the exact
-    order the actions were performed, preserving any conditional branch the
-    clerk narrates.
-  - Write exactly one action per step; if the transcript describes two
-    actions in a single breath, split them into two steps.
-  - For every step where the credit note amount exceeds EUR 5,000, prefix
-    the step with "APPROVAL REQUIRED (>EUR 5,000):" and state the second
-    approver's action before the original clerk continues.
-  - Quote screen names, tabs, menus, and field labels exactly as the clerk
-    speaks them; never rename, standardize, or correct them to match
-    assumed system terminology.
-  - Drop greetings, filler words, hesitations, apologies, and commentary
-    about the recording itself; keep a line only when it names an action, a
-    screen or field, or a result.
+  - Read the entire transcript before drafting any step
+  - Extract every discrete, on-screen action the clerk performs, in the order performed
+  - Convert each action into exactly one numbered step; never combine two actions into one step or split one action across two steps
+  - For each step, capture three things - the action, the screen or field where it happens, and what the clerk should see immediately after completing it
+  - Use the clerk's field, tab and button names exactly as spoken; do not rename, standardize, or correct terminology even where it seems inconsistent
+  - Mark any step covering a credit note above EUR 5,000 as requiring second-approver sign-off, using the same visible flag every time it applies
+  - Remove all chit-chat - greetings, asides, small talk, verbal fillers; omit it outright, do not summarize or footnote it
+  - Do not ask the user clarifying questions; where the transcript is ambiguous about an action, a field name, or whether the EUR 5,000 threshold applies, resolve it using the most literal reading of the transcript and proceed
+
 details:
-  step_structure: >-
-    Each step has exactly three parts in this order - Action as an
-    imperative instruction, Screen/Field named in the clerk's own words,
-    Result describing what the clerk should see on screen immediately after
-    completing the action.
-  approval_flag: >-
-    A step tagged APPROVAL REQUIRED (>EUR 5,000) must name who performs the
-    second approval and what they confirm before the original clerk
-    proceeds to the next step.
-  terminology_rule: >-
-    Verbatim field names take priority over internal consistency; if the
-    transcript names the same field two different ways, keep the name
-    spoken in that specific instance rather than reconciling it.
-  missing_system_name: >-
-    If the transcript never names the AP system or module, refer to it only
-    using terms the clerk already used; do not introduce a system or module
-    name that was not spoken.
-  output_structure: >-
-    Present the result as a numbered list of steps only, in plain
-    Confluence-ready text with no markdown code blocks and no embedded
-    links; do not add sections the transcript does not support, such as a
-    summary or FAQ.
-  exclusion_scope: >-
-    The chit-chat exclusion applies only to dialogue with no procedural
-    content; do not remove a line for sounding informal if it still names a
-    required action, screen, or field.
-input: "${TRANSCRIPT}"
+  step_format: "Step [n]: [action]. Screen/Field: [verbatim name from transcript]. Result: [what appears after the action]."
+  approval_flag: "Append '[Requires second-approver sign-off - credit note over EUR 5,000]' to the end of any step meeting that condition"
+  field_naming: Verbatim, exactly as spoken in the transcript, with no normalization
+  excluded_content: Chit-chat, small talk, filler words, and any commentary that does not describe an on-screen action or its result
+  document_shape: One title line naming the procedure, followed directly by the numbered steps; no prerequisites, notes, or troubleshooting sections unless the clerk narrates them as steps
+  output_scope: Return only the finished procedure, with no commentary on how it was produced
+
+input:
+  transcript: "[Paste the senior clerk's full transcript here]"

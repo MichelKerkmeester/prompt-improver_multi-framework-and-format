@@ -1,31 +1,25 @@
-Mode: $improve | Complexity: 6/10 | Framework: CIDI
+Mode: $improve | Complexity: High (8/10) | Framework: CIDI
 
-**Context:** You are a technical writer working from Claude in Cursor inside the platform team's monorepo. Produce a single onboarding guide, built strictly from the three attached source files (README, Makefile, CI config), that takes a new backend engineer from a completely fresh laptop to a green local test run within one afternoon (~4 hours). Engineers will copy commands directly from this guide, so every command, version number, and error must trace back to the source files rather than general knowledge of similar stacks — inventing a plausible-looking command or version is worse than omitting it. Secrets and credentials are managed in 1Password, so the guide must direct engineers to the correct vault/item without ever exposing a value.
+**Context:** You are writing the local dev environment setup guide our platform team hands to every new backend engineer. The reader starts on a fresh laptop (macOS or Ubuntu, unknown which) with none of the monorepo's tooling installed, and must reach a passing local test run (`green`) within one afternoon. Guessed commands, invented version numbers, or fabricated error messages break trust and cost the reader real time, so every instruction must trace back to the three source files provided below — nothing paraphrased, simplified, or assumed. Secrets are managed in 1Password, never in plaintext, so the guide must point to where a credential lives without ever displaying its value.
 
 **Instructions:**
-1. Read the attached README, Makefile, and CI config fully before drafting; extract every command, environment variable, dependency, and version number they contain.
-2. Structure the guide as sequential, numbered stages covering, at minimum: prerequisite installation, repository setup, dependency/toolchain install, secrets retrieval, build, and running the local test suite to green.
-3. Wherever a stage has OS-specific steps, write two fully separate sub-paths — "macOS" and "Ubuntu" — using the exact package manager and commands implied by the source files (e.g., Homebrew vs apt); state OS-agnostic steps once, outside the split.
-4. End every stage with a "Verify" step: the exact command to run and the exact success signal (output, exit code, or artifact produced) that confirms the stage worked before moving on.
-5. Build a Prerequisites list (table or bullets) of every required tool, runtime, or service with its exact version, copied only from what the README, Makefile, or CI config state; never state a version that is not written in one of those files.
-6. Copy every command verbatim from the source files; never invent, paraphrase, add flags to, or "clean up" a command. If a necessary step has no literal command in the sources, mark it `[Assumes: <what you inferred and why>]` instead of fabricating one.
-7. For every secret or credential referenced anywhere in the sources (API keys, tokens, `.env` values, CI-only variables), name the exact 1Password vault/item to fetch it from; never print, guess, or reconstruct the underlying value.
-8. Build a "Troubleshooting" section at the end containing only errors, failure messages, or failure conditions explicitly named or described in the README or CI config; do not invent plausible-sounding errors that are not in the sources.
-9. Preserve full scope: include every Makefile target and CI step that contributes to reaching a passing local test run; do not compress, summarize away, or drop steps for brevity.
+1. Read the full README, Makefile, and CI config below before writing anything.
+2. Build a **Prerequisites** section listing every tool, language runtime, package manager, and service version pinned in the source files. Quote each version exactly as written in its source (for example, a Makefile variable, a CI config version key, or a README badge). If a tool has no pinned version anywhere in the source, list it and mark it `[version not pinned in source]` instead of guessing one.
+3. Write two complete, independently followable setup paths, each fully self-contained: **macOS Setup** and **Ubuntu Setup**. Never merge steps that use different package managers, shells, or installers.
+4. After every step or stage in both paths, add a `Verify:` line containing a command that confirms that stage succeeded before moving on. Pull verification commands from the Makefile targets or CI config steps (for example, an existing `make check` or lint/test target); never invent a check that is not present in or directly derivable from the source files.
+5. Copy every shell command exactly as it appears in the README, Makefile, or CI config, in a fenced code block. Do not alter flags, paths, or wording. When a command's purpose is not obvious, name its source file in a short note beside it.
+6. Build a **Troubleshooting** section containing only failure modes drawn from the source files: error strings, named CI check failures, or problems the README explicitly calls out. Do not invent plausible-sounding errors that are not grounded in the source. If the source files mention no errors at all, state that explicitly rather than filling the section with guesses.
+7. Wherever a secret, API key, token, or credential is needed, name the 1Password vault/item to fetch it from (using the name given in the README or CI config if one is given) and describe how to load it locally (for example, into an env file or shell export). Never print, generate, or approximate the credential's value.
+8. End with a final verification stage confirming the full local test suite passes (`green`), using the exact test command found in the Makefile or CI config.
 
 **Details:**
-- Output as Markdown: one H1 title, one H2 per stage, and a Prerequisites section before Stage 1.
-- Sequence and scope the guide so a fresh-laptop engineer can realistically finish in one afternoon; flag any stage likely to exceed 30-45 minutes with a one-line reason.
-- Where an OS-specific package name or path is implied but not literally written in the sources, infer the standard equivalent and mark it `[Assumes: ...]` rather than presenting it as sourced fact.
-- Never display a secret value, a placeholder that looks like a real value, or an example token — reference only the 1Password vault/item name to retrieve it from.
-- Use direct, procedural language; no narrative padding or motivational framing.
-- Do not add sections beyond Prerequisites, the numbered Stages (each ending in Verify), and Troubleshooting.
+- Target outcome: a new backend engineer with zero prior context reaches a green local test run within one afternoon.
+- Keep the full requested scope intact: Prerequisites, both OS paths, per-stage verification, source-grounded Troubleshooting, and 1Password-referenced secrets handling must all appear — do not compress or drop any of these to shorten the guide.
+- Order sections: Prerequisites → macOS Setup → Ubuntu Setup → Secrets (1Password) → Troubleshooting → Final Verification.
+- Number steps within each OS path; place the matching `Verify:` line directly under each step, not batched at the end.
+- Where the source files leave a genuine gap (missing version, missing verification target, no documented errors), say so plainly in that section instead of inventing content.
 
 **Input:**
-- Full contents of the monorepo README — paste below
-- Full contents of the Makefile — paste below
-- Full contents of the CI config file(s) — paste below
-
-[Paste README here]
-[Paste Makefile here]
-[Paste CI config here]
+- README: [paste full monorepo README.md content here]
+- Makefile: [paste full Makefile content here]
+- CI config: [paste full CI configuration file content here]

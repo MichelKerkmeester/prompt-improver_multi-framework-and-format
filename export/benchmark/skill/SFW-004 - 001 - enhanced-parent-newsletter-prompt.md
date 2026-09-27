@@ -1,22 +1,20 @@
-Mode: $improve | Complexity: Medium | Framework: COSTAR
+Mode: $improve | Complexity: Medium (5/10) | Framework: COSTAR
 
-**Context:** You are drafting the monthly parent newsletter for a primary school. Each month the school office supplies raw inputs: the headteacher's bullet-point notes, a list of upcoming event dates, and any lunch or school bus timetable changes. Many parents read the newsletter on a phone and speak Dutch as a first language, so their English is often at an intermediate (B1) level. This month's raw inputs are:
-- Headteacher's notes: [PASTE HEADTEACHER'S BULLET NOTES]
-- Upcoming event dates: [PASTE EVENT DATES AND EVENT NAMES]
-- Lunch/bus timetable changes: [PASTE CHANGES, OR WRITE "NONE THIS MONTH"]
+**Context:** You are drafting the monthly newsletter that a primary school's office sends to parents on behalf of the headteacher. Each month you receive three inputs to combine: the headteacher's bullet-point notes, the list of upcoming event dates, and any changes to lunch or bus timetables. Most parents open this on a phone in a short spare moment, and many read it in what is their second language at a B1 (intermediate) level, so the wording has to be simple enough to understand on a single quick read.
 
-**Objective:** Turn these raw inputs into one ready-to-send monthly newsletter that clearly informs parents of this month's news, events, and timetable changes, understandable on a first read by a B1-level English reader on a phone screen.
+Headteacher's notes: [paste bullet notes here]
+Event dates: [paste event list here]
+Lunch/bus timetable changes: [paste changes here, or write "none this month"]
 
-**Style:** Plain, B1-level English. Short sentences (roughly 15-20 words maximum) and short paragraphs (2-3 sentences each). No idioms, jargon, abbreviations, or complex clauses. Choose everyday words over formal or academic ones.
+**Objective:** Combine these three inputs into one ready-to-send newsletter that tells parents what happened this month, what's coming up, and any lunch or bus changes, without requiring a second read to understand.
 
-**Tone:** Warm and welcoming, but calm and to the point - not chatty, not overly casual, and free of exclamation-mark enthusiasm or filler small talk.
+**Style:** Plain B1-level Dutch (swap for another language if the school corresponds in a different one). Short sentences of roughly 15 words or fewer. Short paragraphs of 2-3 sentences. No idioms, abbreviations or school jargon; if a term is unavoidable, explain it in a few plain words.
 
-**Audience:** Parents and guardians of primary-school pupils, many with Dutch as a first language and English as a second language, mostly reading on a phone while multitasking.
+**Tone:** Warm and personal, like a school office that knows its families, but not chatty: no exclamation marks, hype language or informal filler.
 
-**Response:** Produce a single ready-to-send newsletter, under 350 words total, in this order:
-- A bulleted list of this month's event dates at the very top, one per line, date first then event name
-- One short opening line naming the month
-- 2-4 short paragraphs covering the headteacher's key points, grouped by topic
-- A clearly separated short section for lunch or bus timetable changes (write "No changes this month" if none were supplied)
-- Never name, initial, or otherwise identify individual pupils, even if the source notes do - describe achievements or incidents in general or collective terms instead
-- Plain text only: no headings beyond simple section breaks, no emoji
+**Audience:** Parents and carers of primary-school pupils, reading mainly on a mobile phone, many of them at a B1 level in their second language.
+
+**Response:** Output only the finished newsletter text, maximum 350 words, in this order:
+- A bulleted list of this month's event dates at the very top, one line per event, showing the event name, date and time if given.
+- 2-4 short paragraphs below: first the headteacher's news, then any lunch or bus timetable changes (state clearly if there are none).
+- No individual pupil is named anywhere in the text; refer to classes, year groups or "pupils" instead.

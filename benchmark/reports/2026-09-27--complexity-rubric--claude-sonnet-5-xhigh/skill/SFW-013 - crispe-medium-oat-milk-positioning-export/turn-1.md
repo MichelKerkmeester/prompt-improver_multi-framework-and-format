@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-oat-milk-positioning-prompt.md`
+CLEAR 45/50 | Gate: passed
+
+I rebuilt your one-liner into a CRISPE-structured sparring prompt: Capacity sets the B2B strategist role, Insight locks in the Ghent/Belgium context and barista priorities (foam, taste with espresso, price per cup), Statement demands three genuinely distinct positioning routes, Personality enforces frank/no-buzzwords tone, and Experiment fixes the exact output shape per route (pitch, café type, one-month cheap test) plus your no-questions instruction. `[Assumes: comprehensive framing kept over streamlining, since the request's constraints were explicit and you asked me to use judgment rather than simplify]`.

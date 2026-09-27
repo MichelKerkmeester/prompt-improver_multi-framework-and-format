@@ -1,0 +1,4 @@
+**Saved:** `export/001 - enhanced-outage-communication-prompt.md`
+**CLEAR 45/50** (C9 · L9 · E13 · A9 · R5) | Gate: passed | Complexity: Complex (9/10) | Framework: COSTAR | Perspectives: 5 (Deep)
+
+Rebuilt as a COSTAR prompt with a dedicated Audience + Response block for each channel (SMS ≤300 chars/language, email, phone script), all constraints preserved: bilingual B1 plain language, known/unknown/next-update structure, no cause speculation, conditional data-exposure suppression, mandatory direct clinic number, and formal-but-empathetic tone. Incident facts stay parameterized as `[INCIDENT FACTS]` so the same prompt is reusable across future outages.
