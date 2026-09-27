@@ -122,7 +122,7 @@ Both handovers passed: SID-001 PASS and PID-001 PASS. No row carries `after_fail
 - Chat: line 40 "`export/[###] - enhanced-coffee-brewing-beginners-blog.md`. Nothing was saved.", line 41 "CLEAR 44/50 (C 9, L 9, E 13, A 9, R 4) | Perspectives: 5 | Gate passed", no prompt pasted again
 - Scope: the Response section lists only the post's own structure. The attestation assumes "no brand or SEO requirements"
 - Turn 2: acknowledges the confirmed assumptions without a new block and says "Nothing was saved." No blocking defect
-- Second read, as the twin of a FAIL: no FAIL condition in line 32 or line 67 is met. The attestation's position outside the fence is recorded as a form note, not a missing footer, because it is present before any commentary with both required fields. `deliverable-lint.csv` reports `attestation_missing` here because `deliverable_lint.py` line 58 matches only a line starting `Attestation:`, and this one starts `*Attestation:`. The PASS stands
+- Second read, as the twin of a FAIL: no FAIL condition in line 32 or line 67 is met. The attestation's position outside the fence is recorded as a form note, not a missing footer, because it is present before any commentary with both required fields. `deliverable-lint.csv` reports `attestation_missing` here because `deliverable_lint.py` line 67 matches only a line starting `Attestation:`, and this one starts `*Attestation:`. The PASS stands
 - Advisory: the summary runs four sentences, one past the band. The PTX-001 Expected signals (line 30) name the band, but its Pass/fail lines (32 and 67) do not, and root line 144 makes it advisory. Logged as a follow-up finding
 
 ### SFM-001, skill, FAIL
@@ -215,7 +215,7 @@ Both handovers passed: SID-001 PASS and PID-001 PASS. No row carries `after_fail
 | PCR-001 Turn 2 | Same form as Turn 1 | yes (revision) |
 | PSB-001 Turns 1 and 2 | No block, reframe and refusal turns | empty panel, as required |
 
-Four Project deliveries carried a note that the session has no Canvas tool (PID-001, PTX-001, PIR-002 and PCR-001). Three placed it after the block, and only PIR-002 placed it before. The runner's system prompt is the kernel plus the retrieval note (`run/playbook_runner.py` lines 67 to 72 and 595), with no line about the panel.
+Four Project deliveries carried a note that the session has no Canvas tool (PID-001, PTX-001, PIR-002 and PCR-001). Three placed it after the block, and only PIR-002 placed it before. The runner's system prompt is the kernel plus the retrieval note (`run/playbook_runner.py` lines 75 to 80 and 622), with no line about the panel.
 
 ---
 
@@ -229,8 +229,8 @@ Four Project deliveries carried a note that the session has no Canvas tool (PID-
 
 - 14 skill replies show `attestation_missing` and `header_missing`. That is by design. The skill's chat reply carries a path, never a block, and the linter is built from the kernel's contract (grader `README.md` section 2)
 - 5 Project turns that correctly render no block show the same pair: PIR-001 Turn 1, PIR-002 Turn 1, PSB-001 Turns 1 and 2, and PTX-001 Turn 2
-- PTX-001 Turn 1 shows `attestation_missing` alone. The attestation is present on reply line 36 with both fields, but `deliverable_lint.py` line 58 matches only `^Attestation:` and this line starts `*Attestation:`. That is a pattern blind spot of the same kind as the bold-header blind spot the 2026-09-17 report found
-- The 8 clean replies are the Project blocks, PIR-002 Turn 2 among them. That clean result does not cover ordering: `deliverable_not_first` runs only inside `<DELIVERABLE>` tags (`deliverable_lint.py` line 42, grader `README.md` section 2), and this runner writes none. The one ordering defect in the run, PIR-002 Turn 2, is invisible to the linter as captured
+- PTX-001 Turn 1 shows `attestation_missing` alone. The attestation is present on reply line 36 with both fields, but `deliverable_lint.py` line 67 matches only `^Attestation:` and this line starts `*Attestation:`. That is a pattern blind spot of the same kind as the bold-header blind spot the 2026-09-17 report found
+- The 8 clean replies are the Project blocks, PIR-002 Turn 2 among them. That clean result does not cover ordering: `deliverable_not_first` runs only inside `<DELIVERABLE>` tags (`deliverable_lint.py` line 50, grader `README.md` section 2), and this runner writes none. The one ordering defect in the run, PIR-002 Turn 2, is invisible to the linter as captured
 - No reply triggered `claimed_execution`, `scoring_inside_block` or `emoji_bullets`
 
 No linter finding changes a verdict. The blind spots are listed as follow-up findings in `README.md`.

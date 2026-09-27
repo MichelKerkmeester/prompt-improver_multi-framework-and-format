@@ -19,7 +19,7 @@ The complete model-facing delta on the Project side between the commit the pre-r
 
 `git diff 076133a~1 HEAD` over `claude project/knowledge/` and `sk-prompt-improver/` returns nothing, so no knowledge document and no skill file changed between the two measurements. That makes the skill arm a genuine control rather than an assumed one.
 
-The lint's required-field list now reads `REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")` at `benchmark/grader/deliverable_lint.py:68`, three fields expected with `Score:` deliberately absent.
+The lint's required-field list now reads `REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")` at `benchmark/grader/deliverable_lint.py:79`, three fields expected with `Score:` deliberately absent.
 
 Counts checked by parsing, not by reading a report:
 

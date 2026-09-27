@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: REPLY LINTER
+# ───────────────────────────────────────────────────────────────
+
 """Run the Deliverable Block linter over every reply a benchmark run captured.
 
 `deliverable_lint.py` reads one file and prints one JSON object. Nothing before this
@@ -42,6 +46,7 @@ def replies_dir(target: Path) -> Path:
 
 
 def lint_file(path: Path) -> dict:
+    """One summary row for a single reply file."""
     raw = path.read_text(encoding="utf-8", errors="replace")
     violations, confidence = lint_reply(raw)
     hard = [v for v in violations if v["severity"] == "hard"]
@@ -55,6 +60,11 @@ def lint_file(path: Path) -> dict:
 
 
 def main(argv) -> int:
+    """Lint every reply under the target, printing one line per file.
+
+    Returns 0 when every reply is clean, 1 on any hard violation, 2 when
+    nothing was read and 64 when the target argument is missing.
+    """
     if len(argv) < 2:
         print("usage: lint_replies.py <run report dir or replies dir>", file=sys.stderr)
         return 64

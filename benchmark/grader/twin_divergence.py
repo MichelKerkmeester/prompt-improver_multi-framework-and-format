@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: TWIN DIVERGENCE REPORTER
+# ───────────────────────────────────────────────────────────────
+
 """Report scenario twins whose two runtimes disagreed in a run.
 
 `sk-prompt-improver/manual-testing-playbook/manual-testing-playbook.md` (section 1,
@@ -52,11 +56,17 @@ PARTIAL = "PARTIAL"
 
 
 def rows(path: Path):
+    """Every row of a results CSV, as dictionaries keyed by column."""
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
 
 
 def main(argv) -> int:
+    """Report each twin pair that disagreed, and any pair left unsettled.
+
+    Returns 0 when every paired twin agreed, 1 on any disagreement and 2
+    when no results file or no pairable row was found.
+    """
     if len(argv) < 2:
         print("usage: twin_divergence.py <run report dir, or a results.csv>", file=sys.stderr)
         return 64

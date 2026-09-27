@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: REPORT CHECK RUNNER
+# ───────────────────────────────────────────────────────────────
 # Run every after-the-fact check a finished Prompt Improver benchmark report supports.
 #
 # Nothing before this file looked at a run as a whole. `lint_replies.py` and
@@ -16,6 +19,13 @@
 # run. A dirty reply or a diverging twin is a finding about the runtime that produced
 # the report, not a defect in this repository, so a caller reading a non-zero code
 # should read the indented output rather than look for something to revert here.
+#
+# Exit Codes:
+#   0 - every report check ran clean
+#   1 - one check reported findings or could not run
+#   2 - both checks reported findings or could not run
+#   64 - missing the run report dir argument
+#   66 - the run report dir does not exist
 set -uo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 # Not ${1:?...}, which exits 1, and 1 already means one check reported findings here.
