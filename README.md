@@ -377,7 +377,7 @@ JSON       Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 YAML       Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
 ```
 
-The mode carries its `$` prefix. Complexity is either a word (Low, Medium or High) or a number from 1 to 10. The header never carries a score.
+The mode carries its `$` prefix. Complexity is either a word (Low 1 to 4, Medium 5 to 6, High 7 to 8 or Complex 9 to 10) or a number from 1 to 10. The header never carries a score.
 
 #### Markdown
 
