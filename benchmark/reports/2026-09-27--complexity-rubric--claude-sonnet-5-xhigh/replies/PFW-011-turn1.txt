@@ -1,0 +1,96 @@
+```
+Mode: $improve | Complexity: High (8/10) | Framework: TIDD-EC
+
+{
+  "task": "Evaluate the health claims in one supplement listing (title, description, bullet points) against the supplied list of up to 38 EU-authorised health claims for this call, and flag every health claim in the listing text that is not covered by that list.",
+  "instructions": [
+    "Read the listing's title, description, and bullet points as one combined text.",
+    "Identify every sentence or clause that makes a health-related claim: an assertion that the product or an ingredient affects the body, health, or a bodily function.",
+    "For each identified claim, compare its meaning and scope against every claim on the supplied approved_claims list.",
+    "If the claim matches an approved claim verbatim, or conveys the same authorised meaning and scope in different words, treat it as compliant: leave it unchanged and do not report it.",
+    "If the claim does not match any approved claim, classify why it fails using exactly one rule_broken value: unauthorised_claim (a health benefit not covered by any approved claim), disease_claim (an assertion that the product prevents, treats, or cures a disease or medical condition), or dosage_promise (a specific dose, frequency, or timeframe tied to a guaranteed outcome).",
+    "For each non-compliant claim, quote the flagged_sentence exactly as it appears in the listing, character for character.",
+    "Write a compliant_rewrite for each flagged claim that keeps the same ingredient or product fact and, where the underlying benefit is covered by the approved_claims list, aligns the wording with the matching approved claim.",
+    "Check every sentence in the title, description, and bullet points; report every violation found, not only the first.",
+    "Return the result in the exact JSON shape described in context.output_format, with an empty violations array when no violations exist."
+  ],
+  "dos": [
+    "Check every sentence in the title, description, and bullet points, not just an initial subset.",
+    "Quote the flagged_sentence exactly as written in the listing, with no paraphrasing.",
+    "Assign exactly one rule_broken category per flagged claim.",
+    "Preserve the underlying product or ingredient fact in every compliant_rewrite.",
+    "Treat the supplied approved_claims list as the sole source of truth for this call; do not rely on outside knowledge of which claims are authorised.",
+    "Leave every already-compliant sentence completely untouched and unreported."
+  ],
+  "donts": [
+    "Do not alter, rewrite, or flag any sentence that already matches an approved claim in meaning and scope.",
+    "Do not state or imply any judgment about whether the product is effective or actually works; evaluate claim wording only, never efficacy.",
+    "Do not introduce a health benefit, ingredient effect, or outcome in a compliant_rewrite that was not already present in the original sentence or on the approved_claims list.",
+    "Do not flag non-health marketing language such as taste, packaging, price, or origin claims that assert no health effect.",
+    "Do not flag a neutral usage or dosage instruction on its own; only apply dosage_promise when the dose or timeframe is paired with a guaranteed outcome not on the approved_claims list.",
+    "Do not skip any claim in the listing or stop checking after the first violation found."
+  ],
+  "examples": [
+    {
+      "case": "compliant_pass_through",
+      "listing_sentence": "Vitamin C contributes to the normal function of the immune system.",
+      "matches_approved_claim": "Vitamin C contributes to the normal function of the immune system.",
+      "action": "No violation reported; sentence left unchanged."
+    },
+    {
+      "case": "unauthorised_claim",
+      "listing_sentence": "Boosts your immune system.",
+      "rule_broken": "unauthorised_claim",
+      "compliant_rewrite": "Contains Vitamin C, which contributes to the normal function of the immune system."
+    },
+    {
+      "case": "disease_claim",
+      "listing_sentence": "Helps prevent colds and flu.",
+      "rule_broken": "disease_claim",
+      "compliant_rewrite": "Contains Vitamin C, which contributes to the normal function of the immune system."
+    },
+    {
+      "case": "dosage_promise",
+      "listing_sentence": "Take 2 capsules daily for guaranteed energy within 24 hours.",
+      "rule_broken": "dosage_promise",
+      "compliant_rewrite": "Contains Vitamin B12, which contributes to normal energy-yielding metabolism. Suggested use: 2 capsules daily."
+    },
+    {
+      "case": "compliant_paraphrase_edge_case",
+      "listing_sentence": "Thanks to its Vitamin C content, this supports normal immune function.",
+      "matches_approved_claim": "Vitamin C contributes to the normal function of the immune system.",
+      "action": "No violation reported; same authorised meaning and scope in different words, sentence left unchanged."
+    },
+    {
+      "case": "anti_pattern_do_not_do_this",
+      "listing_sentence": "Vitamin C contributes to the normal function of the immune system.",
+      "incorrect_action": "Rewriting this already-compliant sentence to 'improve' its phrasing, or adding a note that the product's effectiveness is unproven.",
+      "why_wrong": "The sentence is already compliant and must be left untouched; efficacy is never this task's concern."
+    }
+  ],
+  "context": {
+    "target_model": "GPT-4.1",
+    "call_pattern": "One listing per call. Each call supplies the listing's title, description, and bullet points, plus the current approved_claims list. Treat approved_claims as call-specific input data, not fixed prior knowledge.",
+    "input_format": "title: string. description: string. bullet_points: array of strings. approved_claims: array of up to 38 strings, the EU-authorised health claims currently approved for this call.",
+    "output_format": "Return exactly one JSON object: { \"violations\": [ { \"flagged_sentence\": \"exact quote from the listing\", \"rule_broken\": \"unauthorised_claim | disease_claim | dosage_promise\", \"compliant_rewrite\": \"rewrite keeping the original product fact\" } ] }. Return an empty violations array when the listing has no violations.",
+    "scope": "Compliance of health-claim wording against the supplied approved_claims list only. Excludes product efficacy judgment, non-health marketing claims, and any rule category outside unauthorised_claim, disease_claim, and dosage_promise."
+  }
+}
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide JSON | assumptions = 4 flagged | format = JSON | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-supplement-listing-claims-checker.json`
+
+**Score and gate status:** CLEAR 45/50 (target 40+) | Perspectives: 5 (Prompt Engineering, AI Interpretation, End-User Experience, Framework Architecture, Token Optimisation) | Gate passed on first pass, no revision cycles needed.
+
+**Token overhead:** JSON adds roughly +5-10% tokens versus an equivalent Markdown deliverable — worth noting given this prompt runs on every listing check.
+
+**Assumptions flagged:**
+- `[Assumes: "on the list" includes meaning-equivalent paraphrases of an approved claim, not verbatim-only matches, since your example showed one exact match and one clear violation but no paraphrase case.]`
+- `[Assumes: approved_claims arrives as call-specific input data each time, not baked into the prompt, matching "with each call."]`
+- `[Assumes: a neutral dosage/usage line like "take 2 capsules daily" is not itself a violation — only dosage language tied to a guaranteed outcome or timeframe trips dosage_promise.]`
+- `[Assumes: GPT-4.1's response should be strict JSON matching the defined violations schema, since this checker likely feeds an automated pipeline.]`
+
+**Summary:** Rewrote the one-line prompt into a TIDD-EC structure (Task, Instructions, Do's, Don'ts, cascading Examples, Context) that gives GPT-4.1 an unambiguous compare-against-list procedure, the exact-sentence/rule/rewrite output contract you specified, and explicit guardrails against touching compliant text or judging efficacy. Full scope preserved as requested; no new checks or fields were added beyond what you asked for.

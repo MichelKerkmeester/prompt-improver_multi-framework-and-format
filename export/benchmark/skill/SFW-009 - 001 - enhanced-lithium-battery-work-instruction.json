@@ -1,0 +1,48 @@
+Mode: $deep | Complexity: Complex (9/10) | Framework: CIDI
+
+{
+  "context": {
+    "process": "Work instruction for clearing inbound sea containers declared under UN3480 (lithium batteries) at the Port of Rotterdam.",
+    "target_model": "GPT-4.1",
+    "gap_being_fixed": "Replaces the current instruction 'Document this process', which specifies no roles, no per-step data, no conflict handling and no bilingual parity.",
+    "roles_in_scope": ["Customs broker", "Logistics planner", "Warehouse team", "Dangerous-goods (DG) officer"],
+    "languages": ["English", "Dutch"],
+    "downstream_use": "The finished work instruction is ingested by a knowledge-base importer that maps CIDI sections to fields, so the deliverable itself must keep the four CIDI section labels Context, Instructions, Details and Input.",
+    "source_materials": {
+      "call_transcript": "Recorded interview with a senior customs broker describing how the clearance process runs today.",
+      "current_checklist": "The team's existing step-by-step checklist for this process.",
+      "carrier_dg_rules": "The carrier's dangerous-goods regulations governing UN3480 lithium-battery shipments."
+    }
+  },
+  "instructions": {
+    "primary_task": "Using only the three sources in `input`, write one work instruction for this process and deliver it as two complete parallel documents, English first and then Dutch, each structured in CIDI sections (Context, Instructions, Details, Input).",
+    "step_extraction": [
+      "Read all three sources before drafting any step.",
+      "Group steps under the role that performs them: Broker, Planner, Warehouse, or DG officer.",
+      "For every step, capture exactly four fields: trigger (the event that starts the step), system (the tool or platform where the step happens), document_produced (the artifact the step outputs), hand_off (the next role or system that receives the output).",
+      "Source every trigger, system, document_produced and hand_off from the transcript or the checklist; where none of the three sources states one of these fields for a step, write 'Not specified in source' instead of inventing a plausible value."
+    ],
+    "un3480_gate": "Insert a step where the broker routes the shipment to the DG officer for review and sign-off as soon as UN3480 is confirmed as the declared classification, positioned before the planner's slot-booking step. This gate applies only to shipments declared under UN3480; other shipments go straight from the broker's steps to the planner's slot-booking step.",
+    "conflict_handling": "When the call transcript and the current checklist describe the same step differently (owner, order, system, document, or condition), do not decide which source is correct. Add an entry to `details.source_conflicts` naming the step, quoting the transcript's version, and quoting the checklist's version, and leave the resolution open.",
+    "bilingual_parity": "Give every step the same step number in both the English and the Dutch version, so step N is the same action in both. Keep the four section labels Context, Instructions, Details and Input in English in both versions; translate all step names, role labels, triggers, systems, documents and hand-offs into Dutch for the Dutch version.",
+    "no_questions": "Do not ask the requester any clarifying questions. Where a source is silent on a required detail, apply the 'Not specified in source' rule and continue drafting."
+  },
+  "details": {
+    "step_schema": {
+      "step_number": "Shared identically across the English and Dutch versions",
+      "role": "Broker | Planner | Warehouse | DG officer",
+      "trigger": "Event that starts this step",
+      "system": "Tool or platform where the step happens",
+      "document_produced": "Artifact this step outputs",
+      "hand_off": "Next role or system receiving the output"
+    },
+    "source_conflicts": "A list populated only when the transcript and the checklist disagree on a step, each entry giving the step reference, the transcript's version, and the checklist's version, with no resolution chosen. Leave empty for steps where the sources agree.",
+    "un3480_scope_note": "The broker-to-DG-officer-to-planner gate applies only to shipments the broker has classified under UN3480; it must not change the step order for shipments outside that classification.",
+    "section_label_language": "The knowledge-base importer keys on the English section labels Context, Instructions, Details and Input regardless of body language; keep those four labels in English inside the Dutch version too."
+  },
+  "input": {
+    "call_transcript": "[Paste the full transcript of the interview with the senior customs broker]",
+    "current_checklist": "[Paste the team's current checklist content]",
+    "carrier_dg_rules": "[Paste the carrier's dangerous-goods rules covering UN3480 lithium-battery shipments]"
+  }
+}

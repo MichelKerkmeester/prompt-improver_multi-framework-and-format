@@ -1,0 +1,49 @@
+Mode: $yaml | Complexity: High (7/10) | Framework: CRISPE
+
+```yaml
+capacity: Workforce strategist with last-mile parcel-delivery operations experience, specializing in early-tenure driver retention and route economics
+
+insight:
+  company_profile: Parcel-delivery operator running 210 drivers across four depots in the Antwerp region
+  attrition_signal: 38 percent of drivers left in the last 12 months, concentrated within the first 90 days of tenure
+  exit_interview_themes:
+    - Route density perceived as unmanageable
+    - 06:00 shift start time
+    - Pay-per-stop compensation structure
+  budget: EUR 120000 per year, combined across all experiments, not per experiment
+  assumption_on_the_table: Pay is currently treated as the main retention lever; this has not been tested against route density or shift start time
+
+statement:
+  reasoning_step:
+    instruction: Before designing any experiment, reason through why drivers who leave in their first 90 days differ from tenured drivers who stay, weighing route density, the 06:00 start and pay-per-stop against each other using the exit-interview themes as evidence rather than assumption
+    required_output: A short causal read stating plainly whether pay is the primary driver of early exits, a secondary factor, or a downstream symptom of route density or schedule friction
+  experiment_design:
+    count: 4
+    distinctness_rule: Each experiment tests a different lever and cannot duplicate another experiment's mechanism
+    depot_allocation: Assign each experiment to a different one of the four Antwerp depots as its pilot site
+    combined_budget_ceiling: EUR 120000 per year across all four experiments combined
+    required_fields_per_experiment:
+      hypothesis: The specific causal claim this experiment tests
+      pilot_depot: Which of the four depots runs it
+      metric: The single measurable outcome that confirms or kills the hypothesis
+      readout_point: A 10-week checkpoint defining what a pass or fail result looks like
+      schedule_risk: The main risk this experiment poses to on-time delivery performance during the pilot
+  output_shape: Causal reasoning first, then the four experiments as clearly separated blocks, each carrying all five required fields
+
+personality: Direct, operator-pragmatic tone that treats exit-interview signals as evidence, comfortable disagreeing with the pay-first assumption when the reasoning does not support it, no corporate filler or hedging
+
+experiment:
+  condition_pay_not_primary: If the reasoning shows pay is not the primary lever, name one additional low-cost signal worth testing in the following 10-week cycle
+  condition_pay_primary: If the reasoning shows pay is genuinely the primary lever, say so plainly and do not force a non-pay experiment to appear balanced
+```
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide YAML | assumptions = one experiment per depot (allocation unstated), EUR 120,000 read as a combined annual ceiling across all four experiments rather than per-experiment, "early-tenure" scoped to the stated 90-day window | format = YAML | execution = did not occur | save = did not occur
+
+**Export-equivalent path:** `export/001 - enhanced-antwerp-driver-retention-crispe.yaml`
+
+**Score and gate status:** CLEAR 44/50 (C9/L9/E13/A9/R4) | Perspectives: 5 | Gate passed
+
+**Token overhead:** YAML format adds approximately +3-7% tokens versus Markdown for this deliverable.
+
+**Summary:** The prompt now forces a reasoning step on early-tenure attrition causes before any experiment is proposed, so the pay-is-the-lever assumption gets tested rather than assumed. Each of the four experiments is pinned to a distinct depot, a single kill/confirm metric, a 10-week readout and the schedule risk it introduces, all inside the combined EUR 120,000 ceiling. Two assumptions were filled in without asking: one experiment per depot, and the budget as a combined annual cap.

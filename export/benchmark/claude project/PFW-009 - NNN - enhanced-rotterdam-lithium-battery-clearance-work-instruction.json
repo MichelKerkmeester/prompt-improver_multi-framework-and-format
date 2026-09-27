@@ -1,0 +1,37 @@
+Mode: $deep | Complexity: Complex (10/10) | Framework: CIDI
+
+{
+  "context": {
+    "target_model": "GPT-4.1",
+    "role": "Senior freight-forwarding SOP author with expertise in customs brokerage and IMDG/ADR dangerous-goods clearance procedures",
+    "scenario": "Write the work instruction for clearing inbound sea containers carrying lithium batteries at the Port of Rotterdam",
+    "why_this_process_exists": "The current instruction is the placeholder 'Document this process'; broker, planner and warehouse staff have no shared, auditable, role-scoped procedure, which risks missed dangerous-goods escalation and inconsistent customs handling",
+    "downstream_use": "Output is parsed by a knowledge-base importer that maps CIDI document sections to database fields, so the four section headers below must appear literally as 'Context', 'Instructions', 'Details' and 'Input' in both language versions; only the text beneath each header is translated [Assumes: importer matches sections by exact English header text across languages]"
+  },
+  "instructions": {
+    "primary_task": "Using only the three inputs supplied, write one work instruction covering the full inbound clearance process, then deliver it twice as complete parallel documents: one in Dutch, one in English, sharing identical step numbers",
+    "step_requirements": "Number every step sequentially. Assign each step to exactly one role: Customs Broker, Planner or Warehouse. For each step, state four fields sourced only from the inputs, never invented: trigger (what starts the step), system (the named system or tool it happens in), document_produced (the named output it generates), handoff (who or what receives that output next)",
+    "dangerous_goods_routing": "Insert a Dangerous Goods Officer review step for any shipment declared under UN3480. This step must sit after the broker's DG classification step and before the planner's slot-booking step; shipments not declared under UN3480 skip straight to slot-booking. Keep step numbers identical between languages even where this branch changes the count for a given shipment type",
+    "conflict_handling": "Compare the call transcript against the current checklist for every step. Where they disagree on system, order, document, responsible role or trigger, do not pick a side: record the disagreement as a conflict entry naming the step, what the transcript says and what the checklist says",
+    "bilingual_parity": "The Dutch and English documents must match in step count, step numbers, role assignments, conflict entries and DG-officer placement; only the language of the text differs"
+  },
+  "details": {
+    "output_section_mapping": {
+      "context_section": "Purpose and scope: cargo type (lithium batteries), port (Rotterdam), governing DG classification, roles involved",
+      "instructions_section": "The full numbered, role-tagged step sequence with trigger, system, document_produced and handoff per step, including the DG-officer branch",
+      "details_section": "The complete conflict register from conflict_handling, plus any [gap: not specified in sources] flags",
+      "input_section": "The documents or data each role must have on hand to execute its steps, named only as they appear in the three sources"
+    },
+    "gap_handling": "If any step's trigger, system, document_produced or handoff is absent from all three sources, write '[gap: not specified in sources]' for that field instead of inventing a value",
+    "consistency_rule": "Use the same section headers, the same per-step field order and the same step numbers across both language versions so the fields map cleanly for the importer"
+  },
+  "input": {
+    "call_transcript": "{{CALL_TRANSCRIPT}}",
+    "current_checklist": "{{CURRENT_CHECKLIST}}",
+    "carrier_dg_rules": "{{CARRIER_DG_RULES}}",
+    "handling_note": "Treat all three as the sole authoritative sources; do not add customs or DG knowledge beyond what they state"
+  }
+}
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide JSON | assumptions = KB importer matches CIDI section headers by exact English text in both language versions | format = JSON | execution = did not occur | save = did not occur

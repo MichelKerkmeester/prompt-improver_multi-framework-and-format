@@ -1,0 +1,60 @@
+{
+ "id": "PFW-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/rcaf-high-expense-claim-review-canvas.md",
+ "twin": "SFW-002",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "05eaf681-36dc-4a55-9d76-a36e46e59056",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 263.26,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 94600,
+   "output_tokens": 25031,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4738594,
+   "model_s": 262.47,
+   "startup_s": 0.51,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $json Our finance team calls this prompt through the Claude API from our expense tool: \"Check this expense claim and say if it is fine.\" Make it much stronger. The model gets the claim lines, the receipts as text and the employee's grade. It sorts each line into within policy, missing receipt, over limit or not a business cost. Within policy gets a recommended approval, a missing receipt gets a receipt request, over limit goes to the finance controller, and a non-business cost goes back to the employee with the policy clause. Any line above EUR 750 goes to the controller whatever its class. Hotel limits are EUR 180 a night for grades 1 to 5 and EUR 240 above. It only recommends, never marks anything as paid, and always quotes the receipt line it relies on. Our prompt registry stores only the four RCAF keys, so keep it RCAF even for a prompt this size, and keep every rule rather than streamlining. No questions, use your judgment on the rest."
+  }
+ ]
+}

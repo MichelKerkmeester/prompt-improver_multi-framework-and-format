@@ -114,6 +114,8 @@ output:
 Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
 ```
 
+**Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`.
+
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
@@ -483,9 +485,9 @@ format:
 
 | Complexity     | Framework | YAML Structure        |
 | -------------- | --------- | --------------------- |
-| Simple (1-3)   | RCAF      | Flat, 4 keys          |
-| Medium (4-6)   | RCAF      | Nested format         |
-| Complex (7-10) | CRAFT     | Multi-level hierarchy |
+| 1 to 3         | RCAF      | Flat, 4 keys          |
+| 4 to 6         | RCAF      | Nested format         |
+| 7 to 10        | CRAFT     | Multi-level hierarchy |
 
 ### Token Optimization
 

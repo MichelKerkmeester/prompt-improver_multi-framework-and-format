@@ -1,7 +1,7 @@
 ---
 title: "Prompt Improver: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Prompt Improver scenario inventory."
-version: 1.2.0.0
+version: 1.3.0.0
 ---
 
 # Prompt Improver: Manual Testing Playbook
@@ -66,13 +66,15 @@ Each set opens with an identity handover (`SID-001` or `PID-001`) that every oth
 
 Forty-eight scenarios test whether the system writes a demanding prompt that visibly uses one framework from its own library. Each of the twenty-four `SFW` skill scenarios has a `PFW` Project twin with the same prompt, character for character. Every prompt names its framework, carries every essential and asks the runtime not to ask, so these scenarios have a single prompt and no conversation chain: the one reply is the graded delivery, and a question instead of a delivery fails for missing delivery.
 
-A framework scenario passes only when all of these hold: the delivery exists in its runtime's form, the header names the framework and a complexity inside the tier, the body is visibly organised by the framework's named elements, the routed scorer passes its gate, a JSON or YAML payload parses, every supplied fact is kept and the scope test holds.
+A framework scenario passes only when all of these hold: the delivery exists in its runtime's form, the header names the framework and a complexity inside the tier, the body is visibly organised by the framework's named elements, the routed scorer passes its gate, a JSON or YAML payload parses, every supplied fact is kept and the scope test holds. VIBE and VIBE-MP carry their elements labelled or as prose, since `references/visual-mode.md` line 62 asks a Visual prompt to flow as natural prose: a prose passage the operator can map to one element counts as that element.
 
 | Tier | Complexity band | Header complexity that passes |
 |---|---|---|
 | Medium | 5 to 6 | The label `Medium`, or 5 or 6 |
 | High | 7 to 8 | The label `High`, or 7 or 8 |
-| Complex | 9 to 10 | 9 or 10, or a label above High such as `Very High`; a bare `High` label fails |
+| Complex | 9 to 10 | The label `Complex`, or 9 or 10, or another label above High such as `Very High`; a bare `High` label fails |
+
+The bands are the skill's own, from the Complexity Rubric in `references/depth-framework.md` lines 147-165 and its Project twin in `Prompt Improver - DEPTH Thinking Framework - v0.200.md` lines 134-152.
 
 RCAF, COSTAR, CIDI, TIDD-EC, CRISPE and CRAFT each run at all three tiers. FRAME and MOTION run at High and Complex, VIBE at High and VIBE-MP at Complex. Where the library ranks the named framework outside the tier, the prompt makes the user's case for it: a fit note from the runtime is recorded and never decides the verdict, while a delivery built on another framework fails.
 
@@ -1067,13 +1069,13 @@ Desired user-visible outcome: One path-first reply carrying a passing VISUAL res
 
 #### Description
 
-Verify `$vibe` delivers a High-tier VIBE prompt in one turn with every VIBE element labelled.
+Verify `$vibe` delivers a High-tier VIBE prompt in one turn with every VIBE element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
 
-Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
@@ -1083,13 +1085,13 @@ Desired user-visible outcome: One path-first reply carrying a passing EVOKE resu
 
 #### Description
 
-Verify `$vibe` delivers a Complex-tier VIBE-MP prompt in one turn with every VIBE-MP element labelled.
+Verify `$vibe` delivers a Complex-tier VIBE-MP prompt in one turn with every VIBE-MP element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
 
-Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
@@ -1455,13 +1457,13 @@ Desired user-visible outcome: One Artifact-first reply whose Deliverable Block o
 
 #### Description
 
-Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element labelled.
+Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element labelled and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
@@ -1471,13 +1473,13 @@ Desired user-visible outcome: One Artifact-first reply whose Deliverable Block o
 
 #### Description
 
-Verify `$vibe` renders a Complex-tier VIBE-MP Deliverable Block in one turn with every VIBE-MP element labelled.
+Verify `$vibe` renders a Complex-tier VIBE-MP Deliverable Block in one turn with every VIBE-MP element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element labelled and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 

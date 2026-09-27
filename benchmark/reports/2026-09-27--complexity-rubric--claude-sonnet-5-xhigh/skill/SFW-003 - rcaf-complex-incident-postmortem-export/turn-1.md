@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-sev-postmortem-prompt.md`
+CLEAR 46/50 | Gate: passed (floors clear: C9 L9 E14 A9 R5)
+
+This upgrades your one-liner into a layered RCAF prompt (Role/Context/Action/Format only, so it still lints clean) that drives UTC normalization with a >10-minute gap flag, hypothesis-labeled root cause, responders-list-owned action items with due weeks, and customer→account-ID redaction — all folded into a single blameless draft with the three audience layers nested under Format. `[Assumes: a responders list travels alongside the three log sources, and "due week" is written as "Week of YYYY-MM-DD"]` — adjust the Context line if your responders list arrives differently.

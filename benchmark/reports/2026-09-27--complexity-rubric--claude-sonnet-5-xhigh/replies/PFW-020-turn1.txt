@@ -1,0 +1,25 @@
+Mode/format resolved from routing: `$image` → Image Mode (Creative energy, FRAME framework, VISUAL/60 scoring) with `$markdown` locking the output format. Platform detected: Stable Diffusion XL (negative prompts fully supported, weighted `(term:1.3)` syntax applies). No Canvas panel is available in this environment, so per the delivery protocol the block below is rendered as a single fenced block at the top of the reply, exactly as it would appear in the Artifact.
+
+```
+Mode: $image | Complexity: Medium (5/10) | Framework: FRAME
+
+**Positive Prompt:**
+(flat 1960s screen-print poster illustration:1.3), mid-century Dutch silkscreen travel-poster aesthetic, event poster for a Night of Science at a public library. Three distinct depth layers. Foreground: two (non-photorealistic:1.2) illustrated children about 8 to 10 years old, flat bold graphic shapes with thick outlines, standing on a rooftop terrace at a (large brass telescope:1.2), one child leaning in to look through the eyepiece, the other pointing up at the sky, both seen from behind or in profile at a low upward angle. Midground: the library's brick facade in flat navy brick shapes with rows of tall lit windows glowing flat mustard (#F2C14E), rendered as simple rectangular blocks with no gradient. Background: Orion's belt and shoulders rising just above the rooftop silhouettes, rendered as flat vermilion (#E4572E) dots connected by thin straight lines against a solid navy (#1B2A49) night sky, positioned only in the upper-middle band. (The top quarter of the poster is a completely empty flat navy sky with no stars, no texture variation and no elements, reserved as clean negative space:1.4). Strict four-spot-color palette only: navy #1B2A49, mustard #F2C14E, vermilion #E4572E, and cream paper #F4F1E8 showing through as the unprinted base; no other colors anywhere. Bold flat shading, hard graphic edges, subtle halftone dot pattern in shadow areas, (visible paper grain texture across the whole print:1.2), (slight ink misregistration where color layers sit a few pixels offset from the line art, most visible at brick edges and window frames:1.3). Portrait poster composition, 2:3 aspect ratio. Masterpiece, best quality screen-print illustration. (no text, no lettering, no numbers, no words, no title, no logo anywhere in the image:1.4).
+
+**Negative Prompt:**
+photorealistic, photograph, realistic photo, 3D render, CGI, smooth airbrushed gradient, painterly brushstrokes, watercolor, oil painting, digital-art soft shading, soft shadow gradients, extra colors, additional hues beyond the four-color palette, neon colors, rainbow, oversaturated colors, full color realism, realistic skin, realistic anatomy, adult faces, photographic children, clean unblemished print, perfectly registered print with no offset, smooth clean vector without grain, stars or sky detail filling the top quarter, cluttered top of frame, (text:1.4), (lettering:1.4), (words:1.4), (title:1.3), (typography:1.3), (numbers:1.3), watermark, signature, logo, caption, subtitle, blurry, low quality, low resolution, jpeg artifacts, cropped, out of frame, bad anatomy, extra limbs, fused fingers, deformed hands, mutated, duplicate, worst quality, lowres
+
+**Suggested Settings:** Resolution 1024x1536 (2:3, SDXL native) | CFG Scale 6.5-7.5 (start 7) | Steps 30-34 (start 32)
+
+---
+Attestation: docs consulted = Image Mode, Image Mode Library, DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Format Guide Markdown | assumptions = [Assumes: 2:3 canvas set to 1024x1536, SDXL's native 2:3 tile] | [Assumes: telescope and figures rendered as flat outlined shapes within the four-color set, no added metallic tone] | [Assumes: CFG/Steps are general SDXL flat-illustration starting points, untested on your specific checkpoint/LoRA] | format = Markdown | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/[###] - enhanced-night-of-science-poster.md`
+
+**Score and gate status:** VISUAL 55/60 (Vivid 14/15, Intentional 9/10, Styled 9/10, Unambiguous 9/10, Atmospheric 9/10, Layered 5/5) | Threshold 48+ | Gate passed. Perspectives: 5 (Focus, Rendering, Atmosphere, Modifiers, Exclusions — FRAME lens, BLOCKING for Creative energy).
+
+**Summary:** Built with FRAME for SDXL/ComfyUI — a three-layer 2:3 poster (children at telescope, lit brick facade, rising Orion) locked to your exact four-color spot palette, with the top quarter kept clean for your later title, weighted emphasis on the screen-print texture and misregistration effects, a separate SDXL-effective negative prompt, and starting CFG/step values.
+
+**Share your result for refinement**
+Try this prompt in ComfyUI and share what you get — I can help refine the composition if the depth layers merge, dial in the palette or grain intensity if a fifth color creeps in, or adjust the misregistration and top-quarter clearance if either reads too subtle or too strong.

@@ -120,7 +120,7 @@ Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
 
 **Header Requirements:**
 - Mode with $ prefix: $improve, $refine, $quick, etc.
-- Complexity level: Low/Medium/High or 1-10
+- Complexity level: Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `references/depth-framework.md`
 - Framework used: RCAF or CRAFT
 
 ### File Content Rules

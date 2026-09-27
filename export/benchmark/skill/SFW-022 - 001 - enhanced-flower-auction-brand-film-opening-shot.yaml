@@ -1,0 +1,72 @@
+Mode: $video | Complexity: Low (3/10) | Framework: MOTION
+
+platform: Kling 2.6
+generation_type: text-to-video
+aspect_ratio: "16:9"
+duration_sec: 10
+shot_type: one continuous take, no cuts
+native_audio: true
+subject: Brand film opening shot, flower auction hall near Aalsmeer at dawn
+prompt: |
+  Opening shot of a brand film, one continuous 10-second take, 16:9, text-to-video.
+  At dawn the camera glides forward, holding steady about three metres above a vast
+  auction hall, tracking over trolley trains stacked with red and yellow tulips as
+  they snake past each other in two opposite directions; three small, anonymous
+  workers steer the trains from electric tugs. At 4 seconds [move up]: the camera
+  rises slowly, opening the view to reveal the full hall. At 8 seconds it settles
+  into a static hold, facing the great auction clock as its hand begins to sweep.
+  Cool blue daylight through the roof windows warms gradually to gold by the final
+  frame. Soundscape is pure ambient industrial texture: a steady electric hum,
+  trolley wheels rolling over concrete, and one distant chime as the clock starts
+  moving. No score, no dialogue.
+motion:
+  movement:
+    camera: Forward glide at fixed low altitude, then a vertical rise, then a static hold
+    subject: Trolley trains of tulips snaking past each other in two opposing lanes
+    direction: Forward and slightly upward, ending front-facing on the clock
+  origin:
+    reference_type: Text-to-video
+    establishing: Dawn, three metres above the trolley-train lanes, cool blue light
+  temporal:
+    duration: 10 sec, three-beat continuous shot
+    pacing: Steady glide, then a slow rise, then a settled static hold
+    beats:
+      - time_s: 0
+        camera: Forward glide, roughly three metres above the floor
+        action: Trolley trains snake past each other in two directions
+        audio: Electric hum and wheels on concrete begin
+      - time_s: 4
+        camera: Slow vertical rise (crane up)
+        action: Full hall comes into view, trains and workers small below
+        audio: Hum and wheels continue, steady
+      - time_s: 8
+        camera: Camera settles into a static hold, facing the auction clock
+        action: Clock hand begins to sweep
+        audio: Distant chime marks the sweep
+  intention:
+    narrative: First impression of scale, order and quiet motion inside a working flower auction
+    purpose: Opening shot of a brand film
+  orchestration:
+    choreography: Two-directional trolley-train traffic guided by three tug operators, unified by one unbroken camera move
+    transitions: Single continuous shot, no cuts, no scene changes
+  nuance:
+    details: Roof-window daylight shifts from cool blue to gold across the shot; workers stay small and anonymous throughout
+    physics: Realistic, grounded motion; no slow motion or speed ramps
+audio:
+  ambient: Steady electric hum from the tugs and trolley motors
+  action: Trolley wheels rolling over concrete
+  ending: Single distant chime as the clock hand starts to sweep
+  excluded:
+    - score or music
+    - dialogue or voices
+visual_style:
+  lighting_arc: Cool blue dawn light warming gradually to gold by the final frame
+  framing: Wide low-altitude hall shot resolving to a front-facing clock shot
+  scale_treatment: Workers remain small and anonymous against the scale of the hall
+constraints:
+  - One continuous shot, no cuts or scene changes
+  - Exactly three timed beats at 0s, 4s and 8s
+  - Audio limited to ambient hum, wheels on concrete and one closing chime
+  - No score, no dialogue or voices
+  - No on-screen text or logos
+  - No negative or quality-keyword prompting

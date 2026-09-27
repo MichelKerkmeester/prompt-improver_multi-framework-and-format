@@ -123,7 +123,7 @@ Understand the current prompt, identify improvement needs, select framework appr
   - Focus: Vagueness, scope gaps, ambiguity
   - Constraint: Only weaknesses in provided prompt
 - **Complexity Assessment**
-  - Focus: Prompt complexity level 1-10
+  - Focus: Prompt complexity level 1-10, scored with the Complexity Rubric below
   - Constraint: Do not add unrequested complexity
 - **Perspective Analysis**
   - Focus: Analyse from multiple viewpoints (see Section 4)
@@ -143,6 +143,26 @@ Understand the current prompt, identify improvement needs, select framework appr
 
 **Exit:** Perspectives analysed per energy level, inversion applied, assumptions flagged, framework selected, complexity assessed.
 **Deep extension:** Full 5-perspective analysis, perspective inversion, and assumption audit before proceeding.
+
+### Complexity Rubric
+
+Rate the request as the user gave it, never the prompt you plan to write. Every point must point to something the user stated, so a need the user did not state adds nothing.
+
+| Dimension | 0 | 1 | 2 |
+|---|---|---|---|
+| Outputs | One output with one job | One output with distinct sections, or two outputs | Three or more outputs, channels or language versions |
+| Inputs | No input, or one input | Several inputs to combine | Sources that can contradict each other, or three or more kinds of source |
+| Rules | Up to two constraints | Three to six constraints, or one conditional rule | Seven or more constraints, or two or more conditional rules |
+| Audience | One general reader | One specific audience with stated needs | Several audiences, reading levels or languages served at once |
+| Stakes | An error is easy to correct | An error costs time or trust | Legal, financial, health, safety or privacy stakes, or a judgment the prompt must refuse to make |
+
+- **Constraint:** one stated limit the output must meet, such as a length, a required field, a banned element or a fixed order
+- **Conditional rule:** a rule that applies only when something holds, such as a threshold, a route or an escalation
+- **Not counted:** the framework the user names, the format command and a request for no questions
+
+**Rating:** 1 plus the five scores, capped at 10.
+
+**Bands:** Low 1 to 4, Medium 5 to 6, High 7 to 8, Complex 9 to 10. The header gives the label, the number or both, as in `Complexity: Complex (9/10)`.
 
 ### E — ENGINEER (Standard/Deep/Creative)
 
