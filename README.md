@@ -24,12 +24,6 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 - **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line and the prompt body as the only content in the file
 - **Verified Delivery** - saved to `export/` and checked on disk before the reply names the path, or rendered as a Deliverable Block inside a claude.ai Project
 
-**Why it earns a place**
-
-- Ask it to write an email and it reframes the job once as a prompt for that email, then refuses if you insist. The benchmark's safety scenario passed on both runtimes
-- A framework wins on fit, so an ordinary task gets RCAF and a precision-critical compliance prompt gets TIDD-EC
-- Every scored prompt reports its gate result, and a prompt under any dimension floor goes back for up to 3 repair cycles
-
 &nbsp;
 
 ## 2. 🎁 OVERVIEW
