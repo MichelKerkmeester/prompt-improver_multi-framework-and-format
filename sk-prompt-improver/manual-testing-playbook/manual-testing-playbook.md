@@ -1,7 +1,7 @@
 ---
 title: "Prompt Improver: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Prompt Improver scenario inventory."
-version: 1.3.0.0
+version: 1.4.0.0
 ---
 
 # Prompt Improver: Manual Testing Playbook
@@ -29,7 +29,7 @@ The playbook holds seventy-eight operator scenarios in two runtime sets across f
 | Skill | Skill format modes | `SFM-001..SFM-003` | 3 | Independent `$json`, `$yaml` and `$markdown` axis, valid locked-format export |
 | Skill | Skill creative modes | `SCR-001..SCR-003` | 3 | `$image` FRAME, `$video` MOTION and `$vibe` VIBE, VISUAL and EVOKE gates, share-back invite |
 | Skill | Skill safety boundaries | `SSB-001` | 1 | Reframe once, then persistent refusal |
-| Skill | Skill framework coverage | `SFW-001..SFW-024` | 24 | One named framework per prompt at the Medium, High or Complex tier: RCAF, COSTAR, CIDI, TIDD-EC, CRISPE, CRAFT, FRAME, MOTION, VIBE and VIBE-MP, single-turn export |
+| Skill | Skill framework coverage | `SFW-001..SFW-024` | 24 | One named framework per prompt at the Low, Medium, High or Complex tier: RCAF, COSTAR, CIDI, TIDD-EC, CRISPE, CRAFT, FRAME, MOTION, VIBE and VIBE-MP, single-turn export |
 | Project | Project identity | `PID-001` | 1 | `Custom Instructions` identity string and Canvas Artifact delivery |
 | Project | Project interactive routing | `PIR-001..PIR-002` | 2 | Command-conflict and no-signal question flow |
 | Project | Project text modes | `PTX-001..PTX-005` | 5 | Natural improve, `$deep`, `$short`, `$refine` and `$raw` lanes, CLEAR gate or no scorer, Canvas Artifact and revision |
@@ -64,19 +64,20 @@ Each set opens with an identity handover (`SID-001` or `PID-001`) that every oth
 
 ### Framework coverage
 
-Forty-eight scenarios test whether the system writes a demanding prompt that visibly uses one framework from its own library. Each of the twenty-four `SFW` skill scenarios has a `PFW` Project twin with the same prompt, character for character. Every prompt names its framework, carries every essential and asks the runtime not to ask, so these scenarios have a single prompt and no conversation chain: the one reply is the graded delivery, and a question instead of a delivery fails for missing delivery.
+Forty-eight scenarios test whether the system writes a prompt that visibly uses one framework from its own library, at the complexity the rubric gives its input. Each of the twenty-four `SFW` skill scenarios has a `PFW` Project twin with the same prompt, character for character. Every prompt names its framework, carries every essential and asks the runtime not to ask, so these scenarios have a single prompt and no conversation chain: the one reply is the graded delivery, and a question instead of a delivery fails for missing delivery.
 
 A framework scenario passes only when all of these hold: the delivery exists in its runtime's form, the header names the framework and a complexity inside the tier, the body is visibly organised by the framework's named elements, the routed scorer passes its gate, a JSON or YAML payload parses, every supplied fact is kept and the scope test holds. VIBE and VIBE-MP carry their elements labelled or as prose, since `references/visual-mode.md` line 62 asks a Visual prompt to flow as natural prose: a prose passage the operator can map to one element counts as that element.
 
 | Tier | Complexity band | Header complexity that passes |
 |---|---|---|
+| Low | 1 to 4 | The label `Low`, or 1 to 4 |
 | Medium | 5 to 6 | The label `Medium`, or 5 or 6 |
 | High | 7 to 8 | The label `High`, or 7 or 8 |
 | Complex | 9 to 10 | The label `Complex`, or 9 or 10, or another label above High such as `Very High`; a bare `High` label fails |
 
 The bands are the skill's own, from the Complexity Rubric in `references/depth-framework.md` lines 147-165 and its Project twin in `Prompt Improver - DEPTH Thinking Framework - v0.200.md` lines 134-152.
 
-RCAF, COSTAR, CIDI, TIDD-EC, CRISPE and CRAFT each run at all three tiers. FRAME and MOTION run at High and Complex, VIBE at High and VIBE-MP at Complex. Where the library ranks the named framework outside the tier, the prompt makes the user's case for it: a fit note from the runtime is recorded and never decides the verdict, while a delivery built on another framework fails.
+RCAF, COSTAR, CIDI, TIDD-EC, CRISPE and CRAFT each run at Medium, High and Complex. The creative scenarios sit where the rubric places their input, because one image, clip or screen scores low on most of its dimensions: FRAME at Low and Medium, MOTION at Low twice, VIBE at Medium and VIBE-MP at High. Where the library ranks the named framework outside the tier, the prompt makes the user's case for it: a fit note from the runtime is recorded and never decides the verdict, while a delivery built on another framework fails.
 
 ### No-feature-catalog exception
 
@@ -1001,101 +1002,101 @@ Desired user-visible outcome: One path-first reply carrying a passing CLEAR resu
 
 > **Feature File:** [SFW-018](skill-framework-coverage/craft-complex-wms-go-live-plan-export.md)
 
-### SFW-019 | FRAME at High complexity for a gravel cycling hero image
+### SFW-019 | FRAME at Low complexity for a gravel cycling hero image
 
 #### Description
 
-Verify `$image` delivers a High-tier FRAME prompt in one turn with every FRAME element labelled.
+Verify `$image` delivers a Low-tier FRAME prompt in one turn with every FRAME element labelled.
 
 #### Scenario contract
 
 Prompt: `$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself.`
 
-Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at High complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at Low complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-019](skill-framework-coverage/frame-high-gravel-cycling-hero-export.md)
+> **Feature File:** [SFW-019](skill-framework-coverage/frame-low-gravel-cycling-hero-export.md)
 
-### SFW-020 | FRAME at Complex complexity for a library science poster
+### SFW-020 | FRAME at Medium complexity for a library science poster
 
 #### Description
 
-Verify `$image` delivers a Complex-tier FRAME prompt in one turn with every FRAME element labelled.
+Verify `$image` delivers a Medium-tier FRAME prompt in one turn with every FRAME element labelled.
 
 #### Scenario contract
 
 Prompt: `$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions.`
 
-Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at Complex complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming FRAME at Medium complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-020](skill-framework-coverage/frame-complex-library-science-poster-export.md)
+> **Feature File:** [SFW-020](skill-framework-coverage/frame-medium-library-science-poster-export.md)
 
-### SFW-021 | MOTION at High complexity for a potter wheel reel
+### SFW-021 | MOTION at Low complexity for a potter wheel reel
 
 #### Description
 
-Verify `$video` delivers a High-tier MOTION prompt in one turn with every MOTION element labelled.
+Verify `$video` delivers a Low-tier MOTION prompt in one turn with every MOTION element labelled.
 
 #### Scenario contract
 
 Prompt: `$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings.`
 
-Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming MOTION at High complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.md` file opens with a header naming MOTION at Low complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-021](skill-framework-coverage/motion-high-potter-wheel-reel-export.md)
+> **Feature File:** [SFW-021](skill-framework-coverage/motion-low-potter-wheel-reel-export.md)
 
-### SFW-022 | MOTION at Complex complexity for a flower auction opening shot
+### SFW-022 | MOTION at Low complexity for a flower auction opening shot
 
 #### Description
 
-Verify `$video` delivers a Complex-tier MOTION prompt in one turn with every MOTION element labelled.
+Verify `$video` delivers a Low-tier MOTION prompt in one turn with every MOTION element labelled.
 
 #### Scenario contract
 
 Prompt: `$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions.`
 
-Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.yaml` file opens with a header naming MOTION at Complex complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing VISUAL result, whose saved `.yaml` file opens with a header naming MOTION at Low complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-022](skill-framework-coverage/motion-complex-flower-auction-opening-export.md)
+> **Feature File:** [SFW-022](skill-framework-coverage/motion-low-flower-auction-opening-export.md)
 
-### SFW-023 | VIBE at High complexity for a returns inspection screen
+### SFW-023 | VIBE at Medium complexity for a returns inspection screen
 
 #### Description
 
-Verify `$vibe` delivers a High-tier VIBE prompt in one turn with every VIBE element present, labelled or as prose.
+Verify `$vibe` delivers a Medium-tier VIBE prompt in one turn with every VIBE element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
 
-Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE at Medium complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-023](skill-framework-coverage/vibe-high-returns-inspection-screen-export.md)
+> **Feature File:** [SFW-023](skill-framework-coverage/vibe-medium-returns-inspection-screen-export.md)
 
-### SFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow
+### SFW-024 | VIBE-MP at High complexity for an e-bike theft claim flow
 
 #### Description
 
-Verify `$vibe` delivers a Complex-tier VIBE-MP prompt in one turn with every VIBE-MP element present, labelled or as prose.
+Verify `$vibe` delivers a High-tier VIBE-MP prompt in one turn with every VIBE-MP element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
 
-Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
+Desired user-visible outcome: One path-first reply carrying a passing EVOKE result, whose saved `.md` file opens with a header naming VIBE-MP at High complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [SFW-024](skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md)
+> **Feature File:** [SFW-024](skill-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-export.md)
 
 ---
 
@@ -1389,101 +1390,101 @@ Desired user-visible outcome: One Artifact-first reply whose Deliverable Block o
 
 > **Feature File:** [PFW-018](project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md)
 
-### PFW-019 | FRAME at High complexity for a gravel cycling hero image in the Project
+### PFW-019 | FRAME at Low complexity for a gravel cycling hero image in the Project
 
 #### Description
 
-Verify `$image` renders a High-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
+Verify `$image` renders a Low-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
 
 #### Scenario contract
 
 Prompt: `$image $markdown Midjourney v6.1 prompt for the homepage hero of our Zeeland gravel-cycling tours: one rider on a gravel dyke path at golden hour, shot from a low angle, riding toward the camera with the Oosterschelde behind. Photorealistic, like an outdoor-apparel catalogue photo, warm light with long shadows. It is a 21:9 banner, so the left third stays calm and empty for our headline. The rider wears an olive jersey, and there are no visible logos, no text in the image and no other people. Organise it by FRAME so I can tweak each part, and keep every detail. No questions, pick sensible parameters yourself.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at High complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at Low complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-019](project-framework-coverage/frame-high-gravel-cycling-hero-canvas.md)
+> **Feature File:** [PFW-019](project-framework-coverage/frame-low-gravel-cycling-hero-canvas.md)
 
-### PFW-020 | FRAME at Complex complexity for a library science poster in the Project
+### PFW-020 | FRAME at Medium complexity for a library science poster in the Project
 
 #### Description
 
-Verify `$image` renders a Complex-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
+Verify `$image` renders a Medium-tier FRAME Deliverable Block in one turn with every FRAME element labelled.
 
 #### Scenario contract
 
 Prompt: `$image $markdown We make event posters with Stable Diffusion XL in ComfyUI, which has a separate negative prompt field. I need a prompt for this year's Night of Science at the Leiden city library: a 2:3 portrait poster in a flat 1960s screen-print style, limited to four colours (#1B2A49 navy, #F2C14E mustard, #E4572E vermilion, #F4F1E8 paper). Three depth layers: two children at a brass telescope in the foreground, the library's brick facade with lit windows in the middle, and Orion rising over the rooftops behind. The top quarter stays empty sky for the title we add later, so no lettering anywhere. Visible paper grain and slight ink misregistration. The children look about 8 to 10 and are not photoreal. Use weights where they help, give me the negative prompt separately and suggest CFG and steps. Build it with FRAME, keep all of it, no questions.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at Complex complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming FRAME at Medium complexity and reads back as a FRAME prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-020](project-framework-coverage/frame-complex-library-science-poster-canvas.md)
+> **Feature File:** [PFW-020](project-framework-coverage/frame-medium-library-science-poster-canvas.md)
 
-### PFW-021 | MOTION at High complexity for a potter wheel reel in the Project
+### PFW-021 | MOTION at Low complexity for a potter wheel reel in the Project
 
 #### Description
 
-Verify `$video` renders a High-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
+Verify `$video` renders a Low-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
 
 #### Scenario contract
 
 Prompt: `$video $markdown Runway Gen-4 prompt, image-to-video from our still of a potter's hands at a spinning wheel in a sunlit studio. 10 seconds, 9:16 for Reels. The wet clay bowl rises and widens under her hands, a thin spiral of slip flicks off the rim, and dust drifts through the window light. Camera: a slow push-in from waist height that reaches a close-up of her thumbs smoothing the rim at 8 seconds, then holds. Calm and tactile, warm natural light, shallow depth of field. Her face stays out of frame and the studio clutter stays soft in the background. Structure it with MOTION so each part is easy to adjust, keeping every beat. No questions, choose sensible settings.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at High complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at Low complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-021](project-framework-coverage/motion-high-potter-wheel-reel-canvas.md)
+> **Feature File:** [PFW-021](project-framework-coverage/motion-low-potter-wheel-reel-canvas.md)
 
-### PFW-022 | MOTION at Complex complexity for a flower auction opening shot in the Project
+### PFW-022 | MOTION at Low complexity for a flower auction opening shot in the Project
 
 #### Description
 
-Verify `$video` renders a Complex-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
+Verify `$video` renders a Low-tier MOTION Deliverable Block in one turn with every MOTION element labelled.
 
 #### Scenario contract
 
 Prompt: `$video $yaml Kling 2.6 prompt with native audio for the opening shot of a brand film about a flower auction near Aalsmeer. One continuous 10-second shot, 16:9, text-to-video. At dawn the camera glides forward about three metres above a hall full of trolley trains loaded with red and yellow tulips, the trains snaking past each other in two directions while three workers on electric tugs steer them. At 4 seconds the camera rises slowly to reveal the whole hall, and at 8 seconds it settles facing the big auction clock as its hand starts to sweep. Audio: electric hum, trolley wheels on concrete and a distant chime at the end, with no music and no voices. Cool blue daylight from the roof windows warms to gold by the end. The workers stay small and anonymous. Use MOTION, keep every beat and don't ask me questions.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at Complex complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming MOTION at Low complexity and reads back as a MOTION prompt with every element labelled and every supplied fact kept, its payload parsing as YAML, with a passing VISUAL result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-022](project-framework-coverage/motion-complex-flower-auction-opening-canvas.md)
+> **Feature File:** [PFW-022](project-framework-coverage/motion-low-flower-auction-opening-canvas.md)
 
-### PFW-023 | VIBE at High complexity for a returns inspection screen in the Project
+### PFW-023 | VIBE at Medium complexity for a returns inspection screen in the Project
 
 #### Description
 
-Verify `$vibe` renders a High-tier VIBE Deliverable Block in one turn with every VIBE element present, labelled or as prose.
+Verify `$vibe` renders a Medium-tier VIBE Deliverable Block in one turn with every VIBE element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown Screen concept for v0: the returns-inspection station in our fashion e-commerce warehouse. An inspector stands at a bench in cotton gloves, scans a returned item and has about 20 seconds to grade it A, B, C or reject on a 24-inch touchscreen. She needs the original order photo next to the item, the customer's return reason and a big tap target for each grade, and a reject asks for one damage photo. After 300 items a shift it must not feel like a spreadsheet or a dark developer tool: calm, tactile and fast. Use shadcn/ui components, so there is nothing to ask me. Shape the brief with VIBE and keep every state I described.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at High complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE at Medium complexity and reads back as a VIBE prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-023](project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md)
+> **Feature File:** [PFW-023](project-framework-coverage/vibe-medium-returns-inspection-screen-canvas.md)
 
-### PFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow in the Project
+### PFW-024 | VIBE-MP at High complexity for an e-bike theft claim flow in the Project
 
 #### Description
 
-Verify `$vibe` renders a Complex-tier VIBE-MP Deliverable Block in one turn with every VIBE-MP element present, labelled or as prose.
+Verify `$vibe` renders a High-tier VIBE-MP Deliverable Block in one turn with every VIBE-MP element present, labelled or as prose.
 
 #### Scenario contract
 
 Prompt: `$vibe $markdown MagicPath brief for the claim flow in our e-bike insurance app. The user is a commuter who has just found her e-bike stolen from a station bike rack, on her phone, upset and short on time. Single job: file a complete theft claim in under five minutes. The multi-page flow has five screens: what happened; where and when, with the station prefilled from her location; photos and frame number; the police report number or a clear way to add it later; and a confirmation with a live claim tracker. Every screen links back to the previous one without losing input, and a draft survives a lost signal. It should feel steady and competent, never cheerful or gamified, and nothing like a generic fintech gradient. Dutch and English. No component library, let MagicPath choose. Shape it with VIBE-MP and keep all five screens. No questions please.`
 
-Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE-MP at Complex complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
+Desired user-visible outcome: One Artifact-first reply whose Deliverable Block opens with a header naming VIBE-MP at High complexity and reads back as a VIBE-MP prompt with every element present, labelled or as prose, and every supplied fact kept, with a passing EVOKE result in chat and no file claimed, closing on the share-back invitation.
 
 #### Test execution
 
-> **Feature File:** [PFW-024](project-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-canvas.md)
+> **Feature File:** [PFW-024](project-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-canvas.md)
 
 ---
 
@@ -1536,12 +1537,12 @@ Desired user-visible outcome: One Artifact-first reply whose Deliverable Block o
 | SFW-016 | CRAFT at Medium complexity for a customer workshop plan | Skill framework coverage | [SFW-016](skill-framework-coverage/craft-medium-customer-workshop-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
 | SFW-017 | CRAFT at High complexity for a mailbox migration plan | Skill framework coverage | [SFW-017](skill-framework-coverage/craft-high-mailbox-migration-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
 | SFW-018 | CRAFT at Complex complexity for a WMS go-live plan | Skill framework coverage | [SFW-018](skill-framework-coverage/craft-complex-wms-go-live-plan-export.md) | [`framework-pattern-library.md`](../assets/framework-pattern-library.md) |
-| SFW-019 | FRAME at High complexity for a gravel cycling hero image | Skill framework coverage | [SFW-019](skill-framework-coverage/frame-high-gravel-cycling-hero-export.md) | [`image-mode.md`](../references/image-mode.md) |
-| SFW-020 | FRAME at Complex complexity for a library science poster | Skill framework coverage | [SFW-020](skill-framework-coverage/frame-complex-library-science-poster-export.md) | [`image-mode.md`](../references/image-mode.md) |
-| SFW-021 | MOTION at High complexity for a potter wheel reel | Skill framework coverage | [SFW-021](skill-framework-coverage/motion-high-potter-wheel-reel-export.md) | [`video-mode.md`](../references/video-mode.md) |
-| SFW-022 | MOTION at Complex complexity for a flower auction opening shot | Skill framework coverage | [SFW-022](skill-framework-coverage/motion-complex-flower-auction-opening-export.md) | [`video-mode.md`](../references/video-mode.md) |
-| SFW-023 | VIBE at High complexity for a returns inspection screen | Skill framework coverage | [SFW-023](skill-framework-coverage/vibe-high-returns-inspection-screen-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
-| SFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow | Skill framework coverage | [SFW-024](skill-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
+| SFW-019 | FRAME at Low complexity for a gravel cycling hero image | Skill framework coverage | [SFW-019](skill-framework-coverage/frame-low-gravel-cycling-hero-export.md) | [`image-mode.md`](../references/image-mode.md) |
+| SFW-020 | FRAME at Medium complexity for a library science poster | Skill framework coverage | [SFW-020](skill-framework-coverage/frame-medium-library-science-poster-export.md) | [`image-mode.md`](../references/image-mode.md) |
+| SFW-021 | MOTION at Low complexity for a potter wheel reel | Skill framework coverage | [SFW-021](skill-framework-coverage/motion-low-potter-wheel-reel-export.md) | [`video-mode.md`](../references/video-mode.md) |
+| SFW-022 | MOTION at Low complexity for a flower auction opening shot | Skill framework coverage | [SFW-022](skill-framework-coverage/motion-low-flower-auction-opening-export.md) | [`video-mode.md`](../references/video-mode.md) |
+| SFW-023 | VIBE at Medium complexity for a returns inspection screen | Skill framework coverage | [SFW-023](skill-framework-coverage/vibe-medium-returns-inspection-screen-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
+| SFW-024 | VIBE-MP at High complexity for an e-bike theft claim flow | Skill framework coverage | [SFW-024](skill-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-export.md) | [`visual-mode.md`](../references/visual-mode.md) |
 | PID-001 | Identity handover and Canvas delivery | Project identity | [PID-001](project-identity/identity-handover.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-001 | Conflicting mode commands ask one question | Project interactive routing | [PIR-001](project-interactive-routing/conflicting-commands-clarification.md) | [Custom Instructions](<../../claude project/Custom Instructions.md>) |
 | PIR-002 | No-signal request gets one comprehensive question | Project interactive routing | [PIR-002](project-interactive-routing/no-signal-comprehensive-question.md) | [Interactive Mode knowledge](<../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) |
@@ -1575,9 +1576,9 @@ Desired user-visible outcome: One Artifact-first reply whose Deliverable Block o
 | PFW-016 | CRAFT at Medium complexity for a customer workshop plan in the Project | Project framework coverage | [PFW-016](project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
 | PFW-017 | CRAFT at High complexity for a mailbox migration plan in the Project | Project framework coverage | [PFW-017](project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
 | PFW-018 | CRAFT at Complex complexity for a WMS go-live plan in the Project | Project framework coverage | [PFW-018](project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md) | [Framework Pattern Library knowledge](<../../claude project/knowledge/Prompt Improver - Assets - Framework Pattern Library - v0.100.md>) |
-| PFW-019 | FRAME at High complexity for a gravel cycling hero image in the Project | Project framework coverage | [PFW-019](project-framework-coverage/frame-high-gravel-cycling-hero-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
-| PFW-020 | FRAME at Complex complexity for a library science poster in the Project | Project framework coverage | [PFW-020](project-framework-coverage/frame-complex-library-science-poster-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
-| PFW-021 | MOTION at High complexity for a potter wheel reel in the Project | Project framework coverage | [PFW-021](project-framework-coverage/motion-high-potter-wheel-reel-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
-| PFW-022 | MOTION at Complex complexity for a flower auction opening shot in the Project | Project framework coverage | [PFW-022](project-framework-coverage/motion-complex-flower-auction-opening-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
-| PFW-023 | VIBE at High complexity for a returns inspection screen in the Project | Project framework coverage | [PFW-023](project-framework-coverage/vibe-high-returns-inspection-screen-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
-| PFW-024 | VIBE-MP at Complex complexity for an e-bike theft claim flow in the Project | Project framework coverage | [PFW-024](project-framework-coverage/vibe-mp-complex-ebike-theft-claim-flow-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
+| PFW-019 | FRAME at Low complexity for a gravel cycling hero image in the Project | Project framework coverage | [PFW-019](project-framework-coverage/frame-low-gravel-cycling-hero-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
+| PFW-020 | FRAME at Medium complexity for a library science poster in the Project | Project framework coverage | [PFW-020](project-framework-coverage/frame-medium-library-science-poster-canvas.md) | [Image Mode knowledge](<../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) |
+| PFW-021 | MOTION at Low complexity for a potter wheel reel in the Project | Project framework coverage | [PFW-021](project-framework-coverage/motion-low-potter-wheel-reel-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
+| PFW-022 | MOTION at Low complexity for a flower auction opening shot in the Project | Project framework coverage | [PFW-022](project-framework-coverage/motion-low-flower-auction-opening-canvas.md) | [Video Mode knowledge](<../../claude project/knowledge/Prompt Improver - Video Mode - v0.123.md>) |
+| PFW-023 | VIBE at Medium complexity for a returns inspection screen in the Project | Project framework coverage | [PFW-023](project-framework-coverage/vibe-medium-returns-inspection-screen-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
+| PFW-024 | VIBE-MP at High complexity for an e-bike theft claim flow in the Project | Project framework coverage | [PFW-024](project-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-canvas.md) | [Visual Mode knowledge](<../../claude project/knowledge/Prompt Improver - Visual Mode - v0.301.md>) |
