@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: DELIVERABLE BLOCK LINTER
+# ───────────────────────────────────────────────────────────────
+
 """Deterministic linter for Prompt Improver's own stated output rules.
 
 Usage: deliverable_lint.py <file>   ->  prints JSON {file, clean, confidence, violations:[...]}
@@ -11,16 +15,16 @@ the prompts it writes. What it states, repeatedly and without qualification, is 
 structural contract for the Deliverable Block and a hard ban on claiming a save or an
 export that a claude.ai Project cannot perform:
 
-  - ALWAYS render the Deliverable Block before any commentary (Custom Instructions.md
-    RULES > ALWAYS #6), and NEVER skip it for loose inline chat text instead (#8)
+  - ALWAYS render the Deliverable Block before any commentary (Custom Instructions.md's
+    delivery rules), and NEVER skip it for loose inline chat text instead
   - ALWAYS keep the Deliverable Block to a single-line header plus prompt content plus
-    an attestation footer only (#7), matching the template in DELIVERY PROTOCOL
-  - NEVER put scoring breakdowns, processing notes or format options inside the block
-    (NEVER #6), and NEVER paste the full deliverable again in chat afterward (#7)
+    an attestation footer only, matching the template in DELIVERY PROTOCOL
+  - NEVER put scoring breakdowns, processing notes or format options inside the block,
+    and NEVER paste the full deliverable again in chat afterward
   - NEVER claim this Project saved, exported, verified on disk or executed anything
-    (NEVER #12). The QUALITY CHECKLIST repeats it: "no execution, save or verification
-    was claimed"
-  - Interactive Mode's own NEVER #14 bans emoji bullets in question or validation text
+    (Custom Instructions.md's hard ban). The QUALITY CHECKLIST repeats it: "no
+    execution, save or verification was claimed"
+  - Interactive Mode itself bans emoji bullets in question or validation text
 
 Every check below cites the line above it. This is a CODE gate: each check is a fixed
 string or a narrow structural pattern, never a model asked to judge tone.
@@ -39,12 +43,17 @@ import json
 import re
 import sys
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 DELIVERABLE_TAG = re.compile(r"<DELIVERABLE>(.*?)</DELIVERABLE>", re.S | re.I)
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
-# Custom Instructions.md NEVER #12 and the advisory-only header (line 10): this Project
-# "cannot write files to a filesystem, run the CLI export sequence or verify a saved
-# path". Any of these phrases in a reply is that claim being made anyway.
+# Custom Instructions.md's ban on claiming a save or an export, and the advisory-only
+# header (line 10): this Project "cannot write files to a filesystem, run the CLI
+# export sequence or verify a saved path". Any of these phrases in a reply is that
+# claim being made anyway.
 CLAIMED_EXECUTION_PHRASES = [
     "i've saved", "i have saved", "has been saved", "successfully saved",
     "saved to disk", "saved to your", "saved the file", "wrote the file",
@@ -53,37 +62,56 @@ CLAIMED_EXECUTION_PHRASES = [
     "the file is now available at", "download the saved file",
 ]
 
-# DELIVERY PROTOCOL's attestation line states both fields as a fixed pair, and NEVER
-# #12 forbids the reverse of either.
+# DELIVERY PROTOCOL's attestation line states both fields as a fixed pair, and the
+# ban on claiming a save or an export forbids the reverse of either.
 ATTESTATION_LINE = re.compile(r"^Attestation:.*$", re.M)
 REQUIRED_ATTESTATION_FIELDS = ("execution = did not occur", "save = did not occur")
 
 # DELIVERY PROTOCOL's header template: "Mode: $[mode] | Complexity: [level] |
-# Framework: [Framework]", three fields on one line. Score is deliberately absent:
-# ALWAYS #8 puts score, assumptions and docs consulted in chat after the block, and
+# Framework: [Framework]", three fields on one line. Score is deliberately absent,
+# because score, assumptions and docs consulted belong in chat after the block, and
 # the protocol's own line says the Artifact carries the prompt and not the scoring
-# explanation. A fourth Score field was required here and cited to ALWAYS #7, which
-# says nothing about field count, so the check failed a runtime for obeying #8.
+# explanation. A fourth Score field was required here and cited to the rule that the
+# block carries the header, the prompt and the attestation footer only, which says
+# nothing about field count, so the check failed a runtime for obeying the
+# chat-after-the-block rule.
 MODE_LINE = re.compile(r"^\s*Mode:.*$", re.M)
 REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")
 
-# Interactive Mode NEVER #14. Markdown dashes stay allowed, since Interactive Mode's
-# own MUST list asks for them. This matches only decorative emoji used as a bullet
-# glyph at the start of a line.
+# Interactive Mode bans emoji bullets in question or validation text. Markdown dashes
+# stay allowed, since Interactive Mode's own MUST list asks for them. This matches
+# only decorative emoji used as a bullet glyph at the start of a line.
 EMOJI_BULLET = re.compile(
     "^[ \t]*(?:✅|❌|\U0001f539|\U0001f538|▪|\U0001f53a|"
     "➡|\U0001f449|\U0001f4cc|⭐|✨|\U0001f3af|\U0001f4a1|\U0001f680)\\s+",
     re.M,
 )
 
-# NEVER #6: scoring breakdowns, processing notes and format options belong in chat
-# after the block, never inside it.
+# Scoring breakdowns, processing notes and format options belong in chat after the
+# block, never inside it.
 FORBIDDEN_INSIDE_BLOCK = (
     "CLEAR score", "EVOKE score", "VISUAL score", "Perspectives:", "Assumptions:",
 )
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
+
 def samples(pattern_or_literal, text, n=2, literal=False):
+    """Up to n short excerpts of text around each match.
+
+    Args:
+        pattern_or_literal: A compiled pattern, or the literal text to find when
+            `literal` is True.
+        text: The reply text to search.
+        n: Maximum number of excerpts to return.
+        literal: Match `pattern_or_literal` as plain text rather than a pattern.
+
+    Returns:
+        A list of single-line context excerpts.
+    """
     out = []
     if literal:
         start = 0
@@ -116,6 +144,11 @@ def extract_deliverable(raw: str):
     if MODE_LINE.search(clean):
         return None, "medium", None
     return None, "low", None
+
+
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
 
 
 def lint_reply(raw: str):
@@ -173,7 +206,17 @@ def lint_reply(raw: str):
     return violations, confidence
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main(argv) -> int:
+    """Lint one reply file and print the result as JSON.
+
+    Returns 0 when the reply carries no hard violation, 1 on any hard
+    violation, 2 when the file cannot be read and 64 when it is not named.
+    """
     if len(argv) < 2:
         print("usage: deliverable_lint.py <file>", file=sys.stderr)
         return 64
