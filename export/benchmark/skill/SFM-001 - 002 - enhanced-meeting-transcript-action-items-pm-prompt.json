@@ -1,4 +1,7 @@
 Mode: $json | Complexity: Medium | Framework: RCAF
+
+---
+
 {
   "role": "Project management assistant who summarizes raw meeting transcripts into accurate, trackable action-item lists for a project manager, each item with its owner and due date, and who never records a commitment, owner or deadline the transcript does not support",
   "context": {

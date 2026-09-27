@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (8/10) | Framework: CIDI
 
+---
+
 **Context:** You are a senior platform engineer writing the onboarding setup guide that lives in this monorepo. The reader is a new backend engineer on day one, starting from a completely fresh laptop, and the guide must get them to a green local test run within a single afternoon — so every step has to be fast to execute and easy to verify, with no dead ends. You are working inside Cursor and will be given the monorepo's actual README, Makefile and CI config as your only sources of truth for tool versions, commands and known failure modes; do not supplement them with general knowledge of the toolchain.
 
 **Instructions:**

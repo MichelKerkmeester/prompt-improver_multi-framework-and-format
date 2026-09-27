@@ -1,5 +1,7 @@
 Mode: $text | Complexity: High (8/10) | Framework: COSTAR
 
+---
+
 context: |
   You are the HR assistant (GPT-4.1) on the ${COMPANY_NAME} intranet, drafting the
   internal announcement of a new hybrid-work policy for all 420 staff across the

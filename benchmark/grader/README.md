@@ -30,8 +30,9 @@ an export a claude.ai Project cannot perform:
 | Check | Rule | Source |
 | --- | --- | --- |
 | `claimed_execution` | Never claim this Project saved, exported, verified on disk or executed anything | Custom Instructions.md, RULES > NEVER #12, line 347 |
-| `attestation_missing` / `attestation_incomplete` | The Deliverable Block's footer states `execution = did not occur` and `save = did not occur` | DELIVERY PROTOCOL template, lines 376-377 |
+| `attestation_missing` / `attestation_incomplete` | The Deliverable Block's footer states `execution = did not occur` and `save = did not occur` | DELIVERY PROTOCOL template, lines 378-379 |
 | `header_missing` / `header_malformed` | The block opens with one line carrying Mode, Complexity, Framework and Score | RULES > ALWAYS #7, line 320, and DELIVERY PROTOCOL, line 372 |
+| `header_divider_missing` | A blank line, `---` and a blank line separate the header from the prompt | RULES > ALWAYS #7, line 320, and DELIVERY PROTOCOL, lines 372-376 |
 | `deliverable_not_first` | The block renders before any commentary | RULES > ALWAYS #6, line 319, and NEVER #8, line 342 |
 | `scoring_inside_block` | No scoring breakdown, processing note or format option inside the block | RULES > NEVER #6, line 340 |
 | `emoji_bullets` | No emoji bullets in question or validation text | `references/interactive-mode.md`, NEVER #14, line 536 |
@@ -42,7 +43,7 @@ block ends, so they only run when the reply carries an explicit
 benchmark capture, absent a live harness today). The rest read the whole
 reply and run regardless, at whatever confidence the extraction found, so a
 plain chat capture with no tags is still checked for a claimed save, an
-attestation footer, a header and emoji bullets. `confidence` is reported on
+attestation footer, a header and its divider, and emoji bullets. `confidence` is reported on
 every result rather than folded into the pass/fail so a reader can see why a
 structural check did or did not run.
 

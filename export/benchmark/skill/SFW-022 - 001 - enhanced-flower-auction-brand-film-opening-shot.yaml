@@ -1,5 +1,7 @@
 Mode: $video | Complexity: Low (3/10) | Framework: MOTION
 
+---
+
 platform: Kling 2.6
 generation_type: text-to-video
 aspect_ratio: "16:9"

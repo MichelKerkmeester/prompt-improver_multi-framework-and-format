@@ -1,5 +1,7 @@
 Mode: $vibe | Complexity: High (7/10) | Framework: VIBE
 
+---
+
 Design the grading screen for a fashion e-commerce returns-inspection bench: a 24-inch touchscreen kiosk where a gloved inspector clears roughly 300 returned garments a shift, each judged in about twenty seconds. This is a repeated ritual, not a browsing session — think the unfussy confidence of a boarding-gate scanner crossed with the tactile satisfaction of a photo booth's countdown, not a spreadsheet and not a dark developer console.
 
 Layout: once an item is scanned, the screen resolves into two anchored halves that never compete for attention — the customer's original order photo sits beside the live item, close enough that the eye travels between them in a single glance, with the return reason sitting quietly between the two like a caption, present but never shouting. Beneath that pairing, four confident zones span the width within easy reach of a gloved thumb: three grade tiles — A, B, C — sized and spaced for a fingertip in cotton, sharing one calm, related color family so no grade reads as a failure, and a visually distinct reject zone that breaks from that family just enough to register as a different kind of decision, not a punishment.

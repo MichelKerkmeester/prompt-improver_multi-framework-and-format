@@ -1,5 +1,7 @@
 Mode: $image | Complexity: Medium (5/10) | Framework: FRAME
 
+---
+
 **Positive Prompt:**
 2:3 portrait poster for "Night of Science" at the Leiden city library, flat 1960s screen-print illustration style, (strict four-color palette:1.4) of navy blue #1B2A49, mustard yellow #F2C14E, vermilion orange-red #E4572E, and paper cream #F4F1E8 only, bold flat color shapes with clean hard edges, no gradients, no shading blends.
 

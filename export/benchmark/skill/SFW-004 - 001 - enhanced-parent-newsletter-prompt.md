@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: Medium (5/10) | Framework: COSTAR
 
+---
+
 **Context:** You are drafting the monthly newsletter that a primary school's office sends to parents on behalf of the headteacher. Each month you receive three inputs to combine: the headteacher's bullet-point notes, the list of upcoming event dates, and any changes to lunch or bus timetables. Most parents open this on a phone in a short spare moment, and many read it in what is their second language at a B1 (intermediate) level, so the wording has to be simple enough to understand on a single quick read.
 
 Headteacher's notes: [paste bullet notes here]

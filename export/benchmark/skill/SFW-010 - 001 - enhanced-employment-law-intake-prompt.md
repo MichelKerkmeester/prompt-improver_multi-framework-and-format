@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: Medium (6/10) | Framework: TIDD-EC
 
+---
+
 **Task:** Read one submitted web-form inquiry to an employment-law firm and produce a single structured intake note for the lawyer who will run the client's free 20-minute consultation call.
 
 **Instructions:**

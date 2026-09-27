@@ -1,5 +1,7 @@
 Mode: $image | Complexity: Low (4/10) | Framework: FRAME
 
+---
+
 **F — Focus (Subject & Composition):**
 A lone gravel cyclist in a solid olive jersey rides a gravel bike directly toward camera along a raised dyke path, captured from a low angle for a dominant, heroic perspective. Coarse gravel texture fills the immediate foreground; the rider occupies the midground, positioned in the right two-thirds of the frame with the left third left calm and empty for a headline overlay. The Oosterschelde estuary stretches out in the background below the dyke, its shoreline forming a natural leading line toward the rider.
 

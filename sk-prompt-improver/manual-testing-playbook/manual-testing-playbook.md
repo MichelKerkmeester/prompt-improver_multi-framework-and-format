@@ -1,7 +1,7 @@
 ---
 title: "Prompt Improver: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Prompt Improver scenario inventory."
-version: 1.4.0.0
+version: 1.5.0.0
 ---
 
 # Prompt Improver: Manual Testing Playbook
@@ -160,6 +160,7 @@ Not every wrong signal is the same kind of wrong. Record both the verdict and th
 **Advisory.** These are delivery-quality preferences. Record them, and let them fail a scenario only when the scenario exists to test delivery shape:
 
 - Response ordering beyond the required Artifact-first or path-first shape
+- A missing `---` divider between the header and the prompt, which the six format-lock scenarios test directly
 - Summary length inside the two to three sentence band
 - Verbosity of the transparency report
 
@@ -336,7 +337,7 @@ Verify format axis locks JSON while Improve binds mode.
 
 Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 
-Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header and a payload below it that parses cleanly.
+Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header, the `---` divider and a payload below it that parses cleanly.
 
 #### Test execution
 
@@ -352,7 +353,7 @@ Verify format axis locks YAML while Text binds mode.
 
 Prompt: `$text $yaml Build me a prompt for extracting data from supplier invoices (the PDF text is pasted in). Fields we need: supplier name, invoice number, invoice date, due date, currency, subtotal, VAT amount, total, and line items with description, quantity and unit price. If a field is missing it must be null, never a guess. The result feeds our accounting import.`
 
-Desired user-visible outcome: One path-first reply whose saved `.yaml` file carries the header and a parsing payload with exactly the requested fields, then a second `.yaml` export that adds the VAT breakdown.
+Desired user-visible outcome: One path-first reply whose saved `.yaml` file carries the header, the `---` divider and a parsing payload with exactly the requested fields, then a second `.yaml` export that adds the VAT breakdown.
 
 #### Test execution
 

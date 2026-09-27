@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (8/10) | Framework: TIDD-EC
 
+---
+
 {
   "task": "Evaluate the health claims in one supplement listing (title, description, bullet points) against the supplied list of up to 38 EU-authorised health claims for this call, and flag every health claim in the listing text that is not covered by that list.",
   "instructions": [

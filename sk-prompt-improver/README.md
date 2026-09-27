@@ -7,7 +7,7 @@ trigger_phrases:
   - "$vibe"
   - "$image"
   - "$video"
-version: 1.5.1.0
+version: 1.5.2.0
 ---
 
 # sk-prompt-improver
@@ -244,7 +244,7 @@ DEPTH runs on a two-layer transparency model. Internally, the full rigor applies
 
 ## 4. OUTPUT FORMAT
 
-Default format is Markdown. `$json` and `$yaml` lock the output to that syntax and load the matching format guide, `$markdown` / `$md` / `$m` locks back to Markdown. A locked file contains nothing but a single-line header and the enhanced prompt body. Scoring breakdowns, processing notes and explanations stay in chat and never enter the file.
+Default format is Markdown. `$json` and `$yaml` lock the output to that syntax and load the matching format guide, `$markdown` / `$md` / `$m` locks back to Markdown. A locked file contains nothing but a single-line header, a `---` divider and the enhanced prompt body. Scoring breakdowns, processing notes and explanations stay in chat and never enter the file.
 
 | Format | Header line |
 |---|---|
@@ -252,10 +252,12 @@ Default format is Markdown. `$json` and `$yaml` lock the output to that syntax a
 | JSON | `Mode: $json \| Complexity: [level] \| Framework: [RCAF/CRAFT]` |
 | YAML | `Mode: $yaml \| Complexity: [level] \| Framework: [RCAF/CRAFT]` |
 
-The correct shape, header plus body and nothing else:
+The correct shape, header, divider and body and nothing else:
 
 ```markdown
 Mode: $improve | Complexity: Medium | Framework: RCAF
+
+---
 
 **Role:** Data analyst with expertise in SaaS metrics.
 **Context:** Q4 revenue data from B2B platform with 10K customers.

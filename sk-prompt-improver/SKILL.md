@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.5.1
+version: 1.5.2
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -409,7 +409,7 @@ Default format is Markdown.
 JSON adds roughly 5-10% token overhead and must be valid JSON only.
 YAML adds roughly 3-7% token overhead and must be valid YAML only.
 Markdown is the baseline and best for human interaction.
-Format lock means the file contains only the required header and the prompt body in the selected syntax.
+Format lock means the file contains only the required header, its `---` divider and the prompt body in the selected syntax.
 Scoring reports, format options, processing notes and explanations stay in chat after file delivery.
 
 ### Export-First Delivery
@@ -496,7 +496,7 @@ Unvalidated assumptions fallback: flag in deliverable.
 20. ALWAYS revise when totals or dimension floors fail.
 21. ALWAYS preserve valid JSON or YAML syntax when those formats are locked.
 22. ALWAYS create a downloadable/exported file before responding in CLI mode.
-23. ALWAYS keep prompt files to a single-line header plus enhanced prompt content only.
+23. ALWAYS keep prompt files to a single-line header, a `---` divider and enhanced prompt content only.
 24. ALWAYS put transparency reporting in chat after file delivery.
 25. ALWAYS report significant token overhead for JSON or YAML.
 26. ALWAYS ask for result sharing after creative modes `$vibe`, `$image` and `$video`.
@@ -555,10 +555,10 @@ CLEAR score matters more than word count.
 
 Every enhancement is delivered as a downloadable or exported file.
 Use `.md`, `.json` or `.yaml` according to format lock.
-File structure is a single-line header plus enhanced prompt content only.
+File structure is the single-line header, a blank line, `---`, a blank line, then the enhanced prompt content, and nothing else.
 Header includes mode with `$` prefix, complexity and framework.
 Complexity is Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), scored with the Complexity Rubric in `references/depth-framework.md`.
-JSON and YAML files must contain valid syntax after the header constraints of the format guide.
+JSON and YAML files must contain valid syntax below the divider, as the format guide shows.
 No artifacts, inline code blocks, processing metadata, scoring breakdowns, or explanatory notes belong inside the prompt file.
 
 ---

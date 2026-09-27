@@ -123,20 +123,26 @@ output:
 
 ### Mandatory Header Format
 
-**Single-line header at TOP of every YAML file:**
+**Single-line header at TOP of every YAML file, then a divider before the prompt:**
 ```
 Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
+
+---
+
+[YAML prompt]
 ```
 
 **Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `references/depth-framework.md`.
+
+**Divider:** a blank line, `---` and a blank line sit between the header and the YAML, and the YAML below the divider must parse on its own.
 
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
 | ---------------------------------- | --------------------------------------- |
 | Single-line header (with $ prefix) | Format Options section                  |
-| YAML prompt content                | CLEAR Evaluation breakdown              |
-|                                    | Processing Applied section              |
+| `---` divider below the header     | CLEAR Evaluation breakdown              |
+| YAML prompt content                | Processing Applied section              |
 |                                    | Explanations (go in CHAT)               |
 |                                    | Markdown formatting (\*\*, ###, \`\`\`) |
 |                                    | Tab characters                          |
@@ -162,6 +168,8 @@ If YES → DELIVER as file
 **✅ CORRECT:**
 ```
 Mode: $yaml | Complexity: Medium | Framework: RCAF
+
+---
 
 role: Data analyst
 context: Sales database analysis
@@ -208,6 +216,8 @@ format:
 
 ```
 Mode: $yaml | Complexity: Medium | Framework: RCAF
+
+---
 
 role: Financial analyst specializing in SaaS metrics
 context: Q4 2024 revenue data from B2B platform
@@ -267,6 +277,8 @@ target:
 
 ```
 Mode: $yaml | Complexity: High | Framework: CRAFT
+
+---
 
 context:
   background: E-commerce platform experiencing 15% cart abandonment
@@ -452,7 +464,7 @@ format:
 | No tab characters              | Yes      | Replace with spaces      |
 | No markdown formatting         | Yes      | Remove \*\*, ###, \`\`\` |
 | All RCAF/CRAFT fields present  | Yes      | Add missing fields       |
-| Header has `$yaml` mode        | Yes      | Add header               |
+| `$yaml` header, then `---`     | Yes      | Add header and divider   |
 | Delivered as file              | Yes      | Create file              |
 
 ### Common Issues & Fixes
@@ -492,7 +504,7 @@ format:
 | **Multi-line**  | Use \| or > for text blocks | Use flow style for complex data       |
 | **Delivery**    | Create downloadable file    | Deliver in chat                       |
 | **Header**      | Include `$yaml` mode        | Add verbose sections                  |
-| **Content**     | Only header + YAML          | Include explanations in file          |
+| **Content**     | Header, divider, YAML       | Include explanations in file          |
 | **Validation**  | Validate before delivery    | Skip validation                       |
 
 ### Framework Selection
