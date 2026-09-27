@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: ROUTE CONTRACT
+# ───────────────────────────────────────────────────────────────
+
 """Deterministic route contract for the Barter Prompt Improver skill.
 
 Characterizes a request into one stable route object so intent routing,
@@ -27,9 +31,9 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-# ---------------------------------------------------------------------------
-# Token tables (exact, delimiter-aware matches only)
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 1. TOKEN TABLES (EXACT, DELIMITER-AWARE MATCHES ONLY)
+# ───────────────────────────────────────────────────────────────
 
 # Explicit mode commands. A single one wins over any natural-language signal.
 # Flat token -> intent map, exact whole-token match only.
@@ -106,9 +110,9 @@ SCORER_MAP: Dict[str, Optional[str]] = {
     "INTERACTIVE": None, "THINKING": None,
 }
 
-# ---------------------------------------------------------------------------
-# Route object schema (fixed field set; unknown or duplicate fields reject)
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 2. ROUTE OBJECT SCHEMA (FIXED FIELD SET; UNKNOWN OR DUPLICATE FIELDS REJECT)
+# ───────────────────────────────────────────────────────────────
 
 ROUTE_FIELDS = [
     "intent", "energy", "scorer", "format", "source", "needs_disambiguation",
@@ -124,7 +128,9 @@ SCORER_VALUES = ["CLEAR", "EVOKE", "VISUAL"]  # None is also legal (see below)
 FORMAT_VALUES = ["markdown", "json", "yaml"]
 SOURCE_VALUES = ["command", "semantic", "fallback"]
 
-# --- Runtime discovery + guarded loading (resilient router mechanics) ---
+# ───────────────────────────────────────────────────────────────
+# 3. RUNTIME DISCOVERY + GUARDED LOADING (RESILIENT ROUTER MECHANICS)
+# ───────────────────────────────────────────────────────────────
 # Resource names below are resolved against the actual skill inventory at
 # every call, so a renamed or deleted reference degrades to a smaller
 # resource set instead of a dead path or a crash. This mirrors the canonical
@@ -185,9 +191,9 @@ def guard_resources(names: List[str], inventory: Set[str]) -> List[str]:
     return kept
 
 
-# ---------------------------------------------------------------------------
-# Tokenization + detection
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 4. TOKENIZATION + DETECTION
+# ───────────────────────────────────────────────────────────────
 
 _TOKEN_RE = re.compile(r"\$[a-z]+")
 
@@ -251,6 +257,7 @@ def detect_intent(text: str) -> Tuple[str, str]:
 
 
 def resources_for(intent: str, fmt: str, explicit_format: bool) -> List[str]:
+    """Return the resource list for a route, guarded against the live inventory."""
     inventory = discover_resource_inventory()
     names = list(ALWAYS) + RESOURCE_MAP.get(intent, [])
     if fmt in ("json", "yaml") or explicit_format:
@@ -258,11 +265,12 @@ def resources_for(intent: str, fmt: str, explicit_format: bool) -> List[str]:
     return guard_resources(names, inventory)
 
 
-# ---------------------------------------------------------------------------
-# Route resolution + schema validation
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 5. ROUTE RESOLUTION + SCHEMA VALIDATION
+# ───────────────────────────────────────────────────────────────
 
 def route_request(text: str) -> Dict[str, Any]:
+    """Return the route object for a request text."""
     intent, source = detect_intent(text)
     fmt, explicit_format = detect_format(text)
     return {
@@ -308,11 +316,12 @@ def validate_route_object(obj: Dict[str, Any]) -> List[str]:
     return errors
 
 
-# ---------------------------------------------------------------------------
-# Fixture runner
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 6. FIXTURE RUNNER
+# ───────────────────────────────────────────────────────────────
 
 def load_fixtures(path: str) -> List[Dict[str, Any]]:
+    """Return the fixture list read from a JSON manifest."""
     with open(path, "r", encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -342,6 +351,12 @@ def _check_duplicate_json_keys(path: str) -> List[str]:
 
 
 def run_fixtures(fixtures: List[Dict[str, Any]], source_path: Optional[str] = None) -> Tuple[int, List[str]]:
+    """Run every fixture and return the failure count and one line per failure.
+
+    Args:
+        fixtures: Each fixture's input text and its expected route fields.
+        source_path: Fixture manifest path, scanned for duplicate keys when given.
+    """
     failures: List[str] = []
     if source_path:
         failures.extend(_check_duplicate_json_keys(source_path))
@@ -366,7 +381,18 @@ def run_fixtures(fixtures: List[Dict[str, Any]], source_path: Optional[str] = No
     return len(failures), failures
 
 
+# ───────────────────────────────────────────────────────────────
+# 7. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main(argv: List[str]) -> int:
+    """Run the fixture gate, one request or the self-check, printing its result.
+
+    Returns 0 when every fixture routes as the manifest expects, 1 on any
+    mismatch or schema finding and 2 on a usage error or an unparseable
+    fixtures file.
+    """
     if len(argv) != 2:
         print("usage: route_contract.py <request-or-fixtures.json | --self-check>")
         return 2

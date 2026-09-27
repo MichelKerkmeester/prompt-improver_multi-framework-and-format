@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: EXPORT COLLECTOR SELFTEST
+# ───────────────────────────────────────────────────────────────
+
 """Prove the collector's edit guard against a synthetic run, before trusting it.
 
 No model is called and nothing leaves the machine. The test builds a small run
@@ -34,6 +38,10 @@ import subprocess
 import sys
 import tempfile
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 sys.dont_write_bytecode = True
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -54,23 +62,32 @@ PROJECT_BLOCK = (
 PROJECT_REPLY = PROJECT_BLOCK + "\nExport-equivalent path: `export/[NNN] - enhanced-test-email.md`\n"
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
+
 def write(path, text):
+    """Write text to path, creating the parent folder when it is missing."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as handle:
         handle.write(text)
 
 
 def read(path):
+    """Return the text held at path."""
     with open(path, encoding="utf-8") as handle:
         return handle.read()
 
 
 def collect(collector, run, out, *flags):
+    """Run one collector invocation as a subprocess and return its result."""
     return subprocess.run([sys.executable, "-B", collector, run, out, *flags],
                           capture_output=True, text=True)
 
 
 def make_run(root):
+    """Build one synthetic run folder under root and return its path."""
     run = os.path.join(root, "run")
     write(os.path.join(run, "skill", "STX-001 improve", "exports", SKILL_NAME), SKILL_BODY)
     write(os.path.join(run, "claude project", "PTX-001 improve", "turn-1.md"), PROJECT_REPLY)
@@ -78,16 +95,28 @@ def make_run(root):
 
 
 class Checks:
+    """A pass/fail counter that prints one line per check."""
+
     def __init__(self):
         self.failed = 0
 
     def check(self, ok, label):
+        """Print one PASS or FAIL line and count a failure."""
         print(f"{'PASS' if ok else 'FAIL'}  {label}")
         if not ok:
             self.failed += 1
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main():
+    """Run every collector check on a synthetic run, printing each verdict.
+
+    Returns 0 when every check passed and 1 when any check failed.
+    """
     keep = "--keep" in sys.argv[1:]
     root = tempfile.mkdtemp(prefix="pi-collector-selftest-")
     t = Checks()

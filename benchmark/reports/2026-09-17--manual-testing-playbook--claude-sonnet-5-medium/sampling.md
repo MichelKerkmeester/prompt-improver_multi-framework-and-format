@@ -29,7 +29,7 @@ Then, on both sides:
 
 The scored reply is the first reply in the conversation chain that is not `NO-DELIVERY`. Turn 2 exists only when turn 1 asked, so this selects the delivery event on either branch without a choice being made by hand.
 
-The whitespace-strip rule is not invented here. It is what `benchmark/grader/deliverable_lint.py:160` already does for `deliverable_not_first`, which is this system's own committed check, so the discriminator and the repo's existing check cannot disagree about what a prefix is.
+The whitespace-strip rule is not invented here. It is what `benchmark/grader/deliverable_lint.py:193` already does for `deliverable_not_first`, which is this system's own committed check, so the discriminator and the repo's existing check cannot disagree about what a prefix is.
 
 ### Where it comes from
 

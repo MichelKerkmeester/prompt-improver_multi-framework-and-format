@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: RULE PARITY GATE
+# ───────────────────────────────────────────────────────────────
+
 """Hold each named rule on both sides of its declared pair.
 
 Prompt Improver ships its routing and delivery rules in two packagings: a skill
@@ -42,6 +46,10 @@ Usage:
 import os
 import sys
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CW = os.environ.get("CW_ROOT") or os.path.dirname(os.path.dirname(HERE))
 SKILL_ROOT = os.path.join(CW, "sk-prompt-improver")
@@ -77,6 +85,10 @@ def declared_pairs():
         return None
     return [(source, mirror) for mirror, source in decl.get("pairs", {}).items()]
 
+
+# ───────────────────────────────────────────────────────────────
+# 2. RULES
+# ───────────────────────────────────────────────────────────────
 
 # Each rule names what carries it and how many declared pairs teach it today.
 #
@@ -165,6 +177,11 @@ RULES = {
 }
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. HELPERS
+# ───────────────────────────────────────────────────────────────
+
+
 def body(path, drop_frontmatter=False):
     """The document's text, or None when it cannot be read.
 
@@ -205,7 +222,17 @@ def inside(root, path):
     return target == root or target.startswith(root + os.sep)
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main() -> int:
+    """Compare every declared pair and print each rule's teaching counts.
+
+    Returns 0 when every taught rule holds on both sides of every pair that
+    teaches it, 1 on any finding and 2 when the declaration lists no pairs.
+    """
     pairs = declared_pairs()
     if not pairs:
         print("no declared pairs, so no rule could be compared", file=sys.stderr)
