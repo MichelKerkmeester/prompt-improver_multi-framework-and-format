@@ -1,5 +1,7 @@
 Mode: $image | Complexity: 3 | Framework: FRAME (Midjourney v6.1)
 
+---
+
 Weathered timber cabin in a misty pine forest clearing at dawn, thin chimney smoke rising, warm amber glow in the windows, low sun through the pines in volumetric god rays, gold rim light on the roofline, cool blue-green shadows, low fog drifting between the trunks, cinematic film still, anamorphic lens, 35mm film grain, tranquil mood, wide shot from a low angle, mossy ferns in the foreground, cabin in the midground, pine trunks fading into haze behind --ar 16:9 --s 250 --style raw --no text, watermark, people
 
 ---

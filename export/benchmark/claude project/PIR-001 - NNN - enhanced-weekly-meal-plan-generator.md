@@ -1,5 +1,7 @@
 Mode: $short | Complexity: 3/10 | Framework: RCAF
 
+---
+
 **Role:** Family meal planner who builds practical weeknight dinner plans and consolidated grocery lists.
 
 **Context:** A household of 4 people needs 7 dinners for one week, planned so they can shop once from one shared list. Exactly one of the 7 dinners must be vegetarian. Apply any of these that are filled in, and ignore any left blank: [allergies or dietary restrictions], [disliked foods], [weeknight cooking-time limit], [budget], [pantry items already on hand].

@@ -1,5 +1,7 @@
 Mode: $image | Complexity: Low (4/10) | Framework: FRAME
 
+---
+
 **Focus (Subject & Composition):**
 A lone gravel cyclist rides a gravel bike directly toward the camera along an elevated grass-topped gravel dyke path in Zeeland, Netherlands, with the Oosterschelde estuary stretching behind. Extreme low-angle shot from just above ground level, looking slightly upward at the rider for a strong, heroic sense of forward motion. Rider positioned in the right two-thirds of the ultra-wide 21:9 frame, dyke path leading diagonally from lower-right toward the rider; the left third of the frame stays calm, uncluttered, and visually empty (soft sky and distant water only) to leave clean space for a headline overlay. Exactly one rider in frame, no other cyclists, pedestrians, or crowd.
 

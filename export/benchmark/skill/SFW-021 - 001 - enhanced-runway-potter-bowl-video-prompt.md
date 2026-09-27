@@ -1,5 +1,7 @@
 Mode: $video | Complexity: Medium (5/10) | Framework: MOTION
 
+---
+
 **Movement:** Dolly forward: push in slowly from a waist-height medium shot to a tight close-up on her thumbs by second 8, then hold. Her hands turn steadily as the wet clay bowl rises and widens on the wheel; a thin spiral of slip flicks off the rim.
 
 **Origin:** Opens on the reference still: a potter's hands shaping wet clay on a spinning wheel in a sunlit studio, framed from the waist up, her face already out of shot.

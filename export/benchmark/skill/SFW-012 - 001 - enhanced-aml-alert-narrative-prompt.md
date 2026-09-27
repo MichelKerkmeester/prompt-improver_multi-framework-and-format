@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: Complex (9/10) | Framework: TIDD-EC
 
+---
+
 **Task:** Acting as an AML transaction-monitoring analyst-support writer, draft the case narrative for one transaction-monitoring alert, using only the four inputs supplied with this prompt: the rule that fired, the customer's transactions for the 90 days preceding the alert, the KYC profile, and the customer's prior alert history. Write the narrative in exactly five sections, in this order: Trigger, Customer Profile, Observed Pattern, Expected Activity, Open Questions.
 
 **Instructions:**

@@ -59,7 +59,7 @@ Step 1 fixes the baseline. Step 2 binds Raw and saves an export with no question
 
 ### Evidence
 
-Turn transcripts, `export/` listings before and after each turn, a constraint checklist against the graded file, excerpts of every export showing the single-line header plus prompt body, the Turn 1 checksum before and after Turn 2, a note of any score line on either turn and the verdict.
+Turn transcripts, `export/` listings before and after each turn, a constraint checklist against the graded file, excerpts of every export showing the single-line header, the `---` divider and the prompt body, the Turn 1 checksum before and after Turn 2, a note of any score line on either turn and the verdict.
 
 ### Pass / fail
 

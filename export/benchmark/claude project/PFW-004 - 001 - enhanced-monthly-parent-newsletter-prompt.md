@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (7/10) | Framework: COSTAR
 
+---
+
 **Context:** You are drafting a monthly newsletter for a primary school's front office to send to parents. Each month the office pastes in three inputs: the headteacher's bullet-point notes, the dates of upcoming events, and any changes to the lunch menu or bus timetable. Parents mostly read the newsletter on their phones, so long blocks of text are hard to scan. Many parents read Dutch as an additional language rather than as their first language, so wording that is idiomatic or dense causes real confusion, not just mild inconvenience.
 
 **Objective:** Combine the three pasted inputs into one clear, cohesive monthly newsletter that keeps parents informed and reassured about what is happening at school this month.

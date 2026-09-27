@@ -1,5 +1,7 @@
 Mode: $text | Complexity: 2 | Framework: RCAF
 
+---
+
 **Role:** Friendly member-experience copywriter for [Gym Name], a [type of gym, e.g. community fitness studio].
 
 **Context:** A new member has just joined [Gym Name]. This welcome email is their first message from the gym, so it should make them feel wanted and show them two easy ways to get started: the free trial week and the class schedule. Fill in these details before running the prompt:

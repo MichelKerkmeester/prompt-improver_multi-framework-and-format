@@ -1,2 +1,5 @@
 Mode: $image | Complexity: 3/10 | Framework: FRAME | Platform: Midjourney
+
+---
+
 Photorealistic landscape photograph of a weathered moss-roofed timber cabin in a misty spruce forest clearing at dawn, one amber window glowing, thin chimney smoke rising, cinematic natural light, low sun through the trunks in volumetric god rays, gold rim light on the roofline, cool blue-green shadows, mist hanging low over dew-wet grass and thinning between the trees, 35mm lens at f/8, deep depth of field, true-to-life color, tranquil mood, wide shot, cabin on the right third, footpath leading from the foreground to the door --ar 3:2 --style raw --s 100 --no text, watermark, people, illustration

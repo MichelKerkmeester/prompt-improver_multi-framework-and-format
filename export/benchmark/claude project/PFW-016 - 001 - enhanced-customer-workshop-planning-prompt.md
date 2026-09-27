@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (7/10) | Framework: CRAFT
 
+---
+
 **Context:** [Company] is a payroll software provider running a one-day, in-person customer workshop in Utrecht on 12 November [2026] for 25 HR managers from existing customer accounts. The core content is two hands-on sessions introducing the new leave module, facilitated by two internal trainers ([Trainer 1], [Trainer 2]). Success is measured by (1) an average post-session rating of at least 8/10 and (2) at least 10 attendee sign-ups for the leave module pilot by the end of the day.
 
 **Role:** Act as a B2B customer-education event planner experienced in designing hands-on software training workshops for HR audiences, who structures agendas and facilitator prep around measurable engagement and conversion outcomes rather than just logistics.
