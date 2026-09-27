@@ -1,5 +1,7 @@
 Mode: $text | Complexity: Low | Framework: COSTAR
 
+---
+
 **Context:** Many people who buy their first coffee gear or beans end up with bitter, sour or weak coffee. They assume the beans or equipment are to blame, when the cause is usually a small number of brewing variables they were never taught to control. This blog post about coffee brewing for beginners should fix that by giving a complete beginner one clear path to a noticeably better cup at home, using one brewing method: [BREWING_METHOD, default: French press].
 
 **Objective:** Write one blog post that takes a reader with no prior coffee knowledge from "I don't know why my coffee tastes off" to "I can brew a good cup and adjust it when it doesn't taste right." By the end, the reader can do three things:

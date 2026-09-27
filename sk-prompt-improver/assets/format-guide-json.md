@@ -122,20 +122,26 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 
 ### Mandatory Header Format
 
-**Single-line header at TOP of every JSON file:**
+**Single-line header at TOP of every JSON file, then a divider before the prompt:**
 ```
 Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
+
+---
+
+[JSON prompt]
 ```
 
 **Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `references/depth-framework.md`.
+
+**Divider:** a blank line, `---` and a blank line sit between the header and the JSON, and the JSON below the divider must parse on its own.
 
 ### File Content Rules
 
 | Allowed                            | Forbidden                               |
 | ---------------------------------- | --------------------------------------- |
 | Single-line header (with $ prefix) | Format Options section                  |
-| JSON prompt content                | CLEAR Evaluation breakdown              |
-|                                    | Processing Applied section              |
+| `---` divider below the header     | CLEAR Evaluation breakdown              |
+| JSON prompt content                | Processing Applied section              |
 |                                    | Explanations (go in CHAT)               |
 |                                    | Markdown formatting (\*\*, ###, \`\`\`) |
 |                                    | Comments (JSON doesn't support)         |
@@ -198,6 +204,8 @@ The kernel points here for the JSON syntax rule:
 
 ```
 Mode: $json | Complexity: Medium | Framework: RCAF
+
+---
 
 {
   "role": "Financial analyst specializing in SaaS metrics",
@@ -269,6 +277,8 @@ Mode: $json | Complexity: Medium | Framework: RCAF
 
 ```
 Mode: $json | Complexity: High | Framework: CRAFT
+
+---
 
 {
   "context": {
@@ -426,9 +436,9 @@ Mode: $json | Complexity: High | Framework: CRAFT
 - **All RCAF/CRAFT fields present**
   - Required: Yes
   - Action if Failed: Add missing fields
-- **Header has `$json` mode**
+- **Header has `$json` mode, then the `---` divider**
   - Required: Yes
-  - Action if Failed: Add header
+  - Action if Failed: Add header and divider
 - **Delivered as file**
   - Required: Yes
   - Action if Failed: Create file
@@ -505,7 +515,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
   - Do ✅: Include `$json` mode
   - Don't ❌: Add verbose sections
 - **Content**
-  - Do ✅: Only header + JSON
+  - Do ✅: Only header, divider and JSON
   - Don't ❌: Include markdown/explanations
 - **Syntax**
   - Do ✅: Escape special characters
@@ -592,7 +602,7 @@ Mode: $json | Complexity: High | Framework: CRAFT
 - ✅ Shallow nesting (< 4 levels)
 - ✅ No syntax errors
 - ✅ Delivered as downloadable file
-- ✅ Single-line header with $json
+- ✅ Single-line header with $json, then the `---` divider
 - ✅ Clean structure (no markdown)
 - ✅ Proper escaping
 - ✅ API-ready format

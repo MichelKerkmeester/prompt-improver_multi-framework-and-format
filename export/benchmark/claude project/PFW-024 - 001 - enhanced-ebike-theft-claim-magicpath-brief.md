@@ -1,5 +1,7 @@
 Mode: $vibe | Complexity: High (7/10) | Framework: VIBE-MP
 
+---
+
 Design a five-screen theft-claim intake flow for a commuter e-bike insurance app — built for the few minutes right after someone finds an empty rack where their e-bike used to be. She's on her phone, upset, adrenaline still up. The flow has one job: a complete, insurable claim filed in under five minutes, without ever making her repeat herself.
 
 Screen one holds only what happened, nothing else competing for attention. Screen two carries her into where and when, the station already filled in because the app already knows where she's standing — she confirms rather than types. Screen three gathers photos and the frame number as evidence, not paperwork. Screen four asks for the police report number but never blocks on it: a clear "add this later" path lets her keep moving. Screen five lands on a confirmation that reads less like a finish line and more like a handover — a live tracker showing the claim already moving through the system on its own.

@@ -175,6 +175,8 @@ It prints 18 lines like this one and exits 0:
 warning skill STX-001 - 001 - enhanced-coffee-brewing-beginners-blog-post.md differs from the run's copy, so it was edited after collection and is kept. --force overwrites it
 ```
 
+On 2026-09-27 the 18 files also took the header divider of skill 1.5.2: a blank line, `---` and a blank line after the `Mode:` line, and no other change. The dry run above still prints its 18 keep warnings.
+
 `run/selftest.py` proves the guard on a synthetic run in a temporary folder. It checks a fresh collection, a dry run, a kept skill export, a kept Project export and `--force`. A negative control runs the collector as it was before the guard and shows that it overwrites the edited file. It ends `selftest: all checks passed`.
 
 ---

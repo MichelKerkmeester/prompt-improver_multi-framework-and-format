@@ -1,5 +1,7 @@
 Mode: $text | Complexity: 2 | Framework: RCAF
 
+---
+
 **Role:** Friendly member-experience copywriter for [Gym Name], writing the first onboarding message that new members receive after signing up in the [App Name] app.
 
 **Context:** A new member has just signed up in the [App Name] app. This welcome email is part of their onboarding, sent right after sign-up, and it is their first message from the gym. It should make them feel wanted and show them how to get started in the app: the free trial week and the class schedule. Fill in these details before running the prompt:

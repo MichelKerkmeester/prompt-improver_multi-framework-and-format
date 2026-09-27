@@ -17,8 +17,8 @@ export that a claude.ai Project cannot perform:
 
   - ALWAYS render the Deliverable Block before any commentary (Custom Instructions.md's
     delivery rules), and NEVER skip it for loose inline chat text instead
-  - ALWAYS keep the Deliverable Block to a single-line header plus prompt content plus
-    an attestation footer only, matching the template in DELIVERY PROTOCOL
+  - ALWAYS keep the Deliverable Block to a single-line header, a `---` divider, prompt
+    content and an attestation footer only, matching the template in DELIVERY PROTOCOL
   - NEVER put scoring breakdowns, processing notes or format options inside the block,
     and NEVER paste the full deliverable again in chat afterward
   - NEVER claim this Project saved, exported, verified on disk or executed anything
@@ -32,12 +32,12 @@ string or a narrow structural pattern, never a model asked to judge tone.
 Extraction confidence is carried rather than hidden. A benchmark capture that wraps the
 rendered block in `<DELIVERABLE>...</DELIVERABLE>` (this system's own convention, absent
 a live harness today) gives high confidence and unlocks the two checks that need to know
-where the block ends: nothing must sit inside it besides the header, the prompt and the
-footer, and nothing must sit before it. A capture with no tags is scored on the header,
-attestation, execution-claim and emoji checks only, at medium confidence when a `Mode:`
-line is still findable and low confidence when it is not, because a chat reply is prose
-throughout and the block boundary cannot be trusted either way. The counts still stand
-regardless of confidence.
+where the block ends: nothing must sit inside it besides the header, its divider, the
+prompt and the footer, and nothing must sit before it. A capture with no tags is scored
+on the header, divider, attestation, execution-claim and emoji checks only, at medium
+confidence when a `Mode:` line is still findable and low confidence when it is not,
+because a chat reply is prose throughout and the block boundary cannot be trusted either
+way. The counts still stand regardless of confidence.
 """
 import json
 import re
@@ -77,6 +77,13 @@ REQUIRED_ATTESTATION_FIELDS = ("execution = did not occur", "save = did not occu
 # chat-after-the-block rule.
 MODE_LINE = re.compile(r"^\s*Mode:.*$", re.M)
 REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")
+
+# DELIVERY PROTOCOL's template and rule 7 put a blank line, `---` and a blank line
+# between the header and the prompt, so a reader copying the prompt never takes the
+# header with it. The blank line before the divider is part of the rule: without it
+# Markdown reads the header as a heading and the divider disappears. The attestation's
+# own `---` sits further down and never stands in for this one.
+HEADER_DIVIDER = "---"
 
 # Interactive Mode bans emoji bullets in question or validation text. Markdown dashes
 # stay allowed, since Interactive Mode's own MUST list asks for them. This matches
@@ -190,14 +197,24 @@ def lint_reply(raw: str):
         bad = [line for line in mode_lines
                if any(field not in line for field in REQUIRED_HEADER_FIELDS)]
         add("header_malformed", len(bad), [b.strip()[:120] for b in bad[:2]])
+        lines = clean.splitlines()
+        at = next(i for i, line in enumerate(lines) if MODE_LINE.match(line))
+        rest = [line.strip() for line in lines[at + 1:]]
+        following = next((line for line in rest if line), "")
+        if following != HEADER_DIVIDER:
+            add("header_divider_missing", 1, [f"after the header: {following[:80]!r}"])
+        elif rest[0]:
+            add("header_divider_missing", 1, ["no blank line between the header and the divider"])
 
     add("emoji_bullets", len(EMOJI_BULLET.findall(clean)), samples(EMOJI_BULLET, clean))
 
     if confidence == "high":
         if prefix and prefix.strip():
             add("deliverable_not_first", 1, [prefix.strip()[-80:]])
-        body_lines = block.splitlines()
+        body_lines = block.lstrip("\n").splitlines()
         body = "\n".join(body_lines[1:]) if body_lines else ""
+        body = body.lstrip("\n")
+        body = body[len(HEADER_DIVIDER) + 1:] if body.startswith(HEADER_DIVIDER + "\n") else body
         body = body.rsplit("\n---\n", 1)[0] if "\n---\n" in body else body
         for token in FORBIDDEN_INSIDE_BLOCK:
             if token in body:

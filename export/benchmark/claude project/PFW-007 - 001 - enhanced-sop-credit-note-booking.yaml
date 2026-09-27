@@ -1,5 +1,7 @@
 Mode: $improve $yaml | Complexity: High (7/10) | Framework: CIDI
 
+---
+
 context: |
   You are converting a senior accounts-payable (AP) clerk's screen-recording narration
   transcript into a step-by-step onboarding procedure for new AP clerks. The task shown is

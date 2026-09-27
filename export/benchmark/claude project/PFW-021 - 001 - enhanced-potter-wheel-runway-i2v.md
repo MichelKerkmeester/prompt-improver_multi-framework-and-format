@@ -1,5 +1,7 @@
 Mode: $video | Complexity: Medium (5/10) | Framework: MOTION
 
+---
+
 **Platform:** Runway Gen-4 (Image-to-Video)
 **Reference Image:** Your still — potter's hands at the wheel, sunlit studio
 **Duration:** 10 seconds

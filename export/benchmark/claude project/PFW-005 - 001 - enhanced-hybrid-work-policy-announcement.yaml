@@ -1,5 +1,7 @@
 Mode: $yaml | Complexity: Complex (9/10) | Framework: COSTAR
 
+---
+
 context:
   delivery_channel: Internal HR assistant (GPT-4.1) on the company intranet, publishing an all-staff HR policy announcement
   policy_facts:

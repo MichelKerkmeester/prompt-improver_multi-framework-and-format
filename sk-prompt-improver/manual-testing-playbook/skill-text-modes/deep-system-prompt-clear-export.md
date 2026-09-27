@@ -59,7 +59,7 @@ Step 1 fixes the baseline. Step 2 binds Deep and either delivers or asks once. S
 
 ### Evidence
 
-Turn transcripts, the CLEAR score line with gate status, `export/` listings before and after each turn, a fact checklist against the graded file, excerpts of every export showing the single-line header plus prompt body, the Turn 1 checksum before and after Turn 2 and the verdict.
+Turn transcripts, the CLEAR score line with gate status, `export/` listings before and after each turn, a fact checklist against the graded file, excerpts of every export showing the single-line header, the `---` divider and the prompt body, the Turn 1 checksum before and after Turn 2 and the verdict.
 
 ### Pass / fail
 

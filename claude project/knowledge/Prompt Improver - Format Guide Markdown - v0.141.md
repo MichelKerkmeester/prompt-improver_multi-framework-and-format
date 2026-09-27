@@ -99,23 +99,28 @@ Markdown provides natural language prompt engineering with optimal human readabi
 
 ### Mandatory Header Format
 
-**Single-line header at TOP of every file:**
+**Single-line header at TOP of every file, then a divider before the prompt:**
 ```
 Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
+
+---
+
+[enhanced prompt]
 ```
 
 **Header Requirements:**
 - Mode with $ prefix, for example $improve, $refine or $quick
 - Complexity level: Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`
 - Framework used: RCAF or CRAFT
+- Divider: a blank line, `---` and a blank line between the header and the prompt, so the header never runs into the prompt
 
 ### File Content Rules
 
 | Allowed                            | Forbidden                  |
 | ---------------------------------- | -------------------------- |
 | Single-line header (with $ prefix) | CLEAR Evaluation breakdown |
-| Enhanced prompt content            | Processing Applied section |
-|                                    | Format Options section     |
+| `---` divider below the header     | Processing Applied section |
+| Enhanced prompt content            | Format Options section     |
 |                                    | Explanations (go in CHAT)  |
 
 ### Correct vs Incorrect
@@ -123,6 +128,8 @@ Mode: $[mode] | Complexity: [level] | Framework: [RCAF/CRAFT]
 **✅ CORRECT:**
 ```
 Mode: $improve | Complexity: Medium | Framework: RCAF
+
+---
 
 **Role:** Data analyst with expertise in SaaS metrics.
 **Context:** Q4 revenue data from B2B platform with 10K customers.
@@ -133,6 +140,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 **❌ INCORRECT (metadata in file):**
 ```
 Mode: $improve | Complexity: Medium | Framework: RCAF
+
+---
 
 **Role:** Data analyst
 
@@ -161,6 +170,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 
 ```
 Mode: $improve | Complexity: Medium | Framework: RCAF
+
+---
 
 **Role:** Financial analyst specializing in SaaS metrics and growth analysis.
 **Context:** Q4 2024 revenue data from B2B platform with 10,000 customers, focusing on subscription trends.
@@ -206,6 +217,8 @@ Mode: $improve | Complexity: Medium | Framework: RCAF
 ```
 Mode: $refine | Complexity: High | Framework: CRAFT
 
+---
+
 **Context:** E-commerce platform experiencing 15% cart abandonment rate over the last 6 months. Available data includes user session logs, transaction records, and customer surveys. Must comply with GDPR and deliver within 30 days.
 
 **Role:** UX researcher with e-commerce specialization, applying user-centric analysis methodology using behavioral analytics and qualitative research techniques.
@@ -242,6 +255,8 @@ Mode: $refine | Complexity: High | Framework: CRAFT
 
 ```
 Mode: $improve | Complexity: High | Framework: RCAF
+
+---
 
 **Role:** Project coordinator with software deployment expertise.
 
@@ -327,9 +342,9 @@ format: Dashboard with charts and executive summary
 - **File is downloadable (.md)**
   - Required: Yes
   - Action if Failed: Create file
-- **Single-line header with $ prefix**
+- **Single-line header with $ prefix, then the `---` divider**
   - Required: Yes
-  - Action if Failed: Add header
+  - Action if Failed: Add header and divider
 - **All framework fields present**
   - Required: Yes
   - Action if Failed: Add missing fields
@@ -393,7 +408,7 @@ format: Dashboard with charts and executive summary
   - Do ✅: Use $ prefix in mode
   - Don't ❌: Add quality scores to header
 - **File**
-  - Do ✅: Only header + prompt content
+  - Do ✅: Only header, divider and prompt content
   - Don't ❌: Include CLEAR evaluation
 
 ### Token Efficiency
@@ -435,7 +450,7 @@ format: Dashboard with charts and executive summary
 
 The kernel points here for the default format and format lock:
 
-Default format is Markdown. JSON adds roughly 5-10% token overhead and must be valid JSON only. YAML adds roughly 3-7% token overhead and must be valid YAML only. Format lock means the Deliverable Block contains only the required header, the enhanced prompt body in the selected syntax, and the attestation footer; scoring reports, format options and processing notes stay in chat, outside the format lock.
+Default format is Markdown. JSON adds roughly 5-10% token overhead and must be valid JSON only. YAML adds roughly 3-7% token overhead and must be valid YAML only. Format lock means the Deliverable Block contains only the required header and its `---` divider, the enhanced prompt body in the selected syntax, and the attestation footer; scoring reports, format options and processing notes stay in chat, outside the format lock.
 
 ### Markdown Philosophy
 
@@ -452,7 +467,7 @@ Default format is Markdown. JSON adds roughly 5-10% token overhead and must be v
 
 **Excellent Markdown File:**
 - ✅ Valid Markdown syntax
-- ✅ Single-line header with $ prefix
+- ✅ Single-line header with $ prefix, then the `---` divider
 - ✅ All framework fields present (RCAF/CRAFT)
 - ✅ Clear role definition
 - ✅ Complete context

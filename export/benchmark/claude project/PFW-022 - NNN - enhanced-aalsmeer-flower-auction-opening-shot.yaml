@@ -1,5 +1,7 @@
 Mode: $video $yaml | Complexity: Low (4/10) | Framework: MOTION
 
+---
+
 platform: Kling 2.6
 generation_type: text_to_video
 duration: 10s

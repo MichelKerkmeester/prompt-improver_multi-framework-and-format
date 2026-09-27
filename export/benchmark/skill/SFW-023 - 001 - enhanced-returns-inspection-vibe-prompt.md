@@ -1,5 +1,7 @@
 Mode: $vibe | Complexity: High (7/10) | Framework: VIBE
 
+---
+
 Design the returns-inspection screen for the 24-inch touchscreen bench in a fashion warehouse — the station where an inspector in cotton gloves scans a returned item and has roughly twenty seconds to sort it into A, B, C, or Reject before the next one arrives. The moment a scan lands, the screen should already have the right record waiting, no searching, no loading pause to eat the clock. This is for the inspector herself, mid-shift, item 40 or item 300 — it needs to feel exactly the same at both.
 
 Name the default this brief would otherwise fall into: a dense operations spreadsheet, or a dark, monospaced developer console. Neither belongs here. Reach instead for something closer to a well-lit instrument panel in a photo lab — warm-neutral surfaces, generous breathing room, typography sized to be caught in a glance rather than studied.

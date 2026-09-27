@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: Complex (10/10) | Framework: COSTAR
 
+---
+
 **Context:**
 Barter runs 14 physiotherapy clinics. When the shared booking platform fails, clinic staff need to notify patients and prepare front-desk teams fast, using only the facts known at that moment. Before each use of this prompt, supply the three inputs below; treat the incident facts as the only source of truth for what is "known" and "not yet known." Do not add, infer, or reference any detail — cause, scope, systems affected, or data exposure — that is not stated in the pasted facts.
 

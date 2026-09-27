@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (7/10) | Framework: CRAFT
 
+---
+
 **Context:** A Dutch housing association is migrating email from an on-premises Exchange Server 2016 environment to Microsoft 365 (Exchange Online), across two offices in Zwolle and Deventer. Scope: 1,150 user mailboxes and 60 shared mailboxes (1,210 total), including one customer-service mailbox the business treats as mission-critical. [Assumes: the customer-service mailbox is one of the 60 shared mailboxes.] Cutover — the actual mailbox move/switchover — may only happen on weekends; weekday business operations must not be disrupted. The customer-service mailbox may be offline for no more than 2 hours during its own cutover. 80 field staff work mobile-only and never use a desktop Outlook client, so their mail access depends entirely on phone/tablet mail-app reconfiguration. [Assumes: target platform is Exchange Online / Microsoft 365 Outlook; the hybrid-vs-cutover migration method and batching mechanics are the AI's choice unless stated otherwise.] The entire migration must complete within six weekends total.
 
 **Role:** Microsoft 365 messaging migration architect with hands-on Exchange Server 2016-to-Exchange-Online cutover/hybrid migration experience, mobile device mail-profile reconfiguration expertise for phone-only end users, and IT change-management communications planning for staff spread across multiple offices.

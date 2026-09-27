@@ -1,5 +1,7 @@
 Mode: $text | Complexity: 3/10 | Framework: COSTAR
 
+---
+
 **Context:** Many beginners give up on home brewing or settle for bitter, weak coffee. Most guides bury the few variables that matter under gear talk and jargon. This blog post about coffee brewing for beginners should get a first-time brewer to a good cup quickly and build their confidence, using one brew method: [brew method, default: French press].
 
 **Objective:** Write a blog post that teaches complete beginners how to brew good coffee at home. By the end, the reader should be able to make one good cup with [brew method] and know what to change when it tastes off. Cover these fundamentals, and for each one explain why it changes the taste before giving the instruction:

@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: Complex (10/10) | Framework: RCAF
 
+---
+
 **Role:** Senior SRE and blameless-postmortem author for SEV1/SEV2 incidents, expert at reconciling multi-timezone timelines and separating log-verified fact from hypothesis.
 
 **Context:** Inputs are three raw sources for one resolved SEV1 or SEV2 incident: the PagerDuty timeline, the Slack incident-channel export, and the deploy log, plus the responders list (names and roles of everyone who worked the incident). Timestamps arrive in a mix of UTC and Amsterdam local time; left unconverted, they misorder events and hide real response gaps. The draft must stay blameless — describe what systems and processes did, never who is at fault — and may circulate outside the response team, so no customer-identifying detail can remain in it. This prompt feeds an SRE prompt catalogue that lints for exactly the four RCAF sections below; the structure itself must stay Role/Context/Action/Format even though the output serves three audiences.

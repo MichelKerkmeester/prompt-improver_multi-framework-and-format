@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: Complex (10/10) | Framework: CIDI
 
+---
+
 {
   "context": {
     "target_model": "GPT-4.1",

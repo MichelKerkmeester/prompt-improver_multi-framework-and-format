@@ -1,5 +1,7 @@
 Mode: $text | Complexity: Low (2/10) | Framework: COSTAR
 
+---
+
 **Context:** [GYM_NAME] is sending a welcome email to someone who has just joined as a new member. It is their first message from the gym, so it should make them feel wanted and show them two easy ways to get started: the free trial week and the class schedule. Fill in these details before running the prompt:
 - Gym name: [GYM_NAME]
 - Member's first name: [MEMBER_FIRST_NAME]

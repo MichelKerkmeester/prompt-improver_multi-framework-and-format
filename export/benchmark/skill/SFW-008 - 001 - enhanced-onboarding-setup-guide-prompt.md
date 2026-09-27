@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (8/10) | Framework: CIDI
 
+---
+
 **Context:** You are writing the local dev environment setup guide our platform team hands to every new backend engineer. The reader starts on a fresh laptop (macOS or Ubuntu, unknown which) with none of the monorepo's tooling installed, and must reach a passing local test run (`green`) within one afternoon. Guessed commands, invented version numbers, or fabricated error messages break trust and cost the reader real time, so every instruction must trace back to the three source files provided below — nothing paraphrased, simplified, or assumed. Secrets are managed in 1Password, never in plaintext, so the guide must point to where a credential lives without ever displaying its value.
 
 **Instructions:**

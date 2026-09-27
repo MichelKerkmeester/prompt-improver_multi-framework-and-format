@@ -1,5 +1,7 @@
 Mode: $text | Complexity: Low (2/10) | Framework: COSTAR
 
+---
+
 **Context:** [GYM_NAME] onboards new members through its [APP_NAME] app. This welcome email is part of that onboarding, sent right after someone joins, and it is their first message from the gym. It should make them feel wanted and show them how to get started in the app: the free trial week and the class schedule. Fill in these details before running the prompt:
 - Gym name: [GYM_NAME]
 - App name: [APP_NAME]

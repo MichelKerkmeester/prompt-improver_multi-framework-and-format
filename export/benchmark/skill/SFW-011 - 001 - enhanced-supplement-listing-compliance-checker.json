@@ -1,5 +1,7 @@
 Mode: $json | Complexity: High (8/10) | Framework: TIDD-EC
 
+---
+
 {
   "task": "Review one supplement marketplace listing (title, description, bullet points) against the EU-approved health claims list supplied in this call. Flag every health claim that is not on that list, and leave every already-compliant sentence completely untouched.",
   "context": {

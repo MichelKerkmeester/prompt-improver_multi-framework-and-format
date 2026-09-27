@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: High (7/10) | Framework: CRAFT
 
+---
+
 **Context:** [Company] is implementing a new warehouse management system (WMS) from a single vendor, [WMS vendor], across two distribution centres — Tilburg (38,000 order lines/day) and Liège (12,000 order lines/day). The WMS integrates with the SAP ERP system and three carrier systems ([Carrier 1], [Carrier 2], [Carrier 3]). No go-live activity may occur between 15 November and 10 January. Liège goes live first as the pilot site; Tilburg may only follow once Liège has sustained pick accuracy above 99.5% for four consecutive weeks. Training must reach 260 pickers across both sites, delivered in two languages.
 
 **Role:** Senior WMS implementation and cutover program manager with experience sequencing multi-site go-lives, SAP and carrier system integrations, and warehouse floor operations.

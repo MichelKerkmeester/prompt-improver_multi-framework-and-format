@@ -21,7 +21,7 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 - **Framework Library** - 11 frameworks: RCAF by default, 6 more text structures and 4 creative ones (VIBE, VIBE-MP, FRAME, MOTION)
 - **Quality Scoring** - CLEAR passes text at 40/50, EVOKE passes UI briefs at 40/50 (42 for MagicPath), VISUAL passes images at 48/60 and video at 56/70
 - **Creative Prompt Modes** - UI briefs for 5 design tools, image prompts for 9 generators and video prompts for 10 video models, each in that platform's own syntax
-- **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line and the prompt body as the only content in the file
+- **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line, a `---` divider and the prompt body as the only content in the file
 - **Verified Delivery** - saved to `export/` and checked on disk before the reply names the path, or rendered as a Deliverable Block inside a claude.ai Project
 
 &nbsp;
@@ -142,7 +142,7 @@ Clean files a tool can load.
 
 Markdown, JSON and YAML each have their own structure rules.
 
-- A saved file holds one header line and the prompt body, nothing else
+- A saved file holds one header line, a `---` divider and the prompt body, nothing else
 - Scores, notes and explanations stay in chat
 - JSON and YAML get a syntax check before export, and the reply reports their token overhead
 
@@ -361,7 +361,7 @@ The usual misses are a vague subject, no composition, a missing style, conflicti
 
 ## 7. 🧾 OUTPUT FORMATS
 
-A format command locks the file's syntax without touching the mode. Every saved file opens with one header line, and nothing follows it but the prompt. CLEAR, EVOKE or VISUAL breakdowns, processing notes and format explanations stay in chat.
+A format command locks the file's syntax without touching the mode. Every saved file opens with one header line, then a blank line, `---` and a blank line, and nothing follows but the prompt. CLEAR, EVOKE or VISUAL breakdowns, processing notes and format explanations stay in chat.
 
 #### Format Options
 
@@ -385,6 +385,8 @@ The RCAF example from `assets/format-guide-markdown.md`:
 
 ```text
 Mode: $improve | Complexity: Medium | Framework: RCAF
+
+---
 
 **Role:** Financial analyst specializing in SaaS metrics and growth analysis.
 **Context:** Q4 2024 revenue data from B2B platform with 10,000 customers, focusing on subscription trends.
@@ -415,6 +417,8 @@ The file it saved:
 
 ```text
 Mode: $json | Complexity: Low | Framework: RCAF
+
+---
 
 {
   "role": "Meeting operations analyst who converts raw meeting transcripts into structured, assignable action items",
@@ -447,6 +451,8 @@ The RCAF example from `assets/format-guide-yaml.md`:
 
 ```text
 Mode: $yaml | Complexity: Medium | Framework: RCAF
+
+---
 
 role: Financial analyst specializing in SaaS metrics
 context: Q4 2024 revenue data from B2B platform
@@ -593,7 +599,7 @@ Beyond the mode and framework in the file's header, the chat reports the perspec
 
 A claude.ai Project cannot write files, so `claude project/Custom Instructions.md` swaps the export for a Deliverable Block rendered as a Canvas Artifact before any commentary. The block has three parts:
 
-- A header, the same single `Mode:` line as a saved file
+- A header, the same single `Mode:` line as a saved file, with the same `---` divider below it
 - A body, the enhanced prompt in the locked format
 - An attestation footer listing the docs consulted, assumptions, the format, `execution = did not occur` and `save = did not occur`
 
@@ -623,7 +629,7 @@ bash benchmark/grader/check_report.sh <report-folder>
 
 This runs two checks over a captured run:
 
-- `lint_replies.py` holds every reply to the Project's Deliverable Block contract: no claimed save or execution, an attestation footer with both "did not occur" fields, a `Mode:` header, the block before any commentary, no scoring inside the block and no emoji bullets
+- `lint_replies.py` holds every reply to the Project's Deliverable Block contract: no claimed save or execution, an attestation footer with both "did not occur" fields, a `Mode:` header with the `---` divider under it, the block before any commentary, no scoring inside the block and no emoji bullets
 - `twin_divergence.py` pairs each skill scenario with its Project twin, `SID-001` with `PID-001` and so on, and fails on any pair whose verdicts disagree
 
 The exit code is the number of checks with findings, from 0 to 2. It is 64 without an argument and 66 when the folder does not exist. The script rewrites `deliverable-lint.csv` inside the report folder, so point it at a copy when you want to keep the committed snapshot. Against a copy of the committed run it ends:
@@ -697,19 +703,19 @@ The repository separates the skill source, the Project package, the checks and t
 │   ├── reports/                     one captured playbook run, 2026-09-17
 │   └── router/                      route_contract.py, fixtures.json (25), run_fixtures.sh
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.6.0, the Project's router
+│   ├── Custom Instructions.md       claude.ai kernel v1.6.1, the Project's router
 │   ├── README.md                    Project upload guide
 │   ├── kernel-review.json           record of the 2026-07-17 kernel review, read by no tool
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.5.1: identity, router, rules, delivery
+    ├── SKILL.md                     v1.5.2: identity, router, rules, delivery
     ├── README.md                    skill guide
     ├── description.json             skill metadata
     ├── graph-metadata.json          skill graph edges and intent signals
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
-    ├── changelog/                   9 releases, v1.0.0.0 to v1.5.1.0
+    ├── changelog/                   10 releases, v1.0.0.0 to v1.5.2.0
     └── manual-testing-playbook/     14 scenarios in 12 category folders
 ```
 
@@ -826,7 +832,7 @@ Both need the shared toolkit in the parent monorepo. Use the router fixtures and
 - **[→ Markdown Format Guide](sk-prompt-improver/assets/format-guide-markdown.md)** - header contract and RCAF and CRAFT in Markdown
 - **[→ JSON Format Guide](sk-prompt-improver/assets/format-guide-json.md)** - JSON header and syntax rules
 - **[→ YAML Format Guide](sk-prompt-improver/assets/format-guide-yaml.md)** - YAML header and syntax rules
-- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.1.0.md)** - v1.5.1.0, the company name release
+- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.2.0.md)** - v1.5.2.0, the header divider release
 
 **Claude Project package**
 

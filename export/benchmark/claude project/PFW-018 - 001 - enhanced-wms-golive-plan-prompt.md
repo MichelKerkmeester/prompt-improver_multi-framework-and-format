@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: High (8/10) | Framework: CRAFT
 
+---
+
 **Context:** We are replacing the warehouse management system (WMS) across two distribution centres served by a single WMS vendor: Liège (12,000 order lines/day) and Tilburg (38,000 order lines/day). The new WMS integrates with our SAP ERP and three carrier systems. Today this rollout is requested with only "Make a go-live plan" — an instruction too unconstrained to produce anything beyond a generic phase checklist. A high-volume, dual-site WMS cutover fails when workstreams are planned in isolation: data migration, integrations, training and cutover each carry different lead times and failure risks, and Tilburg's volume means it cannot inherit Liège's risk tolerance. The plan must make every dependency, sequencing gate and fallback explicit rather than assumed.
 
 Fixed facts and constraints the plan must respect:

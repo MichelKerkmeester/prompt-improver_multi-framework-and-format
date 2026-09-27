@@ -59,7 +59,7 @@ Step 1 fixes the baseline. Step 2 binds the text lane and either delivers or ask
 
 ### Evidence
 
-Turn transcripts, the CLEAR score line with gate status, `export/` listings before and after, a file excerpt showing the single-line header plus prompt body and the verdict.
+Turn transcripts, the CLEAR score line with gate status, `export/` listings before and after, a file excerpt showing the single-line header, the `---` divider and the prompt body and the verdict.
 
 ### Pass / fail
 

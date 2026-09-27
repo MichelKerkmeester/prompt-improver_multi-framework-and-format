@@ -188,7 +188,9 @@ The 2026-09-26 rating is that run's final header value, after its rerun where it
 
 ## 6. DELIVERABLES
 
-The 48 deliverables sit in `export/benchmark/skill/` and `export/benchmark/claude project/` under `<ID> - <number> - <name>`, next to the 18 core exports of the 2026-09-25 run. They are verbatim run output. Nobody edited them, and the collector would warn on any file that differs from the run's copy. They replace the 2026-09-26 deliverables, which stay in git history, last at Prompt Improver `44e5982`.
+The 48 deliverables sit in `export/benchmark/skill/` and `export/benchmark/claude project/` under `<ID> - <number> - <name>`, next to the 18 core exports of the 2026-09-25 run. They replace the 2026-09-26 deliverables, which stay in git history, last at Prompt Improver `44e5982`.
+
+On 2026-09-27 each of the 48 took the header divider of skill 1.5.2 through a one-off script, not a rerun: a blank line, `---` and a blank line after the `Mode:` line, and no other change. Every verdict in section 4 and the header check in section 3 describe the files as the runtime wrote them, and the run's own copies in this folder keep that layout. `run/check_framework_headers.py` prints the same 48 rows on the pack before and after the edit. A collector dry run now prints a keep warning for each of the 48 and exits 0, and `--force` would restore the run's copies.
 
 ---
 

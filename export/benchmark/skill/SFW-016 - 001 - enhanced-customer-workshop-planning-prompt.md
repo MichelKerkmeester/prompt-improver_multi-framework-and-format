@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (7/10) | Framework: CRAFT
 
+---
+
 **Context:** A payroll software company is hosting a one-day, in-person customer workshop in Utrecht on 12 November for 25 HR managers from existing customer accounts. The day runs 09:30 to 16:00 and centers on the company's new leave module, delivered by two internal trainers. Attendees already use the core payroll product but are new to this module.
 
 **Role:** Corporate training and event program designer with expertise in B2B software customer workshops, hands-on adult-learning session design, and trainer readiness planning.

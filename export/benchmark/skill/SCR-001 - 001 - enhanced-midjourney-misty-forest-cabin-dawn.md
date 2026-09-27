@@ -1,2 +1,5 @@
 Mode: $image | Complexity: 3/10 | Framework: FRAME | Platform: Midjourney
+
+---
+
 Weathered moss-roofed timber cabin in a misty spruce forest clearing at dawn, one amber window glowing, thin chimney smoke rising, low sun through the trunks in volumetric god rays, gold rim light on the roofline, cool blue-green shadows, mist hanging low over dew-wet grass and thinning between the trees, cinematic film still, anamorphic lens, 35mm film grain, tranquil mood, wide shot, cabin on the right third, footpath leading from the foreground to the door --ar 21:9 --style raw --s 250 --no text, watermark, people

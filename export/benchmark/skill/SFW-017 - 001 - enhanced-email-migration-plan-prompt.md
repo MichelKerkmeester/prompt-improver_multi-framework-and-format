@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (8/10) | Framework: CRAFT
 
+---
+
 **Context:** A Dutch housing association with offices in Zwolle and Deventer is migrating email from an on-premises Microsoft Exchange Server 2016 environment (past Microsoft's extended support since October 2025) to Microsoft 365. Migration scope is 1,150 user mailboxes and 60 shared mailboxes (1,210 mailboxes total). One shared mailbox handles customer service and is business-critical. Of the 1,150 users, 80 are field staff who work exclusively from mobile phones, with no desktop or laptop access, so their mailbox access, testing and support must work in a mobile-only context. Hard constraints: cutover of end users from on-premises to Microsoft 365 may only happen during weekends; the customer-service mailbox may be unavailable for no more than 2 hours total during its own cutover; the entire migration must finish within 6 weekends. Mailboxes contain tenant personal data, so data handling during migration should respect GDPR/AVG obligations. The specific migration technique (staged, cutover batches, hybrid, or another sound method) is not yet decided — choose and justify the method that best satisfies the constraints below rather than assuming one.
 
 **Role:** Act as a senior Microsoft 365 messaging migration architect with hands-on experience running phased Exchange-to-Exchange-Online cutovers for mid-size Dutch organizations, skilled in mailbox batching strategy, minimal-downtime cutover design, mobile-only user enablement, and stakeholder change communication.

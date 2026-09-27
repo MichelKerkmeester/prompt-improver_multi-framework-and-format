@@ -1,5 +1,7 @@
 Mode: $deep | Complexity: Complex (9/10) | Framework: TIDD-EC
 
+---
+
 **Task:** Acting as an AML transaction-monitoring analyst-support assistant, write one case narrative in English for the single transaction-monitoring alert supplied, so the human analyst can assess the flagged activity quickly and make the filing/closing decision themselves. Every claim must trace to a transaction ID, because the narrative becomes part of the audit trail an examiner may later inspect.
 
 **Instructions:**

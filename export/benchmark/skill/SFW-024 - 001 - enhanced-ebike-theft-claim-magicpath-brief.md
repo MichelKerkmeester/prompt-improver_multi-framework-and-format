@@ -1,5 +1,7 @@
 Mode: $vibe | Complexity: Medium (6/10) | Framework: VIBE-MP
 
+---
+
 Design the five-screen theft-claim flow inside a Dutch e-bike insurance app — not the whole app, just this filing journey. The person opening it is a commuter standing at the empty rack where her e-bike should be, phone in hand, adrenaline still up, watching the clock because she has somewhere to be. Her only job here: get a complete, insurer-ready theft claim filed in under five minutes without the interface asking her to slow down or perform patience she doesn't have.
 
 A flow like this defaults two ways, and neither is right. The first is the Duolingo/Headspace journey-and-flow default — progressive reveal, celebratory micro-interactions, gamified milestones. Kill that instinct entirely: no confetti, no "you're doing great," no mascots cheering her through a bad afternoon. The second is the Stripe/Mercury fintech default — soft gradient hero, restrained blue-on-white trust palette. That reads as a stranger's product, not an intake officer who already knows what happened. Instead, ground this in the physical world she's standing in right now: reflective safety-vest amber as the single accent for anything time-sensitive or status-related, against a matte, low-saturation asphalt-and-concrete palette — like the high-vis signage on the station rack itself, not a brand gradient. Typography reads like transit-board information, not startup sans: confident, spaced for a fast glance, never whispering.

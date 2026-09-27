@@ -23,7 +23,7 @@ This is the delivery shape most Project users see first: Artifact first, then th
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify the natural-language improve flow delivers a CLEAR-gated Canvas Artifact in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 392). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 394). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?`
 - Prompt: `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
@@ -59,7 +59,7 @@ Step 1 fixes the packaging under test. Step 2 binds the text lane and either del
 
 ### Evidence
 
-Turn transcripts, the CLEAR score line with gate status, the Artifact panel state, an excerpt showing the single-line header plus prompt body and attestation footer, the export-equivalent path line and the verdict.
+Turn transcripts, the CLEAR score line with gate status, the Artifact panel state, an excerpt showing the single-line header, the `---` divider, prompt body and attestation footer, the export-equivalent path line and the verdict.
 
 ### Pass / fail
 

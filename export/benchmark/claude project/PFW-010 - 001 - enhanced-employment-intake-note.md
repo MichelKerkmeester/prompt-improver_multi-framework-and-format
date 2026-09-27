@@ -1,5 +1,7 @@
 Mode: $improve | Complexity: High (7/10) | Framework: TIDD-EC
 
+---
+
 **Task:** Read one employment-law web-form inquiry and produce a short intake note that prepares the lawyer for the client's free 20-minute call.
 
 **Context:** Barter, an employment-law firm. The note is read internally by the lawyer immediately before the call; it is never shown to the client. The other party's name is used separately for the firm's conflict-of-interest check.

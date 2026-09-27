@@ -1,7 +1,7 @@
 ---
 title: "SFM-001 -- Independent $json format lock"
 description: "Validates that $json locks the format axis while $improve wins the mode axis, producing a valid JSON export with overhead reporting."
-version: 1.1.0.0
+version: 1.2.0.0
 ---
 
 # SFM-001 -- Independent $json format lock
@@ -12,7 +12,7 @@ version: 1.1.0.0
 
 ## 1. OVERVIEW
 
-Mode and format are independent in the router. This scenario proves the split: `$improve` binds the Improve lane at Standard energy while `$json` locks the file to valid JSON. The export carries the `.json` extension, opens with the required single-line `Mode:` header, the payload below it parses as JSON and the chat reports the token overhead.
+Mode and format are independent in the router. This scenario proves the split: `$improve` binds the Improve lane at Standard energy while `$json` locks the file to valid JSON. The export carries the `.json` extension, opens with the required single-line `Mode:` header and the `---` divider, the payload below the divider parses as JSON and the chat reports the token overhead.
 
 ### Why this matters
 
@@ -27,9 +27,9 @@ If the format command competed for the primary route, `$improve $json` would col
 - Real user request: `I want a sharper version of this prompt and I need the result in JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, submit Turn 2 in the same session whatever Turn 1 did and then inspect both replies and the saved `.json` file
-- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Improve lane binds at Standard energy, the format locks to JSON, the runtime saves `export/[###] - enhanced-*.json` with a single-line `Mode:` header carrying complexity and framework, followed by a payload that parses as valid JSON, and the reply leads with the path, reports the CLEAR result and reports roughly five to ten percent token overhead. The format lock keeps the required header above the payload (`SKILL.md` line 412). The JSON format guide writes the header as `Mode: $json` (`assets/format-guide-json.md` line 127) while `SKILL.md` asks for the mode with its `$` prefix (`SKILL.md` line 559), so a header labelled `$json` or `$improve` both pass and only a missing header fails. The label used is recorded, and the source conflict is logged as a follow-up finding. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It saves as a new `export/[###]` file and never edits the delivered export in place (`SKILL.md` lines 421 to 422, `AGENTS.md` line 70). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
-- Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header and a payload below it that parses cleanly
-- Pass/fail: PASS if the `.json` export carries the single-line `Mode:` header and the payload below it parses, the format lock held and the overhead was reported. FAIL if the file is markdown, the header is missing, the payload is invalid JSON, the mode axis was stolen, the overhead is missing, the payload fails the scope test or a revision edits the delivered export in place. A summary outside the two to three sentence band is recorded and never decides the verdict
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Improve lane binds at Standard energy, the format locks to JSON, the runtime saves `export/[###] - enhanced-*.json` with a single-line `Mode:` header carrying complexity and framework, then a blank line, `---` and a blank line, followed by a payload that parses as valid JSON, and the reply leads with the path, reports the CLEAR result and reports roughly five to ten percent token overhead. The format lock keeps the required header and its `---` divider above the payload (`SKILL.md` line 412, `assets/format-guide-json.md` lines 127-131 and 136). The JSON format guide writes the header as `Mode: $json` (`assets/format-guide-json.md` line 127) while `SKILL.md` asks for the mode with its `$` prefix (`SKILL.md` line 559), so a header labelled `$json` or `$improve` both pass and only a missing header fails. The label used is recorded, and the source conflict is logged as a follow-up finding. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It saves as a new `export/[###]` file and never edits the delivered export in place (`SKILL.md` lines 421 to 422, `AGENTS.md` line 70). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
+- Desired user-visible outcome: One path-first reply whose saved `.json` file carries the required header, the `---` divider and a payload below it that parses cleanly
+- Pass/fail: PASS if the `.json` export carries the single-line `Mode:` header and the `---` divider, and the payload below the divider parses, the format lock held and the overhead was reported. FAIL if the file is markdown, the header or the divider is missing, the payload is invalid JSON, the mode axis was stolen, the overhead is missing, the payload fails the scope test or a revision edits the delivered export in place. A summary outside the two to three sentence band is recorded and never decides the verdict
 
 ### Conversation chain
 
@@ -51,20 +51,20 @@ If the format command competed for the primary route, `$improve $json` would col
 1. `sandbox: copy "AI Systems/Prompt Improver/" and record the export/ baseline`
 2. `session: start fresh -> user: submit Turn 1 exactly`
 3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same session`
-4. `filesystem: check the single-line Mode: header and parse the payload below it -> operator: grade format lock, syntax and overhead report`
+4. `filesystem: check the single-line Mode: header and the --- divider, and parse the payload below the divider -> operator: grade format lock, syntax and overhead report`
 
 ### Expected
 
-Step 1 fixes the baseline. Step 2 binds Improve and locks JSON, delivering or asking once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the header line exists and the payload below it parses as valid JSON. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists and for the revision rule, so a Turn 1 export edited in place fails the run.
+Step 1 fixes the baseline. Step 2 binds Improve and locks JSON, delivering or asking once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the header line and the divider exist and the payload below the divider parses as valid JSON. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists and for the revision rule, so a Turn 1 export edited in place fails the run.
 
 ### Evidence
 
-Turn transcripts, the CLEAR score line, `export/` listings before and after, a parse check on the payload below the `.json` header, the token-overhead note in chat and the verdict.
+Turn transcripts, the CLEAR score line, `export/` listings before and after, a parse check on the payload below the `.json` divider, the token-overhead note in chat and the verdict.
 
 ### Pass / fail
 
-- **Pass**: A `.json` export with the required header and a payload that parses, a reported CLEAR result, the overhead note and the path-first reply. A summary outside the two to three sentence band is recorded and never decides the verdict
-- **Fail**: A markdown file, a missing header, invalid JSON payload syntax, format competing with mode, missing overhead report, a payload that fails the scope test, a delivered export edited in place or a path that does not match disk
+- **Pass**: A `.json` export with the required header and divider and a payload that parses, a reported CLEAR result, the overhead note and the path-first reply. A summary outside the two to three sentence band is recorded and never decides the verdict
+- **Fail**: A markdown file, a missing header or divider, invalid JSON payload syntax, format competing with mode, missing overhead report, a payload that fails the scope test, a delivered export edited in place or a path that does not match disk
 - **Skip**: only when a named sandbox blocker prevents creating the disposable copy or the session
 
 ### Failure triage
