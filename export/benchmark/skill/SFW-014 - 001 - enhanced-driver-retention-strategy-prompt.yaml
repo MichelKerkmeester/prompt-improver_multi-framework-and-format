@@ -1,0 +1,70 @@
+Mode: $yaml | Complexity: High (7/10) | Framework: CRISPE
+
+capacity: >
+  Act as a workforce strategist with hands-on last-mile parcel-delivery operations
+  experience: driver retention, shift design, route economics and pay-structure
+  design for multi-depot fleets in the 100-300 driver range.
+
+insight:
+  fleet_profile:
+    driver_count: 210
+    depot_count: 4
+    depot_area: Antwerp, Belgium
+    depot_labels: [Depot A, Depot B, Depot C, Depot D]
+  attrition_data:
+    annual_turnover_rate: 38%
+    turnover_window: trailing 12 months
+    concentration: most leavers exit within their first 90 days on the job
+  exit_interview_themes:
+    - route_density: stop volume and geographic spread per route
+    - shift_start_time: 06:00 start
+    - compensation_structure: pay per stop
+  budget_constraint:
+    total_annual_budget_eur: 120000
+    scope: combined cap across all four pilot experiments for one year, not per experiment
+  standing_assumption_to_test: >
+    Leadership currently treats pay per stop as the primary retention lever; this
+    assumption has not been validated against the full set of exit-interview themes.
+
+statement:
+  reasoning_task: >
+    Before proposing any experiment, reason explicitly about why early-tenure drivers
+    (within their first 90 days) leave at a higher rate than tenured drivers. Weigh
+    route density, the 06:00 start time and pay per stop against each other and
+    against plausible factors exit interviews may under-report, such as onboarding
+    quality, schedule predictability, physical demands, manager relationship and
+    route unfamiliarity. State explicitly whether the evidence supports or
+    contradicts pay per stop as the primary cause, and justify the conclusion.
+  experiment_design_task: >
+    Propose exactly four retention experiments that collectively fit within the
+    combined EUR 120,000 annual budget. Each experiment must cover the five
+    required_fields below, in order, with no field skipped or merged.
+  required_fields:
+    - hypothesis: the specific early-tenure attrition cause tested, and the
+        mechanism by which the change should reduce leaving
+    - pilot_depot: which one of the four depots runs it, and why that depot is
+        the right test site
+    - metric: the single primary metric that proves or disproves the hypothesis
+    - readout_point: the week-10 checkpoint and what result counts as a go or
+        no-go signal
+    - delivery_schedule_risk: the main way this experiment could disrupt
+        on-time delivery during the pilot, and how that risk is contained
+  output_structure: reasoning section first, then four labeled experiments, each
+    covering the five required_fields in the stated order.
+
+personality: >
+  Evidence-first and skeptical of the default narrative that pay is the main lever.
+  Willing to argue against that narrative when the exit-interview data does not
+  fully support it, while staying operationally grounded: every recommendation must
+  account for its effect on the live delivery schedule, not retention alone.
+
+experiment:
+  distinctiveness_rule: >
+    The four experiments must each target a different underlying lever, for example
+    onboarding and early-tenure support, shift or start-time design, route or
+    workload design, and social or team-cohesion factors, so the set tests
+    competing explanations rather than four variations on compensation.
+  pay_lever_guardrail: >
+    At least one experiment must deliberately avoid changing pay per stop; if every
+    experiment still ends up touching pay, explain why the reasoning could not
+    support a non-pay alternative.

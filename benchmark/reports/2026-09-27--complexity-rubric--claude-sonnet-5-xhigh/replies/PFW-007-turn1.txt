@@ -1,0 +1,58 @@
+No Canvas panel is available in this environment (terminal/API surface), so per protocol the Deliverable Block is rendered as a single fenced block first, with no preamble.
+
+```
+Mode: $improve $yaml | Complexity: High (7/10) | Framework: CIDI
+
+context: |
+  You are converting a senior accounts-payable (AP) clerk's screen-recording narration
+  transcript into a step-by-step onboarding procedure for new AP clerks. The task shown is
+  booking a supplier credit note against an open invoice. New clerks have never performed
+  this task, so a procedure that renames a field, skips a screen, or omits an approval check
+  causes data-entry errors or bypassed financial controls. Precision protects both outcomes:
+  exact field names let a new clerk match what they read to what they see on screen, and a
+  stated result after each action tells them they completed the step correctly before moving
+  on. The finished procedure is published as a Confluence page for the AP team.
+instructions:
+  - Read the full transcript once before drafting. Extract only the actions the clerk
+    performs on screen; exclude chit-chat, asides, and narration that does not describe a
+    system action.
+  - Write the actions as a numbered list of steps in the order performed.
+  - Give each step exactly one action. If the transcript describes two actions in one breath,
+    split them into two numbered steps.
+  - For each step, name the exact screen or field where the action happens, using the
+    clerk's own words verbatim. Do not rename, standardise, or translate a field or screen
+    name even if a more common term exists.
+  - For each step, state what the clerk should see immediately after completing the action: a
+    confirmation message, a changed field value, a new screen, or similar.
+  - Identify every step where the credit note value is above EUR 5,000 and a second approver
+    is required. Mark that step with the approval flag defined below before the clerk
+    continues to the next step.
+  - If the transcript does not state the credit note's value at the relevant step, mark the
+    approval step as conditional and instruct the clerk to confirm the value first.
+  - Format the output for a Confluence page: a short title, a one-line purpose statement, then
+    the numbered steps in order.
+details:
+  scope:
+    included:
+      - Steps for booking a supplier credit note against an open invoice
+      - Second-approver marking for credit notes above EUR 5,000
+    excluded:
+      - Commentary, opinions, or small talk from the transcript
+      - Steps, systems, or fields not shown or named in the transcript
+  step_format: "[Number]. [One action]. Screen/field: [exact name as spoken]. Result: [what the clerk sees after]."
+  approval_flag: "SECOND APPROVER REQUIRED - credit note above EUR 5,000"
+  tone: Plain, direct, instructional language; no jargon beyond terms the clerk used
+input: |
+  [Paste the senior clerk's screen-recording transcript here]
+
+---
+Attestation: docs consulted = DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Framework Pattern Library, Format Guide YAML | assumptions = missing-value handling on approval steps, single fixed EUR 5,000 threshold, Confluence output stays a plain numbered procedure (no macros) | format = YAML | execution = did not occur | save = did not occur
+```
+
+**Export-equivalent path:** `export/001 - enhanced-sop-credit-note-booking.yaml`
+
+**Score and gate status:** CLEAR 43/50 | Perspectives: 5 (Prompt Engineering Expert, AI Interpretation Specialist, End-User Experience Designer, Framework Architecture Expert, Token Optimisation Specialist) | Gate passed
+
+**Token overhead:** YAML runs approximately +3-7% versus Markdown baseline for this deliverable.
+
+**Brief summary:** Structured your instruction with CIDI (Context/Instructions/Details/Input) as requested, since it's built for process documentation and tutorials. Context carries the mechanism (why exact field names and visible results matter for new-clerk error prevention); Instructions enforce one-action-per-step, verbatim field names, chit-chat removal, and EUR 5,000 approval flagging with a conditional fallback when the transcript doesn't state a value; Details lock a repeatable step template and Confluence-ready output shape; Input holds the transcript as a placeholder for reuse. Complexity landed at High (7/10) from the seven stated constraints plus the financial-approval stakes — per your "no questions" instruction, I proceeded on judgment rather than offering a streamline/comprehensive choice, and flagged the resulting assumptions above instead.

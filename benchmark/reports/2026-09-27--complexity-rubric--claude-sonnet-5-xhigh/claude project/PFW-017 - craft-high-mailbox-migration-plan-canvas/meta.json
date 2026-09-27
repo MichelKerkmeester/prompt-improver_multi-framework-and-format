@@ -1,0 +1,61 @@
+{
+ "id": "PFW-017",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md",
+ "twin": "SFW-017",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "476f7242-6382-4c8a-a27d-82bf6839bbcc",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 132.11,
+   "tool_calls": 7,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 92496,
+   "output_tokens": 12327,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.346752,
+   "model_s": 131.05,
+   "startup_s": 0.57,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Our IT team asks Microsoft Copilot for migration plans with one line: \"Plan the email migration.\" Turn it into a real prompt. Scope: move 1,150 user mailboxes and 60 shared mailboxes from an on-premise Exchange 2016 server to Microsoft 365 for a housing association with offices in Zwolle and Deventer. Cutover happens only at weekends, the customer-service mailbox may be offline for at most two hours, and 80 field staff use phones only. The plan needs phases with entry and exit criteria, a rollback step per phase, a staff communication moment before each phase and a risk table. Targets: zero lost mail, under 5% of users raising a ticket in the first week and done within six weekends. Structure it with CRAFT and keep the full scope. No questions, fill the gaps with sensible assumptions."
+  }
+ ]
+}

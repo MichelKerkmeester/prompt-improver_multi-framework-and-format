@@ -1,0 +1,4 @@
+Saved: `export/001 - enhanced-onboarding-setup-guide-prompt.md`
+CLEAR 44/50 | Gate: passed
+
+Applied `$improve` (Standard energy, 3+ perspectives) with your explicit CIDI framework choice — a strong fit since CIDI is built for process documentation/tutorials. The prompt now instructs Claude to extract exact versions and commands verbatim from the pasted README/Makefile/CI config, run two fully separate macOS/Ubuntu paths with a `Verify:` line after every step, build Troubleshooting only from source-grounded errors, reference 1Password for secrets without ever printing a value, and explicitly flag any real gap in the source rather than inventing content — preserving every constraint you listed, none dropped or added.

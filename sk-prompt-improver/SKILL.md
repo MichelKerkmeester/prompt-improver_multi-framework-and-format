@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.4.0
+version: 1.5.0
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -557,6 +557,7 @@ Every enhancement is delivered as a downloadable or exported file.
 Use `.md`, `.json` or `.yaml` according to format lock.
 File structure is a single-line header plus enhanced prompt content only.
 Header includes mode with `$` prefix, complexity and framework.
+Complexity is Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), scored with the Complexity Rubric in `references/depth-framework.md`.
 JSON and YAML files must contain valid syntax after the header constraints of the format guide.
 No artifacts, inline code blocks, processing metadata, scoring breakdowns, or explanatory notes belong inside the prompt file.
 

@@ -1,17 +1,22 @@
-Mode: $image | Complexity: 5 | Framework: FRAME
+Mode: $image | Complexity: Low (4/10) | Framework: FRAME
 
-**Focus:** Lone gravel cyclist in an olive jersey riding a gravel bike straight toward the camera along a raised gravel dyke path in Zeeland. Low-angle camera position looking slightly up at the rider. Rider positioned right-of-center within the 21:9 frame, leaving the left third of the composition calm and visually empty (open sky, water or path only) to hold a headline overlay. The Oosterschelde estuary and open coastal sky fill the space behind and below him. Single subject only — no other riders, pedestrians or bystanders anywhere in the scene.
+**F — Focus (Subject & Composition):**
+A lone gravel cyclist in a solid olive jersey rides a gravel bike directly toward camera along a raised dyke path, captured from a low angle for a dominant, heroic perspective. Coarse gravel texture fills the immediate foreground; the rider occupies the midground, positioned in the right two-thirds of the frame with the left third left calm and empty for a headline overlay. The Oosterschelde estuary stretches out in the background below the dyke, its shoreline forming a natural leading line toward the rider.
 
-**Rendering:** Photorealistic outdoor-apparel catalogue photography — the kind of image a premium cycling-gear brand shoots for a hero banner. Shot on a 35mm lens with crisp, commercial-grade focus across the rider and the dyke path.
+**R — Rendering (Medium & Style):**
+Photorealistic photography styled like a premium outdoor-apparel catalogue campaign, shot on a 24mm wide-angle lens with f/5.6 depth of field keeping both rider and estuary sharp, natural true-to-life color rendering with editorial polish, unbranded jersey and logo-free bike frame.
 
-**Atmosphere:** Golden hour, warm 2700–3500K light raking low across the scene and casting long dramatic shadows along the gravel. Warm amber-to-gold color palette, calm clear coastal air, still late-afternoon light over the water.
+**A — Atmosphere (Lighting & Mood):**
+Golden hour light (roughly 3000K) low on the horizon behind the rider, casting long dramatic shadows across the dyke path, warm amber-gold color cast over the water and sky, a few softly lit clouds, calm air, serene athletic and adventurous mood.
 
-**Modifiers:** `--ar 21:9` `--v 6.1` `--style raw` `--s 250` `--q 2`
+**M — Modifiers (Technical Parameters):**
+`--ar 21:9 --style raw --v 6.1 --s 100 --q 2`
 
-**Exclusions:** `--no text, watermark, logo, brand marks, second rider, pedestrians, cars, signage`
+**E — Exclusions (Negative Guidance):**
+`--no text, logo, branding, watermark, signature, people, crowd, second rider, cars, road signage`
 
-**Compiled Prompt:**
-Lone gravel cyclist in an olive jersey pedaling toward camera on an elevated dyke path in Zeeland, low-angle shot, positioned right of center, Oosterschelde estuary and open sky filling the background, golden-hour light casting long warm shadows across the gravel, calm empty negative space across the left third of frame, photorealistic outdoor-apparel catalogue photography, 35mm lens, crisp focus, single rider only --ar 21:9 --v 6.1 --style raw --s 250 --q 2 --no text, watermark, logo, brand marks, second rider, pedestrians, cars, signage
+**Full Prompt (paste-ready):**
+A lone gravel cyclist in a solid olive jersey rides a gravel bike directly toward camera along a raised dyke path, captured from a low angle for a dominant, heroic perspective. Coarse gravel texture fills the immediate foreground; the rider occupies the midground, positioned in the right two-thirds of the frame with the left third left calm and empty for a headline overlay. The Oosterschelde estuary stretches out in the background below the dyke, its shoreline forming a natural leading line toward the rider. Photorealistic photography styled like a premium outdoor-apparel catalogue campaign, shot on a 24mm wide-angle lens with f/5.6 depth of field keeping both rider and estuary sharp, natural true-to-life color rendering with editorial polish, unbranded jersey and logo-free bike frame. Golden hour light (roughly 3000K) low on the horizon behind the rider, casting long dramatic shadows across the dyke path, warm amber-gold color cast over the water and sky, a few softly lit clouds, calm air, serene athletic and adventurous mood. --ar 21:9 --style raw --v 6.1 --s 100 --q 2 --no text, logo, branding, watermark, signature, people, crowd, second rider, cars, road signage
 
 ---
-Attestation: docs consulted = Image Mode, Image Mode Library, Patterns and Evaluation | assumptions = rider's age/gender left unspecified (neutral "cyclist"), gravel surface assumed typical pale Zeeland dyke gravel, --s 250 and --q 2 chosen for catalogue-accurate realism at hero quality | format = Markdown | execution = did not occur | save = did not occur
+Attestation: docs consulted = Image Mode, Assets - Image Mode Library, DEPTH Thinking Framework, Interactive Mode, Patterns and Evaluation, Format Guide Markdown | assumptions = [Assumes: 24mm/f5.6 as sensible catalogue-hero camera settings] [Assumes: --s 100 --q 2 balances Midjourney realism with quality] [Assumes: "no visible logos" extends to jersey and bike frame] | format = Markdown | execution = did not occur | save = did not occur

@@ -23,7 +23,7 @@ If the format command competed for the primary route, `$improve $json` would col
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify `$json` locks format independently while `$improve` binds the mode in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 390). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 392). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `I want a sharper version of this prompt and I need the result in JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Prompt: `$improve $json Improve this and return it as JSON: "Summarize a meeting transcript into action items with owners and due dates".`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
@@ -71,7 +71,7 @@ Turn transcripts, the CLEAR score line, the Artifact panel state, a parse check 
 
 1. Check the independent format axis in `Custom Instructions.md` Smart Routing when the format or mode was lost
 2. Re-check the JSON rules in `Prompt Improver - Format Guide JSON.md` when the payload fails to parse, and the Delivery Protocol template in `Custom Instructions.md` section 6 when the header or attestation is missing
-3. Check the token-overhead rule in `Custom Instructions.md` line 386 when the chat omits the overhead note
+3. Check the token-overhead rule in `Custom Instructions.md` line 388 when the chat omits the overhead note
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|

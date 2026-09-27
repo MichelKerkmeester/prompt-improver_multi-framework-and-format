@@ -1,0 +1,70 @@
+{
+ "id": "SFW-015",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md",
+ "twin": "PFW-015",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "xhigh",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "d0c8585a-08e3-48de-882c-6ce87f9a94e0",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-germany-expansion-strategy-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 97.5,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 307581,
+   "output_tokens": 8698,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4507928,
+   "model_s": 96.56,
+   "startup_s": 0.46,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-germany-expansion-strategy-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$deep $markdown Upgrade my strategy prompt, currently \"Should we expand to Germany?\" We sell site-diary software to construction firms: 640 customers in the Netherlands and Belgium, EUR 7.8M ARR and 4% monthly churn among firms under 20 staff. The board is split: the CEO wants Germany in 2027, the CFO wants to deepen in the Benelux mid-market first, and sales says German customers will need on-premise hosting. I want Gemini 2.5 Pro to act as a skeptical B2B SaaS strategist, surface the insight that decides this, state the question sharply, then run three scenario experiments (Germany first, Benelux first, a staged hybrid) with the assumptions each depends on, the cheapest test of them before Q2 and the signal that would kill it. It must say where our data is too thin to decide. I want exploration, not a plan, so structure it with CRISPE. Keep the full scope and don't ask questions."
+  }
+ ]
+}
