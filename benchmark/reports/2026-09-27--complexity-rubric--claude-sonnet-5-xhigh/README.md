@@ -9,7 +9,7 @@ This run sends the same 48 inputs again, SFW-001 to SFW-024 and their Project tw
 - **The 2026-09-26 rating**, the same input before the rubric
 - **A blind recount**, the rubric applied to each input by a rater who saw no tier, target or deliverable ([`rubric-recount.md`](rubric-recount.md))
 
-**What this run checks and what it does not.** It checks the header, the rating, the file format, the framework structure and the facts. It does not grade the scenarios against their Pass/fail lines, and it does not test framework selection, since every input names its framework.
+**What this run checks and what it does not.** It checks the header, the rating, the file format, the framework structure and the facts. A grading of all 48 against their Pass/fail lines followed on 2026-09-27, in [`results.csv`](results.csv), [`results.md`](results.md) and [`grading-notes.md`](grading-notes.md). The run does not test framework selection, since every input names its framework.
 
 ---
 
@@ -26,6 +26,7 @@ This run sends the same 48 inputs again, SFW-001 to SFW-024 and their Project tw
 | Scope | 10 clean, 38 add something | 3 clean, 45 add something |
 | JSON and YAML bodies | 12 of 14 parse | 14 of 14 |
 | Reported score | 48 of 48 pass their own gate | 48 of 48 |
+| Pass/fail grading | 6 PASS, 42 FAIL, 3 on each runtime | not graded |
 
 Every tier count uses one checker, `run/check_framework_headers.py` in this folder, whose Complex tier accepts `Complex`, 9, 10 or a label above High and fails a bare `High`. The 2026-09-26 README counted 21 in tier because its checker let `High` pass a Complex item.
 
@@ -46,6 +47,7 @@ Every tier count uses one checker, `run/check_framework_headers.py` in this fold
 | Measure | Result |
 |---|---|
 | Rating within one point of the recount | 26 of 48, skill 14 and Project 12 |
+| Two blind raters within one point of each other | 24 of 24 inputs, 19 exactly |
 | Same band as the recount | 22 of 48 |
 | Mean rating minus recount | +0.96, skill +0.75 and Project +1.17 |
 | Recount inside the scenario tier | 11 of 24 inputs, 11 of 18 text and 0 of 6 creative |
@@ -76,6 +78,12 @@ Every tier count uses one checker, `run/check_framework_headers.py` in this fold
 | `README.md` | This record |
 | `structure-review.md` | The independent structure and fact review, one row per deliverable |
 | `rubric-recount.md` | The blind rubric recount of the 24 inputs |
+| `rubric-recount-b.md` | A second blind recount of the same inputs, by a rater who never saw the first |
+| `rubric-wording-trial.md` | A tighter rubric wording, recounted by two more raters and not kept |
+| `results.csv` | One graded row per scenario, the source of every verdict count |
+| `results.md` | The 48 verdicts and the twin table, printed from `results.csv` |
+| `grading-notes.md` | The evidence for every verdict, the twin adjudications and the report check |
+| `deliverable-lint.csv` | The reply lint `check_report.sh` writes |
 | `manifest.json`, `run-status.json` | The run's scenario list and per-scenario status, 48 each |
 | `replies/` | The 48 replies, one per scenario |
 | `skill/`, `claude project/` | One folder per scenario with its meta and turn record |
@@ -148,9 +156,9 @@ The 2026-09-26 rating is that run's final header value, after its rerun where it
 2. **It overshoots at Medium.** Seven Medium-tier deliverables rate High (7/10): SFW-013, SFW-016, PFW-004, PFW-007, PFW-010, PFW-013 and PFW-016. Three High-tier ones rate 9: SFW-002, PFW-002 and PFW-005. The Medium tier falls from 8 of 12 to 5 of 12. The runtime rates 0.96 points above the blind recount on average, and the Project 1.17. The rubric asks that every point rest on something the user stated, so the gap is where the runtime counts more than the input says
 3. **The creative tiers do not fit the rubric.** FRAME, MOTION and VIBE-MP rate 3 to 7 against High and Complex tiers, and the blind recount agrees, 3 to 8, with 0 of 6 creative inputs inside their tier. The five dimensions describe text work: several outputs, sources that disagree, many rules, several audiences and high stakes. One image or one clip scores low on most of them however detailed its brief. These misses come from the scenario tiers, not from the runtime's reading
 4. **The two runtimes now agree.** 23 of 24 twins rate within one point of each other. On first attempts before the rubric the Project met its tier 4 times and the skill 9 times. Now the Project meets it 11 times and the skill 14, and the Project rates a little higher on average, 7.33 against 6.92
-5. **The rubric is only partly recountable.** 26 of 48 ratings sit within one point of the blind recount, and 22 of 48 share its band. The rater named the wording that moved scores: "distinct sections", how finely a constraint is counted, "kinds of source", what counts as financial stakes, and whether Outputs and Inputs describe the downstream task or the prompt being written. Spec success criterion SC-002, the same number within one point, holds for about half
+5. **Readers agree with each other, the runtime reads higher.** A second blind rater ([`rubric-recount-b.md`](rubric-recount-b.md)), reading the same rubric apart from the first, lands within one point of it on 24 of 24 inputs, 19 of them exactly. The runtime lands within one point of the recount on 26 of 48 and rates about one point higher. So a reader can recount the rubric, and spec success criterion SC-002 holds for readers. The gap is in how the runtime applies it. The first rater still named the wording it had to settle for itself: "distinct sections", how finely a constraint is counted, "kinds of source", what counts as financial stakes, and whether Outputs and Inputs describe the downstream task or the prompt being written. This finding was corrected on 2026-09-27, after the second rater. It first read the 26 of 48 as a limit on recounting
 6. **More facts change than before, 29 of 48 against 20.** The ones that change what the prompt produces:
-   - PFW-006 and PFW-010 name the user's company "Barter", which no input says. The only "Barter" in the Project package is the closing line of `Prompt Improver - Interactive Mode - v0.700.md`, "Interactive framework for Barter prompt enhancement", the likely source but not a proven one
+   - PFW-006 and PFW-010 name the user's company "Barter", which no input says. The closing line of `Prompt Improver - Interactive Mode - v0.700.md`, "Interactive framework for Barter prompt enhancement", is the only Barter text any Project session saw. All 24 read it, per their event streams, and two wrote the name into a prompt
    - PFW-005 dates the policy 2026-03-01, a year the input never gave
    - PFW-011 turns "38 EU-authorised health claims" into "up to 38"
    - SFW-017 counts the ticket target against 1,210 users, the 60 shared mailboxes included, where the input has 1,150
@@ -166,7 +174,15 @@ The 2026-09-26 rating is that run's final header value, after its rerun where it
    - 23 files carry 130 em dashes and 11 en dashes. They are verbatim run output, and the skill states no voice rule for the prompts it writes
    - PFW-002, PFW-009, PFW-020 and PFW-022 carry `NNN` as their file number, the slot the Project writes for a number it cannot know
    - Several headers put the format command in the mode slot, `Mode: $json`, `Mode: $yaml` or `Mode: $video $yaml`, which the scenarios allow
-10. **Self-reported scores still do not track the review.** All 48 pass their own gate, including the 3 structure FAILs, the 29 fact changes and the two YAML bodies that do not parse. SFW-014's own breakdown gives Reusability 6 on a 5-point dimension
+10. **Self-reported scores still do not track the review.** All 48 pass their own gate, including the 3 structure FAILs, the 29 fact changes, the two YAML bodies that do not parse and the 42 deliverables that fail their scenario. SFW-014's own breakdown gives Reusability 6 on a 5-point dimension
+11. **Graded against their Pass/fail lines, 6 of 48 pass.** They are PFW-001, SFW-003, PFW-003, SFW-004, SFW-006 and PFW-009, three on each runtime. The failing items:
+   - Facts fail most, in 27 deliverables, then the tier in 23 and scope in 17. The structure review counted 29 fact changes. The grading's 27 follow each scenario's own fact list, under the readings in `grading-notes.md` section 2
+   - 8 of 24 skill replies open with the check they just ran, such as "File verified", and name the path on line 3. The 2026-09-26 run did the same in 10 of 24
+   - 5 of 24 Project replies put commentary before the block, and PFW-005 and PFW-007 carry the YAML that does not parse
+   - The tier is the only failing item in five. Under the re-tiered creative scenarios two of those, SFW-019 and PFW-024, would pass, for 8 of 48
+   - Five of the six passes name no target model. The text scenarios list the target model among the facts to keep without saying it must be named, and the graders read it as kept by fit. A strict reading leaves PFW-009 as the only pass
+
+   Twins agree on 20 of 24. [`grading-notes.md`](grading-notes.md) section 5 adjudicates the four that differ. Three are runtime faults, and FW-004 is a scenario tier that both blind recounts put a band higher
 
 ---
 
@@ -185,3 +201,10 @@ The 48 deliverables sit in `export/benchmark/skill/` and `export/benchmark/claud
 5. **Grade the 48 against their Pass/fail lines.** A full grading decides whether the 29 fact changes, the added scope and the two YAML bodies that do not parse fail their scenarios
 
 **Item 1 was decided on 2026-09-27.** The operator chose to re-tier the six creative pairs to the blind recount's band: SFW-019 and SFW-021 and SFW-022 to Low, SFW-020 and SFW-023 to Medium, SFW-024 to High, with their Project twins. The playbook gained a Low (1 to 4) tier, and the twelve files were renamed to match. Read against the new tiers, these same deliverables put 7 of 12 creative and 30 of 48 in tier, with no rerun. The misses left are SFW-021 and PFW-021 (5 against Low), SFW-023 and PFW-023 (7 against Medium) and SFW-024 (6 against High). This folder's `run/framework-targets.json` keeps the tiers this run was checked against, and its scenario folders keep the old file names, so a later run needs new targets and a Low band in its header checker.
+
+**Item 2 was tried on 2026-09-27 and not kept.** The first rater's readings went into the rubric as one sentence and five definitions, and two new blind raters recounted the 24 inputs with them ([`rubric-wording-trial.md`](rubric-wording-trial.md)). Readers already agreed within a point on 24 of 24, and still did. The ratings fell about half a point, and five more inputs landed outside their tier. The operator kept the rubric as it was, and skill 1.5.1 ships only the name removal from item 4. Whether tighter wording pulls the runtime toward a reader needs a rerun, and item 3 still stands.
+
+**Items 4 and 5 were done on 2026-09-27.** The event streams show that line 676 of the Interactive Mode knowledge file is the only Barter text any Project session saw (finding 6). Skill 1.5.1 removes the name from that line on both sides and from the two skill reference titles. The grading is in `results.csv`, and finding 11 sums it up. It adds two steps:
+
+6. **Path-first at effort xhigh.** A third of the skill replies open with the check they just ran, in both xhigh runs. A rule that the reply's first line is the path and nothing else, or a runner check on that line, would catch it
+7. **Operator decision on the target model.** Whether a text scenario's target model must be named in the prompt. The strict reading turns five of the six passes into FAILs

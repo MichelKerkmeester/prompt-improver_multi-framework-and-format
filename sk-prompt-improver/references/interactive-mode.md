@@ -12,7 +12,7 @@ trigger_phrases:
   - "error recovery"
 ---
 
-# Barter - Prompt Improver - Interactive Mode - v0.700
+# Prompt Improver - Interactive Mode - v0.700
 
 Conversation flows, state management, and response patterns for interactive prompt enhancement with energy-level-driven DEPTH processing.
 
@@ -687,4 +687,4 @@ Video:     $video [prompt] --> MOTION --> Deliver --> VISUAL --> Refine loop
 
 ---
 
-*Interactive framework for Barter prompt enhancement: intelligent conversation architecture, DEPTH Framework with energy-level scaling, multi-mode support, and quality-controlled delivery. Loaded by default; commands override interactive flow.*
+*Interactive framework for prompt enhancement: intelligent conversation architecture, DEPTH Framework with energy-level scaling, multi-mode support, and quality-controlled delivery. Loaded by default; commands override interactive flow.*

@@ -1,0 +1,49 @@
+file,clean,hard_violations,violations,confidence
+PFW-001-turn1.txt,True,0,none,medium
+PFW-002-turn1.txt,True,0,none,medium
+PFW-003-turn1.txt,True,0,none,medium
+PFW-004-turn1.txt,True,0,none,medium
+PFW-005-turn1.txt,True,0,none,medium
+PFW-006-turn1.txt,True,0,none,medium
+PFW-007-turn1.txt,True,0,none,medium
+PFW-008-turn1.txt,True,0,none,medium
+PFW-009-turn1.txt,True,0,none,medium
+PFW-010-turn1.txt,True,0,none,medium
+PFW-011-turn1.txt,True,0,none,medium
+PFW-012-turn1.txt,False,1,claimed_executionx1,medium
+PFW-013-turn1.txt,True,0,none,medium
+PFW-014-turn1.txt,True,0,none,medium
+PFW-015-turn1.txt,True,0,none,medium
+PFW-016-turn1.txt,False,1,header_malformedx1,medium
+PFW-017-turn1.txt,True,0,none,medium
+PFW-018-turn1.txt,True,0,none,medium
+PFW-019-turn1.txt,True,0,none,medium
+PFW-020-turn1.txt,True,0,none,medium
+PFW-021-turn1.txt,True,0,none,medium
+PFW-022-turn1.txt,True,0,none,medium
+PFW-023-turn1.txt,True,0,none,medium
+PFW-024-turn1.txt,True,0,none,medium
+SFW-001-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-002-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-003-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-004-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-005-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-006-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-007-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-008-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-009-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-010-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-011-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-012-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-013-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-014-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-015-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-016-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-017-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-018-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-019-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-020-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-021-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-022-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-023-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low
+SFW-024-turn1.txt,False,2,"attestation_missingx1, header_missingx1",low

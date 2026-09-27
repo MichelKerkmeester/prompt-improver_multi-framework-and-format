@@ -673,4 +673,4 @@ Video:     $video [prompt] --> MOTION --> Deliver --> VISUAL --> Refine loop
 
 ---
 
-*Interactive framework for Barter prompt enhancement: intelligent conversation architecture, DEPTH Framework with energy-level scaling, multi-mode support, and quality-controlled delivery. It applies by default, and commands override the interactive flow.*
+*Interactive framework for prompt enhancement: intelligent conversation architecture, DEPTH Framework with energy-level scaling, multi-mode support, and quality-controlled delivery. It applies by default, and commands override the interactive flow.*
