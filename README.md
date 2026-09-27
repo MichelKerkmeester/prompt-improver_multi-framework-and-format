@@ -16,26 +16,13 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 
 **What's inside**
 
-**Smart Router**
-- 9 mode and 3 format commands, one question when intent is unclear
-
-**DEPTH Thinking**
-- Discover, Engineer, Prototype, Test and Harmonize at 5 energy levels
-
-**Framework Library**
-- 11 frameworks, 7 for text and 4 for creative work
-
-**Quality Scoring**
-- CLEAR, EVOKE and VISUAL gates, each with a pass mark
-
-**Creative Prompt Modes**
-- UI, image and video prompts in each platform's own syntax
-
-**Format Lock**
-- Markdown, JSON or YAML, with one header line and the prompt only
-
-**Verified Delivery**
-- Saved and checked on disk, or rendered in a claude.ai Project
+- **Smart Router** - 9 mode commands and 3 format commands matched as exact tokens, keyword scoring on word boundaries and one question when the intent is unclear
+- **DEPTH Thinking** - Discover, Engineer, Prototype, Test and Harmonize, run at one of 5 energy levels from Raw passthrough to Deep with all 5 named perspectives
+- **Framework Library** - 11 frameworks: RCAF by default, 6 more text structures and 4 creative ones (VIBE, VIBE-MP, FRAME, MOTION)
+- **Quality Scoring** - CLEAR passes text at 40/50, EVOKE passes UI briefs at 40/50 (42 for MagicPath), VISUAL passes images at 48/60 and video at 56/70
+- **Creative Prompt Modes** - UI briefs for 5 design tools, image prompts for 9 generators and video prompts for 10 video models, each in that platform's own syntax
+- **Format Lock** - Markdown, JSON or YAML, with one `Mode:` header line and the prompt body as the only content in the file
+- **Verified Delivery** - saved to `export/` and checked on disk before the reply names the path, or rendered as a Deliverable Block inside a claude.ai Project
 
 **Why it earns a place**
 
