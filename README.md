@@ -6,7 +6,7 @@
 
 > Like it? https://buymeacoffee.com/michelkerkmeester
 
-## 1. SUMMARY
+## 1. 📝 SUMMARY
 
 A prompt engineer in a folder: it rewrites a vague or underpowered request into a structured, scored prompt for another AI to run.
 
@@ -26,7 +26,7 @@ Runs in any agent CLI that reads `AGENTS.md` and in a claude.ai Project through 
 
 &nbsp;
 
-## 2. 🎁 OVERVIEW
+## 2. 🗺️ OVERVIEW
 
 ### THE FOUNDATION
 
