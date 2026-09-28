@@ -1,0 +1,85 @@
+{
+ "id": "PFM-003",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/markdown-format-lock-canvas.md",
+ "twin": "SFM-003",
+ "engine": "pi",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "prompt-improver-PFM-003-03f24a52",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.61,
+   "tool_calls": 7,
+   "tools_used": [
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 34892,
+   "output_tokens": 2776,
+   "reasoning_tokens": 1572,
+   "cost_usd": 0.007001544,
+   "model_s": 28.39,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "runware/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: \"Review this code and tell me what's wrong.\" It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.05,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2404,
+   "output_tokens": 1595,
+   "reasoning_tokens": 661,
+   "cost_usd": 0.00142128,
+   "model_s": 14.82,
+   "startup_s": 0.21,
+   "stop_reason": "stop",
+   "response_models": [
+    "runware/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Also have it flag any TODO comments left in the diff."
+  }
+ ]
+}

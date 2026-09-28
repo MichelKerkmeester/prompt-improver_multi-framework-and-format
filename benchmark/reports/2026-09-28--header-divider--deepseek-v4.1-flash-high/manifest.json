@@ -1,0 +1,481 @@
+{
+ "engine": "pi",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "high",
+ "pi_version": "0.87.1",
+ "scenarios": [
+  {
+   "id": "PCR-001",
+   "side": "project",
+   "group": "project-creative-modes",
+   "slug": "image-mode-visual-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-creative-modes/image-mode-visual-canvas.md",
+   "turns": [
+    "$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.",
+    "Photorealistic style, landscape orientation."
+   ],
+   "twin": "SCR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PCR-003",
+   "side": "project",
+   "group": "project-creative-modes",
+   "slug": "vibe-mode-evoke-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-creative-modes/vibe-mode-evoke-canvas.md",
+   "turns": [
+    "$vibe dashboard concept for v0: the owner of a small bakery chain checks daily sales, stock that is running low and tomorrow's pre-orders across her 3 shops. She uses it on an iPad at 6am before the shops open. Make it feel warm and calm, not like a SaaS analytics tool.",
+    "She also wants to see yesterday's waste per shop."
+   ],
+   "twin": "SCR-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PCR-002",
+   "side": "project",
+   "group": "project-creative-modes",
+   "slug": "video-mode-visual-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-creative-modes/video-mode-visual-canvas.md",
+   "turns": [
+    "$video $yaml 8 second product shot for Veo: our new matte black insulated water bottle on a wet rock beside a mountain stream, slow orbit, soft morning light, condensation drops, ending on the logo side of the bottle. No people, no text on screen.",
+    "Make it 6 seconds and end on a slow push-in instead of the orbit."
+   ],
+   "twin": "SCR-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PFM-001",
+   "side": "project",
+   "group": "project-format-modes",
+   "slug": "json-format-lock-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/json-format-lock-canvas.md",
+   "turns": [
+    "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\".",
+    "Valid JSON only, the action items are for a project manager."
+   ],
+   "twin": "SFM-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PFM-003",
+   "side": "project",
+   "group": "project-format-modes",
+   "slug": "markdown-format-lock-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/markdown-format-lock-canvas.md",
+   "turns": [
+    "$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: \"Review this code and tell me what's wrong.\" It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt.",
+    "Also have it flag any TODO comments left in the diff."
+   ],
+   "twin": "SFM-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PFM-002",
+   "side": "project",
+   "group": "project-format-modes",
+   "slug": "yaml-format-lock-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/yaml-format-lock-canvas.md",
+   "turns": [
+    "$text $yaml Build me a prompt for extracting data from supplier invoices (the PDF text is pasted in). Fields we need: supplier name, invoice number, invoice date, due date, currency, subtotal, VAT amount, total, and line items with description, quantity and unit price. If a field is missing it must be null, never a guess. The result feeds our accounting import.",
+    "Some invoices carry two VAT rates. Add a VAT breakdown with rate and amount per rate."
+   ],
+   "twin": "SFM-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTX-002",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "deep-system-prompt-clear-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/deep-system-prompt-clear-canvas.md",
+   "turns": [
+    "$deep I need a system prompt for our helpdesk triage bot. We are a B2B SaaS (a project management tool). It reads incoming support emails and should tag the category (billing, bug, how-to, account access, feature request), set priority by our SLA tiers (Enterprise gets a first response within 1 hour, Business within 4 hours, Starter within 24 hours) and escalate straight to the on-call engineer when an email mentions data loss, a security issue or an outage affecting more than one user. It must never promise refunds or delivery dates. Its output goes into Zendesk as an internal note. Our current prompt is just \"You are a helpful support assistant, triage tickets.\"",
+    "Customers also write in Dutch. Keep the internal note in English, but quote the customer's key sentence in their own language."
+   ],
+   "twin": "STX-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTX-001",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "improve-flow-clear-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/improve-flow-clear-canvas.md",
+   "turns": [
+    "Here is my rough prompt: \"Write a blog post about coffee brewing for beginners.\" Can you make it better?",
+    "For a general audience blog post, markdown is fine."
+   ],
+   "twin": "STX-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTX-005",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "raw-cleanup-no-scoring-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/raw-cleanup-no-scoring-canvas.md",
+   "turns": [
+    "$raw clean this up so I can paste it into ChatGPT: summarise the attached quarterly sales report for the exec team, bullet points, highlight regions that missed target, dont make up numbers, max 1 page",
+    "Also ask it to end with the three products that sold worst."
+   ],
+   "twin": "STX-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTX-004",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "refine-existing-prompt-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/refine-existing-prompt-canvas.md",
+   "turns": [
+    "$refine Our webshop product-description prompt keeps producing copy that is too salesy and too long. Here it is: \"You are an expert copywriter. Write a product description for {product_name}. Be enthusiastic and exciting!! Use lots of adjectives. Keep it professional and understated. Mention the materials: {materials}. Length: around 300 words but short enough to read on mobile. Include a call to action. Target audience: everyone.\"",
+    "Keep the call to action, but make it one short sentence."
+   ],
+   "twin": "STX-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTX-003",
+   "side": "project",
+   "group": "project-text-modes",
+   "slug": "short-quick-enhancement-canvas",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/short-quick-enhancement-canvas.md",
+   "turns": [
+    "$short linkedin post announcing we hired a new head of design, Priya Nair, she starts Oct 14, keep it warm not corporate",
+    "Mention that she joins us from Spotify."
+   ],
+   "twin": "STX-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SCR-001",
+   "side": "skill",
+   "group": "skill-creative-modes",
+   "slug": "image-mode-visual-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-creative-modes/image-mode-visual-export.md",
+   "turns": [
+    "$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.",
+    "Photorealistic style, landscape orientation."
+   ],
+   "twin": "PCR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SCR-003",
+   "side": "skill",
+   "group": "skill-creative-modes",
+   "slug": "vibe-mode-evoke-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-creative-modes/vibe-mode-evoke-export.md",
+   "turns": [
+    "$vibe dashboard concept for v0: the owner of a small bakery chain checks daily sales, stock that is running low and tomorrow's pre-orders across her 3 shops. She uses it on an iPad at 6am before the shops open. Make it feel warm and calm, not like a SaaS analytics tool.",
+    "She also wants to see yesterday's waste per shop."
+   ],
+   "twin": "PCR-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SCR-002",
+   "side": "skill",
+   "group": "skill-creative-modes",
+   "slug": "video-mode-visual-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-creative-modes/video-mode-visual-export.md",
+   "turns": [
+    "$video $yaml 8 second product shot for Veo: our new matte black insulated water bottle on a wet rock beside a mountain stream, slow orbit, soft morning light, condensation drops, ending on the logo side of the bottle. No people, no text on screen.",
+    "Make it 6 seconds and end on a slow push-in instead of the orbit."
+   ],
+   "twin": "PCR-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SFM-001",
+   "side": "skill",
+   "group": "skill-format-modes",
+   "slug": "json-format-lock-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/json-format-lock-export.md",
+   "turns": [
+    "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\".",
+    "Valid JSON only, the action items are for a project manager."
+   ],
+   "twin": "PFM-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SFM-003",
+   "side": "skill",
+   "group": "skill-format-modes",
+   "slug": "markdown-format-lock-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/markdown-format-lock-export.md",
+   "turns": [
+    "$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: \"Review this code and tell me what's wrong.\" It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt.",
+    "Also have it flag any TODO comments left in the diff."
+   ],
+   "twin": "PFM-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SFM-002",
+   "side": "skill",
+   "group": "skill-format-modes",
+   "slug": "yaml-format-lock-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/yaml-format-lock-export.md",
+   "turns": [
+    "$text $yaml Build me a prompt for extracting data from supplier invoices (the PDF text is pasted in). Fields we need: supplier name, invoice number, invoice date, due date, currency, subtotal, VAT amount, total, and line items with description, quantity and unit price. If a field is missing it must be null, never a guess. The result feeds our accounting import.",
+    "Some invoices carry two VAT rates. Add a VAT breakdown with rate and amount per rate."
+   ],
+   "twin": "PFM-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STX-002",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "deep-system-prompt-clear-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/deep-system-prompt-clear-export.md",
+   "turns": [
+    "$deep I need a system prompt for our helpdesk triage bot. We are a B2B SaaS (a project management tool). It reads incoming support emails and should tag the category (billing, bug, how-to, account access, feature request), set priority by our SLA tiers (Enterprise gets a first response within 1 hour, Business within 4 hours, Starter within 24 hours) and escalate straight to the on-call engineer when an email mentions data loss, a security issue or an outage affecting more than one user. It must never promise refunds or delivery dates. Its output goes into Zendesk as an internal note. Our current prompt is just \"You are a helpful support assistant, triage tickets.\"",
+    "Customers also write in Dutch. Keep the internal note in English, but quote the customer's key sentence in their own language."
+   ],
+   "twin": "PTX-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STX-001",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "improve-flow-clear-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/improve-flow-clear-export.md",
+   "turns": [
+    "Here is my rough prompt: \"Write a blog post about coffee brewing for beginners.\" Can you make it better?",
+    "For a general audience blog post, markdown is fine."
+   ],
+   "twin": "PTX-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STX-005",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "raw-cleanup-no-scoring-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/raw-cleanup-no-scoring-export.md",
+   "turns": [
+    "$raw clean this up so I can paste it into ChatGPT: summarise the attached quarterly sales report for the exec team, bullet points, highlight regions that missed target, dont make up numbers, max 1 page",
+    "Also ask it to end with the three products that sold worst."
+   ],
+   "twin": "PTX-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STX-004",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "refine-existing-prompt-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/refine-existing-prompt-export.md",
+   "turns": [
+    "$refine Our webshop product-description prompt keeps producing copy that is too salesy and too long. Here it is: \"You are an expert copywriter. Write a product description for {product_name}. Be enthusiastic and exciting!! Use lots of adjectives. Keep it professional and understated. Mention the materials: {materials}. Length: around 300 words but short enough to read on mobile. Include a call to action. Target audience: everyone.\"",
+    "Keep the call to action, but make it one short sentence."
+   ],
+   "twin": "PTX-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STX-003",
+   "side": "skill",
+   "group": "skill-text-modes",
+   "slug": "short-quick-enhancement-export",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-text-modes/short-quick-enhancement-export.md",
+   "turns": [
+    "$short linkedin post announcing we hired a new head of design, Priya Nair, she starts Oct 14, keep it warm not corporate",
+    "Mention that she joins us from Spotify."
+   ],
+   "twin": "PTX-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  }
+ ]
+}

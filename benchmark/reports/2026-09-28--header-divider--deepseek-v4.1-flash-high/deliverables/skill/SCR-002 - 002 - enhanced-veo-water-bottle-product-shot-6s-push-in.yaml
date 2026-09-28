@@ -1,0 +1,42 @@
+Mode: $video $yaml | Complexity: Low (3/10) | Framework: MOTION
+
+---
+
+instruction: Generate a 6-second photorealistic product commercial clip of one continuous take.
+platform: Veo 3.1+
+duration_seconds: 6
+aspect_ratio: "16:9"
+
+shot:
+  camera_movement: slow, continuous push-in toward the bottle, easing from a medium close-up to a tight close-up on its branded face
+  framing: bottle centered in frame, shallow depth of field that softens the background as the lens advances
+  pacing: smooth and unhurried, the push-in sustained across the full 6 seconds with no stops and no cuts
+
+subject:
+  primary: matte black insulated water bottle, minimalist cylindrical form, fine condensation beading across its surface
+  logo_face: the branded side of the bottle faces the camera from the start, growing in frame as the push-in closes until it dominates the final shot
+  surface_motion: condensation droplets gather, merge and slide slowly down the bottle
+
+environment:
+  setting: a smooth wet rock beside a clear mountain stream
+  surroundings: flowing water, mossy stones, forested slopes receding into the distance
+  atmosphere: crisp early morning with thin mist drifting low over the water
+  contents: the scene holds only the bottle, the rock and the stream within an open wild landscape
+
+lighting:
+  quality: soft diffused morning light, low and warm
+  detail: gentle specular highlights on the wet bottle and rock, long soft shadows across the stone
+
+motion_continuity:
+  - the stream flows continuously through the whole clip
+  - mist drifts slowly across the background
+  - the push-in runs unbroken from first frame to last
+  - final frame settles in a tight close-up with the bottle's logo face centered and filling the frame
+
+style:
+  look: clean premium product cinematography, natural textures, photorealistic rendering
+  mood: calm, fresh, outdoor premium
+  composition: layered depth with wet rock in the foreground, bottle at center and stream and forest behind
+  frame: the image carries only the natural scene and the bottle's own printed logo, holding a clear uncluttered surface
+
+audio: gently rushing mountain stream, water lapping against the wet rock, faint birdsong in the distance, soft ambient morning air
