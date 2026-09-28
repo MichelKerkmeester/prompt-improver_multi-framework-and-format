@@ -8,7 +8,7 @@ Evidence behind every verdict in `results.csv`. Paths are relative to this run f
 
 ### Sources read
 
-- The playbook at Barter `3841f3bd`: the root `manual-testing-playbook.md` and all fourteen scenario files, plus the diff that commit made
+- The playbook at Barter `b65b4784`: the root `manual-testing-playbook.md` and all fourteen scenario files, plus the diff that commit made
 - The skill rules: `AGENTS.md`, `sk-prompt-improver/SKILL.md`, the six references and the format guides
 - The Project rules: `claude project/Custom Instructions.md` (the kernel) and the knowledge files the scenarios name
 - Run output: every reply, every `meta.json` (per-turn ledger, model, effort), the skill `exports/` copies and the `events-turn-N.jsonl` tool calls wherever a save, a parse or an edit had to be proven

@@ -90,7 +90,7 @@ it in full.
 The claim that an earlier capture format combined turns into one file and
 made `deliverable_not_first` fire on every Project file could not be checked
 against a surviving artifact: `git log` on the report directory shows only
-two commits, and the first one (`f78a361`) already committed the current
+two commits, and the first one (`cd6cd14`) already committed the current
 one-file-per-turn format, so the broken combined format was apparently found
 and corrected before the first commit and left no trace in history. What was
 checked instead, directly: whether the *current* format supports the
@@ -136,7 +136,7 @@ word.
 ### Claim 4: repairs landed on both sides, behaviour re-measured, runtime faults recorded unrepaired. UPHELD
 
 **The header-field repair.** `git log --oneline -- benchmark/grader/deliverable_lint.py`
-shows exactly two commits. `git show e812adf` was read in full. It removes
+shows exactly two commits. `git show b6376cf` was read in full. It removes
 `Score:` from `claude project/Custom Instructions.md`'s DELIVERY PROTOCOL
 header template, drops `"Score:"` from `deliverable_lint.py`'s
 `REQUIRED_HEADER_FIELDS`, and resyncs two `statement_key` hashes in
@@ -222,7 +222,7 @@ under section 2 below.
 
 One figure outside the five claims, encountered while checking the header
 repair commit, does not check out. The commit message and the matching
-`SYNC.md` entry for `e812adf` state the kernel's `NNN` placeholder was
+`SYNC.md` entry for `b6376cf` state the kernel's `NNN` placeholder was
 changed to `[###]` "against thirteen uses of the other form on the skill
 side." Every reasonable scoping of that count was tried and none produced
 thirteen: `grep -rc 'export/\[###\]'` across the seven skill-side files that
