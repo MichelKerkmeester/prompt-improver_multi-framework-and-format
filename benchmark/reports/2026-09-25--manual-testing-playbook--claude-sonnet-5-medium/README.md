@@ -39,7 +39,7 @@ The twin counts come from `python3 benchmark/grader/twin_divergence.py <this fol
 
 - Runner: `run/playbook_runner.py` in this folder, at hash `45d4e1d30f` (aligned with sk-code-opencode on 2026-09-26 after the run, which executed the earlier revision `a0315dcd5b` that git history keeps), started as `python3 run/playbook_runner.py --system ../../.. --out . --engine claude --model claude-sonnet-5 --effort medium --jobs N`. The phase 002 record gives both facts and sets Prompt Improver at 2 parallel sessions
 - Engine `claude` (Claude Code 2.1.282 per `manifest.json`), model `claude-sonnet-5`, effort `medium`, 2 parallel sessions
-- Playbook at Barter `4fb9dd88`
+- Playbook at Barter `3841f3bd`
 - 14 scenarios and 28 turns, every scenario on its first attempt. Every `meta.json` reports 2 of 2 turns, and every event stream reports `claude-sonnet-5`
 - Skill sandbox: a copy of the system without `.git`, `benchmark/`, the playbook, `export/` or `changelog/`, with an empty `export/`. The system prompt is `AGENTS.md`, and the tools are Read, Bash, Edit, Write, Glob and Grep
 - Project sandbox: a copy of `claude project/`. The system prompt is the kernel plus the retrieval note (`run/playbook_runner.py` lines 75 to 80 and 622), and the tools are Read, Glob and Grep. A terminal has no Canvas panel, so the reply text stands in for it under each Project precondition
@@ -59,9 +59,9 @@ The twin counts come from `python3 benchmark/grader/twin_divergence.py <this fol
 
 ## 4. Comparison with 2026-09-17
 
-The earlier run used the same model and effort through a different harness, `run_packaging.sh` in the Claude Project Sync Loop folder, and wrapped each Project block in `<DELIVERABLE>` tags at capture. Commit `4fb9dd88` then changed every scenario file except SIR-001, so most rows below are not comparable.
+The earlier run used the same model and effort through a different harness, `run_packaging.sh` in the Claude Project Sync Loop folder, and wrapped each Project block in `<DELIVERABLE>` tags at capture. Commit `3841f3bd` then changed every scenario file except SIR-001, so most rows below are not comparable.
 
-| ID | 2026-09-17 | 2026-09-25 | Comparable | What changed in 4fb9dd88 |
+| ID | 2026-09-17 | 2026-09-25 | Comparable | What changed in 3841f3bd |
 |---|---|---|---|---|
 | SID-001 | PASS | PASS | no | Unconditional Turn 2, identity ordering carve-out |
 | PID-001 | PASS | PASS | no | Unconditional Turn 2, Canvas stand-in precondition, identity ordering carve-out |
@@ -156,7 +156,7 @@ Findings are reported, never repaired here. Each names the files on both sides.
 
 ## 9. Edited after grading
 
-The 18 deliverables this run collected into `export/benchmark/skill/` and `export/benchmark/claude project/` were improved by hand on 2026-09-26. Every verdict in `results.csv`, `results.md` and `grading-notes.md` still describes the graded originals. Git history keeps those at Prompt Improver commit `59a50ac` and Barter commit `ab96eebb`, and the run's own copies under `skill/` and `claude project/` in this folder are unchanged.
+The 18 deliverables this run collected into `export/benchmark/skill/` and `export/benchmark/claude project/` were improved by hand on 2026-09-26. Every verdict in `results.csv`, `results.md` and `grading-notes.md` still describes the graded originals. Git history keeps those at Prompt Improver commit `f38bf1d` and Barter commit `77222318`, and the run's own copies under `skill/` and `claude project/` in this folder are unchanged.
 
 - **Kept:** each file name, the `Mode:` header, the Project attestation footer, every fact the user supplied and each scenario's own limits, such as the 120 word cap in SID-001
 - **Improved:** role, objective, success criteria, output shape and the handling of missing or unclear input, judged against the routed rubric
@@ -183,7 +183,7 @@ On 2026-09-27 the 18 files also took the header divider of skill 1.5.2: a blank 
 
 ## 10. Example pack
 
-Eight prompts written through the skill on 2026-09-26 briefly sat beside these exports, one per new skill scenario of section 11. They were dropped the same day for two reasons. `export/benchmark/` keeps only the `skill/` and `claude project/` deliverables of real runs, as Product Owner's does. The operator also wanted medium, high and complex prompts that visibly use a named framework, which most of the eight did not. Git history keeps them under `export/benchmark/examples/` at Prompt Improver commit `9257494`.
+Eight prompts written through the skill on 2026-09-26 briefly sat beside these exports, one per new skill scenario of section 11. They were dropped the same day for two reasons. `export/benchmark/` keeps only the `skill/` and `claude project/` deliverables of real runs, as Product Owner's does. The operator also wanted medium, high and complex prompts that visibly use a named framework, which most of the eight did not. Git history keeps them under `export/benchmark/examples/` at Prompt Improver commit `651b703`.
 
 Their place is taken by a run of 24 framework-coverage scenario pairs on `claude-sonnet-5` at effort `xhigh`, recorded in [its own run folder](../2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md).
 
