@@ -1,6 +1,6 @@
 # Re-measurement of the header-field repair, Prompt Improver TX-001
 
-Commit `076133a` removed a fourth field, `Score:`, from the kernel's delivery-protocol header template and dropped the same field from `benchmark/grader/deliverable_lint.py`'s required-field list. No post-repair measurement existed. This file is that measurement. Report only, nothing repaired, nothing committed. Paths are relative to `AI Systems/Prompt Improver/` unless stated otherwise.
+Commit `e812adf` removed a fourth field, `Score:`, from the kernel's delivery-protocol header template and dropped the same field from `benchmark/grader/deliverable_lint.py`'s required-field list. No post-repair measurement existed. This file is that measurement. Report only, nothing repaired, nothing committed. Paths are relative to `AI Systems/Prompt Improver/` unless stated otherwise.
 
 `sampling.md`, `adjudication.md`, `verdict.md`, `results.csv` and `deliverable-lint.csv` in this directory are untouched. The scenario files are untouched. Section 8 states how the `deliverable-lint.csv` overwrite trap was avoided and proves the file is byte-identical to HEAD.
 
@@ -8,16 +8,16 @@ Commit `076133a` removed a fourth field, `Score:`, from the kernel's delivery-pr
 
 ## 1. What changed, read from the files rather than from any prose
 
-The complete model-facing delta on the Project side between the commit the pre-repair samples ran under and HEAD is four hunks in one file, `claude project/Custom Instructions.md`, obtained with `git diff 076133a~1 HEAD` on that path:
+The complete model-facing delta on the Project side between the commit the pre-repair samples ran under and HEAD is four hunks in one file, `claude project/Custom Instructions.md`, obtained with `git diff e812adf~1 HEAD` on that path:
 
 | Hunk | Change | Source commit | Behavioural |
 |---|---|---|---|
 | header line | `v1.4.4` to `v1.4.6` | three commits | no |
-| `:291` Claude Projects Delivery Override | one sentence added, "Whatever file tools appear to be available, never hand back a path or a save confirmation in place of the rendered Artifact" | `fb08df0`, a fleet change, not this repair | possibly, see section 7 |
-| `:375` DELIVERY PROTOCOL template | `Mode: $[mode] \| Complexity: [level] \| Framework: [Framework] \| Score: [CLEAR/EVOKE/VISUAL score]` to `Mode: $[mode] \| Complexity: [level] \| Framework: [Framework]` | `076133a`, the repair | yes |
-| `:387` export-equivalent path | `export/NNN`, "where `NNN` is a placeholder" to `export/[###]`, "where `[###]` is a placeholder" | `076133a`, the repair | yes |
+| `:291` Claude Projects Delivery Override | one sentence added, "Whatever file tools appear to be available, never hand back a path or a save confirmation in place of the rendered Artifact" | `abd984d`, a fleet change, not this repair | possibly, see section 7 |
+| `:375` DELIVERY PROTOCOL template | `Mode: $[mode] \| Complexity: [level] \| Framework: [Framework] \| Score: [CLEAR/EVOKE/VISUAL score]` to `Mode: $[mode] \| Complexity: [level] \| Framework: [Framework]` | `e812adf`, the repair | yes |
+| `:387` export-equivalent path | `export/NNN`, "where `NNN` is a placeholder" to `export/[###]`, "where `[###]` is a placeholder" | `e812adf`, the repair | yes |
 
-`git diff 076133a~1 HEAD` over `claude project/knowledge/` and `sk-prompt-improver/` returns nothing, so no knowledge document and no skill file changed between the two measurements. That makes the skill arm a genuine control rather than an assumed one.
+`git diff e812adf~1 HEAD` over `claude project/knowledge/` and `sk-prompt-improver/` returns nothing, so no knowledge document and no skill file changed between the two measurements. That makes the skill arm a genuine control rather than an assumed one.
 
 The lint's required-field list now reads `REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")` at `benchmark/grader/deliverable_lint.py:79`, three fields expected with `Score:` deliberately absent.
 
@@ -218,7 +218,7 @@ The skill side's system prompt is `AGENTS.md`, and neither template appears in i
 
 **Nothing moved in a direction the repair did not intend, with one thing that did not move at all.** The placeholder half of the repair, `NNN` to `[###]`, is unmeasurable on this scenario at this size. Every Project sample, before and after, reports a guessed `export/001 - ...` rather than emitting either literal placeholder, so the change is invisible in behaviour. Separately, the scenario's expected signals at `improve-flow-clear-canvas.md:30` still ask for "the `NNN` placeholder" while the kernel now says `[###]`, so the repair moved a document away from the scenario's prose. No pass or fail line turns on it, on either side of the change, so no verdict here moves either. It is flagged because it is a new disagreement the repair created and nothing in the tree records it.
 
-**One co-change the ordering null cannot separate from the repair.** `fb08df0` added one sentence to the kernel at `:291`, "Whatever file tools appear to be available, never hand back a path or a save confirmation in place of the rendered Artifact." It is a delivery-shape sentence, so an ordering effect from it is conceivable. The ordering rate did not move, so whatever that sentence did, it did not produce a measurable ordering change here either. It cannot affect the header column, which names no field it mentions.
+**One co-change the ordering null cannot separate from the repair.** `abd984d` added one sentence to the kernel at `:291`, "Whatever file tools appear to be available, never hand back a path or a save confirmation in place of the rendered Artifact." It is a delivery-shape sentence, so an ordering effect from it is conceivable. The ordering rate did not move, so whatever that sentence did, it did not produce a measurable ordering change here either. It cannot affect the header column, which names no field it mentions.
 
 ---
 
@@ -287,7 +287,7 @@ One further Project session, `B51EFF18-14EE-4C58-8083-1EB7F1465B71`, sits in the
 
 **Not supported, and five per side cannot support it.** That the ordering rate is unchanged. A null is not certified by failing to reject it at five per side. What the numbers do support is narrower and worth stating exactly: the ordering fault still fires on the Project side after the repair, it still never fired on the skill side, and no evidence here suggests the repair improved or worsened it. The p = 1.0 between the before and after Project rates means the two samples are consistent with one rate, not that the rate is equal.
 
-**One thing these samples settle that neither report settles alone.** The ordering text is byte-identical across the diff, so the eleven Project observations and eleven skill observations either side of the repair are draws on one rule. Pooled, the packaging asymmetry is 0 of 11 skill against 7 of 11 Project, two-sided Fisher exact p = 0.004, and 0 of 11 against 8 of 11 with post-01 read against the scenario's fail line, p = 0.001. That clears the threshold `sampling.md` section 4 could not reach at six per side. It is offered as a pooled read rather than a pre-registered one, and it carries the one caveat section 7 names, that `fb08df0` added a delivery-shape sentence to the kernel between the two halves of the pool.
+**One thing these samples settle that neither report settles alone.** The ordering text is byte-identical across the diff, so the eleven Project observations and eleven skill observations either side of the repair are draws on one rule. Pooled, the packaging asymmetry is 0 of 11 skill against 7 of 11 Project, two-sided Fisher exact p = 0.004, and 0 of 11 against 8 of 11 with post-01 read against the scenario's fail line, p = 0.001. That clears the threshold `sampling.md` section 4 could not reach at six per side. It is offered as a pooled read rather than a pre-registered one, and it carries the one caveat section 7 names, that `abd984d` added a delivery-shape sentence to the kernel between the two halves of the pool.
 
 **What would settle the rest.**
 
