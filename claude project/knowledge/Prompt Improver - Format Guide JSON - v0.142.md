@@ -119,7 +119,7 @@ Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 
 **Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`.
 
-**Divider:** a blank line, `---` and a blank line sit between the header and the JSON, and the JSON below the divider must parse on its own.
+**Divider:** a blank line, `---` and a blank line sit between the header and the JSON, and the JSON below the divider must parse on its own. A request for valid JSON only, or JSON and nothing else, binds that payload: the header, the divider and, in a Project, the attestation footer stay where they are.
 
 ### File Content Rules
 
