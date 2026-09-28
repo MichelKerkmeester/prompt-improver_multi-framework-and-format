@@ -1,0 +1,100 @@
+{
+ "id": "SFM-003",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/skill-format-modes/markdown-format-lock-export.md",
+ "twin": "PFM-003",
+ "engine": "pi",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "prompt-improver-SFM-003-33efbf03",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - enhanced-pr-code-review-prompt.md",
+   "export/002 - enhanced-pr-code-review-prompt.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.02,
+   "tool_calls": 9,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "write",
+    "read"
+   ],
+   "input_tokens": 44929,
+   "output_tokens": 3888,
+   "reasoning_tokens": 2943,
+   "cost_usd": 0.009541781999999999,
+   "model_s": 43.81,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "runware/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - enhanced-pr-code-review-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $markdown Our engineering team uses this prompt for AI code review on pull requests: \"Review this code and tell me what's wrong.\" It needs to check for security issues, missing tests and unclear naming, and comment like a senior reviewer who explains why, not just what. We paste the diff in below the prompt."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 13.77,
+   "tool_calls": 2,
+   "tools_used": [
+    "write",
+    "read"
+   ],
+   "input_tokens": 1638,
+   "output_tokens": 848,
+   "reasoning_tokens": 144,
+   "cost_usd": 0.0011577,
+   "model_s": 13.56,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "runware/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - enhanced-pr-code-review-prompt.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Also have it flag any TODO comments left in the diff."
+  }
+ ]
+}
