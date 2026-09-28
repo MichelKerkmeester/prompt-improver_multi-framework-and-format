@@ -82,7 +82,7 @@ Five new samples per side, plus one reused sample per side carried over from the
 | skill | 5 | 1 | 6 |
 | project, write tools withheld | 5 | 1 | 6 |
 
-The reused pair are the sessions `EB01B26F-633E-4738-8A75-E3E67837584C` (skill) and `268C2720-D75B-4B8E-928F-C719D3396776` (Project, explicit `--no-write`). They ran under `run_packaging.sh` at commit `0f66565`, whose `--no-write` deny list is byte-identical to the current default's and whose `REBUILD=0` on resume is unchanged, so the model-facing configuration matches. The one thing not recorded for them is whether `--noweb` was passed. Neither transcript contains a `WebFetch` or `WebSearch` call and neither turn of this scenario has a web dependency, so they are carried as reused observations rather than as part of the registered five, and the five new samples per cell stand on their own.
+The reused pair are the sessions `EB01B26F-633E-4738-8A75-E3E67837584C` (skill) and `268C2720-D75B-4B8E-928F-C719D3396776` (Project, explicit `--no-write`). They ran under `run_packaging.sh` at commit `e7b5ffa`, whose `--no-write` deny list is byte-identical to the current default's and whose `REBUILD=0` on resume is unchanged, so the model-facing configuration matches. The one thing not recorded for them is whether `--noweb` was passed. Neither transcript contains a `WebFetch` or `WebSearch` call and neither turn of this scenario has a web dependency, so they are carried as reused observations rather than as part of the registered five, and the five new samples per cell stand on their own.
 
 ---
 
