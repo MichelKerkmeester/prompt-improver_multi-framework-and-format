@@ -7,7 +7,7 @@ trigger_phrases:
   - "$vibe"
   - "$image"
   - "$video"
-version: 1.5.2.0
+version: 1.5.3.0
 ---
 
 # sk-prompt-improver

@@ -709,13 +709,13 @@ The repository separates the skill source, the Project package, the checks and t
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.5.2: identity, router, rules, delivery
+    ├── SKILL.md                     v1.5.3: identity, router, rules, delivery
     ├── README.md                    skill guide
     ├── description.json             skill metadata
     ├── graph-metadata.json          skill graph edges and intent signals
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
-    ├── changelog/                   10 releases, v1.0.0.0 to v1.5.2.0
+    ├── changelog/                   11 releases, v1.0.0.0 to v1.5.3.0
     └── manual-testing-playbook/     14 scenarios in 12 category folders
 ```
 
@@ -832,7 +832,7 @@ Both need the shared toolkit in the parent monorepo. Use the router fixtures and
 - **[→ Markdown Format Guide](sk-prompt-improver/assets/format-guide-markdown.md)** - header contract and RCAF and CRAFT in Markdown
 - **[→ JSON Format Guide](sk-prompt-improver/assets/format-guide-json.md)** - JSON header and syntax rules
 - **[→ YAML Format Guide](sk-prompt-improver/assets/format-guide-yaml.md)** - YAML header and syntax rules
-- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.2.0.md)** - v1.5.2.0, the header divider release
+- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.3.0.md)** - v1.5.3.0, the valid-only framing release
 
 **Claude Project package**
 

@@ -87,3 +87,5 @@ The 40 deliverables sit in [`deliverables/skill/`](deliverables/skill/) and [`de
 1. **Decide finding 1.** Whether the format guides should say that "valid JSON only" or "valid YAML only" binds the payload and keeps the header, divider and attestation
 2. **A full grading.** Grading the 22 against their Pass/fail lines would turn findings 2 to 5 into verdicts
 3. **Teach the collector nested fences.** A fence count that pairs an opening fence with its own close would extract PTX-002 without a hand fix
+
+**Item 1 was decided on 2026-09-28.** The operator chose to keep the framing. Skill 1.5.3 ends the Divider paragraph of the JSON and YAML guides, and of their Project twins, with a sentence saying a request for valid JSON or YAML only binds the payload, so the header, the divider and the attestation footer stay.
