@@ -6,6 +6,8 @@
 
 > Like it? https://buymeacoffee.com/michelkerkmeester
 
+&nbsp;
+
 ## 1. 📝 SUMMARY
 
 A prompt engineer in a folder: it rewrites a vague or underpowered request into a structured, scored prompt for another AI to run.
