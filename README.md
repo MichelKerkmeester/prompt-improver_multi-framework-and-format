@@ -181,7 +181,12 @@ Run the router check from the repository root. It needs no model and no network.
 bash benchmark/router/run_fixtures.sh
 ```
 
-Expected output: `PASSED 25/25 fixtures`
+Expected output:
+
+```text
+PASSED 25/25 fixtures
+PASSED kernel router parity: Custom Instructions.md's one python fence under '## 8. ROUTER CODE' equals SKILL.md's Smart Router Pseudocode with its comments removed
+```
 
 ### First Use
 
@@ -621,7 +626,7 @@ Two checks run from a fresh clone with nothing but Bash and Python 3. The rest n
 
 #### Router Fixtures
 
-The router check from Quick Start runs 25 fixtures covering the 9 mode commands, 4 format-command cases, 8 natural-language keyword routes and 4 edge cases, among them a command beating Deep keywords, "ask" inside "basket" and the `$short $deep` conflict. The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields.
+The router check from Quick Start runs 25 fixtures covering the 9 mode commands, 4 format-command cases, 8 natural-language keyword routes and 4 edge cases, among them a command beating Deep keywords, "ask" inside "basket" and the `$short $deep` conflict. The runner exits 0 only when every fixture matches field for field, and it rejects route objects with unknown or duplicate fields. The same run also checks the kernel's Router Code against `SKILL.md`'s pseudocode (`kernel_parity.py`), and it exits 0 only when both pass.
 
 #### Report Checks
 
@@ -703,7 +708,7 @@ The repository separates the skill source, the Project package, the checks and t
 │   ├── grader/                      reply lint, twin comparison, check_report.sh
 │   ├── parity/                      5 wrappers into the shared parity gate, monorepo only
 │   ├── reports/                     one captured playbook run, 2026-09-17
-│   └── router/                      route_contract.py, fixtures.json (25), run_fixtures.sh
+│   └── router/                      route_contract.py, fixtures.json (25), kernel_parity.py, run_fixtures.sh
 ├── claude project/
 │   ├── Custom Instructions.md       claude.ai kernel v1.7.0, the Project's router
 │   ├── README.md                    Project upload guide
@@ -711,13 +716,13 @@ The repository separates the skill source, the Project package, the checks and t
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.5.3: identity, router, rules, delivery
+    ├── SKILL.md                     v1.5.4: identity, router, rules, delivery
     ├── README.md                    skill guide
     ├── description.json             skill metadata
     ├── graph-metadata.json          skill graph edges and intent signals
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
-    ├── changelog/                   11 releases, v1.0.0.0 to v1.5.3.0
+    ├── changelog/                   12 releases, v1.0.0.0 to v1.5.4.0
     └── manual-testing-playbook/     14 scenarios in 12 category folders
 ```
 
@@ -834,7 +839,7 @@ Both need the shared toolkit in the parent monorepo. Use the router fixtures and
 - **[→ Markdown Format Guide](sk-prompt-improver/assets/format-guide-markdown.md)** - header contract and RCAF and CRAFT in Markdown
 - **[→ JSON Format Guide](sk-prompt-improver/assets/format-guide-json.md)** - JSON header and syntax rules
 - **[→ YAML Format Guide](sk-prompt-improver/assets/format-guide-yaml.md)** - YAML header and syntax rules
-- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.3.0.md)** - v1.5.3.0, the valid-only framing release
+- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.4.0.md)** - v1.5.4.0, the router-accurate docs release
 
 **Claude Project package**
 

@@ -69,7 +69,7 @@ Examples:
 - Asking whether to save.
 - Editing a delivered export in place. A revision the user asks for is saved as a new export under the next number.
 - Self-answering the prompt instead of improving it.
-- Pasting the full prompt in chat unless explicitly required by a routed mode.
+- Pasting the full prompt in chat.
 
 Violation of this protocol invalidates the response.
 
