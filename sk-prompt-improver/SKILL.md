@@ -2,7 +2,7 @@
 name: prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.5.3
+version: 1.5.4
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->
@@ -641,7 +641,7 @@ If cycles are exhausted, deliver the best valid version with a transparent quali
 
 Prompt Improver ships in two packagings.
 The `sk-prompt-improver/` directory is the source of truth and CLI runtime identity.
-The claude.ai Project mirrors `SKILL.md`, `sk-prompt-improver/references/` and `sk-prompt-improver/assets/` as Project Knowledge.
+The claude.ai Project holds hand-written Knowledge files from `sk-prompt-improver/references/` and `sk-prompt-improver/assets/`, and `claude project/Custom Instructions.md` is the routing authority there.
 `AGENTS.md` is a bootstrap that hands identity to this skill.
 `claude project/Custom Instructions.md` adapts the same rules for claude.ai where file export is replaced by a Deliverable Block.
 Related skills: `sk-prompt` for general prompt craft, `sk-prompt-small-model` for small-model prompt profiles and `sk-doc` for documentation packaging.
