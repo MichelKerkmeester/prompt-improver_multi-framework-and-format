@@ -7,7 +7,7 @@ trigger_phrases:
   - "$vibe"
   - "$image"
   - "$video"
-version: 1.5.3.0
+version: 1.5.4.0
 ---
 
 # sk-prompt-improver
@@ -95,23 +95,23 @@ $json give me an api-ready version of this prompt
 $raw just clean up the grammar, nothing else
 ```
 
-Exact commands win over wording. Natural language routes through keyword-weighted intent scoring, so "make this UI concept more evocative" reaches Visual mode without a command. Two intents that score within one point of each other route to Interactive mode instead of a guess.
+Exact commands win over wording. Natural language routes through keyword-weighted intent scoring, so "make this ui design more evocative" reaches Visual mode without a command. The highest keyword score wins, and a request that no keyword matches falls back to Interactive mode with one comprehensive question.
 
 ### Precedence, By Example
 
 | Request | Routes to |
 |---|---|
 | "$vibe a magicpath onboarding flow" | Visual mode, VIBE-MP calibration |
-| "design a fintech dashboard concept" | Visual mode, standard VIBE |
+| "$vibe design a fintech dashboard concept" | Visual mode, standard VIBE |
 | "a midjourney portrait, moody lighting" | Image mode, Midjourney platform |
 | "a runway clip of rain on a windshield" | Video mode, Runway platform |
 | "shorten this without losing meaning" | Short mode, Quick energy |
-| "this is a complex, multi-stakeholder prompt" | Deep mode, Deep energy |
+| "$deep this is a complex, multi-stakeholder prompt" | Deep mode, Deep energy |
 | "$raw just fix the grammar" | Raw mode, no DEPTH, no scoring |
-| "give me this as yaml" | Format lock: YAML, mode unchanged |
+| "give me this as yaml" | Interactive mode, Markdown, since only `$yaml` locks YAML |
 | "improve this" with no other signal | Interactive mode, depth-choice question |
 
-Mode confidence at 80% or higher auto-selects and explains briefly. Confidence between 50% and 79% suggests a mode and asks for confirmation. Below 50% the model asks one clarifying question, up to three attempts, then falls back to smart defaults with the assumptions flagged in the deliverable. A separate set of document-routing confidence bands (0.85 high, 0.60 medium, 0.40 low) governs which reference and asset files load, independent of the user-facing mode bands above.
+Mode confidence at 80% or higher auto-selects and explains briefly. Confidence between 50% and 79% suggests a mode and asks for confirmation. Below 50% the model asks one clarifying question, up to three attempts, then falls back to smart defaults with the assumptions flagged in the deliverable. A separate set of document-routing confidence bands (0.85 high, 0.60 medium, 0.40 low) is advisory phrasing for how confidently the assistant speaks about a keyword-based route. Neither set of bands changes which files load.
 
 The response carries the saved path, the routed score when the mode requires one, gate status and a two-to-three sentence summary. The full enhanced prompt never appears in chat once export succeeds.
 
@@ -404,7 +404,7 @@ There is no separate worked-examples folder for this system. The mode libraries 
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project. `Custom Instructions.md` hand-synthesizes the router and rules in compact form, and it is the routing authority there because `SKILL.md` is not mirrored. `knowledge/` holds thirteen documents written by hand from `references/` and `assets/` for Project retrieval. Nothing regenerates them, and no manifest, lock file or checksum ledger is kept. `../SYNC.md` holds the parity note and the manual parity method.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project. `Custom Instructions.md` is written by hand from the skill sources, except its Router Code section, which is this skill's Smart Router Pseudocode with its comments removed and is held equal by `benchmark/router/kernel_parity.py`. It is the routing authority there because `SKILL.md` is not mirrored. `knowledge/` holds thirteen documents written by hand from `references/` and `assets/` for Project retrieval. Nothing regenerates them, and no manifest, lock file or checksum ledger is kept. `../SYNC.md` holds the parity note and the manual parity method.
 
 Related skills: `sk-prompt` for general prompt craft, `sk-prompt-small-model` for small-model prompt profiles and `sk-doc` for documentation packaging.
 
