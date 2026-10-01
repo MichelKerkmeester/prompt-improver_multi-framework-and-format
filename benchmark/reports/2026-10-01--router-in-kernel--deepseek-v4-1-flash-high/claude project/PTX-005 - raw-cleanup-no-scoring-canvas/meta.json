@@ -1,0 +1,81 @@
+{
+ "id": "PTX-005",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/raw-cleanup-no-scoring-canvas.md",
+ "twin": "STX-005",
+ "engine": "pi",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "prompt-improver-PTX-005-2f65dee8",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 23.75,
+   "tool_calls": 7,
+   "tools_used": [
+    "ls",
+    "find",
+    "grep",
+    "grep",
+    "grep",
+    "grep",
+    "grep"
+   ],
+   "input_tokens": 16447,
+   "output_tokens": 2915,
+   "reasoning_tokens": 1619,
+   "cost_usd": 0.004395761999999999,
+   "model_s": 23.4,
+   "startup_s": 0.17,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$raw clean this up so I can paste it into ChatGPT: summarise the attached quarterly sales report for the exec team, bullet points, highlight regions that missed target, dont make up numbers, max 1 page"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 6.72,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1486,
+   "output_tokens": 722,
+   "reasoning_tokens": 370,
+   "cost_usd": 0.000722916,
+   "model_s": 6.37,
+   "startup_s": 0.17,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Also ask it to end with the three products that sold worst."
+  }
+ ]
+}

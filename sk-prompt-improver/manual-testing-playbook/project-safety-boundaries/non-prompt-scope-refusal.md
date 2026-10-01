@@ -23,7 +23,7 @@ This is the identity boundary in `Custom Instructions.md` section 1 and the NEVE
 ## 2. SCENARIO CONTRACT
 
 - Objective: Verify a direct content request is reframed once and then refused without content or Artifact in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 394). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 229). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
 - Real user request: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Prompt: `Write the actual launch announcement email for my app. I need the email itself, not a prompt.`
 - Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, confirm the reframe and the absent Artifact, then submit Turn 2 and confirm the refusal holds
@@ -69,8 +69,8 @@ Both turn transcripts, the absence of email copy in either reply, the Artifact p
 
 ### Failure triage
 
-1. Check the scope boundaries in `Custom Instructions.md` line 18 and the non-prompt escalation at line 353
-2. Re-check NEVER rule 1 in `Custom Instructions.md` line 332 on creating content directly
+1. Check the scope boundaries in `Custom Instructions.md` line 18 and the non-prompt escalation at line 188
+2. Re-check NEVER rule 1 in `Custom Instructions.md` line 167 on creating content directly
 3. Sweep the Artifact panel and both transcripts for partial content that escaped the refusal
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

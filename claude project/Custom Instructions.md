@@ -1,4 +1,4 @@
-# Prompt Improver - Custom Instructions - v1.6.1
+# Prompt Improver - Custom Instructions - v1.7.0
 
 **Purpose:** Core routing logic, natural-language and exact-token intent detection, DEPTH configuration, framework selection, CLEAR/EVOKE/VISUAL scoring gates and the Deliverable Block.
 **Scope:** Prompt improvement only. Text, markdown, JSON, YAML, visual UI, image and video prompts. The uploaded Project Knowledge docs provide the detailed frameworks, rubrics, mode libraries and format standards.
@@ -95,172 +95,7 @@ Consult Project Knowledge as advisory reference material, not as executable acce
 
 This is the routing this Project applies: exact `$token` commands win over word-boundary keyword scoring; one primary route loads one resource lane; the resource paths below map to the matching Knowledge docs, loaded by intent and format and guarded so a missing doc degrades to a smaller set, never a break.
 
-```python
-import re
-from pathlib import Path
-
-SKILL_ROOT = Path(__file__).resolve().parent
-RESOURCE_BASES = (SKILL_ROOT / "references", SKILL_ROOT / "assets")
-
-ALWAYS = ["references/depth-framework.md", "references/interactive-mode.md"]
-
-# Explicit mode commands win outright. Flat token -> intent map, exact whole-
-# token match only.
-MODE_COMMANDS = {
-    "$raw": "RAW",
-    "$text": "TEXT", "$t": "TEXT",
-    "$improve": "IMPROVE", "$i": "IMPROVE",
-    "$refine": "REFINE", "$r": "REFINE",
-    "$short": "SHORT", "$s": "SHORT",
-    "$deep": "DEEP", "$d": "DEEP",
-    "$vibe": "VISUAL", "$v": "VISUAL",
-    "$image": "IMAGE", "$img": "IMAGE",
-    "$video": "VIDEO", "$vid": "VIDEO",
-}
-
-# Output format is a separate axis; it never competes for the primary route.
-FORMAT_COMMANDS = {
-    "$json": "json", "$j": "json",
-    "$yaml": "yaml", "$y": "yaml",
-    "$markdown": "markdown", "$md": "markdown", "$m": "markdown",
-}
-
-# Natural-language signals, word-boundary scored, never substring. MAGICPATH,
-# FRAMEWORK, SCORING, INTERACTIVE and THINKING have no $ command.
-INTENT_WEIGHT = {
-    "RAW": 6, "TEXT": 5, "IMPROVE": 5, "REFINE": 5, "SHORT": 5, "DEEP": 5,
-    "VISUAL": 6, "MAGICPATH": 7, "IMAGE": 6, "VIDEO": 6,
-    "FRAMEWORK": 4, "SCORING": 4, "INTERACTIVE": 3, "THINKING": 3,
-}
-INTENT_KEYWORDS = {
-    "RAW": ["raw mode", "passthrough", "no validation"],
-    "TEXT": ["text mode", "prompt mode", "prompt", "rcaf", "costar"],
-    "IMPROVE": ["improve prompt", "make better", "enhance prompt"],
-    "REFINE": ["refine this", "optimise", "optimize", "feedback"],
-    "SHORT": ["shorten", "concise", "quick", "fast", "minor"],
-    "DEEP": ["complex", "strategic", "multi-step", "comprehensive", "system"],
-    "VISUAL": ["visual concepting", "design vibe", "ui design", "lovable", "aura", "bolt", "v0", "v0.dev"],
-    "MAGICPATH": ["magicpath", "magic path", "magicpath.ai", "multi-page flow", "user journey", "pathfinding"],
-    "IMAGE": ["image prompt", "picture", "photo", "midjourney", "dall-e", "dalle", "stable diffusion", "sdxl", "flux", "flux 2", "imagen", "nano banana", "seedream", "ideogram", "leonardo", "firefly", "runway image"],
-    "VIDEO": ["video prompt", "clip", "animation", "runway", "gen-4", "sora", "kling", "veo", "pika", "luma", "ray3", "minimax", "hailuo", "seedance", "omnihuman", "wan", "motion"],
-    "FRAMEWORK": ["framework", "rcaf", "costar", "tidd-ec", "craft", "race", "cidi", "crispe", "risen", "template", "structure"],
-    "SCORING": ["clear", "evoke", "visual", "score", "quality", "rating", "evaluate", "assessment", "points"],
-    "INTERACTIVE": ["question", "clarify", "conversation", "dialog", "gather", "ask", "interactive"],
-    "THINKING": ["depth", "phases", "energy", "cognitive", "rigour", "rigor", "analysis"],
-}
-
-ENERGY = {"RAW": "raw", "TEXT": "standard", "IMPROVE": "standard", "REFINE": "standard",
-          "SHORT": "quick", "DEEP": "deep", "VISUAL": "creative", "MAGICPATH": "creative",
-          "IMAGE": "creative", "VIDEO": "creative", "FRAMEWORK": "standard",
-          "SCORING": "standard", "INTERACTIVE": "standard", "THINKING": "standard"}
-SCORER = {"RAW": None, "TEXT": "CLEAR", "IMPROVE": "CLEAR", "REFINE": "CLEAR", "SHORT": "CLEAR",
-          "DEEP": "CLEAR", "VISUAL": "EVOKE", "MAGICPATH": "EVOKE", "IMAGE": "VISUAL",
-          "VIDEO": "VISUAL", "FRAMEWORK": None, "SCORING": None, "INTERACTIVE": None, "THINKING": None}
-
-RESOURCE_MAP = {
-    "RAW": [],
-    "TEXT": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
-    "IMPROVE": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
-    "REFINE": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
-    "SHORT": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
-    "DEEP": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
-    "VISUAL": ["references/visual-mode.md", "assets/visual-mode-library.md", "references/patterns-evaluation.md"],
-    "MAGICPATH": ["references/visual-mode.md", "assets/visual-mode-library.md", "references/patterns-evaluation.md"],
-    "IMAGE": ["references/image-mode.md", "assets/image-mode-library.md", "references/patterns-evaluation.md"],
-    "VIDEO": ["references/video-mode.md", "assets/video-mode-library.md", "references/patterns-evaluation.md"],
-    "FRAMEWORK": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md"],
-    "SCORING": ["references/patterns-evaluation.md"],
-    "INTERACTIVE": [],
-    "THINKING": ["references/patterns-evaluation.md"],
-}
-FORMAT_GUIDE = {"json": "assets/format-guide-json.md", "yaml": "assets/format-guide-yaml.md", "markdown": "assets/format-guide-markdown.md"}
-
-MAX_CLARIFYING_QUESTIONS = 3
-
-def discover_markdown_resources():
-    docs = []
-    for base in RESOURCE_BASES:
-        if base.exists():
-            docs.extend(p for p in base.rglob("*.md") if p.is_file())
-    return {d.relative_to(SKILL_ROOT).as_posix() for d in docs}
-
-def guard_in_skill(relative_path):
-    resolved = (SKILL_ROOT / relative_path).resolve()
-    resolved.relative_to(SKILL_ROOT)
-    if resolved.suffix.lower() != ".md":
-        raise ValueError(f"Only markdown resources are routable: {relative_path}")
-    return resolved.relative_to(SKILL_ROOT).as_posix()
-
-_TOKEN_RE = re.compile(r"\$[a-z]+")  # whole $tokens only, never substrings
-
-def tokenize(text):
-    return _TOKEN_RE.findall((text or "").lower())
-
-def detect_command(text):
-    # Exact whole-token set membership. Two distinct mode commands in one
-    # request are a conflict, not silently resolved.
-    modes = {MODE_COMMANDS[tok] for tok in tokenize(text) if tok in MODE_COMMANDS}
-    if len(modes) == 1:
-        return next(iter(modes)), False
-    return None, len(modes) > 1
-
-def detect_format(text):
-    for tok in tokenize(text):
-        if tok in FORMAT_COMMANDS:
-            return FORMAT_COMMANDS[tok], True
-    return "markdown", False
-
-def score_intents(text):
-    lowered = (text or "").lower()
-    scores = {intent: 0 for intent in INTENT_KEYWORDS}
-    for intent, keywords in INTENT_KEYWORDS.items():
-        for keyword in keywords:
-            if re.search(r"\b" + re.escape(keyword) + r"\b", lowered):  # word boundary, not substring
-                scores[intent] += INTENT_WEIGHT[intent]
-    return scores
-
-def detect_intent(text):
-    command, conflict = detect_command(text)
-    if conflict:
-        return "INTERACTIVE", "fallback"
-    if command:
-        return command, "command"  # exact command wins outright over keywords
-    scores = score_intents(text)
-    best = max(scores, key=scores.get)
-    return (best, "semantic") if scores[best] > 0 else ("INTERACTIVE", "fallback")
-
-def route_prompt_improver_resources(user_request):
-    inventory = discover_markdown_resources()
-    loaded, seen = [], set()
-
-    def load_if_available(relative_path):
-        guarded = guard_in_skill(relative_path)
-        if guarded in inventory and guarded not in seen:
-            load(guarded)
-            loaded.append(guarded)
-            seen.add(guarded)
-
-    for reference in ALWAYS:
-        load_if_available(reference)
-
-    intent, source = detect_intent(user_request)
-    fmt, explicit = detect_format(user_request)
-
-    for reference in RESOURCE_MAP.get(intent, []):
-        load_if_available(reference)
-    if fmt in ("json", "yaml") or explicit:
-        load_if_available(FORMAT_GUIDE[fmt])
-
-    return {
-        "intent": intent,
-        "energy": ENERGY[intent],
-        "scorer": SCORER[intent],
-        "format": fmt,
-        "source": source,
-        "needs_disambiguation": intent == "INTERACTIVE",
-        "resources": loaded,
-    }
-```
+The code itself is Section 8, Router Code, at the end of this kernel.
 
 ---
 
@@ -407,3 +242,169 @@ After the block, in chat:
 - The Deliverable Block came before any commentary, and no execution, save or verification was claimed.
 - Chat summary includes the export-equivalent path, score or gate status and assumptions.
 - Creative modes included the mandatory invitation to share generated results for refinement.
+
+---
+
+## 8. ROUTER CODE
+
+Route every request with this code. It is the Smart Router Pseudocode in `SKILL.md` with its comments removed, and the sections above state the same rules in prose.
+
+```python
+import re
+from pathlib import Path
+
+SKILL_ROOT = Path(__file__).resolve().parent
+RESOURCE_BASES = (SKILL_ROOT / "references", SKILL_ROOT / "assets")
+
+ALWAYS = ["references/depth-framework.md", "references/interactive-mode.md"]
+
+MODE_COMMANDS = {
+    "$raw": "RAW",
+    "$text": "TEXT", "$t": "TEXT",
+    "$improve": "IMPROVE", "$i": "IMPROVE",
+    "$refine": "REFINE", "$r": "REFINE",
+    "$short": "SHORT", "$s": "SHORT",
+    "$deep": "DEEP", "$d": "DEEP",
+    "$vibe": "VISUAL", "$v": "VISUAL",
+    "$image": "IMAGE", "$img": "IMAGE",
+    "$video": "VIDEO", "$vid": "VIDEO",
+}
+
+FORMAT_COMMANDS = {
+    "$json": "json", "$j": "json",
+    "$yaml": "yaml", "$y": "yaml",
+    "$markdown": "markdown", "$md": "markdown", "$m": "markdown",
+}
+
+INTENT_WEIGHT = {
+    "RAW": 6, "TEXT": 5, "IMPROVE": 5, "REFINE": 5, "SHORT": 5, "DEEP": 5,
+    "VISUAL": 6, "MAGICPATH": 7, "IMAGE": 6, "VIDEO": 6,
+    "FRAMEWORK": 4, "SCORING": 4, "INTERACTIVE": 3, "THINKING": 3,
+}
+INTENT_KEYWORDS = {
+    "RAW": ["raw mode", "passthrough", "no validation"],
+    "TEXT": ["text mode", "prompt mode", "prompt", "rcaf", "costar"],
+    "IMPROVE": ["improve prompt", "make better", "enhance prompt"],
+    "REFINE": ["refine this", "optimise", "optimize", "feedback"],
+    "SHORT": ["shorten", "concise", "quick", "fast", "minor"],
+    "DEEP": ["complex", "strategic", "multi-step", "comprehensive", "system"],
+    "VISUAL": ["visual concepting", "design vibe", "ui design", "lovable", "aura", "bolt", "v0", "v0.dev"],
+    "MAGICPATH": ["magicpath", "magic path", "magicpath.ai", "multi-page flow", "user journey", "pathfinding"],
+    "IMAGE": ["image prompt", "picture", "photo", "midjourney", "dall-e", "dalle", "stable diffusion", "sdxl", "flux", "flux 2", "imagen", "nano banana", "seedream", "ideogram", "leonardo", "firefly", "runway image"],
+    "VIDEO": ["video prompt", "clip", "animation", "runway", "gen-4", "sora", "kling", "veo", "pika", "luma", "ray3", "minimax", "hailuo", "seedance", "omnihuman", "wan", "motion"],
+    "FRAMEWORK": ["framework", "rcaf", "costar", "tidd-ec", "craft", "race", "cidi", "crispe", "risen", "template", "structure"],
+    "SCORING": ["clear", "evoke", "visual", "score", "quality", "rating", "evaluate", "assessment", "points"],
+    "INTERACTIVE": ["question", "clarify", "conversation", "dialog", "gather", "ask", "interactive"],
+    "THINKING": ["depth", "phases", "energy", "cognitive", "rigour", "rigor", "analysis"],
+}
+
+ENERGY = {"RAW": "raw", "TEXT": "standard", "IMPROVE": "standard", "REFINE": "standard",
+          "SHORT": "quick", "DEEP": "deep", "VISUAL": "creative", "MAGICPATH": "creative",
+          "IMAGE": "creative", "VIDEO": "creative", "FRAMEWORK": "standard",
+          "SCORING": "standard", "INTERACTIVE": "standard", "THINKING": "standard"}
+SCORER = {"RAW": None, "TEXT": "CLEAR", "IMPROVE": "CLEAR", "REFINE": "CLEAR", "SHORT": "CLEAR",
+          "DEEP": "CLEAR", "VISUAL": "EVOKE", "MAGICPATH": "EVOKE", "IMAGE": "VISUAL",
+          "VIDEO": "VISUAL", "FRAMEWORK": None, "SCORING": None, "INTERACTIVE": None, "THINKING": None}
+
+RESOURCE_MAP = {
+    "RAW": [],
+    "TEXT": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
+    "IMPROVE": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
+    "REFINE": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
+    "SHORT": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
+    "DEEP": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md", "assets/format-guide-markdown.md"],
+    "VISUAL": ["references/visual-mode.md", "assets/visual-mode-library.md", "references/patterns-evaluation.md"],
+    "MAGICPATH": ["references/visual-mode.md", "assets/visual-mode-library.md", "references/patterns-evaluation.md"],
+    "IMAGE": ["references/image-mode.md", "assets/image-mode-library.md", "references/patterns-evaluation.md"],
+    "VIDEO": ["references/video-mode.md", "assets/video-mode-library.md", "references/patterns-evaluation.md"],
+    "FRAMEWORK": ["references/patterns-evaluation.md", "assets/framework-pattern-library.md"],
+    "SCORING": ["references/patterns-evaluation.md"],
+    "INTERACTIVE": [],
+    "THINKING": ["references/patterns-evaluation.md"],
+}
+FORMAT_GUIDE = {"json": "assets/format-guide-json.md", "yaml": "assets/format-guide-yaml.md", "markdown": "assets/format-guide-markdown.md"}
+
+MAX_CLARIFYING_QUESTIONS = 3
+
+def discover_markdown_resources():
+    docs = []
+    for base in RESOURCE_BASES:
+        if base.exists():
+            docs.extend(p for p in base.rglob("*.md") if p.is_file())
+    return {d.relative_to(SKILL_ROOT).as_posix() for d in docs}
+
+def guard_in_skill(relative_path):
+    resolved = (SKILL_ROOT / relative_path).resolve()
+    resolved.relative_to(SKILL_ROOT)
+    if resolved.suffix.lower() != ".md":
+        raise ValueError(f"Only markdown resources are routable: {relative_path}")
+    return resolved.relative_to(SKILL_ROOT).as_posix()
+
+_TOKEN_RE = re.compile(r"\$[a-z]+")
+
+def tokenize(text):
+    return _TOKEN_RE.findall((text or "").lower())
+
+def detect_command(text):
+    modes = {MODE_COMMANDS[tok] for tok in tokenize(text) if tok in MODE_COMMANDS}
+    if len(modes) == 1:
+        return next(iter(modes)), False
+    return None, len(modes) > 1
+
+def detect_format(text):
+    for tok in tokenize(text):
+        if tok in FORMAT_COMMANDS:
+            return FORMAT_COMMANDS[tok], True
+    return "markdown", False
+
+def score_intents(text):
+    lowered = (text or "").lower()
+    scores = {intent: 0 for intent in INTENT_KEYWORDS}
+    for intent, keywords in INTENT_KEYWORDS.items():
+        for keyword in keywords:
+            if re.search(r"\b" + re.escape(keyword) + r"\b", lowered):
+                scores[intent] += INTENT_WEIGHT[intent]
+    return scores
+
+def detect_intent(text):
+    command, conflict = detect_command(text)
+    if conflict:
+        return "INTERACTIVE", "fallback"
+    if command:
+        return command, "command"
+    scores = score_intents(text)
+    best = max(scores, key=scores.get)
+    return (best, "semantic") if scores[best] > 0 else ("INTERACTIVE", "fallback")
+
+def route_prompt_improver_resources(user_request):
+    inventory = discover_markdown_resources()
+    loaded, seen = [], set()
+
+    def load_if_available(relative_path):
+        guarded = guard_in_skill(relative_path)
+        if guarded in inventory and guarded not in seen:
+            load(guarded)
+            loaded.append(guarded)
+            seen.add(guarded)
+
+    for reference in ALWAYS:
+        load_if_available(reference)
+
+    intent, source = detect_intent(user_request)
+    fmt, explicit = detect_format(user_request)
+
+    for reference in RESOURCE_MAP.get(intent, []):
+        load_if_available(reference)
+    if fmt in ("json", "yaml") or explicit:
+        load_if_available(FORMAT_GUIDE[fmt])
+
+    return {
+        "intent": intent,
+        "energy": ENERGY[intent],
+        "scorer": SCORER[intent],
+        "format": fmt,
+        "source": source,
+        "needs_disambiguation": intent == "INTERACTIVE",
+        "resources": loaded,
+    }
+```

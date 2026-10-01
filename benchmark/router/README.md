@@ -13,7 +13,11 @@ mandatory.
   keywords, one primary intent, independent format lock, disambiguation,
   resources, schema).
 - `fixtures.json` — the expected route objects (test oracle).
-- `run_fixtures.sh` — gate runner; exits 0 only when all fixtures pass.
+- `kernel_parity.py`: the kernel-copy gate, proving the kernel's one python
+  fence under `## 8. ROUTER CODE` equals `SKILL.md`'s Smart Router Pseudocode
+  with its comments removed.
+- `run_fixtures.sh`: gate runner, exiting 0 only when the fixtures and the
+  kernel parity gate both pass.
 
 ## Run
 
@@ -21,9 +25,20 @@ mandatory.
 bash run_fixtures.sh
 # or directly:
 python3 route_contract.py fixtures.json
+python3 kernel_parity.py
 # or inspect a single request:
 python3 route_contract.py "$short but this needs a deep and complex multi-step strategic rewrite"
 ```
+
+## Kernel parity
+
+The Claude Project kernel ends with `## 8. ROUTER CODE`, one python fence
+holding the skill's Smart Router Pseudocode with its comments removed,
+because a Project reads its kernel on every turn and retrieves Knowledge
+only by relevance. `kernel_parity.py` proves the fence equals the `SKILL.md`
+block byte for byte after the strip and keeps the same syntax tree, so a
+hand edit to either copy fails `run_fixtures.sh` with the first differing
+line named.
 
 ## Route object
 
