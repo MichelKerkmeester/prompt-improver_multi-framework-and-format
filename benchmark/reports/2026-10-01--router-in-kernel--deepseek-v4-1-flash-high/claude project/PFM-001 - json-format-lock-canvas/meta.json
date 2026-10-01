@@ -1,0 +1,84 @@
+{
+ "id": "PFM-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-format-modes/json-format-lock-canvas.md",
+ "twin": "SFM-001",
+ "engine": "pi",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "prompt-improver-PFM-001-3b77af4e",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 47.22,
+   "tool_calls": 10,
+   "tools_used": [
+    "ls",
+    "find",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 24712,
+   "output_tokens": 6377,
+   "reasoning_tokens": 4288,
+   "cost_usd": 0.00786708,
+   "model_s": 46.84,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$improve $json Improve this and return it as JSON: \"Summarize a meeting transcript into action items with owners and due dates\"."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 20.75,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 5018,
+   "output_tokens": 3288,
+   "reasoning_tokens": 2320,
+   "cost_usd": 0.0028157399999999997,
+   "model_s": 20.39,
+   "startup_s": 0.18,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Valid JSON only, the action items are for a project manager."
+  }
+ ]
+}

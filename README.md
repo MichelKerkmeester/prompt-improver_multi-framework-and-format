@@ -705,7 +705,7 @@ The repository separates the skill source, the Project package, the checks and t
 │   ├── reports/                     one captured playbook run, 2026-09-17
 │   └── router/                      route_contract.py, fixtures.json (25), run_fixtures.sh
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.6.1, the Project's router
+│   ├── Custom Instructions.md       claude.ai kernel v1.7.0, the Project's router
 │   ├── README.md                    Project upload guide
 │   ├── kernel-review.json           record of the 2026-07-17 kernel review, read by no tool
 │   └── knowledge/                   13 knowledge files written by hand from the skill
