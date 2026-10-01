@@ -1,0 +1,84 @@
+{
+ "id": "PTX-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Prompt Improver/sk-prompt-improver/manual-testing-playbook/project-text-modes/improve-flow-clear-canvas.md",
+ "twin": "STX-001",
+ "engine": "pi",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "prompt-improver-PTX-001-aea1c1e5",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.87,
+   "tool_calls": 10,
+   "tools_used": [
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 23646,
+   "output_tokens": 5288,
+   "reasoning_tokens": 3485,
+   "cost_usd": 0.006964308000000001,
+   "model_s": 42.48,
+   "startup_s": 0.19,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Here is my rough prompt: \"Write a blog post about coffee brewing for beginners.\" Can you make it better?"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 16.41,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 4135,
+   "output_tokens": 1998,
+   "reasoning_tokens": 1721,
+   "cost_usd": 0.0019066019999999999,
+   "model_s": 16.05,
+   "startup_s": 0.17,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "For a general audience blog post, markdown is fine."
+  }
+ ]
+}
