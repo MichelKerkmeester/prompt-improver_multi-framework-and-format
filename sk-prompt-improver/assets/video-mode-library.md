@@ -9,7 +9,7 @@ trigger_phrases:
   - "MOTION examples"
   - "temporal consistency"
   - "video refinement templates"
-version: 1.5.0.14
+version: 0.6.0.14
 ---
 
 # Video Mode Library

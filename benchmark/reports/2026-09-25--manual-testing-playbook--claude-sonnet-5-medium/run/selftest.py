@@ -47,7 +47,7 @@ sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 COLLECTOR = os.path.join(HERE, "collect_exports.py")
 # The commit whose collector had no edit guard, used as the negative control.
-UNGUARDED_REV = "09156e2"
+UNGUARDED_REV = "88919d2"
 
 SKILL_NAME = "001 - enhanced-test-prompt.md"
 SKILL_BODY = "Mode: $improve | Complexity: 2 | Framework: RCAF\n\n**Role:** Test prompt body.\n"

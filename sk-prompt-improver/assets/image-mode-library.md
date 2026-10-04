@@ -9,7 +9,7 @@ trigger_phrases:
   - "image platform structures"
   - "image prompt examples"
   - "image refinement templates"
-version: 1.5.0.13
+version: 0.6.0.13
 ---
 
 # Image Mode Library

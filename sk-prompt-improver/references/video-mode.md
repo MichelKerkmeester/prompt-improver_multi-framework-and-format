@@ -9,7 +9,7 @@ trigger_phrases:
   - "VISUAL video scoring"
   - "video platform routing"
   - "Runway Sora Kling Veo"
-version: 1.5.0.16
+version: 0.6.0.16
 ---
 
 # Prompt - Templates - Video Mode

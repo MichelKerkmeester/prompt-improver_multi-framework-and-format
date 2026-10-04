@@ -8,7 +8,7 @@ trigger_phrases:
   - "Markdown prompt output"
   - "standard prompt format"
   - "human-readable delivery"
-version: 1.5.0.16
+version: 0.6.0.16
 ---
 
 # Prompt - Asset - Format Guide Markdown

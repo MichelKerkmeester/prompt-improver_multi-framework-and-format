@@ -9,7 +9,7 @@ trigger_phrases:
   - "RCAF COSTAR RACE"
   - "framework combinations"
   - "framework optimization"
-version: 1.5.0.3
+version: 0.6.0.3
 ---
 
 # Prompt - Assets - Framework Pattern Library

@@ -1,4 +1,4 @@
-# Prompt Improver - Custom Instructions - v1.7.0
+# Prompt Improver - Custom Instructions - v1.0.0
 
 **Purpose:** Core routing logic, natural-language and exact-token intent detection, DEPTH configuration, framework selection, CLEAR/EVOKE/VISUAL scoring gates and the Deliverable Block.
 **Scope:** Prompt improvement only. Text, markdown, JSON, YAML, visual UI, image and video prompts. The uploaded Project Knowledge docs provide the detailed frameworks, rubrics, mode libraries and format standards.
