@@ -9,7 +9,7 @@ trigger_phrases:
   - "MagicPath templates"
   - "UI transformation examples"
   - "design refinement templates"
-version: 1.5.0.4
+version: 0.6.0.4
 ---
 
 # Visual Mode Library

@@ -6,7 +6,7 @@ Hand-maintained local package for the Prompt Improver claude.ai Project. The ker
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- full synthesized Project kernel v1.7.0, Skill v1.5.4.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
+|-- Custom Instructions.md        <- full synthesized Project kernel v1.0.0, Skill v1.0.0.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
 |-- README.md                     <- this manifest and sync contract
 `-- knowledge/                    <- upload every file below as Project Knowledge
     |-- Prompt Improver - DEPTH Thinking Framework.md
@@ -26,7 +26,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.7.0, aligned to **Prompt Improver Skill v1.5.4.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
+`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.0.0, aligned to **Prompt Improver Skill v1.0.0.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
 
 CLI-only mechanics are removed or adapted: filesystem export becomes the **Deliverable Block**, direct file loading becomes Project Knowledge consultation and `export/[###] - enhanced-[description].[md|json|yaml]` is reported as an export-equivalent path.
 
@@ -48,7 +48,7 @@ Knowledge files are hand-authored for Project retrieval, so the checksum table t
 
 - Update the skill sources first, then hand-write the matching changes into `claude project/Custom Instructions.md` and the affected `claude project/knowledge/` files per the manual parity method, or record that no Project-facing change is needed and why
 - If identity, routing, scoring, format handling or delivery behavior changes, re-derive `Custom Instructions.md` from the Skill kernel.
-- On a version bump, rename the mirror to the new version suffix and remove the superseded versioned mirror. Never retain old and new filenames together.
+- Mirror filenames carry no version. A refreshed mirror replaces the live upload under the same filename, and a mirror whose source was renamed or deleted is removed. Never retain old and new filenames together.
 - After a kernel change, record the review as a dated sentence in the system SYNC.md review notes: who reviewed, what changed, what was decided
 - Before live upload, run this system's own checks from its root. The sync compiler was
   retired and `check --system` no longer exists, so nothing is verified by invoking it:

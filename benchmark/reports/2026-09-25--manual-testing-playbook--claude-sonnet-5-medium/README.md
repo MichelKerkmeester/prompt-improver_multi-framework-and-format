@@ -156,7 +156,7 @@ Findings are reported, never repaired here. Each names the files on both sides.
 
 ## 9. Edited after grading
 
-The 18 deliverables this run collected into `export/benchmark/skill/` and `export/benchmark/claude project/` were improved by hand on 2026-09-26. Every verdict in `results.csv`, `results.md` and `grading-notes.md` still describes the graded originals. Git history keeps those at Prompt Improver commit `fc1df59` and Barter commit `75e9d5d8`, and the run's own copies under `skill/` and `claude project/` in this folder are unchanged.
+The 18 deliverables this run collected into `export/benchmark/skill/` and `export/benchmark/claude project/` were improved by hand on 2026-09-26. Every verdict in `results.csv`, `results.md` and `grading-notes.md` still describes the graded originals. Git history keeps those at Prompt Improver commit `76bc3bc` and Barter commit `75e9d5d8`, and the run's own copies under `skill/` and `claude project/` in this folder are unchanged.
 
 - **Kept:** each file name, the `Mode:` header, the Project attestation footer, every fact the user supplied and each scenario's own limits, such as the 120 word cap in SID-001
 - **Improved:** role, objective, success criteria, output shape and the handling of missing or unclear input, judged against the routed rubric
@@ -183,7 +183,7 @@ On 2026-09-27 the 18 files also took the header divider of skill 1.5.2: a blank 
 
 ## 10. Example pack
 
-Eight prompts written through the skill on 2026-09-26 briefly sat beside these exports, one per new skill scenario of section 11. They were dropped the same day for two reasons. `export/benchmark/` keeps only the `skill/` and `claude project/` deliverables of real runs, as Product Owner's does. The operator also wanted medium, high and complex prompts that visibly use a named framework, which most of the eight did not. Git history keeps them under `export/benchmark/examples/` at Prompt Improver commit `ff85769`.
+Eight prompts written through the skill on 2026-09-26 briefly sat beside these exports, one per new skill scenario of section 11. They were dropped the same day for two reasons. `export/benchmark/` keeps only the `skill/` and `claude project/` deliverables of real runs, as Product Owner's does. The operator also wanted medium, high and complex prompts that visibly use a named framework, which most of the eight did not. Git history keeps them under `export/benchmark/examples/` at Prompt Improver commit `ce24956`.
 
 Their place is taken by a run of 24 framework-coverage scenario pairs on `claude-sonnet-5` at effort `xhigh`, recorded in [its own run folder](../2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md).
 

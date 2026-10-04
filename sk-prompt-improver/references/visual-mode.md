@@ -9,7 +9,7 @@ trigger_phrases:
   - "VIBE framework"
   - "EVOKE scoring"
   - "design tool routing"
-version: 1.5.0.16
+version: 0.6.0.16
 ---
 
 # Prompt - Templates - Visual Mode

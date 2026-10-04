@@ -2,7 +2,7 @@
 
 ## 1. OVERVIEW
 
-Evidence behind every verdict in `results.csv`. Paths are relative to this run folder unless they start with a system path. Reply quotes cite `replies/<ID>-turn1.txt`. Deliverable quotes cite the copy in `export/benchmark/skill/` or `export/benchmark/claude project/`, which is byte-identical to the run's own copy. Rule citations give file and line at Prompt Improver `136cf51`, the commit that holds the rules this run tested.
+Evidence behind every verdict in `results.csv`. Paths are relative to this run folder unless they start with a system path. Reply quotes cite `replies/<ID>-turn1.txt`. Deliverable quotes cite the copy in `export/benchmark/skill/` or `export/benchmark/claude project/`, which is byte-identical to the run's own copy. Rule citations give file and line at Prompt Improver `56551cf`, the commit that holds the rules this run tested.
 
 ---
 
@@ -10,7 +10,7 @@ Evidence behind every verdict in `results.csv`. Paths are relative to this run f
 
 ### Sources read
 
-- The playbook at Prompt Improver `136cf51`, as the run used it: the root `manual-testing-playbook.md` and the 48 files in `skill-framework-coverage/` and `project-framework-coverage/`. The six creative pairs were re-tiered and renamed later, in `534bc67`, so their verdicts here use the tiers the run was checked against. Section 7 reads them against the new tiers
+- The playbook at Prompt Improver `56551cf`, as the run used it: the root `manual-testing-playbook.md` and the 48 files in `skill-framework-coverage/` and `project-framework-coverage/`. The six creative pairs were re-tiered and renamed later, in `5bede15`, so their verdicts here use the tiers the run was checked against. Section 7 reads them against the new tiers
 - The rules: `AGENTS.md`, `sk-prompt-improver/SKILL.md` 1.5.0 and its references on the skill side, and `claude project/Custom Instructions.md` v1.6.0 and its knowledge files on the Project side
 - Run output: every reply, every `meta.json`, the skill sandbox `exports/` copies and the event streams wherever a save, a parse or the order of a reply had to be proven
 - The structure review, as a list of leads only. No verdict rests on it
@@ -696,7 +696,7 @@ These key claims were rerun from the files before the merge, and each held:
 
 ## 7. AGAINST THE CURRENT TIERS
 
-The re-tier in Prompt Improver `534bc67` changed the tier sentence in the Expected signals and Pass/fail lines of the six creative pairs, and their file names, and nothing else. A line-by-line comparison of the twelve files before and after shows no other change.
+The re-tier in Prompt Improver `5bede15` changed the tier sentence in the Expected signals and Pass/fail lines of the six creative pairs, and their file names, and nothing else. A line-by-line comparison of the twelve files before and after shows no other change.
 
 Read against the new tiers:
 - SFW-019 (Low 4 against Low) and PFW-024 (High 7 against High) would pass, since tier was their only failing item. That makes 8 of 48

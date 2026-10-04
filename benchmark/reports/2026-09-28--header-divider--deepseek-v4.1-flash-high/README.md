@@ -54,7 +54,7 @@ SCR-003 and PTX-001 have one deliverable because their second turn changed nothi
 
 ## 3. HOW THE RUN WAS MADE
 
-- **Rules under test:** `sk-prompt-improver/SKILL.md` 1.5.2 and `claude project/Custom Instructions.md` v1.6.1, at Prompt Improver commit `8750b37`
+- **Rules under test:** `sk-prompt-improver/SKILL.md` 1.5.2 and `claude project/Custom Instructions.md` v1.6.1, at Prompt Improver commit `0a78540`
 - **Engine:** Pi 0.87.1, model `llmgateway/deepseek-v4.1-flash`, thinking `high`, 6 parallel sessions. The gateway served every turn from `runware/deepseek-v4.1-flash`, and the event streams name the model `deepseek-v4.1-flash`
 - **Runner:** `run/playbook_runner.py`, the 2026-09-27 runner (sha1 `a0315dcd5b`), called from this folder as `python3 run/playbook_runner.py --system ../../.. --out . --engine pi --model llmgateway/deepseek-v4.1-flash --effort high --ids <22 IDs> --jobs 6`. All 22 sessions ended `ok` on their first attempt, 44 turns, 0.21 USD, 876,582 input and 111,923 output tokens, 20.7 minutes of session time
 - **Manifest:** the runner writes all 78 playbook scenarios into `manifest.json`, which was narrowed to the 22 that ran

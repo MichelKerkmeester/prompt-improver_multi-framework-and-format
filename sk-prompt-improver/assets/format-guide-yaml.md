@@ -8,7 +8,7 @@ trigger_phrases:
   - "YAML prompt output"
   - "config-ready prompt"
   - "valid YAML delivery"
-version: 1.5.0.17
+version: 0.6.0.17
 ---
 
 # Prompt - Asset - Format Guide YAML

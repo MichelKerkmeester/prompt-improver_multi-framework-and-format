@@ -9,7 +9,7 @@ trigger_phrases:
   - "conversation state machine"
   - "prompt response templates"
   - "error recovery"
-version: 1.5.0.26
+version: 0.6.0.26
 ---
 
 # Prompt Improver - Interactive Mode

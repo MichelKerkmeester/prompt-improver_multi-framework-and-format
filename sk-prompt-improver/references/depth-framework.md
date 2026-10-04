@@ -8,7 +8,7 @@ trigger_phrases:
   - "cognitive rigor"
   - "CLEAR scoring gates"
   - "multi-perspective analysis"
-version: 1.5.0.13
+version: 0.6.0.13
 ---
 
 # Prompt Improver - DEPTH Thinking Framework

@@ -9,7 +9,7 @@ trigger_phrases:
   - "VISUAL image scoring"
   - "image platform routing"
   - "Flux Midjourney Imagen"
-version: 1.5.0.15
+version: 0.6.0.15
 ---
 
 # Prompt - Templates - Image Mode

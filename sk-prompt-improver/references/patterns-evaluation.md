@@ -9,7 +9,7 @@ trigger_phrases:
   - "prompt evaluation"
   - "REPAIR protocol"
   - "enhancement patterns"
-version: 1.5.0.25
+version: 0.6.0.25
 ---
 
 # Prompt - Reference - Patterns & Evaluation

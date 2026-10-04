@@ -710,13 +710,13 @@ The repository separates the skill source, the Project package, the checks and t
 │   ├── reports/                     one captured playbook run, 2026-09-17
 │   └── router/                      route_contract.py, fixtures.json (25), kernel_parity.py, run_fixtures.sh
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.7.0, the Project's router
+│   ├── Custom Instructions.md       claude.ai kernel v1.0.0, the Project's router
 │   ├── README.md                    Project upload guide
 │   ├── kernel-review.json           record of the 2026-07-17 kernel review, read by no tool
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.5.4.0: identity, router, rules, delivery
+    ├── SKILL.md                     v1.0.0.0: identity, router, rules, delivery
     ├── README.md                    skill guide
     ├── graph-metadata.json          skill graph edges and intent signals
     ├── leaf-manifest.config.json    which folders hold the routed docs
@@ -724,7 +724,7 @@ The repository separates the skill source, the Project package, the checks and t
     ├── leaf-aliases.json            generated identity map of those docs
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
-    ├── changelog/                   12 releases, v1.0.0.0 to v1.5.4.0
+    ├── changelog/                   12 releases, v0.1.0.0 to v1.0.0.0
     └── manual-testing-playbook/     14 scenarios in 12 category folders
 ```
 
@@ -841,7 +841,7 @@ Both need the shared toolkit in the parent monorepo. Use the router fixtures and
 - **[→ Markdown Format Guide](sk-prompt-improver/assets/format-guide-markdown.md)** - header contract and RCAF and CRAFT in Markdown
 - **[→ JSON Format Guide](sk-prompt-improver/assets/format-guide-json.md)** - JSON header and syntax rules
 - **[→ YAML Format Guide](sk-prompt-improver/assets/format-guide-yaml.md)** - YAML header and syntax rules
-- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.5.4.0.md)** - v1.5.4.0, the router-accurate docs release
+- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.0.0.0.md)** - v1.0.0.0, the router-accurate docs release
 
 **Claude Project package**
 

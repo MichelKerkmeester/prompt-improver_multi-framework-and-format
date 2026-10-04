@@ -2,7 +2,7 @@
 
 ## 1. OVERVIEW
 
-Every row below is printed from `results.csv`. The twin classes come from the adjudications in `grading-notes.md`. Each verdict applies the scenario's Pass/fail line as it stood at the run, Prompt Improver `136cf51`, so the six creative pairs are graded against their tiers before the re-tier.
+Every row below is printed from `results.csv`. The twin classes come from the adjudications in `grading-notes.md`. Each verdict applies the scenario's Pass/fail line as it stood at the run, Prompt Improver `56551cf`, so the six creative pairs are graded against their tiers before the re-tier.
 
 ---
 

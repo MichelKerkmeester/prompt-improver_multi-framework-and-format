@@ -8,7 +8,7 @@ trigger_phrases:
   - "JSON prompt output"
   - "API-ready prompt"
   - "valid JSON delivery"
-version: 1.5.0.18
+version: 0.6.0.18
 ---
 
 # Prompt - Asset - Format Guide JSON
