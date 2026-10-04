@@ -85,8 +85,8 @@ Turn transcripts, the CLEAR score line, the Artifact panel state, a parse check 
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [Custom Instructions](<../../../claude project/Custom Instructions.md>) | Independent format axis, command tables and the Delivery Protocol |
-| [Format Guide JSON knowledge](<../../../claude project/knowledge/Prompt Improver - Format Guide JSON - v0.142.md>) | JSON syntax and delivery rules |
-| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | CLEAR gate for the Improve lane |
+| [Format Guide JSON knowledge](<../../../claude project/knowledge/Prompt Improver - Format Guide JSON.md>) | JSON syntax and delivery rules |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation.md>) | CLEAR gate for the Improve lane |
 
 ---
 

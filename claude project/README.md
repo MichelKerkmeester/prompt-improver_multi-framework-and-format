@@ -6,27 +6,27 @@ Hand-maintained local package for the Prompt Improver claude.ai Project. The ker
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- full synthesized Project kernel v1.7.0, Skill v1.5.4 aligned; the routing authority for this Project (SKILL.md is not loaded here)
+|-- Custom Instructions.md        <- full synthesized Project kernel v1.7.0, Skill v1.5.4.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
 |-- README.md                     <- this manifest and sync contract
 `-- knowledge/                    <- upload every file below as Project Knowledge
-    |-- Prompt Improver - DEPTH Thinking Framework - v0.200.md
-    |-- Prompt Improver - Interactive Mode - v0.700.md
-    |-- Prompt Improver - Patterns and Evaluation - v0.212.md
-    |-- Prompt Improver - Assets - Framework Pattern Library - v0.100.md
-    |-- Prompt Improver - Format Guide Markdown - v0.141.md
-    |-- Prompt Improver - Format Guide JSON - v0.142.md
-    |-- Prompt Improver - Format Guide YAML - v0.142.md
-    |-- Prompt Improver - Visual Mode - v0.301.md
-    |-- Prompt Improver - Assets - Visual Mode Library - v0.110.md
-    |-- Prompt Improver - Image Mode - v0.123.md
-    |-- Prompt Improver - Assets - Image Mode Library - v0.101.md
-    |-- Prompt Improver - Video Mode - v0.123.md
-    `-- Prompt Improver - Assets - Video Mode Library - v0.101.md
+    |-- Prompt Improver - DEPTH Thinking Framework.md
+    |-- Prompt Improver - Interactive Mode.md
+    |-- Prompt Improver - Patterns and Evaluation.md
+    |-- Prompt Improver - Assets - Framework Pattern Library.md
+    |-- Prompt Improver - Format Guide Markdown.md
+    |-- Prompt Improver - Format Guide JSON.md
+    |-- Prompt Improver - Format Guide YAML.md
+    |-- Prompt Improver - Visual Mode.md
+    |-- Prompt Improver - Assets - Visual Mode Library.md
+    |-- Prompt Improver - Image Mode.md
+    |-- Prompt Improver - Assets - Image Mode Library.md
+    |-- Prompt Improver - Video Mode.md
+    `-- Prompt Improver - Assets - Video Mode Library.md
 ```
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.7.0, aligned to **Prompt Improver Skill v1.5.4**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
+`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.7.0, aligned to **Prompt Improver Skill v1.5.4.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
 
 CLI-only mechanics are removed or adapted: filesystem export becomes the **Deliverable Block**, direct file loading becomes Project Knowledge consultation and `export/[###] - enhanced-[description].[md|json|yaml]` is reported as an export-equivalent path.
 

@@ -1,18 +1,18 @@
 ---
 title: "Image Mode"
 description: "FRAME framework, visual prompt vocabulary and platform guidance for image generators."
-version: "0.123"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "$image image prompts"
   - "FRAME framework"
   - "VISUAL image scoring"
   - "image platform routing"
   - "Flux Midjourney Imagen"
+version: 1.5.0.15
 ---
 
-# Prompt - Templates - Image Mode - v0.123
+# Prompt - Templates - Image Mode
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 

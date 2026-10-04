@@ -1,4 +1,4 @@
-# Prompt Improver - Interactive Mode - v0.700
+# Prompt Improver - Interactive Mode
 
 Conversation flows, state management, and response patterns for interactive prompt enhancement with energy-level-driven DEPTH processing.
 

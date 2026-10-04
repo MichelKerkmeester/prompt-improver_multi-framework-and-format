@@ -1,4 +1,4 @@
-# Prompt Improver - DEPTH Thinking Framework - v0.200
+# Prompt Improver - DEPTH Thinking Framework
 
 The single thinking system for all prompt improvement work. Five phases, five energy levels, cognitive techniques applied when they add value.
 

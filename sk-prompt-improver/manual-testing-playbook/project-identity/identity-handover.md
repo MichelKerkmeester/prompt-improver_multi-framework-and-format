@@ -102,8 +102,8 @@ Turn transcripts, the line carrying `Canvas Artifact`, an excerpt of the Artifac
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [Custom Instructions](<../../../claude project/Custom Instructions.md>) | Project runtime identity file and Canvas delivery contract |
-| [Interactive Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) | One-question flow and wait rules for the Project |
-| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | Scoring gates consulted by the Project |
+| [Interactive Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Interactive Mode.md>) | One-question flow and wait rules for the Project |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation.md>) | Scoring gates consulted by the Project |
 | [`AGENTS.md`](../../../AGENTS.md) | The other runtime identity file used to prove the split |
 
 ---

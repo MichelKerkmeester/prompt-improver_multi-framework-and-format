@@ -1,18 +1,18 @@
 ---
 title: "Framework Pattern Library"
 description: "Framework matrix, deep dives, advanced combinations and optimization strategies for prompt framework selection."
-version: "0.100"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "framework library"
   - "framework selection matrix"
   - "RCAF COSTAR RACE"
   - "framework combinations"
   - "framework optimization"
+version: 1.5.0.3
 ---
 
-# Prompt - Assets - Framework Pattern Library - v0.100
+# Prompt - Assets - Framework Pattern Library
 
 Framework matrix, deep dives, advanced combinations and optimization strategies for prompt framework selection.
 

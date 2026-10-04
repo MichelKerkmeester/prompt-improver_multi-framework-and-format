@@ -1,4 +1,4 @@
-# Prompt Improver - Patterns and Evaluation - v0.212
+# Prompt Improver - Patterns and Evaluation
 
 Enhancement patterns and CLEAR evaluation methodology for systematic prompt engineering excellence.
 
@@ -14,13 +14,13 @@ Provides the evaluation and enhancement reference set: systematic enhancement pa
 
 - Read when enhancement patterns or scoring methodology are needed
 - Enhancement patterns, CLEAR/EVOKE/VISUAL scoring, recovery protocols, and mastery principles
-- The framework library and selection algorithms live in `Prompt Improver - Assets - Framework Pattern Library - v0.100`
+- The framework library and selection algorithms live in `Prompt Improver - Assets - Framework Pattern Library`
 
 ---
 
 ## 2. FRAMEWORK PATTERN LIBRARY
 
-Framework matrix, deep dives, combinations and optimization strategies: see `Prompt Improver - Assets - Framework Pattern Library - v0.100`.
+Framework matrix, deep dives, combinations and optimization strategies: see `Prompt Improver - Assets - Framework Pattern Library`.
 
 ---
 
@@ -352,7 +352,7 @@ The median to name and steer away from when generating any visual brief:
 - Open: 8pts (vs 10 standard) - More structured flows
 - Emotional: 5pts (same)
 
-> **Operational copy:** `Prompt Improver - Visual Mode - v0.301` Section 5 is the operational EVOKE copy with grounding pre-check, avoid-list, and full dimension detail. The upstream design-generation canon is the authority for anti-default rules. This section mirrors that structure so the two copies cannot drift.
+> **Operational copy:** `Prompt Improver - Visual Mode` Section 5 is the operational EVOKE copy with grounding pre-check, avoid-list, and full dimension detail. The upstream design-generation canon is the authority for anti-default rules. This section mirrors that structure so the two copies cannot drift.
 
 ---
 

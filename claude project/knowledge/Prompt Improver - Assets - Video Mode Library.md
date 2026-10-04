@@ -1,4 +1,4 @@
-# Prompt Improver - Assets - Video Mode Library - v0.101
+# Prompt Improver - Assets - Video Mode Library
 
 Reusable video platform syntax, mental models, temporal guidance, examples, refinement templates and quick lookups for video prompts.
 
@@ -12,7 +12,7 @@ Provides copyable video-generation syntax, platform mental models, duration/audi
 
 ### Usage
 
-Use this with `Prompt Improver - Video Mode - v0.123` for `$video` or `$vid` work. Copy, adapt or consult the relevant section after the reference workflow identifies the target platform, duration and MOTION needs.
+Use this with `Prompt Improver - Video Mode` for `$video` or `$vid` work. Copy, adapt or consult the relevant section after the reference workflow identifies the target platform, duration and MOTION needs.
 
 ---
 

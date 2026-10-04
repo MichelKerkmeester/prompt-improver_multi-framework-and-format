@@ -1,17 +1,17 @@
 ---
 title: "Format Guide YAML"
 description: "YAML output structure and hierarchy rules for prompt deliverables."
-version: "0.142"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "$yaml format"
   - "YAML prompt output"
   - "config-ready prompt"
   - "valid YAML delivery"
+version: 1.5.0.17
 ---
 
-# Prompt - Asset - Format Guide YAML - v0.142
+# Prompt - Asset - Format Guide YAML
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

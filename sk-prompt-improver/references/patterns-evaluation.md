@@ -1,18 +1,18 @@
 ---
 title: "Patterns and Evaluation"
 description: "Enhancement patterns and CLEAR, EVOKE and VISUAL evaluation methods; the framework library lives in assets/framework-pattern-library.md."
-version: "0.212"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "framework selection"
   - "CLEAR EVOKE VISUAL scoring"
   - "prompt evaluation"
   - "REPAIR protocol"
   - "enhancement patterns"
+version: 1.5.0.25
 ---
 
-# Prompt - Reference - Patterns & Evaluation - v0.212
+# Prompt - Reference - Patterns & Evaluation
 
 Enhancement patterns and CLEAR evaluation methodology for systematic prompt engineering excellence.
 

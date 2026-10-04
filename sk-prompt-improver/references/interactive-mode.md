@@ -1,8 +1,7 @@
 ---
 title: "Interactive Mode"
 description: "Conversation flow, state management, question protocol and response patterns for prompt enhancement."
-version: "0.700"
-contextType: reference
+contextType: implementation
 importance_tier: critical
 trigger_phrases:
   - "one question flow"
@@ -10,9 +9,10 @@ trigger_phrases:
   - "conversation state machine"
   - "prompt response templates"
   - "error recovery"
+version: 1.5.0.26
 ---
 
-# Prompt Improver - Interactive Mode - v0.700
+# Prompt Improver - Interactive Mode
 
 Conversation flows, state management, and response patterns for interactive prompt enhancement with energy-level-driven DEPTH processing.
 

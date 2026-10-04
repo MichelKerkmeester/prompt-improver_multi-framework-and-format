@@ -1,8 +1,7 @@
 ---
 title: "Image Mode Library"
 description: "Reusable FRAME banks, platform structures, examples, refinement templates and quick lookups for image prompts."
-version: "0.101"
-contextType: asset
+contextType: general
 importance_tier: normal
 trigger_phrases:
   - "$image assets"
@@ -10,9 +9,10 @@ trigger_phrases:
   - "image platform structures"
   - "image prompt examples"
   - "image refinement templates"
+version: 1.5.0.13
 ---
 
-# Image Mode Library - v0.101
+# Image Mode Library
 
 Reusable FRAME prompt banks, platform structures, examples, refinement templates and quick lookups for image generation prompts.
 

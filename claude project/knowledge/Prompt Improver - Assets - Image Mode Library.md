@@ -1,4 +1,4 @@
-# Prompt Improver - Assets - Image Mode Library - v0.101
+# Prompt Improver - Assets - Image Mode Library
 
 Reusable FRAME prompt banks, platform structures, examples, refinement templates and quick lookups for image generation prompts.
 
@@ -12,7 +12,7 @@ Provides copyable image-generation vocabulary, platform prompt structures, examp
 
 ### Usage
 
-Use this with `Prompt Improver - Image Mode - v0.123` for `$image` or `$img` work. Copy, adapt or consult the relevant section after the reference workflow identifies the target platform and FRAME needs.
+Use this with `Prompt Improver - Image Mode` for `$image` or `$img` work. Copy, adapt or consult the relevant section after the reference workflow identifies the target platform and FRAME needs.
 
 ---
 

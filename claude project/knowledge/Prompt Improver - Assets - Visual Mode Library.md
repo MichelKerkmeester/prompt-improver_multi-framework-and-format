@@ -1,4 +1,4 @@
-# Prompt Improver - Assets - Visual Mode Library - v0.110
+# Prompt Improver - Assets - Visual Mode Library
 
 Reusable visual UI vocabulary, transformation tables, platform templates, MagicPath examples and refinement templates for design prompts.
 
@@ -12,7 +12,7 @@ Provides copyable vocabulary banks, transformation tables, platform templates, M
 
 ### Usage
 
-Use this with `Prompt Improver - Visual Mode - v0.301` for `$vibe`, `$v` or design-tool work. Copy, adapt or consult the relevant section after the reference workflow grounds the subject, names the category default to deviate from, and identifies the target platform.
+Use this with `Prompt Improver - Visual Mode` for `$vibe`, `$v` or design-tool work. Copy, adapt or consult the relevant section after the reference workflow grounds the subject, names the category default to deviate from, and identifies the target platform.
 
 ---
 

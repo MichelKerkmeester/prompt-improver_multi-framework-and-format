@@ -1,17 +1,17 @@
 ---
 title: "Format Guide Markdown"
 description: "Markdown output structure and formatting rules for prompt deliverables."
-version: "0.141"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "$markdown format"
   - "Markdown prompt output"
   - "standard prompt format"
   - "human-readable delivery"
+version: 1.5.0.16
 ---
 
-# Prompt - Asset - Format Guide Markdown - v0.141
+# Prompt - Asset - Format Guide Markdown
 
 Formatting guide for Markdown (Standard) output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

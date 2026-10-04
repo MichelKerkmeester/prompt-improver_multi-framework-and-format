@@ -716,10 +716,12 @@ The repository separates the skill source, the Project package, the checks and t
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.5.4: identity, router, rules, delivery
+    ├── SKILL.md                     v1.5.4.0: identity, router, rules, delivery
     ├── README.md                    skill guide
-    ├── description.json             skill metadata
     ├── graph-metadata.json          skill graph edges and intent signals
+    ├── leaf-manifest.config.json    which folders hold the routed docs
+    ├── leaf-manifest.json           generated list of the routed docs
+    ├── leaf-aliases.json            generated identity map of those docs
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
     ├── changelog/                   12 releases, v1.0.0.0 to v1.5.4.0
