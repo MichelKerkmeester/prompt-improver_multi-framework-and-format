@@ -1,4 +1,4 @@
-# Prompt Improver - Format Guide Markdown - v0.141
+# Prompt Improver - Format Guide Markdown
 
 Formatting guide for Markdown (Standard) output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

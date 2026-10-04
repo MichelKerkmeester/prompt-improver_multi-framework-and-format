@@ -1,17 +1,17 @@
 ---
 title: "DEPTH Thinking Framework"
 description: "Five-phase DEPTH thinking system, energy levels, cognitive rigor and CLEAR quality gates."
-version: "0.200"
-contextType: reference
+contextType: implementation
 importance_tier: critical
 trigger_phrases:
   - "DEPTH energy levels"
   - "cognitive rigor"
   - "CLEAR scoring gates"
   - "multi-perspective analysis"
+version: 1.5.0.13
 ---
 
-# Prompt Improver - DEPTH Thinking Framework - v0.200
+# Prompt Improver - DEPTH Thinking Framework
 
 The single thinking system for all prompt improvement work. Five phases, five energy levels, cognitive techniques applied when they add value.
 

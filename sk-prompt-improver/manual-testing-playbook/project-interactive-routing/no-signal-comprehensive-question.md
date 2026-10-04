@@ -85,8 +85,8 @@ Both turn transcripts, the Artifact panel state showing nothing rendered on Turn
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [Custom Instructions](<../../../claude project/Custom Instructions.md>) | No-command, no-keyword fallback to the Interactive question |
-| [Interactive Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Interactive Mode - v0.700.md>) | Comprehensive question, wait and state rules |
-| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | CLEAR gate applied after the user answers |
+| [Interactive Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Interactive Mode.md>) | Comprehensive question, wait and state rules |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation.md>) | CLEAR gate applied after the user answers |
 
 ---
 

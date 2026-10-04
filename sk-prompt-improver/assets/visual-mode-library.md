@@ -1,8 +1,7 @@
 ---
 title: "Visual Mode Library"
 description: "Reusable visual UI vocabulary, transformation tables, platform templates and refinement examples."
-version: "0.110"
-contextType: asset
+contextType: general
 importance_tier: normal
 trigger_phrases:
   - "$vibe assets"
@@ -10,9 +9,10 @@ trigger_phrases:
   - "MagicPath templates"
   - "UI transformation examples"
   - "design refinement templates"
+version: 1.5.0.4
 ---
 
-# Visual Mode Library - v0.110
+# Visual Mode Library
 
 Reusable visual UI vocabulary, transformation tables, platform templates, MagicPath examples and refinement templates for design prompts.
 

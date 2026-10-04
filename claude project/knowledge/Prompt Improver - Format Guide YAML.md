@@ -1,4 +1,4 @@
-# Prompt Improver - Format Guide YAML - v0.142
+# Prompt Improver - Format Guide YAML
 
 Formatting guide for YAML output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

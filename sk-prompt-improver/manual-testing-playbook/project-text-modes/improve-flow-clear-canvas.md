@@ -85,8 +85,8 @@ Turn transcripts, the CLEAR score line with gate status, the Artifact panel stat
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [Custom Instructions](<../../../claude project/Custom Instructions.md>) | Semantic routing, Standard energy and the Delivery Protocol |
-| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | CLEAR rubric, floors and repair rules |
-| [Format Guide Markdown knowledge](<../../../claude project/knowledge/Prompt Improver - Format Guide Markdown - v0.141.md>) | Markdown deliverable rules |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation.md>) | CLEAR rubric, floors and repair rules |
+| [Format Guide Markdown knowledge](<../../../claude project/knowledge/Prompt Improver - Format Guide Markdown.md>) | Markdown deliverable rules |
 
 ---
 

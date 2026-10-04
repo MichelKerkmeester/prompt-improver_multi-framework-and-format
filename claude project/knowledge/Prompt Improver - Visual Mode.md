@@ -1,4 +1,4 @@
-# Prompt Improver - Visual Mode - v0.301
+# Prompt Improver - Visual Mode
 
 Grounding-first, anti-default Visual UI Concepting Mode that transforms technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev). Subject-grounding runs before any aesthetic choice, and every output deviates from a named default.
 
@@ -548,7 +548,7 @@ stunning, gorgeous, sleek, cutting-edge
 
 ### Reusable Vocabulary and Transformation Material
 
-Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
+Templates: see `Prompt Improver - Assets - Visual Mode Library`
 
 ---
 
@@ -702,7 +702,7 @@ Transform observations into evocative language. DO NOT estimate pixels or guess 
 
 ## 8. VISUAL STYLE KEYWORDS
 
-Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
+Templates: see `Prompt Improver - Assets - Visual Mode Library`
 
 ---
 
@@ -757,7 +757,7 @@ Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
 
 ### Platform-Specific Templates
 
-Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
+Templates: see `Prompt Improver - Assets - Visual Mode Library`
 
 
 ### Platform Anti-Patterns
@@ -889,7 +889,7 @@ component_library_question:
 
 ### MagicPath Prompt Templates
 
-Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
+Templates: see `Prompt Improver - Assets - Visual Mode Library`
 
 ---
 
@@ -898,7 +898,7 @@ Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
 
 ## 11. ITERATIVE REFINEMENT FLOW
 
-Templates: see `Prompt Improver - Assets - Visual Mode Library - v0.110`
+Templates: see `Prompt Improver - Assets - Visual Mode Library`
 
 
 ### Iteration Best Practices

@@ -1,4 +1,4 @@
-# Prompt Improver - Assets - Framework Pattern Library - v0.100
+# Prompt Improver - Assets - Framework Pattern Library
 
 Framework matrix, deep dives, advanced combinations and optimization strategies for prompt framework selection.
 
@@ -12,7 +12,7 @@ Provide the complete framework lookup set (RCAF, COSTAR, RACE, CIDI, TIDD-EC, CR
 
 ### Usage
 
-Use when choosing or switching frameworks, combining frameworks or optimizing an existing framework choice. Apply the matrix first, then the deep dive for the selected framework. The evaluation methodology that reads this library stays in `Prompt Improver - Patterns and Evaluation - v0.212`.
+Use when choosing or switching frameworks, combining frameworks or optimizing an existing framework choice. Apply the matrix first, then the deep dive for the selected framework. The evaluation methodology that reads this library stays in `Prompt Improver - Patterns and Evaluation`.
 
 ---
 

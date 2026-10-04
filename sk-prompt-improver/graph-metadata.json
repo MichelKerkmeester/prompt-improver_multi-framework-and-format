@@ -1,8 +1,9 @@
 {
   "schema_version": 2,
-  "skill_id": "prompt-improver",
-  "family": "prompt-engineering",
+  "skill_id": "sk-prompt-improver",
+  "family": "sk-util",
   "category": "prompt-authoring-and-refinement",
+  "deprecated": false,
   "edges": {
     "depends_on": [],
     "enhances": [],
@@ -15,18 +16,11 @@
       {
         "target": "sk-doc",
         "weight": 0.2,
-        "context": "documentation-authoring peer for packaging and export conventions; sk-doc owns OpenCode component and general doc authoring, prompt-improver owns AI prompt refinement"
+        "context": "documentation-authoring peer for packaging and export conventions; sk-doc owns OpenCode component and general doc authoring, sk-prompt-improver owns AI prompt refinement"
       }
     ],
     "conflicts_with": [],
     "prerequisite_for": []
-  },
-  "manual": {
-    "depends_on": [],
-    "related_to": [
-      "sk-prompt",
-      "sk-doc"
-    ]
   },
   "domains": [
     "prompt-engineering",
@@ -109,7 +103,7 @@
     ],
     "entities": [
       {
-        "name": "prompt-improver",
+        "name": "sk-prompt-improver",
         "kind": "skill",
         "path": "sk-prompt-improver/SKILL.md",
         "source": "derived"
@@ -154,6 +148,7 @@
     "causal_summary": "Standalone Prompt Improver skill for Barter that turns vague or underpowered requests into reliable AI prompts. It routes every request into one of ten intents (Raw, Text, Improve, Refine, Short, Deep, Visual, MagicPath, Image, Video) plus an Interactive fallback through keyword-weighted intent scoring and a confidence floor, applies DEPTH at the detected energy level, selects a framework or scoring system (CLEAR, EVOKE or VISUAL) matched to the target medium, and exports a verified prompt file before responding. It matters because it is the one discoverable identity for Barter prompt-engineering work, keeping the prompt-writing task distinct from the downstream work the produced prompt asks another AI to perform.",
     "source_docs": [
       "SKILL.md",
+      "leaf-manifest.config.json",
       "references/depth-framework.md",
       "references/interactive-mode.md",
       "references/patterns-evaluation.md",
@@ -162,6 +157,6 @@
       "references/video-mode.md"
     ],
     "created_at": "2026-07-16T00:00:00Z",
-    "last_updated_at": "2026-07-16T00:00:00Z"
+    "last_updated_at": "2026-10-03T00:00:00Z"
   }
 }

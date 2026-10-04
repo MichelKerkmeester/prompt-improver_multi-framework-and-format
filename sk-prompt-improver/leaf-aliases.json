@@ -1,0 +1,457 @@
+[
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/format-guide-json.md",
+    "diskPath": "assets/format-guide-json.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/format-guide-markdown.md",
+    "diskPath": "assets/format-guide-markdown.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/format-guide-yaml.md",
+    "diskPath": "assets/format-guide-yaml.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/framework-pattern-library.md",
+    "diskPath": "assets/framework-pattern-library.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/image-mode-library.md",
+    "diskPath": "assets/image-mode-library.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/video-mode-library.md",
+    "diskPath": "assets/video-mode-library.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "assets/visual-mode-library.md",
+    "diskPath": "assets/visual-mode-library.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-creative-modes/image-mode-visual-canvas.md",
+    "diskPath": "manual-testing-playbook/project-creative-modes/image-mode-visual-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-creative-modes/vibe-mode-evoke-canvas.md",
+    "diskPath": "manual-testing-playbook/project-creative-modes/vibe-mode-evoke-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-creative-modes/video-mode-visual-canvas.md",
+    "diskPath": "manual-testing-playbook/project-creative-modes/video-mode-visual-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-format-modes/json-format-lock-canvas.md",
+    "diskPath": "manual-testing-playbook/project-format-modes/json-format-lock-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-format-modes/markdown-format-lock-canvas.md",
+    "diskPath": "manual-testing-playbook/project-format-modes/markdown-format-lock-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-format-modes/yaml-format-lock-canvas.md",
+    "diskPath": "manual-testing-playbook/project-format-modes/yaml-format-lock-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/cidi-complex-lithium-customs-instruction-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/cidi-complex-lithium-customs-instruction-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/cidi-high-developer-setup-guide-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/cidi-high-developer-setup-guide-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/cidi-medium-credit-note-procedure-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/cidi-medium-credit-note-procedure-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/costar-complex-clinic-outage-messages-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/costar-high-hybrid-work-announcement-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/costar-high-hybrid-work-announcement-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/costar-medium-school-newsletter-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/costar-medium-school-newsletter-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/craft-complex-wms-go-live-plan-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/craft-high-mailbox-migration-plan-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/craft-medium-customer-workshop-plan-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/crispe-complex-market-expansion-scenarios-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/crispe-complex-market-expansion-scenarios-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/crispe-high-driver-retention-experiments-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/crispe-high-driver-retention-experiments-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/crispe-medium-oat-milk-positioning-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/crispe-medium-oat-milk-positioning-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/frame-low-gravel-cycling-hero-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/frame-low-gravel-cycling-hero-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/frame-medium-library-science-poster-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/frame-medium-library-science-poster-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/motion-low-flower-auction-opening-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/motion-low-flower-auction-opening-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/motion-low-potter-wheel-reel-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/motion-low-potter-wheel-reel-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/rcaf-complex-incident-postmortem-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/rcaf-high-expense-claim-review-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/rcaf-high-expense-claim-review-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/rcaf-medium-warehouse-handover-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/rcaf-medium-warehouse-handover-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/tidd-ec-complex-aml-alert-narrative-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/tidd-ec-high-health-claims-checker-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/tidd-ec-high-health-claims-checker-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/tidd-ec-medium-legal-intake-note-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/tidd-ec-medium-legal-intake-note-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/vibe-medium-returns-inspection-screen-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/vibe-medium-returns-inspection-screen-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-canvas.md",
+    "diskPath": "manual-testing-playbook/project-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-identity/identity-handover.md",
+    "diskPath": "manual-testing-playbook/project-identity/identity-handover.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-interactive-routing/conflicting-commands-clarification.md",
+    "diskPath": "manual-testing-playbook/project-interactive-routing/conflicting-commands-clarification.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-interactive-routing/no-signal-comprehensive-question.md",
+    "diskPath": "manual-testing-playbook/project-interactive-routing/no-signal-comprehensive-question.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-safety-boundaries/non-prompt-scope-refusal.md",
+    "diskPath": "manual-testing-playbook/project-safety-boundaries/non-prompt-scope-refusal.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-text-modes/deep-system-prompt-clear-canvas.md",
+    "diskPath": "manual-testing-playbook/project-text-modes/deep-system-prompt-clear-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-text-modes/improve-flow-clear-canvas.md",
+    "diskPath": "manual-testing-playbook/project-text-modes/improve-flow-clear-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-text-modes/raw-cleanup-no-scoring-canvas.md",
+    "diskPath": "manual-testing-playbook/project-text-modes/raw-cleanup-no-scoring-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-text-modes/refine-existing-prompt-canvas.md",
+    "diskPath": "manual-testing-playbook/project-text-modes/refine-existing-prompt-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/project-text-modes/short-quick-enhancement-canvas.md",
+    "diskPath": "manual-testing-playbook/project-text-modes/short-quick-enhancement-canvas.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-creative-modes/image-mode-visual-export.md",
+    "diskPath": "manual-testing-playbook/skill-creative-modes/image-mode-visual-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-creative-modes/vibe-mode-evoke-export.md",
+    "diskPath": "manual-testing-playbook/skill-creative-modes/vibe-mode-evoke-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-creative-modes/video-mode-visual-export.md",
+    "diskPath": "manual-testing-playbook/skill-creative-modes/video-mode-visual-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-format-modes/json-format-lock-export.md",
+    "diskPath": "manual-testing-playbook/skill-format-modes/json-format-lock-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-format-modes/markdown-format-lock-export.md",
+    "diskPath": "manual-testing-playbook/skill-format-modes/markdown-format-lock-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-format-modes/yaml-format-lock-export.md",
+    "diskPath": "manual-testing-playbook/skill-format-modes/yaml-format-lock-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/cidi-complex-lithium-customs-instruction-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/cidi-high-developer-setup-guide-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/cidi-high-developer-setup-guide-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/cidi-medium-credit-note-procedure-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/cidi-medium-credit-note-procedure-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/costar-complex-clinic-outage-messages-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/costar-complex-clinic-outage-messages-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/costar-high-hybrid-work-announcement-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/costar-high-hybrid-work-announcement-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/costar-medium-school-newsletter-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/costar-medium-school-newsletter-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/craft-complex-wms-go-live-plan-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/craft-complex-wms-go-live-plan-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/craft-high-mailbox-migration-plan-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/craft-high-mailbox-migration-plan-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/craft-medium-customer-workshop-plan-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/craft-medium-customer-workshop-plan-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/crispe-complex-market-expansion-scenarios-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/crispe-high-driver-retention-experiments-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/crispe-high-driver-retention-experiments-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/crispe-medium-oat-milk-positioning-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/crispe-medium-oat-milk-positioning-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/frame-low-gravel-cycling-hero-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/frame-low-gravel-cycling-hero-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/frame-medium-library-science-poster-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/frame-medium-library-science-poster-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/motion-low-flower-auction-opening-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/motion-low-flower-auction-opening-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/motion-low-potter-wheel-reel-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/motion-low-potter-wheel-reel-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/rcaf-complex-incident-postmortem-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/rcaf-complex-incident-postmortem-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/rcaf-high-expense-claim-review-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/rcaf-high-expense-claim-review-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/rcaf-medium-warehouse-handover-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/rcaf-medium-warehouse-handover-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/tidd-ec-complex-aml-alert-narrative-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/tidd-ec-complex-aml-alert-narrative-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/tidd-ec-high-health-claims-checker-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/tidd-ec-medium-legal-intake-note-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/vibe-medium-returns-inspection-screen-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/vibe-medium-returns-inspection-screen-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-export.md",
+    "diskPath": "manual-testing-playbook/skill-framework-coverage/vibe-mp-high-ebike-theft-claim-flow-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-identity/identity-handover.md",
+    "diskPath": "manual-testing-playbook/skill-identity/identity-handover.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-interactive-routing/conflicting-commands-clarification.md",
+    "diskPath": "manual-testing-playbook/skill-interactive-routing/conflicting-commands-clarification.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-interactive-routing/no-signal-comprehensive-question.md",
+    "diskPath": "manual-testing-playbook/skill-interactive-routing/no-signal-comprehensive-question.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-safety-boundaries/non-prompt-scope-refusal.md",
+    "diskPath": "manual-testing-playbook/skill-safety-boundaries/non-prompt-scope-refusal.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-text-modes/deep-system-prompt-clear-export.md",
+    "diskPath": "manual-testing-playbook/skill-text-modes/deep-system-prompt-clear-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-text-modes/improve-flow-clear-export.md",
+    "diskPath": "manual-testing-playbook/skill-text-modes/improve-flow-clear-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-text-modes/raw-cleanup-no-scoring-export.md",
+    "diskPath": "manual-testing-playbook/skill-text-modes/raw-cleanup-no-scoring-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-text-modes/refine-existing-prompt-export.md",
+    "diskPath": "manual-testing-playbook/skill-text-modes/refine-existing-prompt-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "manual-testing-playbook/skill-text-modes/short-quick-enhancement-export.md",
+    "diskPath": "manual-testing-playbook/skill-text-modes/short-quick-enhancement-export.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/depth-framework.md",
+    "diskPath": "references/depth-framework.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/image-mode.md",
+    "diskPath": "references/image-mode.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/interactive-mode.md",
+    "diskPath": "references/interactive-mode.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/patterns-evaluation.md",
+    "diskPath": "references/patterns-evaluation.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/video-mode.md",
+    "diskPath": "references/video-mode.md"
+  },
+  {
+    "workflowMode": "sk-prompt-improver",
+    "leafResourceId": "references/visual-mode.md",
+    "diskPath": "references/visual-mode.md"
+  }
+]

@@ -1,8 +1,7 @@
 ---
 title: "Video Mode Library"
 description: "Reusable video platform syntax, mental models, temporal banks, examples and refinement templates."
-version: "0.101"
-contextType: asset
+contextType: general
 importance_tier: normal
 trigger_phrases:
   - "$video assets"
@@ -10,9 +9,10 @@ trigger_phrases:
   - "MOTION examples"
   - "temporal consistency"
   - "video refinement templates"
+version: 1.5.0.14
 ---
 
-# Video Mode Library - v0.101
+# Video Mode Library
 
 Reusable video platform syntax, mental models, temporal guidance, examples, refinement templates and quick lookups for video prompts.
 

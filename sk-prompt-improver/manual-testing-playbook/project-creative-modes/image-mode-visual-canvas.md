@@ -85,9 +85,9 @@ Turn transcripts, the VISUAL score line with gate status, the Artifact panel sta
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [Custom Instructions](<../../../claude project/Custom Instructions.md>) | Image lane binding, scorer map, follow-up rule and the Delivery Protocol |
-| [Image Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Image Mode - v0.123.md>) | FRAME workflow and image platform routing |
-| [Image Mode Library knowledge](<../../../claude project/knowledge/Prompt Improver - Assets - Image Mode Library - v0.101.md>) | Platform syntax and FRAME banks |
-| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation - v0.212.md>) | VISUAL image rubric and threshold |
+| [Image Mode knowledge](<../../../claude project/knowledge/Prompt Improver - Image Mode.md>) | FRAME workflow and image platform routing |
+| [Image Mode Library knowledge](<../../../claude project/knowledge/Prompt Improver - Assets - Image Mode Library.md>) | Platform syntax and FRAME banks |
+| [Patterns and Evaluation knowledge](<../../../claude project/knowledge/Prompt Improver - Patterns and Evaluation.md>) | VISUAL image rubric and threshold |
 
 ---
 

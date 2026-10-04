@@ -1,8 +1,8 @@
 ---
-name: prompt-improver
+name: sk-prompt-improver
 description: "Prompt Improver refines text, JSON, YAML, markdown, visual UI, image and video prompts with mode-specific gates."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.5.4
+version: 1.5.4.0
 ---
 
 <!-- Keywords: prompt improver, prompt engineering, improve prompt, refine prompt, RCAF, COSTAR, DEPTH, CLEAR scoring, EVOKE scoring, VISUAL scoring, VIBE, FRAME, MOTION, JSON prompt, YAML prompt, markdown prompt, image prompt, video prompt, MagicPath, export-first -->

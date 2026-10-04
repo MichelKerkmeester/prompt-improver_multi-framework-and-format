@@ -1,17 +1,17 @@
 ---
 title: "Format Guide JSON"
 description: "JSON output structure, schema guidance and syntax rules for prompt deliverables."
-version: "0.142"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "$json format"
   - "JSON prompt output"
   - "API-ready prompt"
   - "valid JSON delivery"
+version: 1.5.0.18
 ---
 
-# Prompt - Asset - Format Guide JSON - v0.142
+# Prompt - Asset - Format Guide JSON
 
 Formatting guide for JSON output structure in prompt engineering with RCAF/CRAFT frameworks, file delivery standards, syntax validation, and format-specific best practices.
 

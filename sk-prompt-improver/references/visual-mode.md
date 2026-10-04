@@ -1,18 +1,18 @@
 ---
 title: "Visual Mode"
 description: "Grounding-first, anti-default Visual UI concepting with VIBE framework, EVOKE scoring, and design-tool routing."
-version: "0.301"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "$vibe visual mode"
   - "MagicPath UI prompts"
   - "VIBE framework"
   - "EVOKE scoring"
   - "design tool routing"
+version: 1.5.0.16
 ---
 
-# Prompt - Templates - Visual Mode - v0.301
+# Prompt - Templates - Visual Mode
 
 Grounding-first, anti-default Visual UI Concepting Mode that transforms technical specifications into evocative, inspiration-based prompts optimized for AI design tools (MagicPath.ai, Lovable, Aura, Bolt, v0.dev). Subject-grounding runs before any aesthetic choice; every output deviates from a named default.
 

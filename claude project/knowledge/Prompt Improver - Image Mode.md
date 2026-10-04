@@ -1,4 +1,4 @@
-# Prompt Improver - Image Mode - v0.123
+# Prompt Improver - Image Mode
 
 Specialized mode for optimizing prompts for AI image generators including Flux 2 Pro, Google Imagen 4 (Nano Banana Pro), Runway, Midjourney, DALL-E 3, Stable Diffusion, Seedream, Leonardo, and Ideogram.
 
@@ -69,7 +69,7 @@ The kernel points here for the negative-prompt prohibition:
 
 ---
 
-Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Image Mode Library`
 
 ---
 
@@ -187,7 +187,7 @@ frame_process:
 
 ### Platform-Specific Syntax
 
-Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Image Mode Library`
 
 ---
 
@@ -436,7 +436,7 @@ vague_to_specific:
 
 ## 10. TRANSFORMATION EXAMPLES
 
-Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Image Mode Library`
 
 ---
 
@@ -445,7 +445,7 @@ Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
 
 ### Post-Delivery Question (MANDATORY)
 
-Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Image Mode Library`
 
 
 ### Iteration Best Practices
@@ -487,7 +487,7 @@ Need another image prompt? Just share your next concept.
 
 ## 12. QUICK REFERENCE
 
-Templates: see `Prompt Improver - Assets - Image Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Image Mode Library`
 
 
 ---

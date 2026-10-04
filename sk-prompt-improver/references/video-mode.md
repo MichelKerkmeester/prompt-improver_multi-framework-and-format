@@ -1,18 +1,18 @@
 ---
 title: "Video Mode"
 description: "MOTION framework, temporal consistency and platform guidance for video generators."
-version: "0.123"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "$video video prompts"
   - "MOTION framework"
   - "VISUAL video scoring"
   - "video platform routing"
   - "Runway Sora Kling Veo"
+version: 1.5.0.16
 ---
 
-# Prompt - Templates - Video Mode - v0.123
+# Prompt - Templates - Video Mode
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 

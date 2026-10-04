@@ -1,4 +1,4 @@
-# Prompt Improver - Video Mode - v0.123
+# Prompt Improver - Video Mode
 
 Specialized mode for optimizing prompts for AI video generators including Runway Gen-4/4.5, Sora, Kling 2.5/2.6, Veo 3.1+, Pika 2.5, Luma Ray3, Minimax, Seedance, OmniHuman, and Wan 2.1.
 
@@ -147,21 +147,21 @@ motion_process:
 
 ## 5. PLATFORM OPTIMIZATION
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 ---
 
 
 ## 6. PLATFORM MENTAL MODELS
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 ---
 
 
 ## 7. TEMPORAL CONSISTENCY
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 ---
 
@@ -248,7 +248,7 @@ static_to_dynamic:
 
 ## 11. TRANSFORMATION EXAMPLES
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 ---
 
@@ -257,7 +257,7 @@ Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
 
 ### Post-Delivery Question (MANDATORY)
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 
 ### Iteration Best Practices
@@ -310,7 +310,7 @@ Need another video prompt? Just share your next concept.
 
 ## 13. QUICK REFERENCE
 
-Templates: see `Prompt Improver - Assets - Video Mode Library - v0.101`
+Templates: see `Prompt Improver - Assets - Video Mode Library`
 
 
 ---
