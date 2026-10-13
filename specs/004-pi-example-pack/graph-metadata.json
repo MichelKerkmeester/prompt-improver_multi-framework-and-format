@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "packet_id": "004-pi-example-pack",
+  "spec_folder": "004-pi-example-pack",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver example pack",
+      "pi benchmark exports quality",
+      "prompt improver playbook extension",
+      "pi example pack plan",
+      "prompt improver playbook extension plan",
+      "task breakdown",
+      "pi example pack tasks",
+      "verification checklist",
+      "acceptance criteria",
+      "closure gate",
+      "ac traceability",
+      "waiver adr"
+    ],
+    "key_topics": [
+      "prompt",
+      "improver",
+      "example",
+      "pack",
+      "benchmark",
+      "exports",
+      "quality",
+      "playbook",
+      "extension",
+      "plan",
+      "task",
+      "breakdown"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md",
+      "sk-prompt-improver/manual-testing-playbook/manual-testing-playbook.md",
+      "scratch/shared-brief.md",
+      "scratch/framework-brief.md",
+      "scratch/framework-brief.json",
+      "scratch/review-framework-structure.md",
+      "benchmark/reports/2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md",
+      "benchmark/reports/2026-09-25--manual-testing-playbook--claude-sonnet-5-medium/README.md",
+      "scratch/check_framework_headers.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "shared-brief.md",
+        "kind": "doc",
+        "path": "scratch/shared-brief.md",
+        "source": "derived"
+      },
+      {
+        "name": "framework-brief.md",
+        "kind": "doc",
+        "path": "scratch/framework-brief.md",
+        "source": "derived"
+      },
+      {
+        "name": "framework-brief.json",
+        "kind": "config",
+        "path": "scratch/framework-brief.json",
+        "source": "derived"
+      },
+      {
+        "name": "review-framework-structure.md",
+        "kind": "doc",
+        "path": "scratch/review-framework-structure.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/reports/2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "check_framework_headers.py",
+        "kind": "file",
+        "path": "scratch/check_framework_headers.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "File Path",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Change Type",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parallel Opus",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Seven Opus",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "`export/benchmark/` in the Prompt Improver repo is the page a reader opens to see what the system writes, yet it holds only 14 Markdown and 4 JSON prompts from seven scenario pairs, covering `$text`, one `$image` and `$json`",
+    "created_at": "2026-09-26T19:06:12Z",
+    "last_save_at": "2026-10-13T12:53:23.971Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:c736a53e283238cb1b8f98a165bdec02fb850a70da989fc4a278741d2a24289c",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "17177b272572287f3c33e2a4eb0e6518478a2e54f29818faacd8ee5a1fa87a2b",
+      "plan.md": "c6025e53e36c6389f25438ebf61dc7480fe355fdcae8c403a50c586bcfa21180",
+      "tasks.md": "05a32b871a4709f22247248ffb76c329bc312b99226dba1e8d9d758ffa789eab",
+      "decision-record.md": "69d35c227b0e9ac4d9fb32f7530c052f77a17a6749282865078fff322938a19d",
+      "implementation-summary.md": "c445442bd2b24bd16163ff058eb71e454397cd2b9a785d50d1e2b2af1e0ec2a1"
+    },
+    "last_active_at": null
+  }
+}

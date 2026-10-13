@@ -1,0 +1,27 @@
+{
+  "level": "3",
+  "specFolder": "001-prompt-improver-interface-design",
+  "description": "Visual Mode offers eight named Design Directions (Precision & Density, Warmth & Approachability, …) that the model auto-selects from — structurally",
+  "keywords": [
+    "visual",
+    "mode",
+    "offers",
+    "eight",
+    "named",
+    "design",
+    "directions",
+    "precision",
+    "density",
+    "warmth",
+    "approachability",
+    "model",
+    "auto-selects",
+    "structurally"
+  ],
+  "lastUpdated": "2026-07-09T10:02:44.014Z",
+  "specId": "001",
+  "folderSlug": "prompt-improver-interface-design",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

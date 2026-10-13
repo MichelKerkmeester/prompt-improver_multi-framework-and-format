@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "packet_id": "001-prompt-improver-interface-design",
+  "spec_folder": "001-prompt-improver-interface-design",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "visual mode interface design reconciliation",
+      "prompt improver anti-default",
+      "vibe evoke grounding",
+      "design generation patterns alignment",
+      "pick-a-vibe menu removal",
+      "visual mode reconciliation plan",
+      "deepseek visual mode implementation",
+      "evoke anti-default fold plan",
+      "visual mode reconciliation tasks",
+      "vibe evoke reconciliation task list",
+      "visual mode reconciliation decision",
+      "evoke anti-default adr"
+    ],
+    "key_topics": [
+      "visual",
+      "mode",
+      "interface",
+      "design",
+      "reconciliation",
+      "prompt",
+      "improver",
+      "anti-default",
+      "vibe",
+      "evoke",
+      "grounding",
+      "generation"
+    ],
+    "importance_tier": "high",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "decision-record.md",
+      "implementation-summary.md",
+      "checklist.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "checklist.md",
+        "kind": "doc",
+        "path": "checklist.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver Visual Mode Interface",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Design Reconciliation",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Visual Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decision Record",
+        "kind": "proper_noun",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "Reconcile Visual Mode",
+        "kind": "proper_noun",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "Context Visual Mode",
+        "kind": "proper_noun",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Summary",
+        "kind": "proper_noun",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Spec Folder",
+        "kind": "proper_noun",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Visual Mode offers eight named Design Directions (Precision & Density, Warmth & Approachability, …) that the model auto-selects from — structurally identical to the \"pick-a-vibe menu\" that `designgenerationpatterns.md` §3 and `realuiloop.md` §8 forbid (\"If the option set could be reused across briefs unchanged, it has become a preset and must not ship\")",
+    "created_at": "2026-06-21T07:18:00.757Z",
+    "last_save_at": "2026-10-13T11:10:05.593Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "decision-record.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:1d7ee27e117265ad5d7f3404a89edae27bfcfbf5c704a064b19bc39a8fee9b21",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "7e27ef16488131ed0da3d4c41ede43613579ebddccd05e775ad1b14bca37e47a",
+      "plan.md": "fa1506fe7d3249dd3396b96fc884ae025fd08475ee92a3428d88d86263ceba16",
+      "tasks.md": "cfee1b5d14ef3d85b569d7c753020101e3aa161dcbdfd887435944b5005bb83b",
+      "decision-record.md": "c26af4714088e7b3ef5e22f9cfb6dfd7cb0d9689ddbe77e8ea6d4985f02a0efc",
+      "implementation-summary.md": "a67444216f0c898c47e3df2c01f0a5f36ccfad052ba03c16a098a8a4b5271d8d"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

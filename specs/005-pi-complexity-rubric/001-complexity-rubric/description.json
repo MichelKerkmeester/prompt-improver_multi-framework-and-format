@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "005-pi-complexity-rubric/001-complexity-rubric",
+  "description": "The skill rates a prompt's complexity 1 to 10 under the constraint \"Do not add unrequested complexity\" (`references/depth-framework.md` lines 125 to",
+  "keywords": [
+    "skill",
+    "rates",
+    "prompt",
+    "complexity",
+    "constraint",
+    "unrequested",
+    "references",
+    "depth-framework",
+    "lines"
+  ],
+  "lastUpdated": "2026-10-13T12:53:21.309Z",
+  "specId": "001",
+  "folderSlug": "complexity-rubric",
+  "parentChain": [
+    "005-pi-complexity-rubric"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

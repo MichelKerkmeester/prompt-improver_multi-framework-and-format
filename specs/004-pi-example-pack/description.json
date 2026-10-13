@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "004-pi-example-pack",
+  "description": "`export/benchmark/` in the Prompt Improver repo is the page a reader opens to see what the system writes, yet it holds only 14 Markdown and 4 JSON",
+  "keywords": [
+    "export",
+    "benchmark",
+    "prompt",
+    "improver",
+    "repo",
+    "page",
+    "reader",
+    "opens",
+    "see",
+    "system",
+    "writes",
+    "holds",
+    "only",
+    "markdown",
+    "json"
+  ],
+  "lastUpdated": "2026-10-13T12:53:21.304Z",
+  "specId": "004",
+  "folderSlug": "pi-example-pack",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

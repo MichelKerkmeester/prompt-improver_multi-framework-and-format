@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "packet_id": "003-prompt-improver-public-repo",
+  "spec_folder": "003-prompt-improver-public-repo",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver public repo",
+      "prompt-improver_multi-framework-and-format",
+      "front-page readme",
+      "export gitignore",
+      "prompt improver public repo plan",
+      "front-page readme plan",
+      "first push plan",
+      "prompt improver public repo tasks",
+      "first push checklist",
+      "acceptance criteria",
+      "prompt improver public repo closure",
+      "implementation summary"
+    ],
+    "key_topics": [
+      "prompt",
+      "improver",
+      "public",
+      "repo",
+      "framework-and-format",
+      "front-page",
+      "readme",
+      "export",
+      "gitignore",
+      "plan",
+      "first",
+      "push"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-prompt-improver/README.md",
+      "benchmark/gates/rule_parity.py",
+      "claude project/Custom Instructions.md",
+      "export/.gitkeep",
+      "benchmark/router/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "rule_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/rule_parity.py",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": ".gitkeep",
+        "kind": "file",
+        "path": "export/.gitkeep",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/router/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Publish Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Other",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Conventional Commit",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "`AI Systems/Prompt Improver/` now holds its own `.git` with a public GitHub remote, and its only commit is the GitHub-generated `LICENSE`",
+    "created_at": "2026-09-24T07:58:21Z",
+    "last_save_at": "2026-10-13T12:53:23.930Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:db2d16beaf7a1251faeb772a2bcb144806611b3c08014e22a4347118eaf70c64",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "153fccea5025931ca0eb482f493c432622724988596b8d759ae189a011e7ca9b",
+      "plan.md": "0e6f3205b1510cfb9407559c87cc05a98f80be6e2f4652217573a77965bbae81",
+      "tasks.md": "cf14ff10c9350f04177c2c328d42ecb13f97999b17f8718b275a714866bb55b8",
+      "implementation-summary.md": "e496b44e49454f76eb9b0398c8c1a2381476ea4d59ca27788ebcca013e93c2ac"
+    },
+    "last_active_at": null
+  }
+}

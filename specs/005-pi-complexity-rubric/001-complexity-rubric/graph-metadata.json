@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "packet_id": "005-pi-complexity-rubric/001-complexity-rubric",
+  "spec_folder": "005-pi-complexity-rubric/001-complexity-rubric",
+  "parent_id": "005-pi-complexity-rubric",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver complexity rubric",
+      "complexity rating 9 or 10",
+      "vibe scenarios accept prose",
+      "pi complexity rubric plan",
+      "complexity rubric rerun plan",
+      "pi complexity rubric tasks",
+      "complexity rubric rerun tasks",
+      "acceptance criteria",
+      "closure gate",
+      "ac traceability",
+      "waiver adr",
+      "implementation summary"
+    ],
+    "key_topics": [
+      "prompt",
+      "improver",
+      "complexity",
+      "rubric",
+      "rating",
+      "vibe",
+      "scenarios",
+      "accept",
+      "prose",
+      "plan",
+      "rerun",
+      "tasks"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-prompt-improver/references/depth-framework.md",
+      "sk-prompt-improver/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md",
+      "benchmark/reports/2026-09-26--framework-coverage--claude-sonnet-5-xhigh/README.md",
+      "sk-prompt-improver/changelog/v0.6.0.0.md",
+      "scratch/rubric-recount.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "depth-framework.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/references/depth-framework.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "v0.6.0.0.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/changelog/v0.6.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "rubric-recount.md",
+        "kind": "doc",
+        "path": "scratch/rubric-recount.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Complexity Assessment",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Complexity Rubric",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The skill rates a prompt's complexity 1 to 10 under the constraint \"Do not add unrequested complexity\" (`references/depth-framework.md` lines 125 to 127) and labels it Low, Medium or High, but no rule says what earns a 9 or a 10",
+    "created_at": "2026-09-27T05:35:23Z",
+    "last_save_at": "2026-10-13T12:53:23.940Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:c01a867b40c17ad6da00787d2ec8333aafff0f3957f65b3c266cd65b012db1e2",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "3844ce6c1c9000dd6783c8c35b53021bdda33084b21a18654f08fb6732f79642",
+      "plan.md": "0442ba33a1df38e8dfe482583cfbfcb56b1384d2cdd26249a03d721573998a84",
+      "tasks.md": "d124927d91f1382d5e4f773f49fd4e58239045d13d5f6fcfab3586a175833191",
+      "implementation-summary.md": "f22f2473db06a4b084f6fc700f5234792d7c0d7f6a57a5bcb962fa74085bcc58"
+    },
+    "last_active_at": null
+  }
+}

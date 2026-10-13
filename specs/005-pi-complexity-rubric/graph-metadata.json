@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "packet_id": "005-pi-complexity-rubric",
+  "spec_folder": "005-pi-complexity-rubric",
+  "parent_id": null,
+  "children_ids": [
+    "005-pi-complexity-rubric/001-complexity-rubric",
+    "005-pi-complexity-rubric/002-header-separator"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver complexity rubric",
+      "prompt improver export layout",
+      "prompt improver header separator"
+    ],
+    "key_topics": [
+      "prompt",
+      "improver",
+      "complexity",
+      "rubric",
+      "export",
+      "layout",
+      "header",
+      "separator",
+      "deliverables",
+      "carry",
+      "two",
+      "things"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Prompt Improver's deliverables carry two things a reader has to tell apart: a header line that reports the mode, the complexity and the framework, and the prompt the user will paste",
+    "created_at": "2026-09-27T11:46:44Z",
+    "last_save_at": "2026-10-13T11:41:46.504Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:88fe5847cc7de9f43b808fb03ce2e4e6c41309906e6486a47d987007f1046e5e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "2de78ed64b351b0bbbc733a389e18794c89206eb88c876f8088a42a7007fb1d8"
+    },
+    "last_active_at": null
+  }
+}

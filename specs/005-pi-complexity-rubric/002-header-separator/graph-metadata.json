@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "packet_id": "005-pi-complexity-rubric/002-header-separator",
+  "spec_folder": "005-pi-complexity-rubric/002-header-separator",
+  "parent_id": "005-pi-complexity-rubric",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "prompt improver header divider",
+      "header separate from prompt",
+      "export header separator",
+      "header divider plan",
+      "prompt improver export layout plan",
+      "header divider tasks",
+      "prompt improver export layout tasks",
+      "acceptance criteria",
+      "closure gate",
+      "ac traceability",
+      "waiver adr",
+      "header divider summary"
+    ],
+    "key_topics": [
+      "prompt",
+      "improver",
+      "header",
+      "divider",
+      "separate",
+      "export",
+      "separator",
+      "plan",
+      "layout",
+      "tasks",
+      "acceptance",
+      "criteria"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-prompt-improver/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/grader/deliverable_lint.py",
+      "sk-prompt-improver/changelog/v0.6.2.0.md",
+      "sk-prompt-improver/README.md",
+      "claude project/README.md",
+      "benchmark/grader/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "deliverable_lint.py",
+        "kind": "file",
+        "path": "benchmark/grader/deliverable_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "v0.6.2.0.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/changelog/v0.6.2.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Deliverable Blocks",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Source",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Format Guide",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Every Prompt Improver deliverable opens with a header line such as `Mode: $image | Complexity: 3/10 | Framework: FRAME | Platform: Midjourney`, and the prompt follows after one blank line, or directly on the next line in two of the 66 benchmark exports",
+    "created_at": "2026-09-27T11:46:44Z",
+    "last_save_at": "2026-10-13T12:53:23.926Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:63d5768d9f07f95489fdedd9764d21362e52b9cfa9f3752274f88b6d7d4ae9e8",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "16126ea3d3d93ed7f6d5f82afbe7b6852b2215a462f904bf3c03b48cf5ae6149",
+      "plan.md": "52c34f9fbffef9637b88d3e2803232590ce706c8900a9d838e274cf85489d234",
+      "tasks.md": "9ef9ba68bb0116a87d5d0cdf268f1be2dfc8977cc831daecd56a021f678960aa",
+      "implementation-summary.md": "9a0fb856f225c6b88d844f8baf954bbba0926fa59170b1fb53a17ac125c0d615"
+    },
+    "last_active_at": null
+  }
+}

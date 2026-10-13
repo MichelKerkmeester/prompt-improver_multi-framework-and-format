@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "005-pi-complexity-rubric/002-header-separator",
+  "description": "Every Prompt Improver deliverable opens with a header line such as `Mode: $image | Complexity: 3/10 | Framework: FRAME | Platform: Midjourney`, and",
+  "keywords": [
+    "every",
+    "prompt",
+    "improver",
+    "deliverable",
+    "opens",
+    "header",
+    "line",
+    "mode",
+    "image",
+    "complexity",
+    "framework",
+    "frame",
+    "platform",
+    "midjourney"
+  ],
+  "lastUpdated": "2026-10-13T12:53:21.314Z",
+  "specId": "002",
+  "folderSlug": "header-separator",
+  "parentChain": [
+    "005-pi-complexity-rubric"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

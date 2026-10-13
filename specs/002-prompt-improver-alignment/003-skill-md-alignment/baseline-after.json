@@ -1,0 +1,741 @@
+[
+  {
+    "id": "01-raw-explicit",
+    "request": "$raw please just passthrough this exact text with no validation",
+    "outcome": {
+      "intents": [
+        "RAW"
+      ],
+      "intent_scores": {
+        "RAW": 18,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 5,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "02-text-explicit",
+    "request": "$text improve this prompt using RCAF",
+    "outcome": {
+      "intents": [
+        "TEXT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 20,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 4,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "03-improve-natural",
+    "request": "can you improve prompt wording to make better results",
+    "outcome": {
+      "intents": [
+        "IMPROVE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 10,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "04-refine-explicit",
+    "request": "$refine this draft, please optimize the wording and give feedback",
+    "outcome": {
+      "intents": [
+        "REFINE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 25,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "05-short-explicit",
+    "request": "$short make this more concise and quick",
+    "outcome": {
+      "intents": [
+        "SHORT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 20,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "06-deep-explicit",
+    "request": "$deep this is a complex, strategic, multi-step comprehensive system redesign",
+    "outcome": {
+      "intents": [
+        "DEEP"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 35,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "07-visual-vibe",
+    "request": "$vibe design a UI concept for a fintech dashboard in MagicPath style",
+    "outcome": {
+      "intents": [
+        "VISUAL"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 12,
+        "MAGICPATH": 7,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/visual-mode.md",
+        "assets/visual-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "08-magicpath-explicit",
+    "request": "build a magicpath multi-page flow for the onboarding user journey",
+    "outcome": {
+      "intents": [
+        "MAGICPATH"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 21,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/visual-mode.md",
+        "assets/visual-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "09-image-midjourney",
+    "request": "$image a photo prompt for midjourney of a sunset over mountains",
+    "outcome": {
+      "intents": [
+        "IMAGE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 5,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 18,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "10-video-runway",
+    "request": "$video create a runway motion clip of a car driving through rain",
+    "outcome": {
+      "intents": [
+        "VIDEO"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 6,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 30,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/video-mode.md",
+        "assets/video-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "11-format-json",
+    "request": "give me this as an api-ready json format prompt",
+    "outcome": {
+      "intents": [
+        "FORMAT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 8,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-json.md",
+        "assets/format-guide-yaml.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "12-format-yaml",
+    "request": "convert this to a config-ready yaml format prompt",
+    "outcome": {
+      "intents": [
+        "FORMAT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 8,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-json.md",
+        "assets/format-guide-yaml.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "13-format-markdown",
+    "request": "$markdown please give me a standard markdown format prompt",
+    "outcome": {
+      "intents": [
+        "FORMAT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 12,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-json.md",
+        "assets/format-guide-yaml.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "14-framework-costar",
+    "request": "use the COSTAR framework structure for this template",
+    "outcome": {
+      "intents": [
+        "FRAMEWORK"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 16,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "15-scoring-clear",
+    "request": "please evaluate and score this with a quality rating assessment",
+    "outcome": {
+      "intents": [
+        "SCORING"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 20,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "16-interactive-clarify",
+    "request": "I need to ask a clarifying question in this dialog before we gather more",
+    "outcome": {
+      "intents": [
+        "INTERACTIVE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 15,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "17-thinking-depth",
+    "request": "explain the DEPTH phases, energy and cognitive rigor used in the analysis",
+    "outcome": {
+      "intents": [
+        "THINKING"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 18
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "18-low-confidence-fallback",
+    "request": "hello there",
+    "outcome": {
+      "intents": [
+        "INTERACTIVE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "needs_disambiguation": true,
+      "max_questions": 3,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "19-empty-request",
+    "request": "",
+    "outcome": {
+      "intents": [
+        "INTERACTIVE"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "needs_disambiguation": true,
+      "max_questions": 3,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "20-ambiguous-tie",
+    "request": "quick improve",
+    "outcome": {
+      "intents": [
+        "SHORT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 0,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 5,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "21-image-and-video-mixed",
+    "request": "$img and $vid prompts for a leonardo picture and a kling clip",
+    "outcome": {
+      "intents": [
+        "IMAGE",
+        "VIDEO"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 5,
+        "IMPROVE": 5,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 6,
+        "MAGICPATH": 0,
+        "IMAGE": 18,
+        "VIDEO": 18,
+        "FORMAT": 0,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md",
+        "references/video-mode.md",
+        "assets/video-mode-library.md"
+      ]
+    },
+    "show_user_calls": []
+  },
+  {
+    "id": "22-text-with-json-format",
+    "request": "$text improve this prompt and give me json format output",
+    "outcome": {
+      "intents": [
+        "TEXT"
+      ],
+      "intent_scores": {
+        "RAW": 0,
+        "TEXT": 15,
+        "IMPROVE": 0,
+        "REFINE": 0,
+        "SHORT": 0,
+        "DEEP": 0,
+        "VISUAL": 0,
+        "MAGICPATH": 0,
+        "IMAGE": 0,
+        "VIDEO": 0,
+        "FORMAT": 4,
+        "FRAMEWORK": 0,
+        "SCORING": 0,
+        "INTERACTIVE": 0,
+        "THINKING": 0
+      },
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md",
+        "assets/format-guide-json.md"
+      ]
+    },
+    "show_user_calls": []
+  }
+]

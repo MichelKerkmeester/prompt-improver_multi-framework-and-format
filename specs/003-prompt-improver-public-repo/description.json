@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "003-prompt-improver-public-repo",
+  "description": "`AI Systems/Prompt Improver/` now holds its own `.git` with a public GitHub remote, and its only commit is the GitHub-generated `LICENSE`",
+  "keywords": [
+    "systems",
+    "prompt",
+    "improver",
+    "now",
+    "holds",
+    "own",
+    "git",
+    "public",
+    "github",
+    "remote",
+    "only",
+    "commit",
+    "github-generated",
+    "license"
+  ],
+  "lastUpdated": "2026-10-13T12:53:21.299Z",
+  "specId": "003",
+  "folderSlug": "prompt-improver-public-repo",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

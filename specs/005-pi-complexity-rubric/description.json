@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "005-pi-complexity-rubric",
+  "description": "Prompt Improver's deliverables carry two things a reader has to tell apart: a header line that reports the mode, the complexity and the framework, and",
+  "keywords": [
+    "prompt",
+    "improver",
+    "deliverables",
+    "carry",
+    "two",
+    "things",
+    "reader",
+    "tell",
+    "apart",
+    "header",
+    "line",
+    "reports",
+    "mode",
+    "complexity",
+    "framework"
+  ],
+  "lastUpdated": "2026-09-27T12:11:14.898Z",
+  "specId": "005",
+  "folderSlug": "pi-complexity-rubric",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}
