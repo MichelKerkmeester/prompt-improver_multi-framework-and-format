@@ -247,7 +247,7 @@ VIBE captures the essence that makes designs feel alive, coherent, and intention
 
 ### VIBE Completeness Check
 
-When dimensions are incomplete, ask:
+When a dimension is incomplete, infer it from the brief's subject and audience and list the inferred answer as an open item after the delivery. These questions go out only inside the one comprehensive question, when the request carries no brief at all:
 
 | Dimension       | Discovery Question                                            |
 | --------------- | ------------------------------------------------------------- |
@@ -581,14 +581,14 @@ Input (Text OR Screenshot)
 [4. Platform Detection]
      │ Detect: MagicPath, Lovable, Aura, Bolt, v0.dev
      ▼
-[5. Component Library Question] ← MANDATORY: Ask user
-     │ Options: Untitled UI, shadcn/ui, or None
+[5. Component Library Default] ← no question
+     │ Default: None, unless the user named Untitled UI or shadcn/ui; offer both as an open item
      ▼
 [6. VIBE Extraction]
      │ Populate: Vision, Inspiration, Behavior, Experience
      ▼
 [7. Completeness Check]
-     │ If incomplete → Context Questions
+     │ If incomplete → infer from the brief, list as open items
      ▼
 [8. Vocabulary Transformation]
      │ Apply: direction-specific and platform-specific vocabulary
@@ -597,7 +597,7 @@ Input (Text OR Screenshot)
      │ Organize: Product, Layout, Interactions, Context, Style, Constraints
      ▼
 [10. Component Library Injection]
-     │ If selected → Add library instruction to prompt
+     │ If the user named one → Add library instruction to prompt
      ▼
 [11. Creative Director Voice]
      │ Verify: reads like brief, not query
@@ -631,14 +631,14 @@ visual_depth_mapping:
       - "Technical Constraint Detection"
       - "Default-Naming & Deviation"
       - "Platform Detection"
-      - "Component Library Question (MANDATORY)"
-    output: "Subject grounded, default named, platform selected, library chosen"
+      - "Component Library Default (none unless named, offered as an open item)"
+    output: "Subject grounded, default named, platform selected, library defaulted"
 
   round_2_engineer:
     pipeline_steps: [6, 7]
     actions:
       - "VIBE Extraction (Vision, Inspiration, Behavior, Experience)"
-      - "Completeness Check with context questions if needed"
+      - "Completeness Check, inferred gaps listed as open items"
     output: "Full VIBE framework populated"
 
   round_3_prototype:
@@ -646,7 +646,7 @@ visual_depth_mapping:
     actions:
       - "Vocabulary Transformation (direction + platform specific)"
       - "UI Structure Application (MagicPath)"
-      - "Component Library Injection (if selected)"
+      - "Component Library Injection (if the user named one)"
       - "Creative Director Voice verification"
     output: "Transformed prompt draft with library instruction"
 
@@ -826,14 +826,15 @@ Every MagicPath prompt must address these eight elements:
   - Description: One justified, subject-grounded aesthetic choice that breaks from the category default
   - Example: "Use an amber-on-charcoal alert severity scale instead of the standard red-yellow-green — this mirrors the thermal-imaging language cold-chain operators already read."
 
-### Component Library Selection (MANDATORY QUESTION)
+### Component Library Default (Open Item, Never A Question)
 
-**Always ask the user** whether their prompt should specify a component library for consistent, production-ready UI output.
+The prompt names no component library unless the user named one. The delivery lists the library as an open item, offering Untitled UI and shadcn/ui, so the user can ask for one in the next turn. No question goes out before the prompt.
 
 ```yaml
-component_library_question:
+component_library_open_item:
   trigger: visual_or_magicpath_mode_detected
-  question: |
+  default: option_c
+  open_item: |
     Should the prompt specify a component library for consistent UI?
 
     **Option A: Untitled UI** (Recommended for polished, production-ready)
@@ -847,7 +848,7 @@ component_library_question:
     **Option C: No library**
     - Let the AI choose freely
 
-    Your choice? (A, B, or C)
+    Name A or B in your next message to add it.
 
   prompt_injection:
     option_a: |

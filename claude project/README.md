@@ -6,7 +6,7 @@ Hand-maintained local package for the Prompt Improver claude.ai Project. The ker
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- full synthesized Project kernel v1.0.0, Skill v1.0.0.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
+|-- Custom Instructions.md        <- full synthesized Project kernel v1.0.1, Skill v1.0.1.0 aligned; the routing authority for this Project (SKILL.md is not loaded here)
 |-- README.md                     <- this manifest and sync contract
 `-- knowledge/                    <- upload every file below as Project Knowledge
     |-- Prompt Improver - DEPTH Thinking Framework.md
@@ -26,7 +26,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.0.0, aligned to **Prompt Improver Skill v1.0.0.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
+`Custom Instructions.md` is the synthesized claude.ai Project kernel, v1.0.1, aligned to **Prompt Improver Skill v1.0.1.0**. It is the routing authority for this Project, because `SKILL.md` is not loaded here and no longer ships as a Project Knowledge mirror. It preserves prompt-only scope, DEPTH energy, smart routing (exact-token commands, command-wins, word-boundary keyword scoring, independent format lock), framework selection, CLEAR/EVOKE/VISUAL scoring, format locks and delivery rules.
 
 CLI-only mechanics are removed or adapted: filesystem export becomes the **Deliverable Block**, direct file loading becomes Project Knowledge consultation and `export/[###] - enhanced-[description].[md|json|yaml]` is reported as an export-equivalent path.
 
@@ -42,7 +42,7 @@ Knowledge files are hand-authored for Project retrieval, so the checksum table t
 3. Upload every file in `knowledge/` as Project Knowledge.
 4. Keep filenames unchanged so the kernel can reference the documents clearly.
 5. Run a smoke prompt for all ten routed intents (Raw, Text, Improve, Refine, Short, Deep, Visual, MagicPath, Image, Video) plus Interactive fallback, a false-command case, MagicPath-over-Visual precedence and format-lock independence from mode.
-6. Confirm the Deliverable Block, attestation footer and export-equivalent path appear, and the routed score appears for every mode except Raw, which carries no score.
+6. Confirm the reply opens with the Deliverable Block, one bare code fence holding only the prompt, and that the header line, export-equivalent path and open items follow it in chat, and the routed score appears for every mode except Raw, which carries no score.
 
 ## Change Checklist
 

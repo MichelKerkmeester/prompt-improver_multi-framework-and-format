@@ -90,8 +90,14 @@ drift silently from the contract.
   never compete with the mode intent for the primary route. A bare `$json`
   with no mode signal still falls back to INTERACTIVE for the intent while
   `format` stays `"json"` and the JSON guide still loads.
-- **Disambiguation gate**: a request with no command and no keyword hit, or
-  one with conflicting mode commands, routes to INTERACTIVE with
+- **Only the user's own words route**: `strip_source_prompt()` sets a pasted
+  prompt aside before command and keyword detection: fenced blocks, quoted
+  spans of three or more words and, when neither is present, the text after a
+  `prompt:` style lead-in. A one-word quote such as `"midjourney"` stays, so
+  it still routes. A request whose only content is a pasted prompt, with no
+  keyword hit left, routes to IMPROVE through `semantic`.
+- **Disambiguation gate**: a request with no command, no keyword hit and no
+  pasted prompt, or one with conflicting mode commands, routes to INTERACTIVE with
   `needs_disambiguation=true`, so the router asks one comprehensive question
   instead of inventing the mode.
 - **Energy and scorer are derived, not detected**: each intent carries one

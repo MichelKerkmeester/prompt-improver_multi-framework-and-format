@@ -29,23 +29,22 @@ an export a claude.ai Project cannot perform:
 
 | Check | Rule | Source |
 | --- | --- | --- |
-| `claimed_execution` | Never claim this Project saved, exported, verified on disk or executed anything | Custom Instructions.md, RULES > NEVER #12, line 347 |
-| `attestation_missing` / `attestation_incomplete` | The Deliverable Block's footer states `execution = did not occur` and `save = did not occur` | DELIVERY PROTOCOL template, lines 378-379 |
-| `header_missing` / `header_malformed` | The block opens with one line carrying Mode, Complexity, Framework and Score | RULES > ALWAYS #7, line 320, and DELIVERY PROTOCOL, line 372 |
-| `header_divider_missing` | A blank line, `---` and a blank line separate the header from the prompt | RULES > ALWAYS #7, line 320, and DELIVERY PROTOCOL, lines 372-376 |
-| `deliverable_not_first` | The block renders before any commentary | RULES > ALWAYS #6, line 319, and NEVER #8, line 342 |
-| `scoring_inside_block` | No scoring breakdown, processing note or format option inside the block | RULES > NEVER #6, line 340 |
-| `emoji_bullets` | No emoji bullets in question or validation text | `references/interactive-mode.md`, NEVER #14, line 536 |
+| `claimed_execution` | Never claim this Project saved, exported, verified on disk or executed anything | Custom Instructions.md, RULES > NEVER |
+| `fence_not_first` | The reply opens with the Deliverable Block, one bare code fence, before any commentary | Delivery rule, RULES > ALWAYS, DELIVERY PROTOCOL |
+| `fence_tagged` | The opening fence carries no language tag, because a tagged fence scrolls sideways on claude.ai | DELIVERY PROTOCOL |
+| `header_inside_fence` / `attestation_inside_fence` | The fence holds the prompt alone, with no `Mode:` header and no footer | DELIVERY PROTOCOL |
+| `scoring_inside_fence` | No score, perspectives line, processing note or `[Assumes: ...]` tag inside the fence | RULES > NEVER, DELIVERY PROTOCOL |
+| `payload_unparseable` | A fence that opens like JSON parses as JSON, which only holds when nothing but the payload sits inside it | DELIVERY PROTOCOL, format lock |
+| `header_missing` / `header_malformed` | One `Mode: \| Complexity: \| Framework:` line follows the fence in chat | DELIVERY PROTOCOL, chat items |
+| `open_items_missing` / `open_items_malformed` | A `### Open items` heading follows the fence, each item a bold numbered topic over `- **Situation:**` and `- **Open:**` bullets with no blank line inside or between items; `$raw` replies are exempt | DELIVERY PROTOCOL, chat items |
+| `emoji_bullets` | No emoji bullets in question or validation text | `references/interactive-mode.md`, NEVER rules |
 
-`deliverable_not_first` and `scoring_inside_block` need to know where the
-block ends, so they only run when the reply carries an explicit
-`<DELIVERABLE>...</DELIVERABLE>` tag (this system's own convention for a
-benchmark capture, absent a live harness today). The rest read the whole
-reply and run regardless, at whatever confidence the extraction found, so a
-plain chat capture with no tags is still checked for a claimed save, an
-attestation footer, a header and its divider, and emoji bullets. `confidence` is reported on
-every result rather than folded into the pass/fail so a reader can see why a
-structural check did or did not run.
+The opening fence is the block boundary. When the reply opens with a fence,
+confidence is high and every fence check runs. When it does not, the fence
+checks cannot run and `fence_not_first` is reported instead, while the
+claimed-save, header, open items and emoji checks read the whole reply either
+way. `confidence` is reported on every result rather than folded into the
+pass/fail so a reader can see why a structural check did or did not run.
 
 ## 3. WHY REPLIES GET LINTED AT ALL
 
@@ -129,13 +128,14 @@ bash benchmark/grader/check_report.sh <run report dir>
 All four proofs ran against fixtures outside this tree (this system has no
 finished benchmark report yet to run against), then were removed:
 
-- A reply claiming `"I've saved this to your files already"`, opening before
-  its `<DELIVERABLE>` tag, restating `CLEAR score` / `Perspectives:` /
-  `Assumptions:` inside the block, dropping `save = did not occur` from its
-  attestation line and closing with an emoji bullet turned `deliverable_lint.py`
-  red on all five checks at once, each with its own sample text. A clean
-  reply alongside it turned `lint_replies.py` red for exactly the one dirty
-  file (`1 clean of 2`) and green once that file was removed (`1 clean of 1`)
+- A reply in the old shape, a sentence before the fence, a `Mode:` header and
+  an attestation footer inside it and no open items, turned
+  `deliverable_lint.py` red on `fence_not_first` and `open_items_missing` at
+  low confidence, each with its own sample text. A reply opening with a
+  `json`-tagged fence around an unparseable payload, with a blank line inside
+  an open item, turned it red on `fence_tagged`, `payload_unparseable` and
+  `open_items_malformed`. A well-formed Markdown reply and a well-formed JSON
+  reply came back clean
 - A `results.csv` naming `SIR-001,PASS` and `PIR-001,FAIL` turned
   `twin_divergence.py` red, naming `IR-001: skill PASS, Project FAIL`,
   alongside a `PARTIAL` pair and an unpaired row that were reported but did

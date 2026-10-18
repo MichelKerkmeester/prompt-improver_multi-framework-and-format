@@ -1,0 +1,24 @@
+{
+  "specFolder": "006-deal-templates-upgrades",
+  "description": "Deal Templates upgrades: user-word routing, deliver-first open items, prompt-only copy unit",
+  "keywords": [
+    "deal",
+    "templates",
+    "upgrades",
+    "user-word",
+    "routing",
+    "deliver-first",
+    "open",
+    "items",
+    "prompt-only",
+    "copy",
+    "unit"
+  ],
+  "lastUpdated": "2026-10-18T16:37:11.543Z",
+  "specId": "006",
+  "folderSlug": "deal-templates-upgrades",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

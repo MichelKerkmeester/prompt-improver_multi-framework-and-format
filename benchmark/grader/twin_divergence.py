@@ -22,7 +22,7 @@ pass every rule-parity and inventory check, and still answer a scenario differen
 because one consults a file directly and the other depends on what a retrieval pass
 surfaced. `SID-001`/`PID-001` exists specifically to prove the two runtimes cannot be
 swapped for each other: the skill anchors on a real export path, the Project anchors on
-the verbatim `Canvas Artifact` string and the no-save contract, and the playbook's own
+the verbatim `bare code fence` string and the no-save contract, and the playbook's own
 two-runtime proof rule calls a reply that could have come from either runtime a `FAIL`
 on its own.
 

@@ -107,7 +107,7 @@ def declared_pairs():
 # floor is what notices the departure. A rise is not a failure, it means the
 # number was updated deliberately after adding a pair or a phrase.
 RULES = {
-    # Interactive Mode states this five times and DEPTH's own Single-Point
+    # Interactive Mode states this five times and DEPTH's own Deliver-First
     # Interaction principle restates it once more, both holding the same
     # count on both sides today. The single-question contract is what keeps a
     # request for missing context from turning into a multi-message

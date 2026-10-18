@@ -8,7 +8,7 @@ trigger_phrases:
   - "cognitive rigor"
   - "CLEAR scoring gates"
   - "multi-perspective analysis"
-version: 0.6.0.13
+version: 0.6.1.0
 ---
 
 # Prompt Improver - DEPTH Thinking Framework
@@ -84,7 +84,7 @@ DEPTH is the single thinking system: Discover, Engineer, Prototype, Test, Harmon
 | Principle | Rule |
 |---|---|
 | **Transparent Professional Excellence** | Professional depth applied automatically; technical process explained AFTER delivery; quality guaranteed with visibility |
-| **Single-Point Interaction** | One comprehensive question per task; never answer own questions; always wait for user response |
+| **Deliver-First Interaction** | Deliver first and list defaults as open items; at most one comprehensive question, only when the request cannot be defaulted; never answer own questions; always wait after asking |
 | **Energy-Appropriate Rigor** | Depth proportional to task. Raw for passthrough, Quick for concise, Standard by default, Deep for complexity, Creative for visual/image/video |
 | **Prove Through Output** | Deliverable must prove thinking happened: Mode, Framework, Perspectives used, score |
 | **Format Compliance** | Use latest format guides (JSON, YAML, Markdown); consistent structure across deliverables |
@@ -317,7 +317,7 @@ Five techniques available as tools. Use when they add value; energy level guides
 **1. Multi-Perspective Analysis:** Analyse from Prompt Engineering, AI Interpretation, User Clarity (minimum) + Framework, Token Efficiency (target). Synthesise findings across perspectives, identify gaps.
 **2. Perspective Inversion:** Challenge enhancement approach by arguing against it. Challenge → Understand opposition → Synthesise → Strengthen.
 **3. Constraint Reversal:** What if the opposite approach is superior? ID conventional approach → Reverse → Find driving principles → Apply minimal change.
-**4. Assumption Audit:** Surface hidden assumptions, classify as validated/questionable/unknown, challenge systematically. Flag with `[Assumes: X]`.
+**4. Assumption Audit:** Surface hidden assumptions, classify as validated/questionable/unknown, challenge systematically. List each assumption the prompt rests on as an open item after the deliverable.
 **5. Mechanism First:** WHY before WHAT. Explain principle → Why it works → Show tactics. Structure: WHY → HOW → WHAT.
 
 **Usage:** Raw = none. Quick = pick 1. Standard = 1-2 relevant. Deep = all 5 applied. Creative = 1-2 relevant.

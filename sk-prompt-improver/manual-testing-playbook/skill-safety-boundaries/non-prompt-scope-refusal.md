@@ -1,7 +1,7 @@
 ---
 title: "SSB-001 -- Direct content request reframed then refused"
 description: "Validates the prompt-only boundary: a direct content request is reframed once, then refused when the user insists."
-version: 1.1.0.0
+version: 1.1.1.0
 ---
 
 # SSB-001 -- Direct content request reframed then refused
@@ -69,8 +69,8 @@ Both turn transcripts, the absence of email copy in either reply, `export/` list
 
 ### Failure triage
 
-1. Check the boundaries and refusal rules in `AGENTS.md` lines 12 to 14 (Context Override) and line 181 (Escalation)
-2. Re-check NEVER rule 1 in `SKILL.md` line 508 on creating content directly
+1. Check the boundaries and refusal rules in `AGENTS.md` lines 12 to 14 (Context Override) and line 184 (Escalation)
+2. Re-check NEVER rule 1 in `SKILL.md` line 565 on creating content directly
 3. Sweep the ledger and both transcripts for partial content that escaped the refusal
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

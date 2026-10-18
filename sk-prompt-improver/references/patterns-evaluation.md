@@ -9,7 +9,7 @@ trigger_phrases:
   - "prompt evaluation"
   - "REPAIR protocol"
   - "enhancement patterns"
-version: 0.6.0.25
+version: 0.6.1.0
 ---
 
 # Prompt - Reference - Patterns & Evaluation
@@ -210,7 +210,7 @@ repair_framework:
 
 The kernel points here for the fallback chains:
 
-Framework selection fallback: Patterns and Evaluation, then DEPTH. Format output fallback: Markdown guide, then JSON guide, then YAML guide. Interactive flow fallback: Interactive Mode, then DEPTH. Quality validation fallback: Patterns and Evaluation, then DEPTH. Visual UI / Image / Video fallback: the mode's own reference and library, then Patterns and Evaluation. Incomplete context fallback: infer from content and defaults, then flag assumptions. Ambiguous mode fallback: ask one comprehensive question.
+Framework selection fallback: Patterns and Evaluation, then DEPTH. Format output fallback: Markdown guide, then JSON guide, then YAML guide. Interactive flow fallback: Interactive Mode, then DEPTH. Quality validation fallback: Patterns and Evaluation, then DEPTH. Visual UI / Image / Video fallback: the mode's own reference and library, then Patterns and Evaluation. Incomplete context fallback: infer from content and defaults, then list them as open items. Ambiguous mode fallback: ask one comprehensive question.
 
 The kernel points here for the scoring-gate escalation:
 

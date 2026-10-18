@@ -7,7 +7,7 @@ trigger_phrases:
   - "$vibe"
   - "$image"
   - "$video"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # sk-prompt-improver
@@ -95,7 +95,7 @@ $json give me an api-ready version of this prompt
 $raw just clean up the grammar, nothing else
 ```
 
-Exact commands win over wording. Natural language routes through keyword-weighted intent scoring, so "make this ui design more evocative" reaches Visual mode without a command. The highest keyword score wins, and a request that no keyword matches falls back to Interactive mode with one comprehensive question.
+Exact commands win over wording. Natural language routes through keyword-weighted intent scoring, so "make this ui design more evocative" reaches Visual mode without a command. Only your own words route: a prompt you paste, in quotes, in a code fence or after a lead-in such as `this prompt:`, is set aside first, so a pasted image prompt does not pull a text request into Image mode. The highest keyword score wins. A pasted prompt with no keyword hit routes to Improve mode, and a request with no keyword and no pasted prompt falls back to Interactive mode with one comprehensive question.
 
 ### Precedence, By Example
 
@@ -357,7 +357,7 @@ The concise external layer prints in fixed shapes so a chat transcript stays sca
 |---|---|
 | Progress update | `Phase [D/E/P/T/H] - [name]: [concise finding]` |
 | Validation | `[CLEAR\|EVOKE\|VISUAL] [score]/[max] \| Gate: [passed/revising/best-effort]` |
-| Assumption | `[Assumes: description]` |
+| Open item | `1. **Topic**`, then `- **Situation:** ...` and `- **Open:** ...` |
 | Delivery | `Saved: export/[###] - enhanced-[description].[md/json/yaml]` |
 | Creative follow-up | `Share the generated result when you want refinement.` |
 

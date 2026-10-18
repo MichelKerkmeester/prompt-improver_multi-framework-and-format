@@ -270,23 +270,24 @@ It prints the route object: intent, energy, scorer, format, source, `needs_disam
 The route contract only records how a route was found: `command`, `semantic` or `fallback`. On top of that, `SKILL.md` gives the model advisory bands for talking about a keyword-based route:
 
 - At 80% mode confidence or higher, it selects the mode and explains briefly if useful
-- At 50% to 79%, it suggests the mode and asks for confirmation
-- Below 50%, it asks one clarifying question, up to 3 attempts, then uses smart defaults with each assumption flagged as `[Assumes: description]`
+- At 50% to 79%, it proceeds with the likeliest mode and names it as an open item you can change
+- Below 50%, with no pasted prompt, it asks one clarifying question, up to 3 attempts, then uses smart defaults and lists each one as an open item
 
 A second set, document-routing confidence, uses high at 0.85, medium at 0.60, low at 0.40 and fallback below that. Neither set changes which files load.
 
 #### Interactive Mode
 
-When a request is unclear, the model asks one comprehensive question and waits. It never answers its own question.
+The model delivers first. A request that carries a prompt, or says what the AI should do, gets the improved prompt in the same turn, and every default it took is listed after the prompt as a numbered open item. You confirm or change an open item in your next message.
 
-- With no command and no signal, the question opens with a depth choice, **Quick** or **Think longer and read more context**, and defaults to Standard when you only send a prompt
-- At complexity 5 or 6, it asks for a framework choice between RCAF, COSTAR (about 5 percent more tokens) and TIDD-EC (about 8 percent more)
-- At complexity 7 or higher, it asks for a choice between Streamline and Comprehensive
-- With no format command, it asks for a choice between Markdown, JSON and YAML
-- `$vibe` gets a component library choice between Untitled UI, shadcn/ui and no library
-- `$raw` gets no questions at all
+- With no format command, it delivers Markdown and names JSON and YAML as an open item
+- At complexity 5 or 6, it picks the best-fit framework and names the alternative as an open item when that would change the result
+- At complexity 7 or higher, it keeps the stated scope and offers the streamlined version as an open item
+- `$vibe` writes no component library into the brief and lists the library choice as an open item
+- `$raw` carries no open items and asks nothing
 
-The standard flow allows up to 3 interactions (welcome, framework or simplification, then format). A command flow allows 1 and Raw allows none. When context is still missing after that, the prompt ships on smart defaults with every assumption flagged.
+Only two things block delivery and get one comprehensive question before any prompt: a request with no prompt and no description of the task, and two conflicting mode commands. A non-prompt request gets one reframe as prompt work. The question covers every missing essential in one message, and the model waits for the answer. It never answers its own question.
+
+Each open item is a bold numbered topic followed by a `Situation:` bullet, what the request showed and the default taken, and an `Open:` bullet, what you can confirm or change, with no blank line inside or between items.
 
 In the benchmark's `STX-001` scenario, the request `Here is my rough prompt: "Write a blog post about coffee brewing for beginners." Can you make it better?` got one question covering depth, target tool, audience, must-include points and format. After the answer "For a general audience blog post, markdown is fine." the reply opened with:
 
@@ -324,7 +325,7 @@ The perspective minimums are blocking: a Standard pass with 2 perspectives or a 
 
 [`references/depth-framework.md`](sk-prompt-improver/references/depth-framework.md) names five perspectives. Prompt Engineering Expert, AI Interpretation Specialist and End-User Experience Designer are required from Standard up. Deep also requires Framework Architecture Expert and Token Optimisation Specialist, and Standard aims for all five. Creative energy uses mode-specific perspectives in place of these five.
 
-The same file defines five cognitive techniques: Multi-Perspective Analysis, Perspective Inversion, Constraint Reversal, Assumption Audit and Mechanism First. Quick picks one, Standard and Creative use 1 or 2 and Deep applies all 5. Assumption Audit is where the `[Assumes: description]` flags come from, and Mechanism First puts the WHY before the WHAT inside the prompt.
+The same file defines five cognitive techniques: Multi-Perspective Analysis, Perspective Inversion, Constraint Reversal, Assumption Audit and Mechanism First. Quick picks one, Standard and Creative use 1 or 2 and Deep applies all 5. Assumption Audit is where the open items after the prompt come from, and Mechanism First puts the WHY before the WHAT inside the prompt.
 
 #### Framework Library
 
@@ -595,7 +596,9 @@ The chat side prints progress, validation, assumption, delivery and creative fol
 ```text
 Phase [D/E/P/T/H] - [name]: [concise finding]
 [CLEAR|EVOKE|VISUAL] [score]/[max] | Gate: [passed/revising/best-effort]
-[Assumes: description]
+1. **Topic**
+   - **Situation:** what the request showed and the default taken
+   - **Open:** what you can confirm or change
 Saved: export/[###] - enhanced-[description].[md/json/yaml]
 Share the generated result when you want refinement.
 ```
@@ -604,13 +607,9 @@ Beyond the mode and framework in the file's header, the chat reports the perspec
 
 #### Claude Project Delivery
 
-A claude.ai Project cannot write files, so `claude project/Custom Instructions.md` swaps the export for a Deliverable Block rendered as a Canvas Artifact before any commentary. The block has three parts:
+A claude.ai Project cannot write files, so `claude project/Custom Instructions.md` swaps the export for a Deliverable Block: one bare code fence, with no language tag, that opens the reply and holds the improved prompt and nothing else. Its copy button then copies exactly the prompt, so pasted JSON or YAML parses. A bare fence wraps long lines on claude.ai while a tagged fence scrolls sideways, and a Canvas Artifact copies everything it holds, so the prompt is never a Canvas Artifact.
 
-- A header, the same single `Mode:` line as a saved file, with the same `---` divider below it
-- A body, the enhanced prompt in the locked format
-- An attestation footer listing the docs consulted, assumptions, the format, `execution = did not occur` and `save = did not occur`
-
-The header and footer sit outside the JSON or YAML lock, which applies only to the body. After the block, chat carries the export-equivalent path `export/[###] - enhanced-[description].[md|json|yaml]`, the score and gate status, the token overhead for JSON or YAML, a short summary and, for creative modes, the share-back invitation. The Project never claims it saved, exported or verified anything.
+After the fence, chat carries the single `Mode:` header line, the export-equivalent path `export/[###] - enhanced-[description].[md|json|yaml]`, the score and gate status, the token overhead for JSON or YAML, a short summary, the open items and, for creative modes, the share-back invitation. The Project never claims it saved, exported or verified anything.
 
 #### Local Output
 
@@ -636,7 +635,7 @@ bash benchmark/grader/check_report.sh <report-folder>
 
 This runs two checks over a captured run:
 
-- `lint_replies.py` holds every reply to the Project's Deliverable Block contract: no claimed save or execution, an attestation footer with both "did not occur" fields, a `Mode:` header with the `---` divider under it, the block before any commentary, no scoring inside the block and no emoji bullets
+- `lint_replies.py` holds every reply to the Project's Deliverable Block contract: the reply opens with one bare fence, no language tag, holding only the prompt, no header, attestation or score inside the fence, a JSON payload that parses, the `Mode:` header in chat after the fence, well-formed open items, no claimed save or execution and no emoji bullets
 - `twin_divergence.py` pairs each skill scenario with its Project twin, `SID-001` with `PID-001` and so on, and fails on any pair whose verdicts disagree
 
 The exit code is the number of checks with findings, from 0 to 2. It is 64 without an argument and 66 when the folder does not exist. The script rewrites `deliverable-lint.csv` inside the report folder, so point it at a copy when you want to keep the committed snapshot. Against a copy of the committed run it ends:
@@ -708,15 +707,15 @@ The repository separates the skill source, the Project package, the checks and t
 │   ├── grader/                      reply lint, twin comparison, check_report.sh
 │   ├── parity/                      5 wrappers into the shared parity gate, monorepo only
 │   ├── reports/                     one captured playbook run, 2026-09-17
-│   └── router/                      route_contract.py, fixtures.json (25), kernel_parity.py, run_fixtures.sh
+│   └── router/                      route_contract.py, fixtures.json (32), kernel_parity.py, run_fixtures.sh
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.0.0, the Project's router
+│   ├── Custom Instructions.md       claude.ai kernel v1.0.1, the Project's router
 │   ├── README.md                    Project upload guide
 │   ├── kernel-review.json           record of the 2026-07-17 kernel review, read by no tool
 │   └── knowledge/                   13 knowledge files written by hand from the skill
 ├── export/                          generated prompts, kept local
 └── sk-prompt-improver/
-    ├── SKILL.md                     v1.0.0.0: identity, router, rules, delivery
+    ├── SKILL.md                     v1.0.1.0: identity, router, rules, delivery
     ├── README.md                    skill guide
     ├── graph-metadata.json          skill graph edges and intent signals
     ├── leaf-manifest.config.json    which folders hold the routed docs
@@ -724,7 +723,7 @@ The repository separates the skill source, the Project package, the checks and t
     ├── leaf-aliases.json            generated identity map of those docs
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
-    ├── changelog/                   12 releases, v0.1.0.0 to v1.0.0.0
+    ├── changelog/                   13 releases, v0.1.0.0 to v1.0.1.0
     └── manual-testing-playbook/     14 scenarios in 12 category folders
 ```
 
@@ -768,7 +767,7 @@ The best version ships with a transparent quality note showing the score before 
 
 **Q: What does the claude.ai Project return?**
 
-A Deliverable Block rendered as a Canvas Artifact, with an attestation footer stating that no execution and no save occurred, followed by an export-equivalent path in chat.
+A Deliverable Block: one bare code fence that opens the reply and holds only the improved prompt, so its copy button copies exactly the prompt. The `Mode:` header, the export-equivalent path, the score and the open items follow in chat, and no save is claimed.
 
 **Q: How does the Project package stay in step with the skill?**
 
@@ -841,7 +840,7 @@ Both need the shared toolkit in the parent monorepo. Use the router fixtures and
 - **[→ Markdown Format Guide](sk-prompt-improver/assets/format-guide-markdown.md)** - header contract and RCAF and CRAFT in Markdown
 - **[→ JSON Format Guide](sk-prompt-improver/assets/format-guide-json.md)** - JSON header and syntax rules
 - **[→ YAML Format Guide](sk-prompt-improver/assets/format-guide-yaml.md)** - YAML header and syntax rules
-- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.0.0.0.md)** - v1.0.0.0, the router-accurate docs release
+- **[→ Latest Release Notes](sk-prompt-improver/changelog/v1.0.1.0.md)** - v1.0.1.0, the deliver-first release
 
 **Claude Project package**
 

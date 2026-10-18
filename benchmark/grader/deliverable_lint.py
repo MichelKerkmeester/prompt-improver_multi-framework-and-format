@@ -7,37 +7,29 @@
 
 Usage: deliverable_lint.py <file>   ->  prints JSON {file, clean, confidence, violations:[...]}
 
-This system has no grader of any kind before this file. Building one meant reading
-`claude project/Custom Instructions.md` first to name what it actually requires of a
-reply, rather than reusing another system's word list. Deal Templates and Copywriter
-gate punctuation and vocabulary in prose copy. Prompt Improver states no such rule for
-the prompts it writes. What it states, repeatedly and without qualification, is a
-structural contract for the Deliverable Block and a hard ban on claiming a save or an
-export that a claude.ai Project cannot perform:
+This system states no banned-vocabulary or punctuation rule for the prompts it writes,
+the way Deal Templates and Copywriter do for prose copy. What it states, repeatedly and
+without qualification, is a structural contract for a Project reply and a hard ban on
+claiming a save or an export that a claude.ai Project cannot perform:
 
-  - ALWAYS render the Deliverable Block before any commentary (Custom Instructions.md's
-    delivery rules), and NEVER skip it for loose inline chat text instead
-  - ALWAYS keep the Deliverable Block to a single-line header, a `---` divider, prompt
-    content and an attestation footer only, matching the template in DELIVERY PROTOCOL
-  - NEVER put scoring breakdowns, processing notes or format options inside the block,
-    and NEVER paste the full deliverable again in chat afterward
+  - ALWAYS open the reply with one bare code fence holding only the improved prompt,
+    so its copy button copies exactly the prompt (Custom Instructions.md's delivery
+    rule and DELIVERY PROTOCOL). A tagged fence scrolls sideways on claude.ai, so the
+    fence carries no language tag
+  - NEVER put a header line, a divider footer, scoring, processing notes or assumptions
+    inside the fence; the header facts, score, summary and open items follow it in chat
+  - Open items are numbered, each topic in bold over a `- **Situation:**` bullet and a
+    `- **Open:**` bullet, no blank line inside or between items, or `None identified`
   - NEVER claim this Project saved, exported, verified on disk or executed anything
-    (Custom Instructions.md's hard ban). The QUALITY CHECKLIST repeats it: "no
-    execution, save or verification was claimed"
-  - Interactive Mode itself bans emoji bullets in question or validation text
+  - Interactive Mode bans emoji bullets in question or validation text
 
-Every check below cites the line above it. This is a CODE gate: each check is a fixed
+Every check below cites the rule above it. This is a CODE gate: each check is a fixed
 string or a narrow structural pattern, never a model asked to judge tone.
 
-Extraction confidence is carried rather than hidden. A benchmark capture that wraps the
-rendered block in `<DELIVERABLE>...</DELIVERABLE>` (this system's own convention, absent
-a live harness today) gives high confidence and unlocks the two checks that need to know
-where the block ends: nothing must sit inside it besides the header, its divider, the
-prompt and the footer, and nothing must sit before it. A capture with no tags is scored
-on the header, divider, attestation, execution-claim and emoji checks only, at medium
-confidence when a `Mode:` line is still findable and low confidence when it is not,
-because a chat reply is prose throughout and the block boundary cannot be trusted either
-way. The counts still stand regardless of confidence.
+The opening fence is the block boundary, so confidence is high when the reply opens
+with a fence and low when it does not. At low confidence the fence checks cannot run
+and `fence_not_first` is reported instead; the claimed-save, header, open items and
+emoji checks read the whole reply either way.
 """
 import json
 import re
@@ -47,13 +39,12 @@ import sys
 # 1. CONFIGURATION
 # ───────────────────────────────────────────────────────────────
 
-DELIVERABLE_TAG = re.compile(r"<DELIVERABLE>(.*?)</DELIVERABLE>", re.S | re.I)
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
 # Custom Instructions.md's ban on claiming a save or an export, and the advisory-only
-# header (line 10): this Project "cannot write files to a filesystem, run the CLI
-# export sequence or verify a saved path". Any of these phrases in a reply is that
-# claim being made anyway.
+# header: this Project "cannot write files to a filesystem, run the CLI export sequence
+# or verify a saved path". Any of these phrases in a reply is that claim being made
+# anyway.
 CLAIMED_EXECUTION_PHRASES = [
     "i've saved", "i have saved", "has been saved", "successfully saved",
     "saved to disk", "saved to your", "saved the file", "wrote the file",
@@ -62,28 +53,35 @@ CLAIMED_EXECUTION_PHRASES = [
     "the file is now available at", "download the saved file",
 ]
 
-# DELIVERY PROTOCOL's attestation line states both fields as a fixed pair, and the
-# ban on claiming a save or an export forbids the reverse of either.
-ATTESTATION_LINE = re.compile(r"^Attestation:.*$", re.M)
-REQUIRED_ATTESTATION_FIELDS = ("execution = did not occur", "save = did not occur")
+# DELIVERY PROTOCOL: the reply opens with one fence. The opener is three or more
+# backticks or tildes; anything after them is a language tag, which makes claude.ai
+# scroll long lines sideways instead of wrapping them.
+FENCE_OPEN = re.compile(r"^[ ]{0,3}(`{3,}|~{3,})(.*)$")
 
-# DELIVERY PROTOCOL's header template: "Mode: $[mode] | Complexity: [level] |
-# Framework: [Framework]", three fields on one line. Score is deliberately absent,
-# because score, assumptions and docs consulted belong in chat after the block, and
-# the protocol's own line says the Artifact carries the prompt and not the scoring
-# explanation. A fourth Score field was required here and cited to the rule that the
-# block carries the header, the prompt and the attestation footer only, which says
-# nothing about field count, so the check failed a runtime for obeying the
-# chat-after-the-block rule.
+# The header facts move to chat after the fence: "Mode: $[mode] | Complexity: [level] |
+# Framework: [Framework]" on one line. Score is deliberately absent from it, because
+# the score has its own line.
 MODE_LINE = re.compile(r"^\s*Mode:.*$", re.M)
 REQUIRED_HEADER_FIELDS = ("Complexity:", "Framework:")
 
-# DELIVERY PROTOCOL's template and rule 7 put a blank line, `---` and a blank line
-# between the header and the prompt, so a reader copying the prompt never takes the
-# header with it. The blank line before the divider is part of the rule: without it
-# Markdown reads the header as a heading and the divider disappears. The attestation's
-# own `---` sits further down and never stands in for this one.
-HEADER_DIVIDER = "---"
+# The retired footer. Its facts are either chat lines or the standing no-save ban, and
+# inside the fence it would be copied with the prompt.
+ATTESTATION_LINE = re.compile(r"^\s*Attestation:", re.M)
+
+# Scoring breakdowns, processing notes, format options and assumptions belong in chat
+# after the fence, never inside it.
+FORBIDDEN_INSIDE_FENCE = (
+    "CLEAR score", "EVOKE score", "VISUAL score", "Perspectives:", "Assumptions:",
+    "[Assumes:",
+)
+
+# Open items shape, the same one Deal Templates uses, because claude.ai joins a label
+# on a line of its own to the line above it while a bullet keeps its line.
+OPEN_HEADING = re.compile(r"^#{2,4}\s+Open items\s*$", re.M)
+OPEN_ITEM = re.compile(r"^(\d+)\. \*\*[^*]+\*\*$")
+OPEN_SITUATION = re.compile(r"^   - \*\*Situation:\*\* \S")
+OPEN_QUESTION = re.compile(r"^   - \*\*Open:\*\* \S")
+OPEN_NONE = "None identified"
 
 # Interactive Mode bans emoji bullets in question or validation text. Markdown dashes
 # stay allowed, since Interactive Mode's own MUST list asks for them. This matches
@@ -92,12 +90,6 @@ EMOJI_BULLET = re.compile(
     "^[ \t]*(?:✅|❌|\U0001f539|\U0001f538|▪|\U0001f53a|"
     "➡|\U0001f449|\U0001f4cc|⭐|✨|\U0001f3af|\U0001f4a1|\U0001f680)\\s+",
     re.M,
-)
-
-# Scoring breakdowns, processing notes and format options belong in chat after the
-# block, never inside it.
-FORBIDDEN_INSIDE_BLOCK = (
-    "CLEAR score", "EVOKE score", "VISUAL score", "Perspectives:", "Assumptions:",
 )
 
 
@@ -137,20 +129,61 @@ def samples(pattern_or_literal, text, n=2, literal=False):
     return out
 
 
-def extract_deliverable(raw: str):
-    """Return (block_or_None, confidence, prefix).
+def extract_fence(clean: str):
+    """Return (opener_line, body, after, confidence) for the reply's opening fence.
 
-    `prefix` is whatever sits before the opening tag, which is only meaningful, and
-    only trustworthy, at high confidence: a capture with no explicit tag has no
-    reliable block boundary to check a prefix against.
+    The fence counts only when it is the first non-blank line. It closes at the first
+    later line made of the same character, at least as long as the opener, so a
+    shorter fence inside the prompt stays part of the body. An unclosed fence runs to
+    the end of the reply.
     """
-    clean = ANSI.sub("", raw)
-    match = DELIVERABLE_TAG.search(clean)
-    if match:
-        return match.group(1), "high", clean[:match.start()]
-    if MODE_LINE.search(clean):
-        return None, "medium", None
-    return None, "low", None
+    lines = clean.split("\n")
+    first = next((i for i, line in enumerate(lines) if line.strip()), None)
+    if first is None:
+        return None, None, clean, "low"
+    match = FENCE_OPEN.match(lines[first])
+    if not match:
+        return None, None, clean, "low"
+    marker = match.group(1)
+    closer = re.compile(r"^[ ]{0,3}" + re.escape(marker[0]) + "{" + str(len(marker)) + r",}\s*$")
+    for end in range(first + 1, len(lines)):
+        if closer.match(lines[end]):
+            return lines[first], "\n".join(lines[first + 1:end]), "\n".join(lines[end + 1:]), "high"
+    return lines[first], "\n".join(lines[first + 1:]), "", "high"
+
+
+def open_items_errors(text: str):
+    """Problems in a reply's Open items, or an empty list when the shape holds."""
+    lines = text.split("\n")
+    start = next((i for i, line in enumerate(lines) if OPEN_HEADING.match(line)), None)
+    if start is None:
+        return None
+    rest = lines[start + 1:]
+    while rest and not rest[0].strip():
+        rest = rest[1:]
+    if rest and rest[0].strip() == OPEN_NONE:
+        return []
+    body = []
+    while rest and rest[0].strip() and (OPEN_ITEM.match(rest[0]) or rest[0].startswith("   ")):
+        body.append(rest.pop(0))
+    if not body:
+        return ["Open items holds no numbered item and no `None identified` line"]
+    after = next((line for line in rest if line.strip()), "")
+    if OPEN_ITEM.match(after) or after.startswith("   - **"):
+        return ["a blank line sits inside or between open items, which claude.ai renders as a label joined to the line above"]
+    if len(body) % 3:
+        return [f"Open items holds {len(body)} line(s), where each item takes a topic, a Situation bullet and an Open bullet"]
+    problems = []
+    for number, at in enumerate(range(0, len(body), 3), start=1):
+        topic, situation, question = body[at:at + 3]
+        found = OPEN_ITEM.match(topic)
+        if not found or int(found.group(1)) != number:
+            problems.append(f"open item {number} does not open on `{number}. **Topic**`")
+        if not OPEN_SITUATION.match(situation):
+            problems.append(f"open item {number} has no indented `- **Situation:**` bullet with its text on the same line")
+        if not OPEN_QUESTION.match(question):
+            problems.append(f"open item {number} has no indented `- **Open:**` bullet with its text on the same line")
+    return problems
 
 
 # ───────────────────────────────────────────────────────────────
@@ -161,14 +194,12 @@ def extract_deliverable(raw: str):
 def lint_reply(raw: str):
     """Return (violations, confidence) for one reply's full text.
 
-    Most checks read the whole reply rather than an extracted block, because the
-    rules they enforce (no execution claim, an attestation footer, no emoji bullets)
-    are stated for the reply as a whole, not for text a harness happened to tag. Only
-    the two checks that need to know where the block ends are gated on having found
-    an explicit `<DELIVERABLE>` tag.
+    The fence checks run only when the reply opens with a fence, because that fence is
+    the only trustworthy block boundary. The claimed-save, header, open items and
+    emoji checks are stated for the reply as a whole and always run.
     """
     clean = ANSI.sub("", raw)
-    block, confidence, prefix = extract_deliverable(raw)
+    opener, body, after, confidence = extract_fence(clean)
     violations = []
 
     def add(kind, count, sample_list, severity="hard"):
@@ -182,43 +213,43 @@ def lint_reply(raw: str):
             exec_samples.extend(samples(p, clean, n=1, literal=True))
     add("claimed_execution", exec_hits, exec_samples[:2])
 
-    attestation_lines = ATTESTATION_LINE.findall(clean)
-    if not attestation_lines:
-        add("attestation_missing", 1, ["no line beginning `Attestation:` was found"])
+    if confidence != "high":
+        first = next((line for line in clean.splitlines() if line.strip()), "")
+        add("fence_not_first", 1, [f"the reply opens with: {first.strip()[:80]!r}"])
+        chat = clean
     else:
-        bad = [line for line in attestation_lines
-               if any(field not in line for field in REQUIRED_ATTESTATION_FIELDS)]
-        add("attestation_incomplete", len(bad), [b.strip()[:120] for b in bad[:2]])
+        chat = after
+        tag = FENCE_OPEN.match(opener).group(2).strip()
+        add("fence_tagged", 1 if tag else 0, [f"the opening fence carries the tag {tag!r}"])
+        add("header_inside_fence", len(MODE_LINE.findall(body)), samples(MODE_LINE, body))
+        add("attestation_inside_fence", len(ATTESTATION_LINE.findall(body)), samples(ATTESTATION_LINE, body))
+        for token in FORBIDDEN_INSIDE_FENCE:
+            if token in body:
+                add("scoring_inside_fence", body.count(token), samples(token, body, n=1, literal=True))
+        stripped = body.strip()
+        if stripped[:1] in ("{", "["):
+            try:
+                json.loads(stripped)
+            except ValueError as error:
+                add("payload_unparseable", 1, [f"the fence opens like JSON but does not parse: {error}"])
 
-    mode_lines = MODE_LINE.findall(clean)
+    mode_lines = MODE_LINE.findall(chat)
     if not mode_lines:
-        add("header_missing", 1, ["no line beginning `Mode:` was found"])
+        add("header_missing", 1, ["no `Mode:` line follows the fence in chat"])
     else:
         bad = [line for line in mode_lines
                if any(field not in line for field in REQUIRED_HEADER_FIELDS)]
         add("header_malformed", len(bad), [b.strip()[:120] for b in bad[:2]])
-        lines = clean.splitlines()
-        at = next(i for i, line in enumerate(lines) if MODE_LINE.match(line))
-        rest = [line.strip() for line in lines[at + 1:]]
-        following = next((line for line in rest if line), "")
-        if following != HEADER_DIVIDER:
-            add("header_divider_missing", 1, [f"after the header: {following[:80]!r}"])
-        elif rest[0]:
-            add("header_divider_missing", 1, ["no blank line between the header and the divider"])
+
+    raw_mode = any("$raw" in line for line in mode_lines)
+    problems = open_items_errors(chat)
+    if problems is None:
+        if not raw_mode:
+            add("open_items_missing", 1, ["no `### Open items` heading follows the fence"])
+    else:
+        add("open_items_malformed", len(problems), problems[:2])
 
     add("emoji_bullets", len(EMOJI_BULLET.findall(clean)), samples(EMOJI_BULLET, clean))
-
-    if confidence == "high":
-        if prefix and prefix.strip():
-            add("deliverable_not_first", 1, [prefix.strip()[-80:]])
-        body_lines = block.lstrip("\n").splitlines()
-        body = "\n".join(body_lines[1:]) if body_lines else ""
-        body = body.lstrip("\n")
-        body = body[len(HEADER_DIVIDER) + 1:] if body.startswith(HEADER_DIVIDER + "\n") else body
-        body = body.rsplit("\n---\n", 1)[0] if "\n---\n" in body else body
-        for token in FORBIDDEN_INSIDE_BLOCK:
-            if token in body:
-                add("scoring_inside_block", body.count(token), samples(token, body, n=1, literal=True))
 
     return violations, confidence
 

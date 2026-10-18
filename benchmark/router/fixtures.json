@@ -411,5 +411,131 @@
       "needs_disambiguation": true,
       "resources": ["references/depth-framework.md", "references/interactive-mode.md"]
     }
+  },
+  {
+    "input": "Improve this prompt: \"Write a blog post about photo editing for beginners\"",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "Can you improve my prompt? \"Summarise the feedback from this video clip transcript\"",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "Improve this prompt: Write a blog post about photo editing for beginners",
+    "expect": {
+      "intent": "TEXT",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
+  },
+  {
+    "input": "write a \"midjourney\" prompt of a foggy harbour at dawn",
+    "expect": {
+      "intent": "IMAGE",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "$image \"a lighthouse at dusk in heavy fog, wide shot\"",
+    "expect": {
+      "intent": "IMAGE",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "command",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "Improve this image prompt: \"a lighthouse at dusk in heavy fog, wide shot\"",
+    "expect": {
+      "intent": "IMAGE",
+      "energy": "creative",
+      "scorer": "VISUAL",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/image-mode.md",
+        "assets/image-mode-library.md",
+        "references/patterns-evaluation.md"
+      ]
+    }
+  },
+  {
+    "input": "```\nSummarise this video clip transcript for the team\n```",
+    "expect": {
+      "intent": "IMPROVE",
+      "energy": "standard",
+      "scorer": "CLEAR",
+      "format": "markdown",
+      "source": "semantic",
+      "needs_disambiguation": false,
+      "resources": [
+        "references/depth-framework.md",
+        "references/interactive-mode.md",
+        "references/patterns-evaluation.md",
+        "assets/framework-pattern-library.md",
+        "assets/format-guide-markdown.md"
+      ]
+    }
   }
 ]

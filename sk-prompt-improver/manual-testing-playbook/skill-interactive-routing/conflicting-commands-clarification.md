@@ -1,7 +1,7 @@
 ---
 title: "SIR-001 -- Conflicting mode commands ask one question"
 description: "Validates that two conflicting mode commands route to one clarifying question instead of a silent pick."
-version: 1.1.0.0
+version: 1.1.1.0
 ---
 
 # SIR-001 -- Conflicting mode commands ask one question
@@ -27,7 +27,7 @@ A silent pick would choose the user's DEPTH energy for them. If the runtime quie
 - Real user request: `I want to improve my prompt for a weekly meal-plan generator, and I keep going back and forth on whether a quick pass or a deep rewrite would serve me better.`
 - Prompt: `$short $deep improve my prompt for a weekly meal-plan generator`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, confirm the question and clean ledger, then submit Turn 2 with the source prompt and inspect the export
-- Expected signals: Turn 1 asks which of the two modes was meant in one consolidated question and writes no file. The consolidated question covers every missing essential in a single message (`SKILL.md` lines 397 to 398, `references/interactive-mode.md` line 53), so a message that also asks for the missing source prompt is correct. Asking two things in that one message passes, and splitting them across messages is the failure. Turn 2 supplies the source prompt, binds Short, runs Quick energy, passes CLEAR, saves one `.md` export and replies path-first. The supplied prompt removes the smart-default branch, so the export must enhance that prompt rather than inventing one. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
+- Expected signals: Turn 1 asks which of the two modes was meant in one consolidated question and writes no file. The consolidated question covers every missing essential in a single message (`SKILL.md` lines 434 to 398, `references/interactive-mode.md` line 55), so a message that also asks for the missing source prompt is correct. Asking two things in that one message passes, and splitting them across messages is the failure. Turn 2 supplies the source prompt, binds Short, runs Quick energy, passes CLEAR, saves one `.md` export and replies path-first. The supplied prompt removes the smart-default branch, so the export must enhance that prompt rather than inventing one. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
 - Desired user-visible outcome: One consolidated question followed by a Short-mode delivery that honors the user's pick
 - Pass/fail: PASS if the runtime asks rather than picks and the Turn 2 delivery enhances the supplied prompt at Short energy. FAIL if it silently binds either mode, splits the question across messages, writes a file before clarifying, delivers without the supplied prompt or carries scope expansion in the Turn 2 prompt. A summary outside the two to three sentence band is recorded and never decides the verdict
 
@@ -70,7 +70,7 @@ Both turn transcripts, the side-effect ledger showing no Turn 1 artifact, the CL
 ### Failure triage
 
 1. Check the conflict rule in `SKILL.md` Smart Routing and the Interactive Mode disambiguation rule
-2. Compare the Turn 1 reply with the consolidated-question rule in `references/interactive-mode.md` lines 53 and 427
+2. Compare the Turn 1 reply with the consolidated-question rule in `references/interactive-mode.md` lines 55 and 409
 3. Reconcile the final response with the export ledger and the reported CLEAR score
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

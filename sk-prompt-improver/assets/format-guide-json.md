@@ -8,7 +8,7 @@ trigger_phrases:
   - "JSON prompt output"
   - "API-ready prompt"
   - "valid JSON delivery"
-version: 0.6.0.18
+version: 0.6.1.0
 ---
 
 # Prompt - Asset - Format Guide JSON
@@ -118,7 +118,7 @@ JSON provides structured, machine-parseable prompt engineering with consistent f
 **Delivery Methods:**
 1. **Claude Desktop/IDE:** Create actual downloadable file using file creation tool
 2. **CLI/Agent Mode:** Use `/Export` folder with format `[###] - descriptive-filename.json`
-3. **Claude.ai Projects:** Cannot write files. The Deliverable Block stands in for the file, and chat reports the export-equivalent path instead.
+3. **Claude.ai Projects:** Cannot write files. One bare code fence holding only the JSON stands in for the file, with no header, divider or footer inside it, and chat reports the header facts and the export-equivalent path below it.
 
 ### Mandatory Header Format
 
@@ -133,7 +133,7 @@ Mode: $json | Complexity: [level] | Framework: [RCAF/CRAFT]
 
 **Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `references/depth-framework.md`.
 
-**Divider:** a blank line, `---` and a blank line sit between the header and the JSON, and the JSON below the divider must parse on its own. A request for valid JSON only, or JSON and nothing else, binds that payload: the header, the divider and, in a Project, the attestation footer stay where they are.
+**Divider:** a blank line, `---` and a blank line sit between the header and the JSON, and the JSON below the divider must parse on its own. A request for valid JSON only, or JSON and nothing else, binds that payload: in the file the header and the divider stay where they are, and in a Project the code fence already holds the JSON alone, so a copied fence parses.
 
 ### File Content Rules
 

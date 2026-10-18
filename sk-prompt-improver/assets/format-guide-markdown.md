@@ -8,7 +8,7 @@ trigger_phrases:
   - "Markdown prompt output"
   - "standard prompt format"
   - "human-readable delivery"
-version: 0.6.0.16
+version: 0.6.1.0
 ---
 
 # Prompt - Asset - Format Guide Markdown
@@ -464,7 +464,7 @@ format: Dashboard with charts and executive summary
 
 The kernel points here for the default format and format lock:
 
-Default format is Markdown. JSON adds roughly 5-10% token overhead and must be valid JSON only. YAML adds roughly 3-7% token overhead and must be valid YAML only. Format lock means the Deliverable Block contains only the required header and its `---` divider, the enhanced prompt body in the selected syntax, and the attestation footer; scoring reports, format options and processing notes stay in chat, outside the format lock.
+Default format is Markdown. JSON adds roughly 5-10% token overhead and must be valid JSON only. YAML adds roughly 3-7% token overhead and must be valid YAML only. Format lock means the file contains only the required header, its `---` divider and the enhanced prompt body in the selected syntax. In a Project the code fence holds the prompt body alone, with no header, divider or footer, so the fence copies exactly the prompt; the header facts, scoring reports, format options and processing notes stay in chat, outside the format lock.
 
 ### Markdown Philosophy
 

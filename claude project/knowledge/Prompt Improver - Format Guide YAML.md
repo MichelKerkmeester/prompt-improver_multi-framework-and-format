@@ -105,7 +105,7 @@ output:
 **Delivery Methods:**
 1. **Claude Desktop/IDE:** Create actual downloadable file using file creation tool
 2. **CLI/Agent Mode:** Use `/Export` folder with format `[###] - descriptive-filename.yaml`
-3. **Claude.ai Projects:** Cannot write files. The Deliverable Block stands in for the file, and chat reports the export-equivalent path instead.
+3. **Claude.ai Projects:** Cannot write files. One bare code fence holding only the YAML stands in for the file, with no header, divider or footer inside it, and chat reports the header facts and the export-equivalent path below it.
 
 ### Mandatory Header Format
 
@@ -120,7 +120,7 @@ Mode: $yaml | Complexity: [level] | Framework: [RCAF/CRAFT]
 
 **Complexity level:** Low (1 to 4), Medium (5 to 6), High (7 to 8) or Complex (9 to 10), or the 1 to 10 rating, scored with the Complexity Rubric in `Prompt Improver - DEPTH Thinking Framework.md`.
 
-**Divider:** a blank line, `---` and a blank line sit between the header and the YAML, and the YAML below the divider must parse on its own. A request for valid YAML only, or YAML and nothing else, binds that payload: the header, the divider and, in a Project, the attestation footer stay where they are.
+**Divider:** a blank line, `---` and a blank line sit between the header and the YAML, and the YAML below the divider must parse on its own. A request for valid YAML only, or YAML and nothing else, binds that payload: in the file the header and the divider stay where they are, and in a Project the code fence already holds the YAML alone, so a copied fence parses.
 
 ### File Content Rules
 

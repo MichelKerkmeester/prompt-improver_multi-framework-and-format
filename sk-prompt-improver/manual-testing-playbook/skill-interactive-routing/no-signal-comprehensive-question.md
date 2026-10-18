@@ -1,7 +1,7 @@
 ---
 title: "SIR-002 -- No-signal request gets one comprehensive question"
 description: "Validates that a plain-language request with no command and no keyword hit routes to the single comprehensive question."
-version: 1.1.0.0
+version: 1.1.1.0
 ---
 
 # SIR-002 -- No-signal request gets one comprehensive question
@@ -12,7 +12,7 @@ Turn 1 carries no command token, no leading slash and no dollar-prefixed flag, a
 
 ## 1. OVERVIEW
 
-Users name what they want in plain words. The fallback applies: no command and no keyword hit routes to Interactive Mode (`SKILL.md` line 88, mirrored in `Custom Instructions.md` line 60), which asks once and waits rather than inventing a mode.
+Users name what they want in plain words. The fallback applies: no command and no keyword hit routes to Interactive Mode (`SKILL.md` line 89, mirrored in `Custom Instructions.md` line 61), which asks once and waits rather than inventing a mode.
 
 ### Why this matters
 
@@ -27,7 +27,7 @@ This is the most common way real users arrive. A runtime that guesses a lane or 
 - Real user request: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Prompt: `Hey, I could use a hand with a draft I have been stuck on all week.`
 - Expected execution process: Start a fresh session in the disposable copy, submit Turn 1, confirm the single question and clean ledger, then submit Turn 2 and inspect the export
-- Expected signals: Turn 1 asks one consolidated question that covers every missing essential in a single message (`SKILL.md` lines 397 to 398, `AGENTS.md` line 28) and writes no file. Asking for the source prompt, use case and mode in that one message is correct, and splitting them across messages is the failure. Turn 2 supplies the prompt and context, and the runtime improves it, passes CLEAR, saves the next `.md` export and replies path-first. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
+- Expected signals: Turn 1 asks one consolidated question that covers every missing essential in a single message (`SKILL.md` lines 434 to 398, `AGENTS.md` line 28) and writes no file. Asking for the source prompt, use case and mode in that one message is correct, and splitting them across messages is the failure. Turn 2 supplies the prompt and context, and the runtime improves it, passes CLEAR, saves the next `.md` export and replies path-first. Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`SKILL.md` lines 46 to 47 and 511). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
 - Desired user-visible outcome: One question followed by a delivery built only on what the user supplied
 - Pass/fail: PASS if exactly one consolidated question message fires, the runtime waits and Turn 2 facts drive the export. FAIL if it guesses a mode, splits the question across messages, answers its own question, writes before Turn 2 or the export carries an invented requirement or fails the scope test. A summary outside the two to three sentence band is recorded and never decides the verdict
 
@@ -70,7 +70,7 @@ Both turn transcripts, the side-effect ledger showing no Turn 1 artifact, the qu
 ### Failure triage
 
 1. Check the no-signal fallback in `SKILL.md` Smart Routing phase detection
-2. Compare the Turn 1 reply with the comprehensive-question contract in `references/interactive-mode.md` lines 53 and 427
+2. Compare the Turn 1 reply with the comprehensive-question contract in `references/interactive-mode.md` lines 55 and 409
 3. Reconcile the export content with Turn 2 facts, and apply the scope test to any output, field or section the user did not ask for
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |

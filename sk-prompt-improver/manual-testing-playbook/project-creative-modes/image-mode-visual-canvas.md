@@ -1,7 +1,7 @@
 ---
 title: "PCR-001 -- Image mode VISUAL gate and follow-up in the Project"
 description: "Validates the $image lane in the Project: Creative energy, FRAME workflow, VISUAL image scoring and the mandatory share-back invitation."
-version: 1.1.0.0
+version: 1.1.1.0
 ---
 
 # PCR-001 -- Image mode VISUAL gate and follow-up in the Project
@@ -16,27 +16,27 @@ The image lane has its own scorer and its own follow-up rule in the Project exac
 
 ### Why this matters
 
-Creative modes carry two obligations beyond the Artifact: the correct scorer and the share-back invitation. Swapping VISUAL for CLEAR or dropping the follow-up are quiet failures a text-mode check would never catch.
+Creative modes carry two obligations beyond the Deliverable Block: the correct scorer and the share-back invitation. Swapping VISUAL for CLEAR or dropping the follow-up are quiet failures a text-mode check would never catch.
 
 ---
 
 ## 2. SCENARIO CONTRACT
 
-- Objective: Verify `$image` delivers a VISUAL-scored Canvas Artifact with the creative follow-up in the Project runtime
-- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Canvas stand-in: with no Canvas panel in the session, the reply renders the Deliverable Block as one fenced block at the start of the reply, with no preamble (`Custom Instructions.md` line 229). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence, or at the single-line header when no fence opens it, and ends after the attestation footer, whether that footer sits inside the fence or on the line directly below it. A block placed before any commentary counts as the rendered Artifact, and a reply without one counts as an empty panel
+- Objective: Verify `$image` delivers a VISUAL-scored bare-fence Deliverable Block with the creative follow-up in the Project runtime
+- Preconditions: PID-001 passed and a claude.ai Project is configured with `Custom Instructions.md` pasted and the system's knowledge documents attached. Delivery shape: the reply opens with the Deliverable Block, one bare code fence with no language tag holding only the improved prompt, with no preamble (`Custom Instructions.md` DELIVERY PROTOCOL). Commentary is any text before the block, including a heading, a bold label or an environment note. The block starts at its opening fence and ends at its closing fence, and it holds the prompt alone, with no `Mode:` header, divider or footer inside it. A fence placed before any commentary counts as the delivery, and a reply without one counts as no delivery
 - Real user request: `I want a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
 - Prompt: `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.`
-- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the Canvas Artifact and the chat report
-- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the Deliverable Block renders as a Canvas Artifact and the chat reports the export-equivalent path and the score, then closes by inviting the user to share the generated result for refinement (`Custom Instructions.md` lines 158 and 227). Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`Custom Instructions.md` line 18). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It renders a new Deliverable Block under the next export-equivalent name, since naming stays identical to CLI delivery (`Custom Instructions.md` line 126). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
-- Desired user-visible outcome: One Artifact-first reply carrying the VISUAL score and the share-back invitation with no file claimed
-- Pass/fail: PASS if the Artifact holds the prompt, VISUAL ran and the follow-up invite appears. FAIL if CLEAR or EVOKE scored instead, the invite is missing, the prompt drops the named platform, the prompt carries scope expansion, commentary precedes the block or a save is claimed. A summary outside the two to three sentence band is recorded and never decides the verdict
+- Expected execution process: Start a fresh conversation in the configured Project, submit Turn 1, submit Turn 2 in the same conversation whatever Turn 1 did and then inspect the opening fence and the chat report
+- Expected signals: The first reply that delivers is the graded delivery. When neither reply delivers, the scenario fails for missing delivery, and a further question the rules allow on Turn 2 is logged as a follow-up finding. The Image lane binds at Creative energy, FRAME runs, the VISUAL image gate applies at 48 of 60, the Deliverable Block renders as the bare-fence Deliverable Block and the chat reports the export-equivalent path and the score, then closes by inviting the user to share the generated result for refinement (`Custom Instructions.md` lines 160 and 237). Scope test: a default fills a gap in what the user asked for. An output, field or section the user did not ask for is scope expansion, even when the reply flags it, and scope expansion inside the enhanced prompt is a blocking defect (`Custom Instructions.md` line 18). Revision: a revision the user asks for after a delivery is a new deliverable under the next number. It renders a new Deliverable Block under the next export-equivalent name, since naming stays identical to CLI delivery (`Custom Instructions.md` line 128). The two to three sentence summary is advisory under the root's Defect severity section: a summary outside the band is recorded and never decides a verdict
+- Desired user-visible outcome: One fence-first reply carrying the VISUAL score and the share-back invitation with no file claimed
+- Pass/fail: PASS if the Deliverable Block holds the prompt, VISUAL ran and the follow-up invite appears. FAIL if CLEAR or EVOKE scored instead, the invite is missing, the prompt drops the named platform, the prompt carries scope expansion, commentary precedes the block or a save is claimed. A summary outside the two to three sentence band is recorded and never decides the verdict
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
-| 1 | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | Bind Image at Creative energy, either deliver through a Canvas Artifact or ask at most one consolidated question | Midjourney target and cabin subject retained | Response transcript and Artifact panel state |
-| 2 | `Photorealistic style, landscape orientation.` | When Turn 1 asked, complete the FRAME pass, render the Artifact and reply with the VISUAL score and follow-up invite. When Turn 1 already delivered, Turn 1 stays the graded delivery, and this turn may render the revision as a new Deliverable Block under the next export-equivalent name or acknowledge the added context without one | Style and orientation facts retained | Response, score line, Artifact excerpt |
+| 1 | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | Bind Image at Creative energy, deliver through the bare-fence Deliverable Block in Turn 1 with no question, listing every default as an open item | Midjourney target and cabin subject retained | Response transcript and the opening fence |
+| 2 | `Photorealistic style, landscape orientation.` | Turn 1 stays the graded delivery, and this turn may render the revision as a new Deliverable Block under the next export-equivalent name or acknowledge the added context without one | Style and orientation facts retained | Response, score line, fence excerpt, open items |
 
 ---
 
@@ -50,32 +50,32 @@ Creative modes carry two obligations beyond the Artifact: the correct scorer and
 
 1. `project: configure the Project with Custom Instructions pasted and the knowledge documents attached`
 2. `session: start fresh -> user: submit Turn 1 exactly`
-3. `operator: record whether Turn 1 asked or delivered -> user: submit Turn 2 in the same conversation`
-4. `artifact: read the Canvas Artifact -> operator: grade scorer, platform fit and follow-up`
+3. `operator: record that Turn 1 delivered with no question first -> user: submit Turn 2 in the same conversation`
+4. `artifact: read the opening fence -> operator: grade scorer, platform fit and follow-up`
 
 ### Expected
 
-Step 1 fixes the packaging under test. Step 2 binds the Image lane and either delivers or asks once. Step 3 completes delivery when Turn 1 asked. Step 4 proves the Artifact holds the platform-aware prompt and the scorer was VISUAL. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
+Step 1 fixes the packaging under test. Step 2 binds the Image lane and delivers with no question. Step 3 records the Turn 1 delivery. Step 4 proves the Deliverable Block holds the platform-aware prompt and the scorer was VISUAL. A Turn 2 reply that follows a Turn 1 delivery is checked only for the blocking defects the root playbook lists.
 
 ### Evidence
 
-Turn transcripts, the VISUAL score line with gate status, the Artifact panel state, an excerpt showing the platform-aware prompt and attestation footer and the follow-up sentence in the reply.
+Turn transcripts, the VISUAL score line with gate status, the opening fence, an excerpt showing the platform-aware prompt  and the follow-up sentence in the reply.
 
 ### Pass / fail
 
-- **Pass**: A Canvas Artifact with the image prompt, a VISUAL image score and the mandatory share-back invitation. A summary outside the two to three sentence band is recorded and never decides the verdict
+- **Pass**: A bare-fence Deliverable Block with the image prompt, a VISUAL image score and the mandatory share-back invitation. A summary outside the two to three sentence band is recorded and never decides the verdict
 - **Fail**: The wrong scorer, a missing invitation, dropped platform context, scope expansion in the prompt, commentary before the block or any claim that a file was written
 - **Skip**: only when a named runtime or environment blocker prevents opening the configured Project session
 
 ### Failure triage
 
-1. Check the Image lane binding in the `Custom Instructions.md` Smart Routing detection table (line 53) and the `SCORER` map in its router pseudocode (line 156)
+1. Check the Image lane binding in the `Custom Instructions.md` Smart Routing detection table (line 53) and the `SCORER` map in its router pseudocode (line 158)
 2. Re-check FRAME and the VISUAL image rubric in `Prompt Improver - Image Mode.md` and `Prompt Improver - Patterns and Evaluation.md`
-3. Check the creative follow-up rule in the `Custom Instructions.md` ALWAYS list at line 158 when the invite is absent
+3. Check the creative follow-up rule in the `Custom Instructions.md` ALWAYS list at line 160 when the invite is absent
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| PCR-001 | Image mode VISUAL gate and follow-up in the Project | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Read Artifact` | Step 1: packaging fixed. Step 2: Image bound. Step 3: delivery complete when Turn 1 asked. Step 4: VISUAL verified | Transcripts, VISUAL line, panel state, Artifact excerpt, invite | PASS if Artifact, VISUAL and invite all hold. FAIL on wrong scorer, missing invite, dropped platform or commentary before the block. The summary band never decides the verdict | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
+| PCR-001 | Image mode VISUAL gate and follow-up in the Project | Verify the image lane scores VISUAL and invites share-back | `$image Build me a Midjourney prompt for a misty forest cabin at dawn with cinematic light.` | 1. `Configure Project` -> 2. `Submit Turn 1 fresh` -> 3. `Submit Turn 2` -> 4. `Read the opening fence` | Step 1: packaging fixed. Step 2: Image bound. Step 3: Turn 1 delivery recorded. Step 4: VISUAL verified | Transcripts, VISUAL line, fence state, Deliverable Block excerpt, invite | PASS if Deliverable Block, VISUAL and invite all hold. FAIL on wrong scorer, missing invite, dropped platform or commentary before the block. The summary band never decides the verdict | 1. Check lane and scorer map.<br>2. Check FRAME and VISUAL rubric.<br>3. Check follow-up rule. |
 
 ---
 

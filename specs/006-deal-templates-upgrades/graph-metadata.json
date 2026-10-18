@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "packet_id": "006-deal-templates-upgrades",
+  "spec_folder": "006-deal-templates-upgrades",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "deal templates upgrades",
+      "deal templates upgrades user word routing deliver first",
+      "deal templates upgrades plan",
+      "deal templates upgrades tasks",
+      "deal templates upgrades acceptance criteria",
+      "deal templates upgrades implementation summary"
+    ],
+    "key_topics": [
+      "deal",
+      "templates",
+      "upgrades",
+      "user",
+      "word",
+      "routing",
+      "deliver",
+      "first",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-prompt-improver/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/gates/rule_parity.py",
+      "sk-prompt-improver/README.md",
+      "claude project/README.md",
+      "sk-prompt-improver/changelog/v1.0.1.0.md",
+      "benchmark/router/route_contract.py",
+      "benchmark/grader/deliverable_lint.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "rule_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/rule_parity.py",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.1.0.md",
+        "kind": "doc",
+        "path": "sk-prompt-improver/changelog/v1.0.1.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "deliverable_lint.py",
+        "kind": "file",
+        "path": "benchmark/grader/deliverable_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Deal Templates",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prompt Improver",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Canvas Artifact",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Source",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The router read the whole message, so the words inside a pasted prompt could choose the mode: a text prompt about photo editing routed to Image with VISUAL scoring",
+    "created_at": "2026-10-18T16:37:11Z",
+    "last_save_at": "2026-10-18T17:11:31.045Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:9cc58f7c0bb960b832c3e6cd366ce8d42fb6bc580ccf03fe453616aee56caea3",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "0d66c4f7d36e3bf8df4792d65f1ec1065006dfa49ed43f1d405970745e754138",
+      "plan.md": "3c09e0a025f760d3f0c76824961b33f9c297bb393c3ee72ded7d99693d3a758b",
+      "tasks.md": "9745863550a12236203a996532c967976ae6c2051350fb6edfac9c28acada209",
+      "implementation-summary.md": "f908190a86f74251877134556d499b32ad34516c9d3059dbf48778cce9420ddb"
+    },
+    "last_active_at": null
+  }
+}

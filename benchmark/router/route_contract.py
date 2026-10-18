@@ -197,6 +197,33 @@ def guard_resources(names: List[str], inventory: Set[str]) -> List[str]:
 
 _TOKEN_RE = re.compile(r"\$[a-z]+")
 
+# The prompt the user pasted is the thing to improve, never a routing signal:
+# its words describe the target AI's task, so "photo" or "clip" inside it must
+# not bind Image or Video. Fenced blocks and quoted spans of three or more
+# words are removed, and when neither is present, the text after a
+# "prompt:" lead-in up to the next blank line is removed instead. A quoted
+# span of one or two words is the user naming something, such as a platform,
+# so it stays.
+_FENCE_RE = re.compile(r"(`{3}|~{3}).*?(?:\1|\Z)", re.S)
+_QUOTE_RE = re.compile(r"\"([^\"]*)\"|\u201c([^\u201d]*)\u201d")
+_LEAD_IN_RE = re.compile(r"(\bprompt\b(?:\s+is)?\s*:)[^\n]*(?:\n(?![ \t]*\n)[^\n]*)*", re.I)
+SOURCE_QUOTE_MIN_WORDS = 3
+
+
+def strip_source_prompt(text: str) -> Tuple[str, bool]:
+    """Return the user's own words and whether a pasted prompt was removed."""
+    original = text or ""
+    own = _FENCE_RE.sub(" ", original)
+
+    def drop_quote(match: "re.Match[str]") -> str:
+        quoted = match.group(1) if match.group(1) is not None else match.group(2)
+        return " " if len(quoted.split()) >= SOURCE_QUOTE_MIN_WORDS else match.group(0)
+
+    own = _QUOTE_RE.sub(drop_quote, own)
+    if own == original:
+        own = _LEAD_IN_RE.sub(lambda match: match.group(1), own)
+    return own, own != original
+
 
 def tokenize(text: str) -> List[str]:
     """Return every exact `$token` in the request, case-normalized."""
@@ -238,21 +265,26 @@ def score_intents(text: str) -> Dict[str, int]:
 def detect_intent(text: str) -> Tuple[str, str]:
     """Resolve one primary intent and how it was found.
 
-    A single explicit command wins outright; a conflict between two
-    commands routes to INTERACTIVE for disambiguation; otherwise the
-    highest word-boundary keyword score wins; a request with neither falls
-    back to INTERACTIVE so the router asks one comprehensive question
-    instead of guessing.
+    Commands and keywords are read from the user's own words, with the
+    pasted prompt removed. A single explicit command wins outright; a
+    conflict between two commands routes to INTERACTIVE for disambiguation;
+    otherwise the highest word-boundary keyword score wins. A pasted prompt
+    with no other signal routes to IMPROVE, because the prompt is itself the
+    request; a request with neither falls back to INTERACTIVE so the router
+    asks one comprehensive question instead of guessing.
     """
-    command, conflict = detect_command(text)
+    own, has_source = strip_source_prompt(text)
+    command, conflict = detect_command(own)
     if conflict:
         return "INTERACTIVE", "fallback"
     if command:
         return command, "command"
-    scores = score_intents(text)
+    scores = score_intents(own)
     best = max(scores, key=lambda intent: scores[intent])
     if scores[best] > 0:
         return best, "semantic"
+    if has_source:
+        return "IMPROVE", "semantic"
     return "INTERACTIVE", "fallback"
 
 
@@ -272,7 +304,7 @@ def resources_for(intent: str, fmt: str, explicit_format: bool) -> List[str]:
 def route_request(text: str) -> Dict[str, Any]:
     """Return the route object for a request text."""
     intent, source = detect_intent(text)
-    fmt, explicit_format = detect_format(text)
+    fmt, explicit_format = detect_format(strip_source_prompt(text)[0])
     return {
         "intent": intent,
         "energy": ENERGY_MAP[intent],
