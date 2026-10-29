@@ -9,7 +9,8 @@ A Claude Project reads its kernel on every turn and retrieves Knowledge only
 by relevance, so a router kept in a Knowledge document routes a turn only
 when retrieval happens to pull it. The kernel therefore ends with
 `## 8. ROUTER CODE`, one python fence holding the Smart Router Pseudocode
-from `sk-prompt-improver/SKILL.md` with every comment removed. The comments
+from `sk-prompt-improver/SKILL.md`, or from the sibling `ROUTER.md` that
+`SKILL.md` links once the router moves there, with every comment removed. The comments
 explain the design to a maintainer and change nothing a model routes, so the
 kernel copy carries the code without them.
 
@@ -41,6 +42,9 @@ from typing import List, Optional
 HERE = Path(__file__).resolve().parent
 SYSTEM_ROOT = HERE.parent.parent
 SKILL_MD = SYSTEM_ROOT / "sk-prompt-improver" / "SKILL.md"
+# The sibling router SKILL.md links. The pseudocode is read from SKILL.md while
+# it still holds the heading and from here once the machine router has moved.
+ROUTER_MD = SYSTEM_ROOT / "sk-prompt-improver" / "ROUTER.md"
 KERNEL_MD = SYSTEM_ROOT / "claude project" / "Custom Instructions.md"
 
 PSEUDOCODE_HEADING = "### Smart Router Pseudocode"
@@ -95,6 +99,17 @@ def fenced_block(text: str, heading: str, name: str) -> str:
     return match.group(1)
 
 
+def router_source() -> Path:
+    """The file that holds the Smart Router Pseudocode: SKILL.md first, ROUTER.md second."""
+    heading = re.compile(rf"^[ ]{{0,3}}{re.escape(PSEUDOCODE_HEADING)}[ \t]*$", re.M)
+    try:
+        if heading.search(SKILL_MD.read_text(encoding="utf-8")):
+            return SKILL_MD
+    except OSError:
+        return SKILL_MD
+    return ROUTER_MD if ROUTER_MD.is_file() else SKILL_MD
+
+
 def strip_comments(block: str) -> str:
     """Return a python block with every comment removed and blank runs collapsed.
 
@@ -136,8 +151,9 @@ def check_kernel_parity() -> List[str]:
                 f"{spelling!r}, so a router pasted in under that spelling "
                 "would clear the fence count below")
 
+    source = router_source()
     try:
-        skill_text: Optional[str] = SKILL_MD.read_text(encoding="utf-8")
+        skill_text: Optional[str] = source.read_text(encoding="utf-8")
     except OSError as exc:
         failures.append(
             f"kernel parity: the skill router source is unreadable: {exc}")
@@ -147,7 +163,7 @@ def check_kernel_parity() -> List[str]:
     if skill_text is not None:
         try:
             skill_block = fenced_block(
-                skill_text, PSEUDOCODE_HEADING, SKILL_MD.name)
+                skill_text, PSEUDOCODE_HEADING, source.name)
         except LookupError as exc:
             failures.append(f"kernel parity: {exc}")
 
@@ -192,7 +208,7 @@ def check_kernel_parity() -> List[str]:
         kernel_line = kernel_lines[drift - 1] if drift <= len(kernel_lines) else "<absent>"
         expected_line = expected_lines[drift - 1] if drift <= len(expected_lines) else "<absent>"
         failures.append(
-            f"kernel parity: the kernel's router is not {SKILL_MD.name}'s "
+            f"kernel parity: the kernel's router is not {source.name}'s "
             "Smart Router Pseudocode minus its comments, first difference at "
             f"code line {drift}: kernel has {kernel_line!r} where the strip "
             f"expects {expected_line!r}")
@@ -227,7 +243,7 @@ def main() -> int:
         return 1
     print(
         f"PASSED kernel router parity: {KERNEL_MD.name}'s one python fence "
-        f"under {KERNEL_ROUTER_HEADING!r} equals {SKILL_MD.name}'s Smart "
+        f"under {KERNEL_ROUTER_HEADING!r} equals {router_source().name}'s Smart "
         "Router Pseudocode with its comments removed")
     return 0
 
