@@ -406,7 +406,7 @@ There is no separate worked-examples folder for this system. The mode libraries 
 
 This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project. `Custom Instructions.md` is written by hand from the skill sources, except its Router Code section, which is this skill's Smart Router Pseudocode with its comments removed and is held equal by `benchmark/router/kernel_parity.py`. It is the routing authority there because `SKILL.md` is not mirrored. `knowledge/` holds thirteen documents written by hand from `references/` and `assets/` for Project retrieval. Nothing regenerates them, and no manifest, lock file or checksum ledger is kept. `../SYNC.md` holds the parity note and the manual parity method.
 
-Related skills: `sk-prompt` for general prompt craft, `sk-prompt-small-model` for small-model prompt profiles and `sk-doc` for documentation packaging.
+Related skills: `sk-prompt` for general prompt craft and `sk-doc` for documentation packaging.
 
 ---
 

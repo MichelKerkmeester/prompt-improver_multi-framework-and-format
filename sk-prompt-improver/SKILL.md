@@ -377,7 +377,7 @@ The `sk-prompt-improver/` directory is the source of truth and CLI runtime ident
 The claude.ai Project holds hand-written Knowledge files from `sk-prompt-improver/references/` and `sk-prompt-improver/assets/`, and `claude project/Custom Instructions.md` is the routing authority there.
 `AGENTS.md` is a bootstrap that hands identity to this skill.
 `claude project/Custom Instructions.md` adapts the same rules for claude.ai where file export is replaced by a Deliverable Block.
-Related skills: `sk-prompt` for general prompt craft, `sk-prompt-small-model` for small-model prompt profiles and `sk-doc` for documentation packaging.
+Related skills: `sk-prompt` for general prompt craft and `sk-doc` for documentation packaging.
 
 ### Tool Usage Guidelines
 
