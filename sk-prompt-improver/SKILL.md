@@ -66,7 +66,7 @@ Do not create final content when the user wanted content rather than a prompt; r
 
 The executable oracle and fixtures live in `benchmark/router/` and must never drift from this prose: only the user's own words route, never the prompt they pasted, exact `$token` commands win over word-boundary keyword scoring, one primary route loads one resource lane, and an unrecognized request asks one clarifying question. This section is the one authoritative router for Prompt Improver; routing logic must not live only in a reference file.
 
-Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources; open only the matched files.
+Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources, and open only the matched files.
 
 ---
 
