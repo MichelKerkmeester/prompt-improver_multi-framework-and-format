@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "packet_id": "system",
+  "spec_folder": "system",
+  "parent_id": null,
+  "children_ids": [
+    "system/001-prompt-improver-interface-design",
+    "system/002-prompt-improver-alignment",
+    "system/003-prompt-improver-public-repo",
+    "system/004-pi-example-pack",
+    "system/005-pi-complexity-rubric",
+    "system/006-deal-templates-upgrades"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system"
+    ],
+    "importance_tier": "important",
+    "status": "in_progress",
+    "key_files": [],
+    "entities": [],
+    "causal_summary": "Track folder holding the Prompt Improver system's own spec packets.",
+    "created_at": "2026-11-02T14:46:08.000Z",
+    "last_save_at": "2026-11-02T14:46:08.000Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [],
+    "source_fingerprint": null,
+    "source_doc_hashes": {},
+    "last_active_child_id": "system/006-deal-templates-upgrades",
+    "last_active_at": "2026-11-02T14:46:08.000Z"
+  }
+}
