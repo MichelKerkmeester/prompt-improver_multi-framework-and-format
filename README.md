@@ -698,7 +698,6 @@ The repository separates the skill source, the Project package, the checks and t
 .
 ├── .gitignore                       keeps export/ local
 ├── AGENTS.md                        CLI entry point, export protocol, command registry
-├── Favicon.jpg                      repository icon
 ├── LICENSE                          MIT license
 ├── README.md                        this front page
 ├── SYNC.md                          manual parity method and dated review notes
@@ -717,10 +716,6 @@ The repository separates the skill source, the Project package, the checks and t
 └── sk-prompt-improver/
     ├── SKILL.md                     v1.0.1.0: identity, router, rules, delivery
     ├── README.md                    skill guide
-    ├── graph-metadata.json          skill graph edges and intent signals
-    ├── leaf-manifest.config.json    which folders hold the routed docs
-    ├── leaf-manifest.json           generated list of the routed docs
-    ├── leaf-aliases.json            generated identity map of those docs
     ├── references/                  6 operating docs
     ├── assets/                      7 libraries and format guides
     ├── changelog/                   13 releases, v0.1.0.0 to v1.0.1.0
